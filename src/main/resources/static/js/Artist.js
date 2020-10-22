@@ -6,7 +6,7 @@ for (const param of params) {
 }
 getArtists(loggedIn);
 
-function getOrder(loggedIn) {
+function getArtists(loggedIn) {
   fetch("http://localhost:8082/artist/read")
     .then(function (response) {
       if (response.status !== 200) {
@@ -21,7 +21,7 @@ function getOrder(loggedIn) {
         let data = Object.keys(ArtistData[0]);
 
         generateTableHead(table, data, loggedIn);
-        generateTable(table, myTypiCode, loggedIn);
+        generateTable(table, ArtistData, loggedIn);
         if(loggedIn){
             generateAddArtistBtn(table);
         }
@@ -59,7 +59,7 @@ function generateTableHead(table, data, loggedIn) {
   }
 }
 
-function generateTable(table, myTypiCode, loggedIn) {
+function generateTable(table, ArtistData, loggedIn) {
   for (let element of myTypiCode) {
     let row = table.insertRow();
     for (key in element) {
@@ -114,7 +114,7 @@ function generateTable(table, myTypiCode, loggedIn) {
   }
 }
 
-generateAddArtistBtn(table){
+function generateAddArtistBtn(table){
     let tableFooter = document.createElement("footer");
     let myAddTaskButton = document.createElement("button");
     myAddTaskButton.className = "btn btn-outline-primary";
@@ -127,7 +127,7 @@ generateAddArtistBtn(table){
     };
 
     tableFooter.appendChild(myAddTaskButton);
-    tableDiv.appendChild(tableFooter);
+    table.appendChild(tableFooter);
 }
 
 function deleteArtist(id) {
