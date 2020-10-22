@@ -60,7 +60,7 @@ function generateTableHead(table, data, loggedIn) {
 }
 
 function generateTable(table, ArtistData, loggedIn) {
-  for (let element of myTypiCode) {
+  for (let element of ArtistData) {
     let row = table.insertRow();
     for (key in element) {
       let cell = row.insertCell();
