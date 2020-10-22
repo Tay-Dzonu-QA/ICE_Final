@@ -22,10 +22,9 @@ function getArtists(loggedIn) {
 
         generateTableHead(table, data, loggedIn);
         generateTable(table, ArtistData, loggedIn);
-        if(loggedIn){
-            generateAddArtistBtn(table);
+        if (loggedIn) {
+          generateAddArtistBtn(table);
         }
-        
       });
     })
     .catch(function (err) {
@@ -65,103 +64,109 @@ function generateTable(table, ArtistData, loggedIn) {
     for (key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
+      if (key === "albums") {
+        let albumNo = 0;
+        for (album of element[key]) {
+          albumNo = +1;
+        }
+        text = document.createTextNode(albumNo);
+      }
       cell.appendChild(text);
     }
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewArtistButton";
-    myViewButton.onclick = document.location='Albums.html?loggedIn='+loggedIn+'artist='+artist;
+    myViewButton.onclick = document.location =
+      "Albums.html?loggedIn=" + loggedIn + "artist=" + artist;
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
-    viewIcon.innerHTML="create";
+    viewIcon.innerHTML = "create";
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-
     if (loggedIn) {
-        let newCell2 = row.insertCell();
-        let myEditButton = document.createElement("button");
-        myEditButton.className = "btn";
-        myEditButton.id = "EditArtistButton";
-        myEditButton.setAttribute("data-toggle", "modal");
-        myEditButton.setAttribute("data-target", "#EditArtistModal");
-    
-        let editIcon = document.createElement("span");
-        editIcon.className = "material-icons";
-        editIcon.innerHTML="create";
-        myEditButton.appendChild(editIcon);
-        let ID = element.id;
-        let Name=element.name;
-        myEditButton.onclick = function () {
+      let newCell2 = row.insertCell();
+      let myEditButton = document.createElement("button");
+      myEditButton.className = "btn";
+      myEditButton.id = "EditArtistButton";
+      myEditButton.setAttribute("data-toggle", "modal");
+      myEditButton.setAttribute("data-target", "#EditArtistModal");
+
+      let editIcon = document.createElement("span");
+      editIcon.className = "material-icons";
+      editIcon.innerHTML = "create";
+      myEditButton.appendChild(editIcon);
+      let ID = element.id;
+      let Name = element.name;
+      myEditButton.onclick = function () {
         changeArtistModal(ID, Name);
-        };
-        newCell2.appendChild(myEditButton);
+      };
+      newCell2.appendChild(myEditButton);
 
-        let newCell3 = row.insertCell();
-        let myDeleteButton = document.createElement("button");
-        myDeleteButton.className = "btn";
-        myDeleteButton.id = "DeleteArtistButton"+element.name;
+      let newCell3 = row.insertCell();
+      let myDeleteButton = document.createElement("button");
+      myDeleteButton.className = "btn";
+      myDeleteButton.id = "DeleteArtistButton" + element.name;
 
-        let deleteIcon = document.createElement("span");
-        deleteIcon.className = "material-icons";
-        deleteIcon.innerHTML="delete";
-        myDeleteButton.appendChild(deleteIcon);
-        myDeleteButton.onclick = function () {
-            deleteArtist(element.id);
-        };
-        newCell3.appendChild(myDeleteButton);
+      let deleteIcon = document.createElement("span");
+      deleteIcon.className = "material-icons";
+      deleteIcon.innerHTML = "delete";
+      myDeleteButton.appendChild(deleteIcon);
+      myDeleteButton.onclick = function () {
+        deleteArtist(element.id);
+      };
+      newCell3.appendChild(myDeleteButton);
     }
   }
 }
 
-function generateAddArtistBtn(table){
-    let tableFooter = document.createElement("footer");
-    let myAddArtistButton = document.createElement("button");
-    myAddArtistButton.className = "btn btn-outline-primary";
-    myAddArtistButton.innerHTML = "Add Artist";
-    myAddArtistButton.id = "AddArtistButton";
-    myAddArtistButton.setAttribute("data-toggle", "modal");
-    myAddArtistButton.setAttribute("data-target", "#AddArtistModal");
-    myAddArtistButton.onclick = function () {
-      changeAddArtistModal(ID, Name);
-    };
+function generateAddArtistBtn(table) {
+  let tableFooter = document.createElement("footer");
+  let myAddArtistButton = document.createElement("button");
+  myAddArtistButton.className = "btn btn-outline-primary";
+  myAddArtistButton.innerHTML = "Add Artist";
+  myAddArtistButton.id = "AddArtistButton";
+  myAddArtistButton.setAttribute("data-toggle", "modal");
+  myAddArtistButton.setAttribute("data-target", "#AddArtistModal");
+  myAddArtistButton.onclick = function () {
+    changeAddArtistModal(ID, Name);
+  };
 
-    tableFooter.appendChild(myAddArtistButton);
-    table.appendChild(tableFooter);
+  tableFooter.appendChild(myAddArtistButton);
+  table.appendChild(tableFooter);
 }
 
 function deleteArtist(id) {
-    fetch("http://localhost:8082/artist/delete/" + id, {
-      method: "delete",
-      headers: {
-        "Content-type": "application/json",
-      },
+  fetch("http://localhost:8082/artist/delete/" + id, {
+    method: "delete",
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    // .then(json)
+    .then(function (data) {
+      console.log("Request succeeded with JSON response", data);
+      location.reload();
     })
-      // .then(json)
-      .then(function (data) {
-        console.log("Request succeeded with JSON response", data);
-        location.reload();
-      })
-      .catch(function (error) {
-        console.log("Request failed", error);
-      });
-  }
+    .catch(function (error) {
+      console.log("Request failed", error);
+    });
+}
 
-  let ArtistId;
+let ArtistId;
 
-  function changeEditArtistModal(id, name) {
+function changeEditArtistModal(id, name) {
+  let modalPH = document.getElementById("EditArtistName");
+  modalPH.setAttribute("value", name);
+  ArtistId = id;
+}
 
-    let modalPH = document.getElementById("EditArtistName");
-    modalPH.setAttribute("value", name);
-    ArtistId = id;
-  }
-
-  document
+document
   .querySelector("form.EditArtist")
   .addEventListener("submit", function (stop) {
-     stop.preventDefault();
+    stop.preventDefault();
 
     let formElements = document.querySelector("form.EditArtist").elements;
     console.log(formElements);
@@ -173,28 +178,28 @@ function deleteArtist(id) {
     editArtist(EditArtistname, ArtistId);
   });
 
-  function editArtist(name,  ArtistId) {
-    fetch("http://localhost:8082/artist/update/" + ArtistId, {
-      method: "put",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: (json = JSON.stringify({
-        "id": ArtistId,
-        "name": name
-      })),
+function editArtist(name, ArtistId) {
+  fetch("http://localhost:8082/artist/update/" + ArtistId, {
+    method: "put",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: (json = JSON.stringify({
+      id: ArtistId,
+      name: name,
+    })),
+  })
+    .then(json)
+    .then(function (data) {
+      console.log("Request succeeded with JSON response", data);
+      location.reload();
     })
-      .then(json)
-      .then(function (data) {
-        console.log("Request succeeded with JSON response", data);
-        location.reload();
-      })
-      .catch(function (error) {
-        console.log("Request failed", error);
-      });
-  }
+    .catch(function (error) {
+      console.log("Request failed", error);
+    });
+}
 
-  document
+document
   .querySelector("form.Artist")
   .addEventListener("submit", function (stop) {
     stop.preventDefault();
@@ -205,21 +210,21 @@ function deleteArtist(id) {
     addArtist(name);
   });
 
-  function addArtist(name) {
-    fetch("http://localhost:8082/artist/create", {
-      method: "post",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: (json = JSON.stringify({
-        "name": name,
-      })),
+function addArtist(name) {
+  fetch("http://localhost:8082/artist/create", {
+    method: "post",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: (json = JSON.stringify({
+      name: name,
+    })),
+  })
+    .then(json)
+    .then(function (data) {
+      console.log("Request succeeded with JSON response", data);
     })
-      .then(json)
-      .then(function (data) {
-        console.log("Request succeeded with JSON response", data);
-      })
-      .catch(function (error) {
-        console.log("Request failed", error);
-      });
-  }
+    .catch(function (error) {
+      console.log("Request failed", error);
+    });
+}
