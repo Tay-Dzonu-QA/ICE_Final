@@ -7,7 +7,7 @@ for (const param of params) {
 getArtists(loggedIn);
 
 function getOrder(loggedIn) {
-  fetch("http://localhost:1998/taskList/read")
+  fetch("http://localhost:8082/artist/read")
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
