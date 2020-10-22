@@ -68,15 +68,17 @@ function generateTable(table, ArtistData, loggedIn) {
       cell.appendChild(text);
     }
     let newCell = row.insertCell();
-    let myEditButton = document.createElement("button");
-    myEditButton.className = "btn";
-    myEditButton.id = "ViewArtistButton";
-    myEditButton.onclick = document.location='TaskList.html?artist='+artist;
+    let myViewButton = document.createElement("button");
+    myViewButton.className = "btn";
+    myViewButton.id = "ViewArtistButton";
+    myViewButton.onclick = document.location='Albums.html?loggedIn='+loggedIn+'artist='+artist;
 
-    let editIcon = document.createElement("span");
-    editIcon.className = "material-icons";
-    editIcon.innerHTML="create";
-    myEditButton.appendChild(editIcon);
+    let viewIcon = document.createElement("span");
+    viewIcon.className = "material-icons";
+    viewIcon.innerHTML="create";
+    myViewButton.appendChild(viewIcon);
+    newCell.appendChild(myViewButton);
+
 
     if (loggedIn) {
         let newCell2 = row.insertCell();
@@ -116,17 +118,17 @@ function generateTable(table, ArtistData, loggedIn) {
 
 function generateAddArtistBtn(table){
     let tableFooter = document.createElement("footer");
-    let myAddTaskButton = document.createElement("button");
-    myAddTaskButton.className = "btn btn-outline-primary";
-    myAddTaskButton.innerHTML = "Add Artist";
-    myAddTaskButton.id = "AddArtistButton";
-    myAddTaskButton.setAttribute("data-toggle", "modal");
-    myAddTaskButton.setAttribute("data-target", "#AddArtistModal");
-    myAddTaskButton.onclick = function () {
-      changeAddTaskModal(ID, Name);
+    let myAddArtistButton = document.createElement("button");
+    myAddArtistButton.className = "btn btn-outline-primary";
+    myAddArtistButton.innerHTML = "Add Artist";
+    myAddArtistButton.id = "AddArtistButton";
+    myAddArtistButton.setAttribute("data-toggle", "modal");
+    myAddArtistButton.setAttribute("data-target", "#AddArtistModal");
+    myAddArtistButton.onclick = function () {
+      changeAddArtistModal(ID, Name);
     };
 
-    tableFooter.appendChild(myAddTaskButton);
+    tableFooter.appendChild(myAddArtistButton);
     table.appendChild(tableFooter);
 }
 
@@ -199,7 +201,7 @@ function deleteArtist(id) {
 
     let formElements = document.querySelector("form.Artist").elements;
     console.log(formElements);
-    let name = formElements["TaskListName"].value;
+    let name = formElements["ArtistName"].value;
     addArtist(name);
   });
 
