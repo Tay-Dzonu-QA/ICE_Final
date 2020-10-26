@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class ArtistDTO {
 
-    private long id;
+    private Long id;
     private String name;
     private List<AlbumDTO> albums= new ArrayList<>();
 
@@ -15,18 +15,23 @@ public class ArtistDTO {
         // TODO Auto-generated constructor stub
     }
 
-    public ArtistDTO(long id, String name, List<AlbumDTO> albums) {
+    public ArtistDTO(Long id, String name, List<AlbumDTO> albums) {
         super();
         this.id = id;
         this.name = name;
         this.albums = albums;
     }
+    public ArtistDTO(Long id, String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

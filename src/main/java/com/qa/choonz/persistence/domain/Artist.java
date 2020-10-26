@@ -40,6 +40,11 @@ public class Artist {
         this.name = name;
         this.albums = albums;
     }
+    public Artist(long id, @NotNull @Size(max = 100) String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
 
     public long getId() {
         return id;

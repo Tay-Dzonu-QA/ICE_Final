@@ -9,7 +9,7 @@ import com.qa.choonz.persistence.domain.Track;
 
 public class AlbumDTO {
 
-    private long id;
+    private Long id;
     private String name;
     private List<Track> tracks;
 //    private Artist artist;

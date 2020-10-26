@@ -40,7 +40,7 @@ public class GenreController {
     }
 
     @GetMapping("/read/{id}")
-    public ResponseEntity<GenreDTO> read(@PathVariable long id) {
+    public ResponseEntity<GenreDTO> read(@PathVariable Long id) {
         return new ResponseEntity<GenreDTO>(this.service.read(id), HttpStatus.OK);
     }
 

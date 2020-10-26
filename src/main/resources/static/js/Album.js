@@ -2,56 +2,27 @@ const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 let albumsToView;
 console.log(params);
+let run = 0;
+
 for (const param of params) {
   console.log(param);
-  loggedIn = param[1];
-  let artistOrGenre = param[2];
-  let artistOrGenreId = param[3];
-  albumsToView = "/"+artistOrGenre+"/"+artistOrGenreId
+  if(run === 0){
+    loggedIn = param[1];
+    run+=1;
+  } else if(run ===1){
+    let artistOrGenre = param[0];
+    let artistOrGenreId = param[1];
+    albumsToView = "/"+artistOrGenre+"/"+artistOrGenreId;
+    run+=1;
+  }
 }
-if(albumsToView==="/undefined/undefined"){
+console.log(run);
+if(run ===1){
   albumsToView="";
 }
 console.log(albumsToView);
 console.log(loggedIn);
 getAlbums(loggedIn,albumsToView);
-
-function getArtists() {
-  fetch("http://localhost:8082/artists/read")
-    .then(function (response) {
-      if (response.status !== 200) {
-        console.log(
-          "Looks like there was a problem. Status Code: " + response.status
-        );
-        return;
-      }
-      // Examine the text in the response
-      response.json().then(function (ArtistData) {
-        return ArtistData;
-      });
-    })
-    .catch(function (err) {
-      console.log("Fetch Error :-S", err);
-    });
-}
-function getGenres() {
-  fetch("http://localhost:8082/genres/read")
-    .then(function (response) {
-      if (response.status !== 200) {
-        console.log(
-          "Looks like there was a problem. Status Code: " + response.status
-        );
-        return;
-      }
-      // Examine the text in the response
-      response.json().then(function (GenreData) {
-        return GenreData;
-      });
-    })
-    .catch(function (err) {
-      console.log("Fetch Error :-S", err);
-    });
-}
 
 function getAlbums(loggedIn,albumsToView) {
   fetch("http://localhost:8082/albums/read"+albumsToView)
@@ -150,7 +121,7 @@ function generateTable(table, AlbumData, loggedIn) {
         let Name=element.name;
         let Cover = element.cover;
         myEditButton.onclick = function () {
-        changeEditAlbumModal(ID, Name,Cover);
+          changeEditAlbumModal(ID, Name,Cover);
         };
         newCell2.appendChild(myEditButton);
 
@@ -173,13 +144,13 @@ function generateTable(table, AlbumData, loggedIn) {
 
 function generateAddAlbumBtn(table){
     let tableFooter = document.createElement("footer");
-    let myAddTaskButton = document.createElement("button");
-    myAddTaskButton.className = "btn btn-outline-primary";
-    myAddTaskButton.innerHTML = "Add Album";
-    myAddTaskButton.id = "AddAlbumButton";
-    myAddTaskButton.setAttribute("data-toggle", "modal");
-    myAddTaskButton.setAttribute("data-target", "#AddAlbumModal");
-    myAddTaskButton.onclick = function () {
+    let myAddAlbumButton = document.createElement("button");
+    myAddAlbumButton.className = "btn btn-outline-primary";
+    myAddAlbumButton.innerHTML = "Add Album";
+    myAddAlbumButton.id = "AddAlbumButton";
+    myAddAlbumButton.setAttribute("data-toggle", "modal");
+    myAddAlbumButton.setAttribute("data-target", "#AddAlbumModal");
+    myAddAlbumButton.onclick = function () {
       changeAddAlbumModal();
     };
 
@@ -211,6 +182,7 @@ function deleteAlbum(id) {
     modalEditAlbumName.setAttribute("value", name);
     let modalEditAlbumCover = document.getElementById("EditAlbumCover");
     modalEditAlbumCover.setAttribute("value", cover);
+
     let modalEditAlbumArtist = document.getElementById("EditAlbumArtist");
     addArtistList(modalEditAlbumArtist);
     let modalEditAlbumGenre = document.getElementById("EditAlbumGenre");
@@ -219,28 +191,61 @@ function deleteAlbum(id) {
     AlbumId = id;
   }
   function changeAddAlbumModal() {
-    let modalEditAlbumArtist = document.getElementById("EditAlbumArtist");
+    let modalEditAlbumArtist = document.getElementById("AlbumArtist");
     addArtistList(modalEditAlbumArtist);
-    let modalEditAlbumGenre = document.getElementById("EditAlbumGenre");
+    let modalEditAlbumGenre = document.getElementById("AlbumGenre");
     addGenreList(modalEditAlbumGenre);
   }
 
   function addArtistList(modalArtistList){
-    let artists = getArtists();
-    for(element of artists){
-      let artistList = document.createElement("option");
-      artistList.innerHTML = element.id +". "+element.name;
-      modalArtistList.appendChild(artistList);
-    }
+    fetch("http://localhost:8082/artists/read")
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+        // Examine the text in the response
+        response.json().then(function (ArtistData) {
+          console.log(ArtistData);
+          for(let element of ArtistData){
+            console.log(element);
+            let artistList = document.createElement("option");
+            artistList.innerHTML = element.id +". "+element.name;
+            modalArtistList.appendChild(artistList);
+          }
+        });
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
   }
-  function addGenreList(modalGenreList){
-    let genres = getGenres();
-    for(element of genres){
-      let genreList = document.createElement("option");
-      genreList.innerHTML = element.id +". "+element.name;
-      modalGenreList.appendChild(genreList);
-    }
 
+
+  function addGenreList(modalArtistList){
+    fetch("http://localhost:8082/genres/read")
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+        // Examine the text in the response
+        response.json().then(function (GenreData) {
+          console.log(GenreData);
+          for(let element of GenreData){
+            console.log(element);
+            let GenreList = document.createElement("option");
+            GenreList.innerHTML = element.id +". "+element.name;
+            modalArtistList.appendChild(GenreList);
+          }
+        });
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
   }
 
   document
@@ -260,13 +265,13 @@ function deleteAlbum(id) {
     let AlbumGenre = EditAlbumGenre.split(".");
     let AlbumGenreId = parseInt(AlbumGenre[0]);
 
-    let AlbumId = parseInt(AlbumId);
-    console.log(AlbumId);
-    editAlbum(EditAlbumName, AlbumId,EditAlbumCover,AlbumArtistId,AlbumGenreId);
+    let AlbumId1 = parseInt(AlbumId);
+    console.log(AlbumId1);
+    editAlbum(EditAlbumName, AlbumId1,EditAlbumCover,AlbumArtistId,AlbumGenreId);
   });
 
   function editAlbum(name, AlbumId, cover,artist,genre) {
-    fetch("http://localhost:8082/album/update/" + AlbumId, {
+    fetch("http://localhost:8082/albums/update/" + AlbumId, {
       method: "put",
       headers: {
         "Content-type": "application/json",
@@ -274,15 +279,19 @@ function deleteAlbum(id) {
       body: (json = JSON.stringify({
         "id": AlbumId,
         "name": name,
-        "artist":artist,
-        "genre":genre,
+        "artists":{
+          "id":artist
+        },
+        "genres":{
+          "id":genre
+        },
         "cover":cover
       })),
     })
       .then(json)
       .then(function (data) {
         console.log("Request succeeded with JSON response", data);
-        location.reload();
+        // location.reload();
       })
       .catch(function (error) {
         console.log("Request failed", error);
@@ -295,27 +304,39 @@ function deleteAlbum(id) {
     stop.preventDefault();
 
     let formElements = document.querySelector("form.Album").elements;
-    console.log(formElements);
-    let name = formElements["TaskListName"].value;
-    addAlbum(name);
+    let AlbumName = formElements["AlbumName"].value;
+    let AlbumCover = formElements["AlbumCover"].value;
+    let AlbumArtist = formElements["AlbumArtist"].value;
+    let AlbumArtist1 = AlbumArtist.split(".");
+    let AlbumArtistId = parseInt(AlbumArtist1[0]);
+    let AlbumGenre = formElements["AlbumGenre"].value;
+    let AlbumGenre1 = AlbumGenre.split(".");
+    let AlbumGenreId = parseInt(AlbumGenre1[0]);
+
+    addAlbum(AlbumName,AlbumCover,AlbumArtistId,AlbumGenreId)
   });
 
-  function addAlbum(name) {
-    fetch("http://localhost:8082/album/create", {
+  function addAlbum(name, cover,artist,genre) {
+    fetch("http://localhost:8082/albums/create", {
       method: "post",
       headers: {
         "Content-type": "application/json",
       },
       body: (json = JSON.stringify({
         "name": name,
-        "artist":artist,
-        "genre":genre,
+        "artists":{
+          "id":artist
+        },
+        "genres":{
+          "id":genre
+        },
         "cover":cover
       })),
     })
       .then(json)
       .then(function (data) {
         console.log("Request succeeded with JSON response", data);
+        location.reload();
       })
       .catch(function (error) {
         console.log("Request failed", error);
