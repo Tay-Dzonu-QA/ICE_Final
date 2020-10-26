@@ -14,14 +14,14 @@ import com.qa.choonz.persistence.domain.Track;
 
 public class AlbumTest {
 	
-	//--[ Test Variables ]--
+
 		Album testAlbum;
 		final Long id = 1l;
-		final String name = "Dark Side of the Moon";
-		final String cover = "not-a-cover";
+		final String name = "Rumours";
+		final String cover = "no";
 		List<Track> tracks;
 
-		//--[ Test Setup ]--
+
 		@BeforeEach
 		void init() {
 			this.tracks = new ArrayList<Track>();
@@ -34,107 +34,95 @@ public class AlbumTest {
 					this.cover);
 		}
 		
-		//--[ Test Methods ]--
+
 		@Test
-		void testZeroArgsConstructor() {
-			// test setup
+		void NoArguConsTest() {
+
 			Album newAlbum = new Album();
 			
-			// test assertion
+
 			assertThat(newAlbum instanceof Album);
 		}
 		
 		@Test
-		void testAllArgsConstructor() {
-			// test setup
-			Album newAlbum = new Album(
+		void AllArguConsTest() {
+
+			Album newAl = new Album(
 					this.id,
 					this.name,
 					this.tracks,
 					null,
 					null,
 					this.cover);
-			
-			// test assertion
-			assertThat(newAlbum instanceof Album);
+			assertThat(newAl instanceof Album);
 		}
 		
 		@Test
-		void testGetId() {
+		void GetIdTest() {
 			assertThat(this.testAlbum.getId() == this.id);
 		}
 		
 		@Test
-		void testSetId() {
-			// test setup
+		void SetIdTest() {
+
 			Long newId = 2l;
-			this.testAlbum.setId(newId);
-			
-			// test assertion
+			this.testAlbum.setId(newId);		
 			assertThat(this.testAlbum.getId() == newId);
 		}
 		
 		@Test
-		void testGetName() {
+		void GetNameTest() {
 			assertThat(this.testAlbum.getName().equals(this.name));
 		}
 		
 		@Test
-		void testSetName() {
-			// test setup
-			String newName = "The Wall";
+		void SetNameTest() {
+
+			String newName = "Astral Weeks";
 			this.testAlbum.setName(newName);
-			
-			// test assertion
 			assertThat(this.testAlbum.getName().equals(newName));
 		}
 		
 		@Test
-		void testGetTracks() {
+		void GetTracksTest() {
 			assertThat(this.testAlbum.getTracks() == this.tracks);
 		}
 		
 		@Test
-		void testSetTracks() {
-			// test setup
+		void SetTracksTest() {
+		
 			List<Track> newTracks = new ArrayList<Track>();
 			this.testAlbum.setTracks(newTracks);
-			
-			// test assertion
 			assertThat(this.testAlbum.getTracks() == newTracks);
 		}
 		
 		@Test
-		void testGetArtist() {
+		void GetArtistTest() {
 			assertThat(this.testAlbum.getArtist() == null);
 		}
 		
 		@Test
-		void testSetArtist() {
-			// test setup
-			this.testAlbum.setArtist(null);
+		void SetArtistTest() {
 			
-			// test assertion
+			this.testAlbum.setArtist(null);		
 			assertThat(this.testAlbum.getArtist() == null);
 		}
 		
 		@Test
-		void testGetGenre() {
+		void GetGenreTest() {
 			assertThat(this.testAlbum.getGenre() == null);
 		}
 		
 		@Test
-		void testSetGenre() {
-			// test setup
-			this.testAlbum.setGenre(null);
+		void SetGenreTest() {
 			
-			// test assertion
+			this.testAlbum.setGenre(null);	
 			assertThat(this.testAlbum.getGenre() == null);
 		}
 		
 		@Test
-		void testEquals() {
-			// test setup
+		void EqualsTest() {
+			
 			Album emptyAlbum = new Album();
 			Album fullAlbum = new Album(
 					this.id,
@@ -144,30 +132,29 @@ public class AlbumTest {
 					null,
 					this.cover);
 			
-			// test assertion
+			
 			assertThat(!this.testAlbum.equals(emptyAlbum));
 			assertThat(this.testAlbum.equals(fullAlbum));
 		}
 		
 		@Test
 		void testToString() {
-			//TODO fill this method in
+			
 			assertThat(this.testAlbum.toString()
-					.equals("Album [id=1, name=Dark Side of the Moon, "
+					.equals("Album [id=1, name=Rumours, "
 							+ "tracks=[], artist=null, genre=null, "
 							+ "cover=not-a-cover]"));
 		}
 		
 		@Test
 		void testHashCode() {
-			// TODO check this method is correct / if better test method exists
+		
 			assertThat(this.testAlbum.hashCode() == -1870013350);
 		}
 		
-		//--[ Test Tear-Down ]--
+
 		@AfterEach
 		void teardown() {
-			// Nullify object as precaution (will be built anew)
 			this.testAlbum = null;
 		}
 
