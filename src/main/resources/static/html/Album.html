@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Albums</title>
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -14,7 +19,6 @@
   </head>
 
   <body>
-
     <!-- Navbar -->
 
     <nav class="navbar fixed-top navbar-expand-lg">
@@ -41,6 +45,7 @@
     </div>
     </nav>
     <!-- /Navbar -->
+
 
     <div class ="TableBody">
       <br>
@@ -81,12 +86,22 @@
               </button>
             </div>
             <div class="modal-body">
-              <form id="ModalFormEditArtist" class="EditAlbum" method="PUT">
+              <form id="ModalFormEditAlbum" class="EditAlbum" method="PUT">
                 <div class="form-group">
-                  <label for="EditArtistName">Album Name:</label>
-                  <input type="text" class="form-control"  id="EditArtistName" required>
+                  <label for="EditAlbumName">Album Name:</label>
+                  <input type="text" class="form-control"  id="EditAlbumName" required>
+                  <label for="EditAlbumGenre">Album Genre:</label>
+                  <select multiple class="form-control" id="EditAlbumGenre"required>
+
+                  </select>
+                  <label for="EditAlbumArtist">Album Artist:</label>
+                  <select multiple class="form-control" id="EditAlbumArtist"required>
+
+                  </select>
+                  <label for="EditAlbumCover">Album Cover:</label>
+                  <input type="text" class="form-control"  id="EditAlbumCover" required>
                 </div>
-                <button id ="EditArtistSubmit"type="submit" class="btn btn-primary">Add</button>
+                <button id ="EditAlbumSubmit"type="submit" class="btn btn-primary">Add</button>
                 </form>
             </div>
             </div>
@@ -94,7 +109,11 @@
         </div>
       </div>
 
-    <script src="#"></script>
+
+
+
+
+    <script src="../js/Album.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
