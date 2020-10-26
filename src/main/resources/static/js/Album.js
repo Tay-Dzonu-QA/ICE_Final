@@ -10,6 +10,43 @@ for (const param of params) {
 }
 getAlbums(loggedIn,albumsToView);
 
+function getArtists() {
+  fetch("http://localhost:8082/artist/read")
+    .then(function (response) {
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code: " + response.status
+        );
+        return;
+      }
+      // Examine the text in the response
+      response.json().then(function (ArtistData) {
+        return ArtistData;
+      });
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
+}
+function getGenres() {
+  fetch("http://localhost:8082/genre/read")
+    .then(function (response) {
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code: " + response.status
+        );
+        return;
+      }
+      // Examine the text in the response
+      response.json().then(function (GenreData) {
+        return GenreData;
+      });
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
+}
+
 function getAlbums(loggedIn,albumsToView) {
   fetch("http://localhost:8082/albums/read/"+albumsToView)
     .then(function (response) {
@@ -104,8 +141,9 @@ function generateTable(table, AlbumData, loggedIn) {
         myEditButton.appendChild(editIcon);
         let ID = element.id;
         let Name=element.name;
+        let Cover = element.cover;
         myEditButton.onclick = function () {
-        changeAlbumModal(ID, Name);
+        changeEditAlbumModal(ID, Name,Cover);
         };
         newCell2.appendChild(myEditButton);
 
@@ -135,10 +173,10 @@ function generateAddAlbumBtn(table){
     myAddTaskButton.setAttribute("data-toggle", "modal");
     myAddTaskButton.setAttribute("data-target", "#AddAlbumModal");
     myAddTaskButton.onclick = function () {
-      changeAddTaskModal(ID, Name);
+      changeAddAlbumModal(ID, Name);
     };
 
-    tableFooter.appendChild(myAddTaskButton);
+    tableFooter.appendChild(myAddAlbumButton);
     table.appendChild(tableFooter);
 }
 
@@ -161,11 +199,37 @@ function deleteAlbum(id) {
 
   let AlbumId;
 
-  function changeEditAlbumModal(id, name) {
+  function changeEditAlbumModal(id, name,cover) {
 
-    let modalPH = document.getElementById("EditAlbumName");
-    modalPH.setAttribute("value", name);
+    
+    let modalEditAlbumName = document.getElementById("EditAlbumName");
+    modalEditAlbumName.setAttribute("value", name);
+    let modalEditAlbumCover = document.getElementById("EditAlbumCover");
+    modalEditAlbumCover.setAttribute("value", cover);
+    let modalEditAlbumArtist = document.getElementById("EditAlbumArtist");
+    addArtistList(modalEditAlbumArtist);
+    let modalEditAlbumGenre = document.getElementById("EditAlbumGenre");
+    addGenreList(modalEditAlbumGenre);
+    
     AlbumId = id;
+  }
+
+  function addArtistList(modalArtistList){
+    let artists = getArtists();
+    for(element of artists){
+      let artistList = document.createElement("option");
+      artistList.innerHTML = element.id +". "+element.name;
+      modalArtistList.appendChild(artistList);
+    }
+  }
+  function addGenreList(modalGenreList){
+    let genres = getGenres();
+    for(element of genres){
+      let genreList = document.createElement("option");
+      genreList.innerHTML = element.id +". "+element.name;
+      modalGenreList.appendChild(genreList);
+    }
+
   }
 
   document
@@ -176,14 +240,21 @@ function deleteAlbum(id) {
     let formElements = document.querySelector("form.EditAlbum").elements;
     console.log(formElements);
 
-    let EditAlbumname = formElements["EditAlbumName"].value;
+    let EditAlbumName = formElements["EditAlbumName"].value;
+    let EditAlbumCover = formElements["EditAlbumCover"].value;
+    let EditAlbumArtist = formElements["EditAlbumArtist"].value;
+    let AlbumArtsit = EditAlbumArtist.split(".");
+    let AlbumArtistId = parseInt(AlbumArtsit[0]);
+    let EditAlbumGenre = formElements["EditAlbumGenre"].value;
+    let AlbumGenre = EditAlbumGenre.split(".");
+    let AlbumGenreId = parseInt(AlbumGenre[0]);
 
     let AlbumId = parseInt(AlbumId);
     console.log(AlbumId);
-    editAlbum(EditAlbumname, AlbumId);
+    editAlbum(EditAlbumName, AlbumId,EditAlbumCover,AlbumArtistId,AlbumGenreId);
   });
 
-  function editAlbum(name,  AlbumId) {
+  function editAlbum(name, AlbumId, cover,artist,genre) {
     fetch("http://localhost:8082/album/update/" + AlbumId, {
       method: "put",
       headers: {
@@ -191,7 +262,10 @@ function deleteAlbum(id) {
       },
       body: (json = JSON.stringify({
         "id": AlbumId,
-        "name": name
+        "name": name,
+        "artist":artist,
+        "genre":genre,
+        "cover":cover
       })),
     })
       .then(json)
@@ -223,6 +297,9 @@ function deleteAlbum(id) {
       },
       body: (json = JSON.stringify({
         "name": name,
+        "artist":artist,
+        "genre":genre,
+        "cover":cover
       })),
     })
       .then(json)

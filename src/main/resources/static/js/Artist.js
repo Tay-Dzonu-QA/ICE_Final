@@ -101,7 +101,7 @@ function generateTable(table, ArtistData, loggedIn) {
       let ID = element.id;
       let Name = element.name;
       myEditButton.onclick = function () {
-        changeArtistModal(ID, Name);
+        changeEditArtistModal(ID, Name);
       };
       newCell2.appendChild(myEditButton);
 
@@ -186,7 +186,7 @@ function editArtist(name, ArtistId) {
     },
     body: (json = JSON.stringify({
       id: ArtistId,
-      name: name,
+      name: name
     })),
   })
     .then(json)
@@ -217,7 +217,7 @@ function addArtist(name) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      name: name,
+      name: name
     })),
   })
     .then(json)
