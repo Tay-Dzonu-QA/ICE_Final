@@ -27,97 +27,97 @@ import com.qa.choonz.service.AlbumService;
 @SpringBootTest
 public class AlbumControllerUnitTest {
 	
-	@Autowired
-	private AlbumController controller;
-	
-	@Autowired
-	private ModelMapper mapper;
-	
-	@MockBean
-    private AlbumService service;
-
-    private List<Album> albums;
-    private Album testAlbum;
-    private Album testAlbumWithId;
-    private AlbumDTO albumDTO;
-    private final Long id = 1L;
-
-    private AlbumDTO mapToDTO(Album album) {
-        return this.mapper.map(album, AlbumDTO.class);
-    }
-    
-    @BeforeEach
-    void init() {
-        this.albums = new ArrayList<>();
-        this.testAlbum = new Album("Animals");
-        this.testAlbumWithId = new Album(testAlbum.getName());
-        this.testAlbumWithId.setId(id);
-        this.albums.add(testAlbumWithId);
-        this.albumDTO = this.mapToDTO(testAlbumWithId);
-    }
-    
-    @Test
-    void createTest() {
-        when(this.service.create(testAlbum))
-            .thenReturn(this.albumDTO);
-        
-        assertThat(new ResponseEntity<AlbumDTO>(this.albumDTO, HttpStatus.CREATED))
-                .isEqualTo(this.controller.create(testAlbum));
-        
-        verify(this.service, times(1))
-            .create(this.testAlbum);
-    }
-    
-    @Test
-    void readOneTest() {
-        when(this.service.read(this.id))
-            .thenReturn(this.albumDTO);
-        
-        assertThat(new ResponseEntity<AlbumDTO>(this.albumDTO, HttpStatus.OK))
-                .isEqualTo(this.controller.read(this.id));
-        
-        verify(this.service, times(1))
-            .read(this.id);
-    }
-
-    @Test
-    void readAllTest() {
-        when(service.read())
-            .thenReturn(this.albums
-                    .stream()
-                    .map(this::mapToDTO)
-                    .collect(Collectors.toList()));
-        
-        assertThat(this.controller.read().getBody()
-                .isEmpty()).isFalse();
-        
-        verify(this.service, times(1))
-            .read();
-    }
-    
-    @Test
-    void updateTest() {
-        // given
-        AlbumDTO newAlbum= new AlbumDTO(null, "Now");
-        AlbumDTO updatedAlbum= new AlbumDTO(this.id, newAlbum.getName());
-
-        when(this.service.update(newAlbum, this.id))
-            .thenReturn(updatedAlbum);
-        
-        assertThat(new ResponseEntity<AlbumDTO>(updatedAlbum, HttpStatus.ACCEPTED))
-                .isEqualTo(this.controller.update(this.id, newAlbum));
-        
-        verify(this.service, times(1))
-            .update(newAlbum, this.id);
-    }
-    
-    @Test
-    void deleteTest() {
-        this.controller.delete(id);
-
-        verify(this.service, times(1))
-            .delete(id);
-    }
+//	@Autowired
+//	private AlbumController controller;
+//	
+//	@Autowired
+//	private ModelMapper mapper;
+//	
+//	@MockBean
+//    private AlbumService service;
+//
+//    private List<Album> albums;
+//    private Album testAlbum;
+//    private Album testAlbumWithId;
+//    private AlbumDTO albumDTO;
+//    private final Long id = 1L;
+//
+//    private AlbumDTO mapToDTO(Album album) {
+//        return this.mapper.map(album, AlbumDTO.class);
+//    }
+//    
+//    @BeforeEach
+//    void init() {
+//        this.albums = new ArrayList<>();
+//        this.testAlbum = new Album("Animals");
+//        this.testAlbumWithId = new Album(testAlbum.getName());
+//        this.testAlbumWithId.setId(id);
+//        this.albums.add(testAlbumWithId);
+//        this.albumDTO = this.mapToDTO(testAlbumWithId);
+//    }
+//    
+//    @Test
+//    void createTest() {
+//        when(this.service.create(testAlbum))
+//            .thenReturn(this.albumDTO);
+//        
+//        assertThat(new ResponseEntity<AlbumDTO>(this.albumDTO, HttpStatus.CREATED))
+//                .isEqualTo(this.controller.create(testAlbum));
+//        
+//        verify(this.service, times(1))
+//            .create(this.testAlbum);
+//    }
+//    
+//    @Test
+//    void readOneTest() {
+//        when(this.service.read(this.id))
+//            .thenReturn(this.albumDTO);
+//        
+//        assertThat(new ResponseEntity<AlbumDTO>(this.albumDTO, HttpStatus.OK))
+//                .isEqualTo(this.controller.read(this.id));
+//        
+//        verify(this.service, times(1))
+//            .read(this.id);
+//    }
+//
+//    @Test
+//    void readAllTest() {
+//        when(service.read())
+//            .thenReturn(this.albums
+//                    .stream()
+//                    .map(this::mapToDTO)
+//                    .collect(Collectors.toList()));
+//        
+//        assertThat(this.controller.read().getBody()
+//                .isEmpty()).isFalse();
+//        
+//        verify(this.service, times(1))
+//            .read();
+//    }
+//    
+//    @Test
+//    void updateTest() {
+//        // given
+//        AlbumDTO newAlbum= new AlbumDTO(null, "Now");
+//        AlbumDTO updatedAlbum= new AlbumDTO(this.id, newAlbum.getName());
+//
+//        when(this.service.update(newAlbum, this.id))
+//            .thenReturn(updatedAlbum);
+//        
+//        assertThat(new ResponseEntity<AlbumDTO>(updatedAlbum, HttpStatus.ACCEPTED))
+//                .isEqualTo(this.controller.update(this.id, newAlbum));
+//        
+//        verify(this.service, times(1))
+//            .update(newAlbum, this.id);
+//    }
+//    
+//    @Test
+//    void deleteTest() {
+//        this.controller.delete(id);
+//
+//        verify(this.service, times(1))
+//            .delete(id);
+//    }
 
 
 }
