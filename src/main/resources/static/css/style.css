@@ -18,11 +18,23 @@ body {
 
 }
 
+.navbar {
+  background-color: #5cdb95;
+}
+
+.nav-link {
+  color: #fff;
+}
+
+.nav > li > a:hover{
+  background-color:#97c2ff;
+}
+
 #Search {
   background-color: white;
   color: black;
   border: 2px solid grey;
-  border-radius: 3px;  // for no radius
+  border-radius: 3px; 
 
   }
 
