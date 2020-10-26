@@ -1,5 +1,6 @@
 package com.qa.choonz.persistence.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,7 +28,7 @@ public class Album {
     private String name;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
-    private List<Track> tracks;
+    private List<Track> tracks = new ArrayList<>();
 
     @ManyToOne
     private Artist artist;
