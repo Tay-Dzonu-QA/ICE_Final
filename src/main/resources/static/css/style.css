@@ -19,7 +19,7 @@ body {
 }
 
 .navbar {
-  background-color: #5cdb95;
+  background-color: #8ee4af;
 }
 
 .nav-link {
@@ -27,7 +27,7 @@ body {
 }
 
 .nav > li > a:hover{
-  background-color:#97c2ff;
+  background-color:#5cdb95;
 }
 
 #Search {
