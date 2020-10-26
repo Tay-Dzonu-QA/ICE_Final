@@ -77,12 +77,12 @@ function generateTable(table, ArtistData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewArtistButton";
-    myViewButton.onclick = document.location =
-      "Albums.html?loggedIn=" + loggedIn + "artist=" + artist;
+    let artist = element.id;
+    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "?artists=" + artist};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
-    viewIcon.innerHTML = "create";
+    viewIcon.innerHTML = "launch";
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
@@ -101,7 +101,7 @@ function generateTable(table, ArtistData, loggedIn) {
       let ID = element.id;
       let Name = element.name;
       myEditButton.onclick = function () {
-        changeArtistModal(ID, Name);
+        changeEditArtistModal(ID, Name);
       };
       newCell2.appendChild(myEditButton);
 
@@ -130,9 +130,7 @@ function generateAddArtistBtn(table) {
   myAddArtistButton.id = "AddArtistButton";
   myAddArtistButton.setAttribute("data-toggle", "modal");
   myAddArtistButton.setAttribute("data-target", "#AddArtistModal");
-  myAddArtistButton.onclick = function () {
-    changeAddArtistModal(ID, Name);
-  };
+
 
   tableFooter.appendChild(myAddArtistButton);
   table.appendChild(tableFooter);
@@ -186,7 +184,7 @@ function editArtist(name, ArtistId) {
     },
     body: (json = JSON.stringify({
       id: ArtistId,
-      name: name,
+      name: name
     })),
   })
     .then(json)
@@ -217,7 +215,7 @@ function addArtist(name) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      name: name,
+      name: name
     })),
   })
     .then(json)
@@ -227,4 +225,18 @@ function addArtist(name) {
     .catch(function (error) {
       console.log("Request failed", error);
     });
+}
+
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("artistTitle").style.marginLeft = "250px";
+  
+
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.getElementById("artistTitle").style.marginLeft = "0";
 }

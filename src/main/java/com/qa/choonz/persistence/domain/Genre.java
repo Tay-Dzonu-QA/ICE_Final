@@ -1,5 +1,6 @@
 package com.qa.choonz.persistence.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,7 +32,7 @@ public class Genre {
     private String description;
 
     @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL)
-    private List<Album> albums;
+    private List<Album> albums= new ArrayList<>();
 
     public Genre() {
         super();

@@ -2,13 +2,11 @@ body {
     padding-top: 70px;
 }
 
-/* ditch the ugle blue outline */
 .navbar-toggler:focus,
 .navbar-toggler:active {
     outline: 0;
 }
 
-/* hide close when burger shown */
 .navbar-toggler.collapsed .close-icon {
     display: none;
 }
@@ -18,11 +16,82 @@ body {
 
 }
 
+.navbar {
+  background-color: #23338a;
+}
+
+.nav-link {
+  color: #fff;
+}
+
+.nav > li > a:hover{
+  background-color:#000;
+}
+
+
+.sidebar {
+  height: 100%; 
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  background-color: #23338a; 
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s; 
+}
+
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #23338a;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #000;
+}
+
+#main, #artistTitle, #albumTitle, #trackTitle {
+  transition: margin-left .5s; 
+  padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
 #Search {
   background-color: white;
   color: black;
   border: 2px solid grey;
-  border-radius: 3px;  // for no radius
+  border-radius: 3px; 
 
   }
 
