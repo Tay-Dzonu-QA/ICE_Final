@@ -67,7 +67,7 @@ function generateTable(table, ArtistData, loggedIn) {
       if (key === "albums") {
         let albumNo = 0;
         for (album of element[key]) {
-          albumNo = +1;
+          albumNo += 1;
         }
         text = document.createTextNode(albumNo);
       }
@@ -78,7 +78,7 @@ function generateTable(table, ArtistData, loggedIn) {
     myViewButton.className = "btn";
     myViewButton.id = "ViewArtistButton";
     let artist = element.id;
-    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "?artists=" + artist};
+    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "&artists=" + artist};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
@@ -171,26 +171,27 @@ document
 
     let EditArtistname = formElements["EditArtistName"].value;
 
-    let ArtistId = parseInt(ArtistId);
-    console.log(ArtistId);
+
+    console.log(EditArtistname);
     editArtist(EditArtistname, ArtistId);
   });
 
 function editArtist(name, ArtistId) {
+  let ID = parseInt(ArtistId);
   fetch("http://localhost:8082/artists/update/" + ArtistId, {
     method: "put",
     headers: {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      id: ArtistId,
-      name: name
+      "id": ID,
+      "name": name
     })),
   })
     .then(json)
     .then(function (data) {
       console.log("Request succeeded with JSON response", data);
-      location.reload();
+      // location.reload();
     })
     .catch(function (error) {
       console.log("Request failed", error);
@@ -215,12 +216,13 @@ function addArtist(name) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      name: name
+      "name": name
     })),
   })
     .then(json)
     .then(function (data) {
       console.log("Request succeeded with JSON response", data);
+      location.reload();
     })
     .catch(function (error) {
       console.log("Request failed", error);
