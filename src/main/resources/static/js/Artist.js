@@ -79,7 +79,7 @@ function generateTable(table, ArtistData, loggedIn) {
     myViewButton.id = "ViewArtistButton";
     let artist = element.id;
     myViewButton.onclick = document.location =
-      "Albums.html?loggedIn=" + loggedIn + "artist=" + artist;
+      "Albums.html?loggedIn=" + loggedIn + "artists=" + artist;
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
