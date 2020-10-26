@@ -46,8 +46,20 @@
     </nav>
     <!-- /Navbar -->
 
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Genres</a>
+      <a href="#">Artist</a>
+    </div>
+    
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">&#9776; Filter By</button>
+    </div>
+    <!-- Sidebar -->
 
-    <div class ="TableBody">
+    <!-- Table -->
+    <div class ="TableBody" id="albumTitle">
       <br>
         <h2> Album List</h2>
         <table id="AlbumTable"class="table table-hover"></table>
@@ -109,9 +121,7 @@
         </div>
       </div>
 
-
-
-
+      <!-- /Table -->
 
     <script src="../js/Album.js"></script>
     <script
