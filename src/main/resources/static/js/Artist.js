@@ -77,6 +77,7 @@ function generateTable(table, ArtistData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewArtistButton";
+    let artist = element.id;
     myViewButton.onclick = document.location =
       "Albums.html?loggedIn=" + loggedIn + "artist=" + artist;
 
