@@ -7,7 +7,7 @@ import com.qa.choonz.persistence.domain.Track;
 
 public class PlaylistDTO {
 
-    private long id;
+    private Long id;
     private String name;
     private String description;
     private String artwork;
