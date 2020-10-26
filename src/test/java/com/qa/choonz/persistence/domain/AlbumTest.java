@@ -8,9 +8,8 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import com.qa.choonz.persistence.domain.Album;
-import com.qa.choonz.persistence.domain.Track;
 
 public class AlbumTest {
 	
@@ -138,7 +137,7 @@ public class AlbumTest {
 		}
 		
 		@Test
-		void testToString() {
+		void ToStringTest() {
 			
 			assertThat(this.testAlbum.toString()
 					.equals("Album [id=1, name=Rumours, "
@@ -147,7 +146,7 @@ public class AlbumTest {
 		}
 		
 		@Test
-		void testHashCode() {
+		void HashCodeTest() {
 		
 			assertThat(this.testAlbum.hashCode() == -1870013350);
 		}
