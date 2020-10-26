@@ -1,6 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 let albumsToView;
+console.log(params);
 for (const param of params) {
   console.log(param);
   loggedIn = param[1];
@@ -63,6 +64,7 @@ function getAlbums(loggedIn,albumsToView) {
       }
       // Examine the text in the response
       response.json().then(function (AlbumData) {
+        console.log(AlbumData);
         let table = document.querySelector("#AlbumTable");
         let data = Object.keys(AlbumData[0]);
 
@@ -124,7 +126,7 @@ function generateTable(table, AlbumData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewAlbumButton";
-    myViewButton.onclick = document.location='Tracks.html?loggedIn='+loggedIn+'?album='+element.id;
+    myViewButton.onclick = function(){document.location='Tracks.html?loggedIn='+loggedIn+'?album='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
