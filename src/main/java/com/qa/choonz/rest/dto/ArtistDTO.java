@@ -9,14 +9,14 @@ public class ArtistDTO {
 
     private long id;
     private String name;
-    private List<Album> albums;
+    private List<AlbumDTO> albums;
 
     public ArtistDTO() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    public ArtistDTO(long id, String name, List<Album> albums) {
+    public ArtistDTO(long id, String name, List<AlbumDTO> albums) {
         super();
         this.id = id;
         this.name = name;
@@ -39,11 +39,11 @@ public class ArtistDTO {
         this.name = name;
     }
 
-    public List<Album> getAlbums() {
+    public List<AlbumDTO> getAlbums() {
         return albums;
     }
 
-    public void setAlbums(List<Album> albums) {
+    public void setAlbums(List<AlbumDTO> albums) {
         this.albums = albums;
     }
 

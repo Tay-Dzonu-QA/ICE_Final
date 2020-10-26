@@ -11,9 +11,9 @@ public class AlbumDTO {
 
     private long id;
     private String name;
-    private List<Track> tracks;
-    private Artist artist;
-    private Genre genre;
+    private List<TrackDTO> tracks;
+    /*private Artist artist;
+    private Genre genre;*/
     private String cover;
 
     public AlbumDTO() {
@@ -21,13 +21,13 @@ public class AlbumDTO {
         // TODO Auto-generated constructor stub
     }
 
-    public AlbumDTO(long id, String name, List<Track> tracks, Artist artist, Genre genre, String cover) {
+    public AlbumDTO(long id, String name, List<TrackDTO> tracks, Artist artist, Genre genre, String cover) {
         super();
         this.id = id;
         this.name = name;
         this.tracks = tracks;
-        this.artist = artist;
-        this.genre = genre;
+        /*this.artist = artist;
+        this.genre = genre;*/
         this.cover = cover;
     }
 
@@ -47,7 +47,7 @@ public class AlbumDTO {
         this.name = name;
     }
 
-    public List<Track> getTracks() {
+/*    public List<Track> getTracks() {
         return tracks;
     }
 
@@ -69,7 +69,7 @@ public class AlbumDTO {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
-    }
+    }*/
 
     public String getCover() {
         return cover;
@@ -79,7 +79,7 @@ public class AlbumDTO {
         this.cover = cover;
     }
 
-    @Override
+/*    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("AlbumDTO [id=").append(id).append(", name=").append(name).append(", tracks=").append(tracks)
@@ -105,6 +105,31 @@ public class AlbumDTO {
         return Objects.equals(artist, other.artist) && Objects.equals(cover, other.cover)
                 && Objects.equals(genre, other.genre) && id == other.id && Objects.equals(name, other.name)
                 && Objects.equals(tracks, other.tracks);
+    }*/
+
+    @Override
+    public String toString() {
+        return "AlbumDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", tracks=" + tracks +
+                ", cover='" + cover + '\'' +
+                '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AlbumDTO albumDTO = (AlbumDTO) o;
+        return id == albumDTO.id &&
+                Objects.equals(name, albumDTO.name) &&
+                Objects.equals(tracks, albumDTO.tracks) &&
+                Objects.equals(cover, albumDTO.cover);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, tracks, cover);
+    }
 }
