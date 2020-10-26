@@ -2,6 +2,7 @@ package com.qa.choonz.persistence.domain;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,7 +108,10 @@ public class ArtistTest {
 		
 		@Test
 		void HashCodeTest() {
-			assertThat(this.testArtist.hashCode() == -1259434520);
+			Artist a1 = new Artist(id,name,testAlbums);
+			Artist a2 = new Artist(id,name,testAlbums);
+			
+			assertTrue(a1.hashCode() == a2.hashCode());
 		}
 		
 		@Test

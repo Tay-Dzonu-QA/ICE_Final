@@ -5,6 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TrackTest {
@@ -12,7 +17,23 @@ public class TrackTest {
 	Track testTrack;
 	final Long id = 1l;
 	final String name = "Brown Sugar";
+	final String album = "Sticky Fingers";
+	final String playlist = "Rock";
+	final int duration = 200;
 	final String lyrics = "Gold Coast slave ship bound for cotton fields";
+	List<Track> tracks;
+	
+	@BeforeEach
+	void init() {
+		this.tracks = new ArrayList<Track>();
+		this.testTrack = new Track(
+				this.id, 
+				this.name, 
+				null, 
+				null,
+				this.duration,
+				this.lyrics);
+	}
 	
 	
 	@Test
@@ -48,19 +69,19 @@ public class TrackTest {
 	@Test
 	public void getSetAlbumTest() {
 		Track newTrack = new Track();
-		Album album = new Album();
+		Album al = new Album();
 		
-		newTrack.setAlbum(album);		
-		assertEquals(album,newTrack.getAlbum());
+		newTrack.setAlbum(al);		
+		assertEquals(al,newTrack.getAlbum());
 	}
 	
 	@Test
 	public void getSetPlaylistTest() {
 		Track newTrack = new Track();
-		Playlist playlist = new Playlist();
+		Playlist pl = new Playlist();
 		
-		newTrack.setPlaylist(playlist);		
-		assertEquals(playlist,newTrack.getPlaylist());
+		newTrack.setPlaylist(pl);		
+		assertEquals(pl,newTrack.getPlaylist());
 	}
 	
 	@Test
@@ -102,12 +123,17 @@ public class TrackTest {
 	
 	@Test
 	public void equalsTest() {
-		Album album = new Album();
+		Album al = new Album();
 		Playlist pl = new Playlist();
 		
-		Track track = new Track(id,name,album,pl,229,lyrics);		
+		Track track = new Track(id,name,al,pl,229,lyrics);		
 		assertTrue(track.equals(track));
-		assertFalse(track.equals(album));
+		assertFalse(track.equals(al));
+	}
+	
+	@AfterEach
+	void teardown() {
+		this.testTrack = null;
 	}
 
 }

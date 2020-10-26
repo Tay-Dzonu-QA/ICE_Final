@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PlaylistTest {
@@ -16,7 +18,20 @@ public class PlaylistTest {
 	final Long id = 1l;
 	final String name = "Party";
 	final String desc = "Rock";
-	final String artwork = "guitar";
+	final String artwork = "Guitar";
+	List<Track> tracks;
+	
+	
+	@BeforeEach
+	void init() {
+		this.tracks = new ArrayList<Track>();
+		this.testPl = new Playlist(
+				this.id, 
+				this.name, 
+				this.desc, 
+				this.artwork,
+				this.tracks);
+	}
 	
 	@Test
 	public void consTests() {
@@ -24,7 +39,7 @@ public class PlaylistTest {
 		
 		assertTrue(newPl instanceof Playlist);
 		
-		Playlist pl = new Playlist(1L,name,desc,artwork,null);
+		Playlist pl = new Playlist(id,name,desc,artwork,null);
 		assertTrue(pl instanceof Playlist);
 	}
 	
@@ -32,9 +47,9 @@ public class PlaylistTest {
 	public void getSetIdTest() {
 		Playlist newPl = new Playlist();
 		
-		newPl.setId(1L);
+		newPl.setId(id);
 		
-		assertEquals(1L,newPl.getId());
+		assertEquals(id,newPl.getId());
 	}
 	
 	@Test
@@ -75,28 +90,33 @@ public class PlaylistTest {
 	
 	@Test
 	public void toStringTests() {		
-		Playlist pl = new Playlist(1L,name,desc,artwork,null);
+		Playlist pl = new Playlist(id,name,desc,artwork,null);
 		
 		assertNotNull(pl.toString());
-		assertEquals("Playlist [id=1, name=Party, description=Rock, artwork=guitar, tracks=null]"
+		assertEquals("Playlist [id=1, name=Party, description=Rock, artwork=Guitar, tracks=null]"
 				,pl.toString());
 	}
 	
 	@Test
 	public void hashCodeTest() {		
-		Playlist pl1 = new Playlist(1L,name,desc,artwork,null);
-		Playlist pl2 = new Playlist(1L,name,desc,artwork,null);
+		Playlist pl1 = new Playlist(id,name,desc,artwork,null);
+		Playlist pl2 = new Playlist(id,name,desc,artwork,null);
 		
 		assertTrue(pl1.hashCode() == pl2.hashCode());
 	}
 	
 	@Test
 	public void equalsTest() {
-		Playlist pl = new Playlist(1L,name,desc,artwork,null);
+		Playlist pl = new Playlist(id,name,desc,artwork,null);
 		Track track = new Track();
 		
 		assertTrue(pl.equals(pl));
 		assertFalse(pl.equals(track));
+	}
+	
+	@AfterEach
+	void teardown() {
+		this.testPl = null;
 	}
 
 }

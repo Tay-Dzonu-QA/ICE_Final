@@ -1,6 +1,7 @@
 package com.qa.choonz.persistence.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,15 @@ public class AlbumTest {
 			
 
 			assertThat(newAlbum instanceof Album);
+		}
+		
+		@Test
+		void OneArguConsTest() {
+		
+		Album newAl = new Album(
+		this.name);
+		
+		assertThat(newAl instanceof Album);
 		}
 		
 		@Test
@@ -106,6 +116,20 @@ public class AlbumTest {
 		}
 		
 		@Test
+		void GetCoverTest() {
+			assertThat(this.testAlbum.getCover() == this.cover);
+		}
+		
+		@Test
+		void SetCoverTest() {
+			
+			String newCover = "Billy Eilish";
+			this.testAlbum.setCover(newCover);
+			
+			assertThat(this.testAlbum.getCover().equals(newCover));
+		}
+		
+		@Test
 		void GetGenreTest() {
 			assertThat(this.testAlbum.getGenre() == null);
 		}
@@ -140,13 +164,16 @@ public class AlbumTest {
 			assertThat(this.testAlbum.toString()
 					.equals("Album [id=1, name=Rumours, "
 							+ "tracks=[], artist=null, genre=null, "
-							+ "cover=not-a-cover]"));
+							+ "cover=no]"));
 		}
 		
 		@Test
 		void HashCodeTest() {
 		
-			assertThat(this.testAlbum.hashCode() == -1870013350);
+			Album a1 = new Album(id,name,tracks,null,null,cover);
+			Album a2 = new Album(id,name,tracks,null,null,cover);
+			
+			assertTrue(a1.hashCode() == a2.hashCode());
 		}
 		
 
