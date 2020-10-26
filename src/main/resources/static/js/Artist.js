@@ -82,7 +82,7 @@ function generateTable(table, ArtistData, loggedIn) {
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
-    viewIcon.innerHTML = "create";
+    viewIcon.innerHTML = "launch";
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
