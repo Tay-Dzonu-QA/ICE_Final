@@ -20,26 +20,39 @@
 
     <div class ="TableBody">
       <br>
-        <h2> Artist List</h2>
-        <table id="ArtistTable"class="table table-hover"></table>
+        <h2> Album List</h2>
+        <table id="AlbumTable"class="table table-hover"></table>
     </div>
 
-    <div class="modal fade" id="AddArtistModal" tabindex="-1" aria-labelledby="AddArtistModalLabel" aria-hidden="true">
+    <div class="modal fade" id="AddAlbumModal" tabindex="-1" aria-labelledby="AddAlbumModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" >Add Artist</h5>
+              <h5 class="modal-title" >Add Album</h5>
               <button type="button" class="close"data-dismiss="modal"aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <form id="ModalForm" class="Artist" method="POST">
+              <form id="ModalForm" class="Album" method="POST">
                 <div class="form-group">
-                  <label for="ArtistName">Artist Name:</label>
-                  <input type="text" class="form-control"  id="ArtistName" required>
+                  <label for="AlbumName">Album Name:</label>
+                  <input type="text" class="form-control"  id="AlbumName" required>
+
+
+                  <label for="AlbumGenre">Album Genre:</label>
+                  <select multiple class="form-control" id="AlbumGenre"required>
+
+                  </select>
+                  <label for="AlbumArtist">Album Artist:</label>
+                  <select multiple class="form-control" id="AlbumArtist"required>
+
+                  </select>
+                  <label for="AlbumCover">Album Cover:</label>
+                  <input type="text" class="form-control"  id="AlbumCover" required>
+
                 </div>
-                <button id ="AddArtistSubmit" type="submit" class="btn btn-primary">Add</button>
+                <button id ="AddAlbumSubmit" type="submit" class="btn btn-primary">Add</button>
                 </form>
             </div>
             </div>
@@ -47,22 +60,32 @@
         </div>
       </div>
 
-      <div class="modal fade" id="EditArtistModal" tabindex="-1" aria-labelledby="EditArtistModalLabel" aria-hidden="true">
+      <div class="modal fade" id="EditAlbumModal" tabindex="-1" aria-labelledby="EditAlbumModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 id ="addTitle" class="modal-title" >Edit Artist </h5>
+              <h5 id ="addTitle" class="modal-title" >Edit Album </h5>
               <button type="button" class="close"data-dismiss="modal"aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <form id="ModalFormEditArtist" class="EditArtist" method="PUT">
+              <form id="ModalFormEditAlbum" class="EditAlbum" method="PUT">
                 <div class="form-group">
-                  <label for="EditArtistName">Artist Name:</label>
-                  <input type="text" class="form-control"  id="EditArtistName" required>
+                  <label for="EditAlbumName">Album Name:</label>
+                  <input type="text" class="form-control"  id="EditAlbumName" required>
+                  <label for="EditAlbumGenre">Album Genre:</label>
+                  <select multiple class="form-control" id="EditAlbumGenre"required>
+
+                  </select>
+                  <label for="EditAlbumArtist">Album Artist:</label>
+                  <select multiple class="form-control" id="EditAlbumArtist"required>
+
+                  </select>
+                  <label for="EditAlbumCover">Album Cover:</label>
+                  <input type="text" class="form-control"  id="EditAlbumCover" required>
                 </div>
-                <button id ="EditArtistSubmit"type="submit" class="btn btn-primary">Add</button>
+                <button id ="EditAlbumSubmit"type="submit" class="btn btn-primary">Add</button>
                 </form>
             </div>
             </div>
@@ -74,7 +97,7 @@
 
 
 
-    <script src="../js/Artist.js"></script>
+    <script src="../js/Album.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
