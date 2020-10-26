@@ -7,7 +7,7 @@ for (const param of params) {
 getArtists(loggedIn);
 
 function getArtists(loggedIn) {
-  fetch("http://localhost:8082/artist/read")
+  fetch("http://localhost:8082/artists/read")
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
@@ -131,16 +131,14 @@ function generateAddArtistBtn(table) {
   myAddArtistButton.id = "AddArtistButton";
   myAddArtistButton.setAttribute("data-toggle", "modal");
   myAddArtistButton.setAttribute("data-target", "#AddArtistModal");
-  myAddArtistButton.onclick = function () {
-    changeAddArtistModal(ID, Name);
-  };
+
 
   tableFooter.appendChild(myAddArtistButton);
   table.appendChild(tableFooter);
 }
 
 function deleteArtist(id) {
-  fetch("http://localhost:8082/artist/delete/" + id, {
+  fetch("http://localhost:8082/artists/delete/" + id, {
     method: "delete",
     headers: {
       "Content-type": "application/json",
@@ -180,7 +178,7 @@ document
   });
 
 function editArtist(name, ArtistId) {
-  fetch("http://localhost:8082/artist/update/" + ArtistId, {
+  fetch("http://localhost:8082/artists/update/" + ArtistId, {
     method: "put",
     headers: {
       "Content-type": "application/json",
@@ -212,7 +210,7 @@ document
   });
 
 function addArtist(name) {
-  fetch("http://localhost:8082/artist/create", {
+  fetch("http://localhost:8082/artists/create", {
     method: "post",
     headers: {
       "Content-type": "application/json",

@@ -1,17 +1,22 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
-let albumsToView = "";
+let albumsToView;
 for (const param of params) {
   console.log(param);
   loggedIn = param[1];
   let artistOrGenre = param[2];
   let artistOrGenreId = param[3];
-  albumsToView = artistOrGenre+"/"+artistOrGenreId
+  albumsToView = "/"+artistOrGenre+"/"+artistOrGenreId
 }
+if(albumsToView==="/undefined/undefined"){
+  albumsToView="";
+}
+console.log(albumsToView);
+console.log(loggedIn);
 getAlbums(loggedIn,albumsToView);
 
 function getArtists() {
-  fetch("http://localhost:8082/artist/read")
+  fetch("http://localhost:8082/artists/read")
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
@@ -29,7 +34,7 @@ function getArtists() {
     });
 }
 function getGenres() {
-  fetch("http://localhost:8082/genre/read")
+  fetch("http://localhost:8082/genres/read")
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
@@ -48,7 +53,7 @@ function getGenres() {
 }
 
 function getAlbums(loggedIn,albumsToView) {
-  fetch("http://localhost:8082/albums/read/"+albumsToView)
+  fetch("http://localhost:8082/albums/read"+albumsToView)
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
@@ -173,7 +178,7 @@ function generateAddAlbumBtn(table){
     myAddTaskButton.setAttribute("data-toggle", "modal");
     myAddTaskButton.setAttribute("data-target", "#AddAlbumModal");
     myAddTaskButton.onclick = function () {
-      changeAddAlbumModal(ID, Name);
+      changeAddAlbumModal();
     };
 
     tableFooter.appendChild(myAddAlbumButton);
@@ -200,8 +205,6 @@ function deleteAlbum(id) {
   let AlbumId;
 
   function changeEditAlbumModal(id, name,cover) {
-
-    
     let modalEditAlbumName = document.getElementById("EditAlbumName");
     modalEditAlbumName.setAttribute("value", name);
     let modalEditAlbumCover = document.getElementById("EditAlbumCover");
@@ -212,6 +215,12 @@ function deleteAlbum(id) {
     addGenreList(modalEditAlbumGenre);
     
     AlbumId = id;
+  }
+  function changeAddAlbumModal() {
+    let modalEditAlbumArtist = document.getElementById("EditAlbumArtist");
+    addArtistList(modalEditAlbumArtist);
+    let modalEditAlbumGenre = document.getElementById("EditAlbumGenre");
+    addGenreList(modalEditAlbumGenre);
   }
 
   function addArtistList(modalArtistList){
