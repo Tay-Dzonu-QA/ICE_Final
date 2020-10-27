@@ -2,7 +2,6 @@ const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 let tracksToView="";
 console.log(params);
-let run = 0;
 
 for (const param of params) {
   if(param[0]==="loggedIn"){
@@ -78,10 +77,10 @@ function generateTable(table, TrackData, loggedIn) {
     for (key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
-      cell.appendChild(text);
       if(key ==="album"){
         text =  document.createTextNode(element[key].name)
       }
+      cell.appendChild(text);
     }
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
