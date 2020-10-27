@@ -2,7 +2,6 @@ package com.qa.choonz.persistence.domain;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class User {
     @NotNull
     @Column(unique = true)
     @Size(min = 8)
-    private String userName;
+    private String username;
 
     @NotNull
     @Column
@@ -33,13 +32,13 @@ public class User {
     public User(){
         super();
     }
-    public User(Long id, @NotNull @Size(max = 100) String userName,
+    public User(Long id, @NotNull @Size(max = 100) String username,
                 @NotNull @Size(max = 100) String password, List<Playlist> playlists){
         super();
         this.id = id;
         this.password = password;
         this.playlists = playlists;
-        this.userName = userName;
+        this.username = username;
     }
 
     public Long getId() {
@@ -50,12 +49,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public String getPassword() {
@@ -80,21 +79,21 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id.equals(user.id) &&
-                userName.equals(user.userName) &&
+                username.equals(user.username) &&
                 password.equals(user.password) &&
                 playlists.equals(user.playlists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName, password, playlists);
+        return Objects.hash(id, username, password, playlists);
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", playlists=" + playlists +
                 '}';

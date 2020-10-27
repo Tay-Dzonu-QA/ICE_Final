@@ -37,7 +37,7 @@ public class UserController {
         return new ResponseEntity<UserDTO>(this.service.read(id), HttpStatus.OK);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<UserDTO> update(@RequestBody User user, @PathVariable long id) {
         return new ResponseEntity<UserDTO>(this.service.update(user, id), HttpStatus.ACCEPTED);
     }

@@ -46,7 +46,7 @@ public class UserService {
 
     public UserDTO update(User user, long id) {
         User toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
-        toUpdate.setUserName(user.getUserName());
+        toUpdate.setUsername(user.getUsername());
         toUpdate.setPassword(user.getPassword());
         toUpdate.setPlaylists(user.getPlaylists());
         User updated = this.repo.save(toUpdate);
