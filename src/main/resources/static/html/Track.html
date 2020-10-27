@@ -134,6 +134,34 @@
             </div>
           </div>
 
+          <div class="modal fade" id="AddToPlaylistModal" tabindex="-1" aria-labelledby="AddToPlaylistModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 id ="addTitle" class="modal-title" >Add To Playlist </h5>
+                  <button type="button" class="close"data-dismiss="modal"aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="ModalFormAddToPlaylist" class="AddToPlaylist" method="PUT">
+                    <div class="form-group">
+                      <label for="PlaylistAddTrack">Track Name:</label>
+                      <input type="text" class="form-control"  id="PlaylistAddTrack" required>
+                    
+                      <label for="PlaylistAdd">Track Album:</label>
+                      <select multiple class="form-control" id="PlaylistAdd"required>
+    
+                      </select>
+                    </div>
+                    <button id ="AddToPlaylistSubmit"type="submit" class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <script src="../js/Tracks.js"></script>
         <script src="../js/Sidebar.js"></script>
         <script

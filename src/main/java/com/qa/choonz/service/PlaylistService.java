@@ -37,18 +37,24 @@ public class PlaylistService {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    public PlaylistDTO read(long id) {
+    public PlaylistDTO read(Long id) {
         Playlist found = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
         return this.mapToDTO(found);
     }
+    
+    public List<PlaylistDTO> readUserPlaylists(Long id) {
+        return this.repo.readUserPlaylists(id).stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
 
-    public PlaylistDTO update(PlaylistDTO playlist, long id) {
+    public PlaylistDTO update(PlaylistDTO playlist, Long id) {
         Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
         SAPIBeanUtils.mergeNotNull(playlist,toUpdate);
         return this.mapToDTO(this.repo.save(toUpdate));
+
+
     }
 
-    public boolean delete(long id) {
+    public boolean delete(Long id) {
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }

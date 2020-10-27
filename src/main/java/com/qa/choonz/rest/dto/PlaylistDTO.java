@@ -1,9 +1,10 @@
 package com.qa.choonz.rest.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.qa.choonz.persistence.domain.Track;
+import com.qa.choonz.persistence.domain.User;
 
 public class PlaylistDTO {
 
@@ -11,33 +12,35 @@ public class PlaylistDTO {
     private String name;
     private String description;
     private String artwork;
-    private List<TrackDTO> tracks;
+    private List<TrackDTO> tracks = new ArrayList<>();
+    private User user;
 
     public PlaylistDTO() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    public PlaylistDTO(long id, String name, String description, String artwork, List<TrackDTO> tracks) {
+    public PlaylistDTO(long id, String name, String description, String artwork, List<TrackDTO> tracks,User user) {
         super();
         this.id = id;
         this.name = name;
         this.description = description;
         this.artwork = artwork;
         this.tracks = tracks;
+        this.user=user;
     }
 
     /**
      * @return the id
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -96,10 +99,19 @@ public class PlaylistDTO {
     public void setTracks(List<TrackDTO> tracks) {
         this.tracks = tracks;
     }
+    
 
-    @Override
+    public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
     public int hashCode() {
-        return Objects.hash(artwork, description, id, name, tracks);
+        return Objects.hash(artwork, description, id, name, tracks,user);
     }
 
     @Override
@@ -112,7 +124,8 @@ public class PlaylistDTO {
         }
         PlaylistDTO other = (PlaylistDTO) obj;
         return Objects.equals(artwork, other.artwork) && Objects.equals(description, other.description)
-                && id == other.id && Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks);
+                && id == other.id && Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks)
+                && Objects.equals(user, other.user);
     }
 
 }
