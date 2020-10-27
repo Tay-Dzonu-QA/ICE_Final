@@ -57,10 +57,9 @@ public class PlaylistControllerIntegrationTest {
 	    void init() {
 	        this.repository.deleteAll();
 
-	        this.testPlaylist = new Playlist("Mix");
+	        this.testPlaylist = new Playlist("Party");
 	        this.testPlaylistWithId = this.repository.save(this.testPlaylist);
 	        this.PlaylistDTO = this.mapToDTO(testPlaylistWithId);
-
 	        this.id = this.testPlaylistWithId.getId();
 	        this.testName = this.testPlaylistWithId.getName();
 	    }
@@ -96,7 +95,7 @@ public class PlaylistControllerIntegrationTest {
 
 	    @Test
 	    void testUpdate() throws Exception {
-	    	PlaylistDTO newPl = new PlaylistDTO(null, "Arsenal");
+	    	PlaylistDTO newPl = new PlaylistDTO(id, "Drum & Bass");
 	    	Playlist updatedPl = new Playlist(newPl.getName());
 	        updatedPl.setId(this.id);
 
