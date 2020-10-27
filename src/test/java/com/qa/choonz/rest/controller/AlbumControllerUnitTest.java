@@ -97,7 +97,7 @@ public class AlbumControllerUnitTest {
     @Test
     void updateTest() {
 
-        AlbumDTO newAlbum= new AlbumDTO(1l, "Thunderstruck");
+        AlbumDTO newAlbum= new AlbumDTO(id, "Thunderstruck");
         AlbumDTO updatedAlbum= new AlbumDTO(this.id, newAlbum.getName());
 
         when(this.service.update(newAlbum, this.id))

@@ -42,6 +42,11 @@ public class Playlist {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    public Playlist(@NotNull @Size(max = 100) String name) {
+    	super();
+    	this.name = name;
+    }
 
     public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
             @NotNull @Size(max = 1000) String artwork, List<Track> tracks) {

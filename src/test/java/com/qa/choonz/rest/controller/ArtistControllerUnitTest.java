@@ -96,7 +96,7 @@ public class ArtistControllerUnitTest {
     
     @Test
     void updateTest() {
-    	ArtistDTO newArtist= new ArtistDTO(null, "Arsenal");
+    	ArtistDTO newArtist= new ArtistDTO(id, "The Rolling Stones");
     	ArtistDTO updatedArtist= new ArtistDTO(this.id, newArtist.getName());
 
         when(this.service.update(newArtist, this.id))
