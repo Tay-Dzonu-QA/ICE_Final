@@ -75,7 +75,7 @@ public class AlbumDTO {
 		return artist;
 	}
 
-	public void setArtistDTO(Artist artist) {
+	public void setArtist(Artist artist) {
 		this.artist = artist;
 	}
 

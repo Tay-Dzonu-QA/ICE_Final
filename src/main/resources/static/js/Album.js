@@ -91,6 +91,9 @@ function generateTable(table, AlbumData, loggedIn) {
         }
         text = document.createTextNode(tracksNo);
       }
+      if(key ==="genre" ||key ==="artist"){
+        text =  document.createTextNode(element[key].name)
+      }
       cell.appendChild(text);
     }
     let newCell = row.insertCell();
