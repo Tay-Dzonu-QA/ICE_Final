@@ -96,20 +96,20 @@ public class AlbumServiceUnitTest {
 
 	        AlbumDTO albumDTO = new AlbumDTO(id, "Sticky Fingers");
 
-	        Album updatedAlbum = new Album(albumDTO.getName());
+	        Album newAlbum = new Album(albumDTO.getName());
 	        
-	        updatedAlbum.setId(this.id);
+	        newAlbum.setId(this.id);
 
-	        AlbumDTO updatedAlbumDTO = new AlbumDTO(this.id, updatedAlbum.getName());
+	        AlbumDTO newAlbumDTO = new AlbumDTO(this.id, newAlbum.getName());
 
 	        when(this.repository.findById(this.id)).thenReturn(Optional.of(al));
-	        when(this.repository.save(al)).thenReturn(updatedAlbum);
-	        when(this.modelMapper.map(updatedAlbum, AlbumDTO.class)).thenReturn(updatedAlbumDTO);
+	        when(this.repository.save(al)).thenReturn(newAlbum);
+	        when(this.modelMapper.map(newAlbum, AlbumDTO.class)).thenReturn(newAlbumDTO);
 
-	        assertThat(updatedAlbumDTO).isEqualTo(this.service.update(albumDTO, this.id));
+	        assertThat(newAlbumDTO).isEqualTo(this.service.update(albumDTO, this.id));
 
 	        verify(this.repository, times(1)).findById(1L);
-	        verify(this.repository, times(1)).save(updatedAlbum);
+	        verify(this.repository, times(1)).save(newAlbum);
 	    }
 
 	    @Test

@@ -97,20 +97,20 @@ public class PlaylistServiceUnitTest {
 
         PlaylistDTO playlistDTO = new PlaylistDTO(id, "Summer Choonz");
 
-        Playlist updatedPlaylist = new Playlist(playlistDTO.getName());
+        Playlist newPlaylist = new Playlist(playlistDTO.getName());
         
-        updatedPlaylist.setId(this.id);
+        newPlaylist.setId(this.id);
 
-        PlaylistDTO updatedPlaylistDTO = new PlaylistDTO(this.id, updatedPlaylist.getName());
+        PlaylistDTO newPlaylistDTO = new PlaylistDTO(this.id, newPlaylist.getName());
 
         when(this.repository.findById(this.id)).thenReturn(Optional.of(pl));
-        when(this.repository.save(pl)).thenReturn(updatedPlaylist);
-        when(this.modelMapper.map(updatedPlaylist, PlaylistDTO.class)).thenReturn(updatedPlaylistDTO);
+        when(this.repository.save(pl)).thenReturn(newPlaylist);
+        when(this.modelMapper.map(newPlaylist, PlaylistDTO.class)).thenReturn(newPlaylistDTO);
 
-        assertThat(updatedPlaylistDTO).isEqualTo(this.service.update(playlistDTO, this.id));
+        assertThat(newPlaylistDTO).isEqualTo(this.service.update(playlistDTO, this.id));
 
         verify(this.repository, times(1)).findById(1L);
-        verify(this.repository, times(1)).save(updatedPlaylist);
+        verify(this.repository, times(1)).save(newPlaylist);
     }
 
     @Test

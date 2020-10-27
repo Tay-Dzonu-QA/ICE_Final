@@ -98,21 +98,21 @@ public class GenreServiceUnitTest {
 
 	        GenreDTO genreDTO = new GenreDTO(id, "Rock");
 
-	        Genre updatedGenre = new Genre(genreDTO.getName());
-	        updatedGenre.setId(this.id);
+	        Genre newGenre = new Genre(genreDTO.getName());
+	        newGenre.setId(this.id);
 
-	        GenreDTO updatedGenreDTO = new GenreDTO(this.id, updatedGenre.getName());
+	        GenreDTO newGenreDTO = new GenreDTO(this.id, newGenre.getName());
 
 	        when(this.repository.findById(this.id)).thenReturn(Optional.of(genre));
 
-	        when(this.repository.save(genre)).thenReturn(updatedGenre);
+	        when(this.repository.save(genre)).thenReturn(newGenre);
 
-	        when(this.modelMapper.map(updatedGenre, GenreDTO.class)).thenReturn(updatedGenreDTO);
+	        when(this.modelMapper.map(newGenre, GenreDTO.class)).thenReturn(newGenreDTO);
 
-	        assertThat(updatedGenreDTO).isEqualTo(this.service.update(genreDTO, this.id));
+	        assertThat(newGenreDTO).isEqualTo(this.service.update(genreDTO, this.id));
 
 	        verify(this.repository, times(1)).findById(1L);
-	        verify(this.repository, times(1)).save(updatedGenre);
+	        verify(this.repository, times(1)).save(newGenre);
 	    }
 
 	    @Test

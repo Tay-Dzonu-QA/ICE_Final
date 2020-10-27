@@ -16,10 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.qa.choonz.persistence.domain.Album;
 import com.qa.choonz.persistence.domain.Artist;
 import com.qa.choonz.persistence.repository.ArtistRepository;
-import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.rest.dto.ArtistDTO;
 
 
@@ -100,20 +98,20 @@ public class ArtistServiceUnitTest {
 
 	        ArtistDTO artistDTO = new ArtistDTO(id, "Nortorious BIG");
 
-	        Artist updatedArtist = new Artist(artistDTO.getName());
+	        Artist newArtist = new Artist(artistDTO.getName());
 	        
-	        updatedArtist.setId(this.id);
+	        newArtist.setId(this.id);
 
-	        ArtistDTO updatedArtistDTO = new ArtistDTO(this.id, updatedArtist.getName());
+	        ArtistDTO newArtistDTO = new ArtistDTO(this.id, newArtist.getName());
 
 	        when(this.repository.findById(this.id)).thenReturn(Optional.of(art));
-	        when(this.repository.save(art)).thenReturn(updatedArtist);
-	        when(this.modelMapper.map(updatedArtist, ArtistDTO.class)).thenReturn(updatedArtistDTO);
+	        when(this.repository.save(art)).thenReturn(newArtist);
+	        when(this.modelMapper.map(newArtist, ArtistDTO.class)).thenReturn(newArtistDTO);
 
-	        assertThat(updatedArtistDTO).isEqualTo(this.service.update(artistDTO, this.id));
+	        assertThat(newArtistDTO).isEqualTo(this.service.update(artistDTO, this.id));
 
 	        verify(this.repository, times(1)).findById(1L);
-	        verify(this.repository, times(1)).save(updatedArtist);
+	        verify(this.repository, times(1)).save(newArtist);
 	    }
 
 	    @Test
