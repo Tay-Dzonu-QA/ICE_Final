@@ -1,8 +1,9 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 for (const param of params) {
-  console.log(param);
-  loggedIn = param[1];
+  if(param[0]==="loggedIn"){
+    loggedIn = param[1];
+  } 
 }
 getArtists(loggedIn);
 
