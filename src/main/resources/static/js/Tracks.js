@@ -19,7 +19,7 @@ for (const param of params) {
 
 console.log(tracksToView);
 console.log(loggedIn);
-getTracks(loggedIn,tracksToView);
+getTracks(loggedIn,tracksToView,singleTrack);
 
 function getTracks(loggedIn,tracksToView, singleTrack) {
   fetch("http://localhost:8082/tracks/read"+tracksToView)
@@ -35,8 +35,9 @@ function getTracks(loggedIn,tracksToView, singleTrack) {
         console.log(TrackData);
         let table = document.querySelector("#TrackTable");
         let data;
-        if(singleTrack){
+        if(singleTrack ===true){
           data = Object.keys(TrackData)
+          TrackData = [TrackData];
         } else{
           data = Object.keys(TrackData[0]);
         }
