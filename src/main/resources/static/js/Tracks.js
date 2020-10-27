@@ -309,12 +309,12 @@ function editTrack(name, TrackId, duration, lyrics, album) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      id: TrackId,
-      name: name,
-      duration: duration,
-      lyrics: lyrics,
-      albums: {
-        id: album,
+      "id": TrackId,
+      "name": name,
+      "duration": duration,
+      "lyrics": lyrics,
+      "album": {
+        "id": album,
       },
     })),
   })
@@ -351,11 +351,11 @@ function addTrack(name, duration, lyrics, album) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      name: name,
-      duration: duration,
-      lyrics: lyrics,
-      tracks: {
-        id: album,
+      "name": name,
+      "duration": duration,
+      "lyrics": lyrics,
+      "album": {
+        "id": album,
       },
     })),
   })
