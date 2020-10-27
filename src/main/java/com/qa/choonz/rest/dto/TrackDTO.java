@@ -2,24 +2,28 @@ package com.qa.choonz.rest.dto;
 
 import java.util.Objects;
 
+import com.qa.choonz.persistence.domain.Album;
+
 public class TrackDTO {
 
     private Long id;
     private String name;
     private Integer duration;
     private String lyrics;
+    private Album album;
 
     public TrackDTO() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	public TrackDTO(Long id, String name, Integer duration, String lyrics) {
+	public TrackDTO(Long id, String name, Integer duration, String lyrics,Album album) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.duration = duration;
 		this.lyrics = lyrics;
+		this.album=album;
 	}
 
 	public Long getId() {
@@ -53,10 +57,19 @@ public class TrackDTO {
 	public void setLyrics(String lyrics) {
 		this.lyrics = lyrics;
 	}
+	
 
-    @Override
+    public Album getAlbum() {
+		return album;
+	}
+
+	public void setAlbum(Album album) {
+		this.album = album;
+	}
+
+	@Override
     public int hashCode() {
-        return Objects.hash( id, name, duration,lyrics);
+        return Objects.hash( id, name, duration,lyrics,album);
     }
 
     @Override
@@ -69,7 +82,8 @@ public class TrackDTO {
         }
         TrackDTO other = (TrackDTO) obj;
         return Objects.equals(duration, other.duration) && Objects.equals(lyrics, other.lyrics)
-                && id == other.id && Objects.equals(name, other.name) ;
+                && id == other.id && Objects.equals(name, other.name)
+                		&& Objects.equals(album, other.album);
     }
     
 
