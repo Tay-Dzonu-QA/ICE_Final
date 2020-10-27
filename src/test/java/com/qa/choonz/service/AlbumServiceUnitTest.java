@@ -44,12 +44,12 @@ public class AlbumServiceUnitTest {
 
 	    @BeforeEach
 	    void init() {
-	        this.albums = new ArrayList<>();
-	        this.testAlbum = new Album(testName);
-	        this.testAlbumWithId.setId(id);
-	        this.testAlbumWithId = new Album(testAlbum.getName());
-	        this.albums.add(testAlbum);	       
-	        this.albumDTO = modelMapper.map(testAlbumWithId, AlbumDTO.class);
+	    	 this.albums = new ArrayList<>();
+	         this.testAlbum = new Album(testName);
+	         this.albums.add(testAlbum);
+	         this.testAlbumWithId = new Album(testAlbum.getName());
+	         this.testAlbumWithId.setId(id);
+	         this.albumDTO = modelMapper.map(testAlbumWithId, AlbumDTO.class);
 	    }
 
 	    @Test
