@@ -99,15 +99,6 @@ public class Playlist {
     }
 
     @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Playlist [id=").append(id).append(", name=").append(name).append(", description=")
-                .append(description).append(", artwork=").append(artwork).append(", tracks=").append(tracks)
-                .append("]");
-        return builder.toString();
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(artwork, description, id, name, tracks);
     }

@@ -104,15 +104,6 @@ public class Track {
     }
 
     @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Track [id=").append(id).append(", name=").append(name).append(", album=").append(album)
-                .append(", playlist=").append(playlist).append(", duration=").append(duration).append(", lyrics=")
-                .append(lyrics).append("]");
-        return builder.toString();
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(album, duration, id, lyrics, name, playlist);
     }

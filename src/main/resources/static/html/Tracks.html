@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypiCode</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body>
+
+
+    <div class ="TableBody">
+      <br>
+        <h2> Track List</h2>
+        <table id="TrackTable"class="table table-hover"></table>
+    </div>
+
+    <div class="modal fade" id="AddTrackModal" tabindex="-1" aria-labelledby="AddTrackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" >Add Track</h5>
+              <button type="button" class="close"data-dismiss="modal"aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="ModalForm" class="Track" method="POST">
+                <div class="form-group">
+                  <label for="TrackName">Track Name:</label>
+                  <input type="text" class="form-control"  id="TrackName" required>
+                  <label for="TrackDuration">Track Duration:</label>
+                  <input type="text" class="form-control"  id="TrackDuration" required>
+                  <label for="TrackLyrics">Track Lyrics:</label>
+                  <input type="text" class="form-control"  id="TrackLyrics" required>
+
+                  <label for="TrackAlbum">Track Album:</label>
+                  <select multiple class="form-control" id="TrackAlbum"required>
+
+                  </select>
+                </div>
+                <button id ="AddTrackSubmit" type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="EditTrackModal" tabindex="-1" aria-labelledby="EditTrackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id ="addTitle" class="modal-title" >Edit Track </h5>
+              <button type="button" class="close"data-dismiss="modal"aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="ModalFormEditTrack" class="EditTrack" method="PUT">
+                <div class="form-group">
+                  <label for="EditTrackName">Track Name:</label>
+                  <input type="text" class="form-control"  id="EditTrackName" required>
+                  <label for="EditTrackDuration">Track Duration:</label>
+                  <input type="text" class="form-control"  id="EditTrackDuration" required>
+                  <label for="EditTrackLyrics">Track Lyrics:</label>
+                  <input type="text" class="form-control"  id="EditTrackLyrics" required>
+
+                  <label for="EditTrackAlbum">Track Album:</label>
+                  <select multiple class="form-control" id="EditTrackAlbum"required>
+
+                  </select>
+                </div>
+                <button id ="EditTrackSubmit"type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    <script src="../js/Track.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

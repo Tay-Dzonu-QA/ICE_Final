@@ -1,5 +1,6 @@
 package com.qa.choonz.persistence.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,7 +28,7 @@ public class Album {
     private String name;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
-    private List<Track> tracks;
+    private List<Track> tracks= new ArrayList<>();
 
     @ManyToOne
     private Artist artist;
@@ -42,14 +43,12 @@ public class Album {
         // TODO Auto-generated constructor stub
     }
 
-    public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks, Artist artist, Genre genre,
+    public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks,
             String cover) {
         super();
         this.id = id;
         this.name = name;
         this.tracks = tracks;
-        this.artist = artist;
-        this.genre = genre;
         this.cover = cover;
     }
 
@@ -99,15 +98,6 @@ public class Album {
 
     public void setCover(String cover) {
         this.cover = cover;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Album [id=").append(id).append(", name=").append(name).append(", tracks=").append(tracks)
-                .append(", artist=").append(artist).append(", genre=").append(genre).append(", cover=").append(cover)
-                .append("]");
-        return builder.toString();
     }
 
     @Override
