@@ -44,6 +44,10 @@ public class PlaylistController {
     public ResponseEntity<PlaylistDTO> read(@PathVariable Long id) {
         return new ResponseEntity<PlaylistDTO>(this.service.read(id), HttpStatus.OK);
     }
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<PlaylistDTO>> readUserPlaylists(@PathVariable Long id) {
+        return new ResponseEntity<List<PlaylistDTO>>(this.service.readUserPlaylists(id), HttpStatus.OK);
+    }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<PlaylistDTO> update(@RequestBody PlaylistDTO playlist, @PathVariable Long id) {
