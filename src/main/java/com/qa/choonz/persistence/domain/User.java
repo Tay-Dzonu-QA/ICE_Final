@@ -18,7 +18,7 @@ public class User {
 
 
     @NotNull
-    @Column
+    @Column(unique = true)
     @Size(min = 8)
     private String userName;
 

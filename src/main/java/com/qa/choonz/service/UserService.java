@@ -1,16 +1,18 @@
 package com.qa.choonz.service;
 
 import com.qa.choonz.exception.PlaylistNotFoundException;
-import com.qa.choonz.persistence.domain.Playlist;
+
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.UserRepository;
-import com.qa.choonz.rest.dto.PlaylistDTO;
+
 import com.qa.choonz.rest.dto.UserDTO;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class UserService {
 
     private UserRepository repo;
