@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.qa.choonz.exception.TrackNotFoundException;
 import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.repository.TrackRepository;
+import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.rest.dto.TrackDTO;
 import com.qa.choonz.utils.SAPIBeanUtils;
 
@@ -40,6 +41,9 @@ public class TrackService {
     public TrackDTO read(long id) {
         Track found = this.repo.findById(id).orElseThrow(TrackNotFoundException::new);
         return this.mapToDTO(found);
+    }
+    public List<TrackDTO> readAlbum(Long id) {
+    	return this.repo.readAlbum(id).stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
     public TrackDTO update(TrackDTO track, long id) {
