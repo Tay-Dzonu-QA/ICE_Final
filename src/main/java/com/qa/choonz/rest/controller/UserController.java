@@ -36,11 +36,16 @@ public class UserController {
     public ResponseEntity<UserDTO> read(@PathVariable long id) {
         return new ResponseEntity<UserDTO>(this.service.read(id), HttpStatus.OK);
     }
+    @GetMapping("/password/{username}")
+	public ResponseEntity<String> readLastID(@PathVariable String username){
+		return ResponseEntity.ok(this.service.checkPassword(username));
+	}
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<UserDTO> update(@RequestBody UserDTO user, @PathVariable long id) {
+    public ResponseEntity<UserDTO> update(@RequestBody UserDTO user, @PathVariable Long id) {
         return new ResponseEntity<UserDTO>(this.service.update(user, id), HttpStatus.ACCEPTED);
     }
+    
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<UserDTO> delete(@PathVariable long id) {

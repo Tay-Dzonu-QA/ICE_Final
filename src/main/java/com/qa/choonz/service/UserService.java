@@ -33,9 +33,6 @@ public class UserService {
         return this.mapToDTO(created);
     }
 
-
-
-
     public List<UserDTO> read() {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
@@ -43,6 +40,10 @@ public class UserService {
     public UserDTO read(long id) {
         User found = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
         return this.mapToDTO(found);
+    }
+    
+    public String checkPassword(String username) {
+        return this.repo.checkPassword(username);
     }
 
     public UserDTO update(UserDTO user, long id) {
