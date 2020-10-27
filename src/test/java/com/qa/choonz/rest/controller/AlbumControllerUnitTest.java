@@ -38,7 +38,7 @@ public class AlbumControllerUnitTest {
 
     private List<Album> albums;
     private Album testAlbum;
-    private Album testAlbumWithID;
+    private Album testAlbumWithId;
     private AlbumDTO albumDTO;
     private final Long id = 1L;
 
@@ -49,11 +49,11 @@ public class AlbumControllerUnitTest {
     @BeforeEach
     void init() {
         this.albums = new ArrayList<>();
-        this.testAlbum = new Album("Ocean Eyes");
-        this.testAlbumWithID = new Album(testAlbum.getName());
-        this.testAlbumWithID.setId(id);
-        this.albums.add(testAlbumWithID);
-        this.albumDTO = this.mapToDTO(testAlbumWithID);
+        this.testAlbum = new Album("Rumours");
+        this.testAlbumWithId = new Album(testAlbum.getName());
+        this.testAlbumWithId.setId(id);
+        this.albums.add(testAlbumWithId);
+        this.albumDTO = this.mapToDTO(testAlbumWithId);
     }
     
     @Test
@@ -98,7 +98,7 @@ public class AlbumControllerUnitTest {
     @Test
     void updateTest() {
         // given
-        AlbumDTO newAlbum= new AlbumDTO(null, "Arsenal");
+        AlbumDTO newAlbum= new AlbumDTO(null, "Thunderstruck");
         AlbumDTO updatedAlbum= new AlbumDTO(this.id, newAlbum.getName());
 
         when(this.service.update(newAlbum, this.id))
