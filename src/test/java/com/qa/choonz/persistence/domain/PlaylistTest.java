@@ -21,6 +21,10 @@ public class PlaylistTest {
 	final String artwork = "Guitar";
 	List<Track> tracks;
 	
+	private static int activeTest = 1;
+	private static StringBuilder sBuilder = new StringBuilder();
+	private static String div = "=============================================\n";
+	
 	
 	@BeforeEach
 	void init() {
@@ -31,14 +35,25 @@ public class PlaylistTest {
 				this.desc, 
 				this.artwork,
 				this.tracks);
+		
+		// Start of console test format
+		sBuilder.setLength(0);
+		sBuilder
+		.append("\tTest ").append(activeTest).append("\n")
+		.append(div);
+		// Append info about vending machine here
+		
+		System.out.println(sBuilder.toString());
+		activeTest++;
+		// End of console test format
+		
 	}
 	
 	@Test
 	public void consTests() {
 		Playlist newPl = new Playlist();
 		
-		assertTrue(newPl instanceof Playlist);
-		
+		assertTrue(newPl instanceof Playlist);		
 		Playlist pl = new Playlist(id,name,desc,artwork,null);
 		assertTrue(pl instanceof Playlist);
 	}
@@ -105,6 +120,7 @@ public class PlaylistTest {
 		assertTrue(pl1.hashCode() == pl2.hashCode());
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	public void equalsTest() {
 		Playlist pl = new Playlist(id,name,desc,artwork,null);

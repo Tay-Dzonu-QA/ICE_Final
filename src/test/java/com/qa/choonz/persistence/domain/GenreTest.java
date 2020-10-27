@@ -21,6 +21,10 @@ public class GenreTest {
 		final String description = "Heavy";
 		List<Album> albums;
 		
+		private static int activeTest = 1;
+		private static StringBuilder sBuilder = new StringBuilder();
+		private static String div = "=============================================\n";
+		
 		@BeforeEach
 		void init() {
 			this.albums = new ArrayList<Album>();
@@ -29,6 +33,17 @@ public class GenreTest {
 					this.name, 
 					this.description, 
 					this.albums);
+			
+			// Start of console test format
+			sBuilder.setLength(0);
+			sBuilder
+			.append("\tTest ").append(activeTest).append("\n")
+			.append(div);
+			// Append info about vending machine here
+			
+			System.out.println(sBuilder.toString());
+			activeTest++;
+			// End of console test format
 		}
 		
 

@@ -18,6 +18,10 @@ public class ArtistTest {
 		final Long id = 1l;
 		final String name = "Fleetwood Mac";
 		List<Album> testAlbums;
+		
+		private static int activeTest = 1;
+		private static StringBuilder sBuilder = new StringBuilder();
+		private static String div = "=============================================\n";
 
 
 		@BeforeEach
@@ -28,6 +32,17 @@ public class ArtistTest {
 					this.id, 
 					this.name, 
 					this.testAlbums);
+			
+			// Start of console test format
+			sBuilder.setLength(0);
+			sBuilder
+			.append("\tTest ").append(activeTest).append("\n")
+			.append(div);
+			// Append info about vending machine here
+			
+			System.out.println(sBuilder.toString());
+			activeTest++;
+			// End of console test format
 		}
 		
 

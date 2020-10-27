@@ -19,6 +19,9 @@ public class AlbumTest {
 		final String cover = "no";
 		List<Track> tracks;
 
+		private static int activeTest = 1;
+		private static StringBuilder sBuilder = new StringBuilder();
+		private static String div = "=============================================\n";
 
 		@BeforeEach
 		void init() {
@@ -30,6 +33,15 @@ public class AlbumTest {
 					null, 
 					null, 
 					this.cover);
+			
+			sBuilder.setLength(0);
+			sBuilder
+			.append("\tTest ").append(activeTest).append("\n")
+			.append(div);
+			// Append info about vending machine here
+			
+			System.out.println(sBuilder.toString());
+			activeTest++;
 		}
 		
 
@@ -37,8 +49,6 @@ public class AlbumTest {
 		void NoArguConsTest() {
 
 			Album newAlbum = new Album();
-			
-
 			assertThat(newAlbum instanceof Album);
 		}
 		
@@ -46,8 +56,7 @@ public class AlbumTest {
 		void OneArguConsTest() {
 		
 		Album newAl = new Album(
-		this.name);
-		
+		this.name);		
 		assertThat(newAl instanceof Album);
 		}
 		

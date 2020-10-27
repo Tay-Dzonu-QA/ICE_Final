@@ -23,6 +23,10 @@ public class TrackTest {
 	final String lyrics = "Gold Coast slave ship bound for cotton fields";
 	List<Track> tracks;
 	
+	private static int activeTest = 1;
+	private static StringBuilder sBuilder = new StringBuilder();
+	private static String div = "=============================================\n";
+	
 	@BeforeEach
 	void init() {
 		this.tracks = new ArrayList<Track>();
@@ -33,6 +37,17 @@ public class TrackTest {
 				null,
 				this.duration,
 				this.lyrics);
+		
+		// Start of console test format
+		sBuilder.setLength(0);
+		sBuilder
+		.append("\tTest ").append(activeTest).append("\n")
+		.append(div);
+		// Append info about vending machine here
+		
+		System.out.println(sBuilder.toString());
+		activeTest++;
+		// End of console test format
 	}
 	
 	
