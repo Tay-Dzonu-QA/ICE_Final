@@ -92,7 +92,7 @@ function generateTable(table, AlbumData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewAlbumButton";
-    myViewButton.onclick = function(){document.location='Tracks.html?loggedIn='+loggedIn+'?albums='+element.id};
+    myViewButton.onclick = function(){document.location='Album.html?loggedIn='+loggedIn+'?albums='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
