@@ -282,10 +282,10 @@ function deleteAlbum(id) {
       body: (json = JSON.stringify({
         "id": AlbumId,
         "name": name,
-        "artists":{
+        "artist":{
           "id":artist
         },
-        "genres":{
+        "genre":{
           "id":genre
         },
         "cover":cover
@@ -327,10 +327,10 @@ function deleteAlbum(id) {
       },
       body: (json = JSON.stringify({
         "name": name,
-        "artists":{
+        "artist":{
           "id":artist
         },
-        "genres":{
+        "genre":{
           "id":genre
         },
         "cover":cover
