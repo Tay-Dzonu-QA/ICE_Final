@@ -34,7 +34,6 @@ public class Album {
     private String name;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("albums")
     private List<Track> tracks = new ArrayList<>();
 
 
