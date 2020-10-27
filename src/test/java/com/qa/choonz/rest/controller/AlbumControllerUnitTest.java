@@ -19,7 +19,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.qa.choonz.persistence.domain.Album;
-import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.service.AlbumService;
 
@@ -97,8 +96,8 @@ public class AlbumControllerUnitTest {
     
     @Test
     void updateTest() {
-        // given
-        AlbumDTO newAlbum= new AlbumDTO(null, "Thunderstruck");
+
+        AlbumDTO newAlbum= new AlbumDTO(1l, "Thunderstruck");
         AlbumDTO updatedAlbum= new AlbumDTO(this.id, newAlbum.getName());
 
         when(this.service.update(newAlbum, this.id))
