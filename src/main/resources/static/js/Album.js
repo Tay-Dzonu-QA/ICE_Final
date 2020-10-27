@@ -87,7 +87,7 @@ function generateTable(table, AlbumData, loggedIn) {
       if (key === "tracks") {
         let tracksNo = 0;
         for (tracks of element[key]) {
-            tracksNo = +1;
+            tracksNo +=1;
         }
         text = document.createTextNode(tracksNo);
       }
@@ -97,7 +97,7 @@ function generateTable(table, AlbumData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewAlbumButton";
-    myViewButton.onclick = function(){document.location='Tracks.html?loggedIn='+loggedIn+'?album='+element.id};
+    myViewButton.onclick = function(){document.location='Tracks.html?loggedIn='+loggedIn+'?albums='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
@@ -159,7 +159,7 @@ function generateAddAlbumBtn(table){
 }
 
 function deleteAlbum(id) {
-    fetch("http://localhost:8082/album/delete/" + id, {
+    fetch("http://localhost:8082/albums/delete/" + id, {
       method: "delete",
       headers: {
         "Content-type": "application/json",
