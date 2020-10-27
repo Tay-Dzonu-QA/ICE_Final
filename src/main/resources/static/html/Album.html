@@ -53,8 +53,16 @@
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav('albumTitle'); document.getElementById('main').style.display = 'block'">&times;</a>
-      <a href="#">Genres</a>
-      <a href="#">Artist</a>
+      <div>
+        <h2>Genres</h2>
+        <div id = "genreList">
+        </div>
+      </div>
+      <div>
+        <h2>Artists</h2>
+        <div id = "artistList">
+        </div>
+      </div>
     </div>
     
     <div id="main">
@@ -140,6 +148,7 @@
 
     <script src="../js/Album.js"></script>
     <script src="../js/Sidebar.js"></script>
+    <script src="../js/SidebarNav.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
