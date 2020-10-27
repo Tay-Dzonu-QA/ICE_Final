@@ -26,6 +26,27 @@ public class Genre {
     @Column(unique = true)
     private String name;
 
+	@NotNull
+    @Size(max = 250)
+    @Column(unique = true)
+    private String description;
+
+    @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL)
+    private List<Album> albums= new ArrayList<>();
+
+    public Genre() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+    public Genre(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String description,
+            List<Album> albums) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.albums = albums;
+    }
     public long getId() {
 		return id;
 	}
@@ -57,28 +78,6 @@ public class Genre {
 	public void setAlbums(List<Album> albums) {
 		this.albums = albums;
 	}
-
-	@NotNull
-    @Size(max = 250)
-    @Column(unique = true)
-    private String description;
-
-    @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL)
-    private List<Album> albums= new ArrayList<>();
-
-    public Genre() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-    public Genre(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String description,
-            List<Album> albums) {
-        super();
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.albums = albums;
-    }
 
     @Override
     public int hashCode() {

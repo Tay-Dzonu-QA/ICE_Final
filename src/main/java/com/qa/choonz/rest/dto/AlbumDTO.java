@@ -5,7 +5,6 @@ import java.util.Objects;
 
 import com.qa.choonz.persistence.domain.Artist;
 import com.qa.choonz.persistence.domain.Genre;
-import com.qa.choonz.persistence.domain.Track;
 
 public class AlbumDTO {
 
@@ -13,27 +12,29 @@ public class AlbumDTO {
     private String name;
     private List<TrackDTO> tracks;
     private String cover;
-    private String genre;
+    private Genre genre;
+    private Artist artist;
 
     public AlbumDTO() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    public AlbumDTO(long id, String name, List<TrackDTO> tracks, String cover, String genre) {
+    public AlbumDTO(long id, String name, List<TrackDTO> tracks, String cover, Genre genre,Artist artist) {
         super();
         this.id = id;
         this.name = name;
         this.tracks = tracks;
         this.cover = cover;
         this.genre = genre;
+        this.artist = artist;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -61,17 +62,26 @@ public class AlbumDTO {
         this.cover = cover;
     }
 
-    public String getGenre() {
+    public Genre getGenre() {
 		return genre;
 	}
 
-	public void setGenre(String genre) {
+	public void setGenre(Genre genre) {
 		this.genre = genre;
+	}
+	
+
+	public Artist getArtist() {
+		return artist;
+	}
+
+	public void setArtistDTO(Artist artist) {
+		this.artist = artist;
 	}
 
 	@Override
     public int hashCode() {
-        return Objects.hash( cover, id, name, tracks);
+        return Objects.hash( cover, id, name, tracks,genre,artist);
     }
 
     @Override
@@ -84,7 +94,8 @@ public class AlbumDTO {
         }
         AlbumDTO other = (AlbumDTO) obj;
         return  Objects.equals(cover, other.cover) && id == other.id 
-        		&& Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks);
+        		&& Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks)
+        		&& Objects.equals(genre, other.genre) && Objects.equals(artist, other.artist);
     }
 
 }
