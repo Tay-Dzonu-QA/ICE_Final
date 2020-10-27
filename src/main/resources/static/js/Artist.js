@@ -23,7 +23,7 @@ function getArtists(loggedIn) {
 
         generateTableHead(table, data, loggedIn);
         generateTable(table, ArtistData, loggedIn);
-        if (loggedIn) {
+        if (loggedIn == true) {
           generateAddArtistBtn(table);
         }
       });
@@ -46,7 +46,7 @@ function generateTableHead(table, data, loggedIn) {
   let text = document.createTextNode("View Artist");
   th.appendChild(text);
   row.appendChild(th);
-  if (loggedIn) {
+  if (loggedIn == true) {
     let th2 = document.createElement("th");
     let text2 = document.createTextNode("Edit");
     th2.appendChild(text2);
@@ -79,7 +79,7 @@ function generateTable(table, ArtistData, loggedIn) {
     myViewButton.className = "btn";
     myViewButton.id = "ViewArtistButton";
     let artist = element.id;
-    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "&artists=" + artist};
+    myViewButton.onclick = function(){document.location = "Artist.html?loggedIn=" + loggedIn + "&artists=" + artist};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
@@ -87,7 +87,7 @@ function generateTable(table, ArtistData, loggedIn) {
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-    if (loggedIn) {
+    if (loggedIn == true) {
       let newCell2 = row.insertCell();
       let myEditButton = document.createElement("button");
       myEditButton.className = "btn";
