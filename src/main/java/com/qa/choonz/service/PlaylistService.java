@@ -44,8 +44,12 @@ public class PlaylistService {
 
     public PlaylistDTO update(PlaylistDTO playlist, long id) {
         Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+
+
         SAPIBeanUtils.mergeNotNull(playlist,toUpdate);
         return this.mapToDTO(this.repo.save(toUpdate));
+
+
     }
 
     public boolean delete(long id) {

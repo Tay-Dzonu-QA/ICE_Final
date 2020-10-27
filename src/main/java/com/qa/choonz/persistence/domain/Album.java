@@ -1,5 +1,9 @@
 package com.qa.choonz.persistence.domain;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,11 +34,14 @@ public class Album {
     private String name;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
-    private List<Track> tracks= new ArrayList<>();
+    private List<Track> tracks = new ArrayList<>();
+
+
 
     @ManyToOne
     @JsonIgnoreProperties("albums")
     private Artist artist;
+
 
     @ManyToOne
     @JsonIgnoreProperties("albums")

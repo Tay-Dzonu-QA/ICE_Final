@@ -3,12 +3,21 @@ package com.qa.choonz.rest.dto;
 import java.util.Objects;
 
 import com.qa.choonz.persistence.domain.Album;
+import com.qa.choonz.persistence.domain.Playlist;
+
+import java.util.Objects;
 
 public class TrackDTO {
 
     private Long id;
     private String name;
+
+
+    private Playlist playlist;
+
+
     private Integer duration;
+
     private String lyrics;
     private Album album;
 
@@ -16,6 +25,23 @@ public class TrackDTO {
         super();
         // TODO Auto-generated constructor stub
     }
+
+//    public Album getAlbum() {
+//        return album;
+//    }
+//
+//    public void setAlbum(Album album) {
+//        this.album = album;
+//    }
+//
+//    public Playlist getPlaylist() {
+//        return playlist;
+//    }
+//
+//    public void setPlaylist(Playlist playlist) {
+//        this.playlist = playlist;
+//    }
+
 
 	public TrackDTO(Long id, String name, Integer duration, String lyrics,Album album) {
 		super();
@@ -86,5 +112,6 @@ public class TrackDTO {
                 		&& Objects.equals(album, other.album);
     }
     
+
 
 }

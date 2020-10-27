@@ -1,5 +1,6 @@
 package com.qa.choonz.rest.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ public class PlaylistDTO {
     private String name;
     private String description;
     private String artwork;
-    private List<TrackDTO> tracks;
+    private List<TrackDTO> tracks = new ArrayList<>();
 
     public PlaylistDTO() {
         super();
