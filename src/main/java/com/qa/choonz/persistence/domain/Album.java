@@ -101,15 +101,6 @@ public class Album {
     }
 
     @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Album [id=").append(id).append(", name=").append(name).append(", tracks=").append(tracks)
-                .append(", artist=").append(artist).append(", genre=").append(genre).append(", cover=").append(cover)
-                .append("]");
-        return builder.toString();
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(artist, cover, genre, id, name, tracks);
     }
