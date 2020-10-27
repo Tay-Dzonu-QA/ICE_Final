@@ -30,6 +30,7 @@ public class Track {
     private Album album;
 
     @ManyToOne
+    @JsonIgnoreProperties("tracks")
     private Playlist playlist;
 
     // in seconds
