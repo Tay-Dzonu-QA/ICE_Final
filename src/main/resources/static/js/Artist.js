@@ -67,7 +67,7 @@ function generateTable(table, ArtistData, loggedIn) {
       if (key === "albums") {
         let albumNo = 0;
         for (album of element[key]) {
-          albumNo = +1;
+          albumNo += 1;
         }
         text = document.createTextNode(albumNo);
       }
@@ -77,12 +77,12 @@ function generateTable(table, ArtistData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewArtistButton";
-    myViewButton.onclick = document.location =
-      "Albums.html?loggedIn=" + loggedIn + "artist=" + artist;
+    let artist = element.id;
+    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "&artists=" + artist};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
-    viewIcon.innerHTML = "create";
+    viewIcon.innerHTML = "launch";
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
@@ -101,7 +101,7 @@ function generateTable(table, ArtistData, loggedIn) {
       let ID = element.id;
       let Name = element.name;
       myEditButton.onclick = function () {
-        changeArtistModal(ID, Name);
+        changeEditArtistModal(ID, Name);
       };
       newCell2.appendChild(myEditButton);
 
@@ -130,9 +130,7 @@ function generateAddArtistBtn(table) {
   myAddArtistButton.id = "AddArtistButton";
   myAddArtistButton.setAttribute("data-toggle", "modal");
   myAddArtistButton.setAttribute("data-target", "#AddArtistModal");
-  myAddArtistButton.onclick = function () {
-    changeAddArtistModal(ID, Name);
-  };
+
 
   tableFooter.appendChild(myAddArtistButton);
   table.appendChild(tableFooter);
@@ -173,26 +171,27 @@ document
 
     let EditArtistname = formElements["EditArtistName"].value;
 
-    let ArtistId = parseInt(ArtistId);
-    console.log(ArtistId);
+
+    console.log(EditArtistname);
     editArtist(EditArtistname, ArtistId);
   });
 
 function editArtist(name, ArtistId) {
+  let ID = parseInt(ArtistId);
   fetch("http://localhost:8082/artists/update/" + ArtistId, {
     method: "put",
     headers: {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      id: ArtistId,
-      name: name,
+      "id": ID,
+      "name": name
     })),
   })
     .then(json)
     .then(function (data) {
       console.log("Request succeeded with JSON response", data);
-      location.reload();
+      // location.reload();
     })
     .catch(function (error) {
       console.log("Request failed", error);
@@ -217,14 +216,16 @@ function addArtist(name) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      name: name,
+      "name": name
     })),
   })
     .then(json)
     .then(function (data) {
       console.log("Request succeeded with JSON response", data);
+      location.reload();
     })
     .catch(function (error) {
       console.log("Request failed", error);
     });
 }
+

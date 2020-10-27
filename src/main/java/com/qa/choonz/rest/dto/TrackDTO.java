@@ -5,11 +5,11 @@ import com.qa.choonz.persistence.domain.Playlist;
 
 public class TrackDTO {
 
-    private long id;
+    private Long id;
     private String name;
     private Album album;
     private Playlist playlist;
-    private int duration;
+    private Integer duration;
     private String lyrics;
 
     public TrackDTO() {

@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TypiCode</title>
+    <title>Artists</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -15,64 +17,103 @@
 
   <body>
 
+      <!-- Navbar -->
 
-    <div class ="TableBody">
+    <nav class="navbar fixed-top navbar-expand-lg">
+      <a class="navbar-brand" href="./">
+          <img class="logo" src="../img/Choonz.jpg" width="auto" ml-auto
+              height="50"></a>
+      <button class="navbar-toggler collapsed border-0" type="button"
+          data-toggle="collapse" data-target="#collapsingNavbar">
+          <span class="navbar-toggler-icon"></span>
+          <div class="close-icon py-1">✖</div>
+      </button>
+      <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar" >
+          <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="/tracks">Featured Tracks</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/artists">Artists</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/playlists">Top Playlists</a>
+              </li>
+          </ul>
+      </div>
+    </nav>
+    <!-- /Navbar -->
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNavArtist()">&times;</a>
+      <a href="#">Genres</a>
+      <a href="#">Artist</a>
+    </div>
+    
+    <div id="main">
+      <button class="openbtn" onclick="openNavArtist()">&#9776; Filter By</button>
+    </div>
+    <!-- Sidebar -->
+
+    <!-- Table -->
+
+    <div class ="TableBody" id="artistTitle">
       <br>
         <h2> Artist List</h2>
         <table id="ArtistTable"class="table table-hover"></table>
     </div>
 
     <div class="modal fade" id="AddArtistModal" tabindex="-1" aria-labelledby="AddArtistModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" >Add Artist</h5>
-              <button type="button" class="close"data-dismiss="modal"aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="ModalForm" class="Artist" method="POST">
-                <div class="form-group">
-                  <label for="ArtistName">Artist Name:</label>
-                  <input type="text" class="form-control"  id="ArtistName" required>
-                </div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >Add Artist</h5>
+            <button type="button" class="close"data-dismiss="modal"aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="ModalForm" class="Artist" method="POST">
+              <div class="form-group">
+                <label for="ArtistName">Artist Name:</label>
+                <input type="text" class="form-control"  id="ArtistName" required>
+              </div>
                 <button id ="AddArtistSubmit" type="submit" class="btn btn-primary">Add</button>
-                </form>
-            </div>
-            </div>
+            </form>
+          </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="modal fade" id="EditArtistModal" tabindex="-1" aria-labelledby="EditArtistModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 id ="addTitle" class="modal-title" >Edit Artist </h5>
-              <button type="button" class="close"data-dismiss="modal"aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="ModalFormEditArtist" class="EditArtist" method="PUT">
-                <div class="form-group">
-                  <label for="EditArtistName">Artist Name:</label>
-                  <input type="text" class="form-control"  id="EditArtistName" required>
-                </div>
-                <button id ="EditArtistSubmit"type="submit" class="btn btn-primary">Add</button>
-                </form>
-            </div>
-            </div>
+    <div class="modal fade" id="EditArtistModal" tabindex="-1" aria-labelledby="EditArtistModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id ="addTitle" class="modal-title" >Edit Artist </h5>
+            <button type="button" class="close"data-dismiss="modal"aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="ModalFormEditArtist" class="EditArtist" method="PUT">
+              <div class="form-group">
+                <label for="EditArtistName">Artist Name:</label>
+                <input type="text" class="form-control"  id="EditArtistName" required>
+              </div>
+              <button id ="EditArtistSubmit"type="submit" class="btn btn-primary">Add</button>
+              </form>
+          </div>
           </div>
         </div>
       </div>
+    </div>
 
-
-
-
+    <!-- Table -->
 
     <script src="../js/Artist.js"></script>
+    <script src="../js/Sidebar.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

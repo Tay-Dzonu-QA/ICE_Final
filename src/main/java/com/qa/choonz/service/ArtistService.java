@@ -10,6 +10,7 @@ import com.qa.choonz.exception.ArtistNotFoundException;
 import com.qa.choonz.persistence.domain.Artist;
 import com.qa.choonz.persistence.repository.ArtistRepository;
 import com.qa.choonz.rest.dto.ArtistDTO;
+import com.qa.choonz.utils.SAPIBeanUtils;
 
 @Service
 public class ArtistService {
@@ -41,12 +42,10 @@ public class ArtistService {
         return this.mapToDTO(found);
     }
 
-    public ArtistDTO update(Artist artist, long id) {
+    public ArtistDTO update(ArtistDTO artist, Long id) {
         Artist toUpdate = this.repo.findById(id).orElseThrow(ArtistNotFoundException::new);
-        toUpdate.setName(artist.getName());
-        toUpdate.setAlbums(artist.getAlbums());
-        Artist updated = this.repo.save(toUpdate);
-        return this.mapToDTO(updated);
+        SAPIBeanUtils.mergeNotNull(artist,toUpdate);
+        return this.mapToDTO(this.repo.save(toUpdate));
     }
 
     public boolean delete(long id) {
