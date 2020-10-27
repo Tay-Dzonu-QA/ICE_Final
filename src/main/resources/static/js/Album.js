@@ -1,11 +1,14 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 let albumsToView="";
+let user =0;
 console.log(params);
-
 for (const param of params) {
-  if(param[0]==="loggedIn"){
-    loggedIn = param[1];
+  if (param[0] === "user") {
+    user = param[1];
+    if (user !== 0) {
+      loggedIn = true;
+    }
   } else if(param[0]==="artists"||param[0]==="genres"){
     let artistOrGenre = param[0];
     let artistOrGenreId = param[1];
@@ -14,9 +17,9 @@ for (const param of params) {
 }
 console.log(albumsToView);
 console.log(loggedIn);
-getAlbums(loggedIn,albumsToView);
+getAlbums(loggedIn,albumsToView,user);
 
-function getAlbums(loggedIn,albumsToView) {
+function getAlbums(loggedIn,albumsToView,user) {
   fetch("http://localhost:8082/albums/read"+albumsToView)
     .then(function (response) {
       if (response.status !== 200) {
@@ -32,7 +35,7 @@ function getAlbums(loggedIn,albumsToView) {
         let data = Object.keys(AlbumData[0]);
 
         generateTableHead(table, data, loggedIn);
-        generateTable(table, AlbumData, loggedIn);
+        generateTable(table, AlbumData, loggedIn,user);
         if(loggedIn){
             generateAddAlbumBtn(table);
         }
@@ -92,7 +95,7 @@ function generateTable(table, AlbumData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewAlbumButton";
-    myViewButton.onclick = function(){document.location='Tracks.html?loggedIn='+loggedIn+'?albums='+element.id};
+    myViewButton.onclick = function(){document.location='Tracks.html?user='+user+'?albums='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
