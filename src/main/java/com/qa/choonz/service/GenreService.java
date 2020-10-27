@@ -41,6 +41,9 @@ public class GenreService {
         Genre found = this.repo.findById(id).orElseThrow(GenreNotFoundException::new);
         return this.mapToDTO(found);
     }
+    public String getGenreName(Long id) {
+		 return this.repo.getGenreName(id);
+		 }
 
     public GenreDTO update(GenreDTO genre, long id) {
         Genre toUpdate = this.repo.findById(id).orElseThrow(GenreNotFoundException::new);

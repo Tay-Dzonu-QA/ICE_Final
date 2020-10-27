@@ -13,18 +13,20 @@ public class AlbumDTO {
     private String name;
     private List<TrackDTO> tracks;
     private String cover;
+    private String genre;
 
     public AlbumDTO() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    public AlbumDTO(long id, String name, List<TrackDTO> tracks, String cover) {
+    public AlbumDTO(long id, String name, List<TrackDTO> tracks, String cover, String genre) {
         super();
         this.id = id;
         this.name = name;
         this.tracks = tracks;
         this.cover = cover;
+        this.genre = genre;
     }
 
     public long getId() {
@@ -51,8 +53,6 @@ public class AlbumDTO {
         this.tracks = tracks;
     }
 
-
-
     public String getCover() {
         return cover;
     }
@@ -61,9 +61,15 @@ public class AlbumDTO {
         this.cover = cover;
     }
 
+    public String getGenre() {
+		return genre;
+	}
 
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 
-    @Override
+	@Override
     public int hashCode() {
         return Objects.hash( cover, id, name, tracks);
     }
