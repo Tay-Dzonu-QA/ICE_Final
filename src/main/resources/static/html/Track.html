@@ -33,13 +33,17 @@
                 id="collapsingNavbar">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/tracks">Featured Tracks</a>
+                        <a class="nav-link" href="Track.html">Featured
+                            Tracks</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/artists">Artists</a>
+                        <a class="nav-link" href="Artist.html">Artists</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/playlists">Top Playlists</a>
+                        <a class="nav-link" href="Album.html">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Top Playlists</a>
                     </li>
                 </ul>
             </div>
@@ -48,13 +52,14 @@
 
         <!-- Sidebar -->
         <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNavTrack()">&times;</a>
+            <a href="javascript:void(0)" class="closebtn"
+                onclick="closeNav('trackTitle'); document.getElementById('main').style.display = 'block'">&times;</a>
             <a href="#">Genres</a>
             <a href="#">Artist</a>
         </div>
 
         <div id="main">
-            <button class="openbtn" onclick="openNavTrack()">&#9776; Filter By</button>
+            <button class="openbtn" onclick="openNav('trackTitle'); document.getElementById('main').style.display = 'none'">&#9776; Filter By</button>
         </div>
         <!-- Sidebar -->
 
@@ -62,10 +67,74 @@
         <div class="TableBody" id="trackTitle">
             <br>
             <h2> Track List</h2>
-            <table id="AlbumTable" class="table table-hover"></table>
+            <table id="TrackTable" class="table table-hover"></table>
         </div>
 
-        <script src="../js/Album.js"></script>
+        <div class="modal fade" id="AddTrackModal" tabindex="-1" aria-labelledby="AddTrackModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" >Add Track</h5>
+                  <button type="button" class="close"data-dismiss="modal"aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="ModalForm" class="Track" method="POST">
+                    <div class="form-group">
+                      <label for="TrackName">Track Name:</label>
+                      <input type="text" class="form-control"  id="TrackName" required>
+                      <label for="TrackDuration">Track Duration:</label>
+                      <input type="text" class="form-control"  id="TrackDuration" required>
+                      <label for="TrackLyrics">Track Lyrics:</label>
+                      <input type="text" class="form-control"  id="TrackLyrics" required>
+    
+                      <label for="TrackAlbum">Track Album:</label>
+                      <select multiple class="form-control" id="TrackAlbum"required>
+    
+                      </select>
+                    </div>
+                    <button id ="AddTrackSubmit" type="submit" class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="modal fade" id="EditTrackModal" tabindex="-1" aria-labelledby="EditTrackModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 id ="addTitle" class="modal-title" >Edit Track </h5>
+                  <button type="button" class="close"data-dismiss="modal"aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="ModalFormEditTrack" class="EditTrack" method="PUT">
+                    <div class="form-group">
+                      <label for="EditTrackName">Track Name:</label>
+                      <input type="text" class="form-control"  id="EditTrackName" required>
+                      <label for="EditTrackDuration">Track Duration:</label>
+                      <input type="text" class="form-control"  id="EditTrackDuration" required>
+                      <label for="EditTrackLyrics">Track Lyrics:</label>
+                      <input type="text" class="form-control"  id="EditTrackLyrics" required>
+    
+                      <label for="EditTrackAlbum">Track Album:</label>
+                      <select multiple class="form-control" id="EditTrackAlbum"required>
+    
+                      </select>
+                    </div>
+                    <button id ="EditTrackSubmit"type="submit" class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <script src="../js/Tracks.js"></script>
         <script src="../js/Sidebar.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

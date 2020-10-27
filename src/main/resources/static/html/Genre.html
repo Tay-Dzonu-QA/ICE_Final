@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Artists</title>
+    <title>Genres</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <link
@@ -35,7 +35,7 @@
                     <a class="nav-link" href="Track.html">Featured Tracks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Artist.html">Artists</a>
+                    <a class="nav-link" href="Genre.html">Genres</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Album.html">Albums</a>
@@ -50,40 +50,40 @@
 
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav('artistTitle'); document.getElementById('main').style.display = 'block'">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav('genreTitle'); document.getElementById('main').style.display = 'block'">&times;</a>
       <a href="#">Genres</a>
-      <a href="#">Artist</a>
+      <a href="#">Genre</a>
     </div>
     
     <div id="main">
-      <button class="openbtn" onclick="openNav('artistTitle'); document.getElementById('main').style.display = 'none'">&#9776; Filter By</button>
+      <button class="openbtn" onclick="openNav('genreTitle'); document.getElementById('main').style.display = 'none'">&#9776; Filter By</button>
     </div>
     <!-- Sidebar -->
 
     <!-- Table -->
 
-    <div class ="TableBody" id="artistTitle">
+    <div class ="TableBody" id="genreTitle">
       <br>
-        <h2> Artist List</h2>
-        <table id="ArtistTable"class="table table-hover"></table>
+        <h2> Genre List</h2>
+        <table id="GenreTable"class="table table-hover"></table>
     </div>
 
-    <div class="modal fade" id="AddArtistModal" tabindex="-1" aria-labelledby="AddArtistModalLabel" aria-hidden="true">
+    <div class="modal fade" id="AddGenreModal" tabindex="-1" aria-labelledby="AddGenreModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" >Add Artist</h5>
+            <h5 class="modal-title" >Add Genre</h5>
             <button type="button" class="close"data-dismiss="modal"aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form id="ModalForm" class="Artist" method="POST">
+            <form id="ModalForm" class="Genre" method="POST">
               <div class="form-group">
-                <label for="ArtistName">Artist Name:</label>
-                <input type="text" class="form-control"  id="ArtistName" required>
+                <label for="GenreName">Genre Name:</label>
+                <input type="text" class="form-control"  id="GenreName" required>
               </div>
-                <button id ="AddArtistSubmit" type="submit" class="btn btn-primary">Add</button>
+                <button id ="AddGenreSubmit" type="submit" class="btn btn-primary">Add</button>
             </form>
           </div>
           </div>
@@ -91,22 +91,22 @@
       </div>
     </div>
 
-    <div class="modal fade" id="EditArtistModal" tabindex="-1" aria-labelledby="EditArtistModalLabel" aria-hidden="true">
+    <div class="modal fade" id="EditGenreModal" tabindex="-1" aria-labelledby="EditGenreModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 id ="addTitle" class="modal-title" >Edit Artist </h5>
+            <h5 id ="addTitle" class="modal-title" >Edit Genre </h5>
             <button type="button" class="close"data-dismiss="modal"aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form id="ModalFormEditArtist" class="EditArtist" method="PUT">
+            <form id="ModalFormEditGenre" class="EditGenre" method="PUT">
               <div class="form-group">
-                <label for="EditArtistName">Artist Name:</label>
-                <input type="text" class="form-control"  id="EditArtistName" required>
+                <label for="EditGenreName">Genre Name:</label>
+                <input type="text" class="form-control"  id="EditGenreName" required>
               </div>
-              <button id ="EditArtistSubmit"type="submit" class="btn btn-primary">Add</button>
+              <button id ="EditGenreSubmit"type="submit" class="btn btn-primary">Add</button>
               </form>
           </div>
           </div>
@@ -116,7 +116,7 @@
 
     <!-- Table -->
 
-    <script src="../js/Artist.js"></script>
+    <script src="../js/Genre.js"></script>
     <script src="../js/Sidebar.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

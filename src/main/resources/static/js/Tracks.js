@@ -1,30 +1,27 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
-let tracksToView;
+let tracksToView="";
 console.log(params);
-let run = 0;
+let singleTrack = false;
 
 for (const param of params) {
-  console.log(param);
-  if(run === 0){
+  if(param[0]==="loggedIn"){
     loggedIn = param[1];
-    run+=1;
-  } else if(run ===1){
-    let albumOrArtistOrGenre = param[0];
-    let albumOrArtistOrGenreId = param[1];
-    tracksToView = "/"+albumOrArtistOrGenre+"/"+albumOrArtistOrGenreId;
-    run+=1;
+  } else if(param[0]==="albums"){
+    let artistOrGenre = param[0];
+    let artistOrGenreId = param[1];
+    tracksToView = "/"+artistOrGenre+"/"+artistOrGenreId;
+  } else if(param[0]="tracks"){
+    singleTrack=true;
+    tracksToView = "/"+param[1];
   }
 }
-console.log(run);
-if(run ===1){
-  tracksToView="";
-}
+
 console.log(tracksToView);
 console.log(loggedIn);
-getTracks(loggedIn,tracksToView);
+getTracks(loggedIn,tracksToView,singleTrack);
 
-function getTracks(loggedIn,tracksToView) {
+function getTracks(loggedIn,tracksToView, singleTrack) {
   fetch("http://localhost:8082/tracks/read"+tracksToView)
     .then(function (response) {
       if (response.status !== 200) {
@@ -37,8 +34,13 @@ function getTracks(loggedIn,tracksToView) {
       response.json().then(function (TrackData) {
         console.log(TrackData);
         let table = document.querySelector("#TrackTable");
-        let data = Object.keys(TrackData[0]);
-
+        let data;
+        if(singleTrack ===true){
+          data = Object.keys(TrackData)
+          TrackData = [TrackData];
+        } else{
+          data = Object.keys(TrackData[0]);
+        }
         generateTableHead(table, data, loggedIn);
         generateTable(table, TrackData, loggedIn);
         if(loggedIn){
@@ -84,13 +86,16 @@ function generateTable(table, TrackData, loggedIn) {
     for (key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
+      if(key ==="album"){
+        text =  document.createTextNode(element[key].name)
+      }
       cell.appendChild(text);
     }
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewTrackButton";
-    myViewButton.onclick = function(){document.location='Tracks.html?loggedIn='+loggedIn+'?tracks='+element.id};
+    myViewButton.onclick = function(){document.location='Track.html?loggedIn='+loggedIn+'&tracks='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";

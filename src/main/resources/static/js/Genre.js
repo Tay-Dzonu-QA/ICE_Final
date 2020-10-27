@@ -5,10 +5,10 @@ for (const param of params) {
     loggedIn = param[1];
   } 
 }
-getArtists(loggedIn);
+getGenres(loggedIn);
 
-function getArtists(loggedIn) {
-  fetch("http://localhost:8082/artists/read")
+function getGenres(loggedIn) {
+  fetch("http://localhost:8082/genres/read")
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
@@ -17,14 +17,14 @@ function getArtists(loggedIn) {
         return;
       }
       // Examine the text in the response
-      response.json().then(function (ArtistData) {
-        let table = document.querySelector("#ArtistTable");
-        let data = Object.keys(ArtistData[0]);
+      response.json().then(function (GenreData) {
+        let table = document.querySelector("#GenreTable");
+        let data = Object.keys(GenreData[0]);
 
         generateTableHead(table, data, loggedIn);
-        generateTable(table, ArtistData, loggedIn);
+        generateTable(table, GenreData, loggedIn);
         if (loggedIn) {
-          generateAddArtistBtn(table);
+          generateAddGenreBtn(table);
         }
       });
     })
@@ -43,7 +43,7 @@ function generateTableHead(table, data, loggedIn) {
     row.appendChild(th);
   }
   let th = document.createElement("th");
-  let text = document.createTextNode("View Artist");
+  let text = document.createTextNode("View Genre");
   th.appendChild(text);
   row.appendChild(th);
   if (loggedIn) {
@@ -59,8 +59,8 @@ function generateTableHead(table, data, loggedIn) {
   }
 }
 
-function generateTable(table, ArtistData, loggedIn) {
-  for (let element of ArtistData) {
+function generateTable(table, GenreData, loggedIn) {
+  for (let element of GenreData) {
     let row = table.insertRow();
     for (key in element) {
       let cell = row.insertCell();
@@ -77,9 +77,9 @@ function generateTable(table, ArtistData, loggedIn) {
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
-    myViewButton.id = "ViewArtistButton";
-    let artist = element.id;
-    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "&artists=" + artist};
+    myViewButton.id = "ViewGenreButton";
+    let genre = element.id;
+    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "&genres=" + genre};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
@@ -91,9 +91,9 @@ function generateTable(table, ArtistData, loggedIn) {
       let newCell2 = row.insertCell();
       let myEditButton = document.createElement("button");
       myEditButton.className = "btn";
-      myEditButton.id = "EditArtistButton";
+      myEditButton.id = "EditGenreButton";
       myEditButton.setAttribute("data-toggle", "modal");
-      myEditButton.setAttribute("data-target", "#EditArtistModal");
+      myEditButton.setAttribute("data-target", "#EditGenreModal");
 
       let editIcon = document.createElement("span");
       editIcon.className = "material-icons";
@@ -102,43 +102,43 @@ function generateTable(table, ArtistData, loggedIn) {
       let ID = element.id;
       let Name = element.name;
       myEditButton.onclick = function () {
-        changeEditArtistModal(ID, Name);
+        changeEditGenreModal(ID, Name);
       };
       newCell2.appendChild(myEditButton);
 
       let newCell3 = row.insertCell();
       let myDeleteButton = document.createElement("button");
       myDeleteButton.className = "btn";
-      myDeleteButton.id = "DeleteArtistButton" + element.name;
+      myDeleteButton.id = "DeleteGenreButton" + element.name;
 
       let deleteIcon = document.createElement("span");
       deleteIcon.className = "material-icons";
       deleteIcon.innerHTML = "delete";
       myDeleteButton.appendChild(deleteIcon);
       myDeleteButton.onclick = function () {
-        deleteArtist(element.id);
+        deleteGenre(element.id);
       };
       newCell3.appendChild(myDeleteButton);
     }
   }
 }
 
-function generateAddArtistBtn(table) {
+function generateAddGenreBtn(table) {
   let tableFooter = document.createElement("footer");
-  let myAddArtistButton = document.createElement("button");
-  myAddArtistButton.className = "btn btn-outline-primary";
-  myAddArtistButton.innerHTML = "Add Artist";
-  myAddArtistButton.id = "AddArtistButton";
-  myAddArtistButton.setAttribute("data-toggle", "modal");
-  myAddArtistButton.setAttribute("data-target", "#AddArtistModal");
+  let myAddGenreButton = document.createElement("button");
+  myAddGenreButton.className = "btn btn-outline-primary";
+  myAddGenreButton.innerHTML = "Add Genre";
+  myAddGenreButton.id = "AddGenreButton";
+  myAddGenreButton.setAttribute("data-toggle", "modal");
+  myAddGenreButton.setAttribute("data-target", "#AddGenreModal");
 
 
-  tableFooter.appendChild(myAddArtistButton);
+  tableFooter.appendChild(myAddGenreButton);
   table.appendChild(tableFooter);
 }
 
-function deleteArtist(id) {
-  fetch("http://localhost:8082/artists/delete/" + id, {
+function deleteGenre(id) {
+  fetch("http://localhost:8082/genres/delete/" + id, {
     method: "delete",
     headers: {
       "Content-type": "application/json",
@@ -154,32 +154,32 @@ function deleteArtist(id) {
     });
 }
 
-let ArtistId;
+let GenreId;
 
-function changeEditArtistModal(id, name) {
-  let modalPH = document.getElementById("EditArtistName");
+function changeEditGenreModal(id, name) {
+  let modalPH = document.getElementById("EditGenreName");
   modalPH.setAttribute("value", name);
-  ArtistId = id;
+  GenreId = id;
 }
 
 document
-  .querySelector("form.EditArtist")
+  .querySelector("form.EditGenre")
   .addEventListener("submit", function (stop) {
     stop.preventDefault();
 
-    let formElements = document.querySelector("form.EditArtist").elements;
+    let formElements = document.querySelector("form.EditGenre").elements;
     console.log(formElements);
 
-    let EditArtistname = formElements["EditArtistName"].value;
+    let EditGenrename = formElements["EditGenreName"].value;
 
 
-    console.log(EditArtistname);
-    editArtist(EditArtistname, ArtistId);
+    console.log(EditGenrename);
+    editGenre(EditGenrename, GenreId);
   });
 
-function editArtist(name, ArtistId) {
-  let ID = parseInt(ArtistId);
-  fetch("http://localhost:8082/artists/update/" + ArtistId, {
+function editGenre(name, GenreId) {
+  let ID = parseInt(GenreId);
+  fetch("http://localhost:8082/genres/update/" + GenreId, {
     method: "put",
     headers: {
       "Content-type": "application/json",
@@ -200,18 +200,18 @@ function editArtist(name, ArtistId) {
 }
 
 document
-  .querySelector("form.Artist")
+  .querySelector("form.Genre")
   .addEventListener("submit", function (stop) {
     stop.preventDefault();
 
-    let formElements = document.querySelector("form.Artist").elements;
+    let formElements = document.querySelector("form.Genre").elements;
     console.log(formElements);
-    let name = formElements["ArtistName"].value;
-    addArtist(name);
+    let name = formElements["GenreName"].value;
+    addGenre(name);
   });
 
-function addArtist(name) {
-  fetch("http://localhost:8082/artists/create", {
+function addGenre(name) {
+  fetch("http://localhost:8082/genres/create", {
     method: "post",
     headers: {
       "Content-type": "application/json",
