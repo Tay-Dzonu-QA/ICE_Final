@@ -1,7 +1,8 @@
 package com.qa.choonz.service;
 
-import com.qa.choonz.exception.PlaylistNotFoundException;
 
+
+import com.qa.choonz.exception.UserNotFoundException;
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.UserRepository;
 
@@ -41,12 +42,14 @@ public class UserService {
     }
 
     public UserDTO read(long id) {
-        User found = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+        User found = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
         return this.mapToDTO(found);
     }
 
+
+
     public UserDTO update(UserDTO user, long id) {
-        User toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+        User toUpdate = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
         SAPIBeanUtils.mergeNotNull(user,toUpdate);
         return this.mapToDTO(this.repo.save(toUpdate));
     }
