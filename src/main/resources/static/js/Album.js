@@ -33,7 +33,7 @@ function getAlbums(loggedIn,albumsToView) {
 
         generateTableHead(table, data, loggedIn);
         generateTable(table, AlbumData, loggedIn);
-        if(loggedIn){
+        if(loggedIn == true){
             generateAddAlbumBtn(table);
         }
         
@@ -57,7 +57,7 @@ function generateTableHead(table, data, loggedIn) {
   let text = document.createTextNode("View Album");
   th.appendChild(text);
   row.appendChild(th);
-  if (loggedIn) {
+  if (loggedIn == true) {
     let th2 = document.createElement("th");
     let text2 = document.createTextNode("Edit");
     th2.appendChild(text2);
@@ -100,7 +100,7 @@ function generateTable(table, AlbumData, loggedIn) {
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-    if (loggedIn) {
+    if (loggedIn == true) {
         let newCell2 = row.insertCell();
         let myEditButton = document.createElement("button");
         myEditButton.className = "btn";
