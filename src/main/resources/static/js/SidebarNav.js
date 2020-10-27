@@ -1,11 +1,4 @@
-const params = new URLSearchParams(window.location.search);
-let user =0;
-console.log(params);
-for (const param of params) {
-  if (param[0] === "user") {
-    user = param[1];
-  } 
-}
+GenerateSideBarNav(user);
 
 function GenerateSideBarNav(user){
     fetch("http://localhost:8082/artists/read")
@@ -18,7 +11,7 @@ function GenerateSideBarNav(user){
         }
         // Examine the text in the response
         response.json().then(function (ArtistData) {
-          let artistSideBar = document.getElementById("artistList");
+          let artistSideBar = document.querySelector("#artistList");
           for(let element of ArtistData){
             let artistList = document.createElement("a");
             artistList.innerHTML = element.name;
@@ -44,7 +37,7 @@ function GenerateSideBarNav(user){
           for(let element of GenreData){
             let genreList = document.createElement("a");
             genreList.innerHTML = element.name;
-            genreList.href= "Album.html?user=" + user + "&artists=" + element.id;
+            genreList.href= "Album.html?user=" + user + "&genres=" + element.id;
             genreSideBar.appendChild(genreList);
           }
         });
@@ -52,5 +45,4 @@ function GenerateSideBarNav(user){
       .catch(function (err) {
         console.log("Fetch Error :-S", err);
       });
-
 }
