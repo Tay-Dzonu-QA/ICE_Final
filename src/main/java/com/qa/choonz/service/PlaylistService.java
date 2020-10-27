@@ -10,6 +10,7 @@ import com.qa.choonz.exception.PlaylistNotFoundException;
 import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
+import com.qa.choonz.utils.SAPIBeanUtils;
 
 @Service
 public class PlaylistService {
@@ -41,14 +42,14 @@ public class PlaylistService {
         return this.mapToDTO(found);
     }
 
-    public PlaylistDTO update(Playlist playlist, long id) {
+    public PlaylistDTO update(PlaylistDTO playlist, long id) {
         Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
-        toUpdate.setName(playlist.getName());
-        toUpdate.setDescription(playlist.getDescription());
-        toUpdate.setArtwork(playlist.getArtwork());
-        toUpdate.setTracks(playlist.getTracks());
-        Playlist updated = this.repo.save(toUpdate);
-        return this.mapToDTO(updated);
+
+
+        SAPIBeanUtils.mergeNotNull(playlist,toUpdate);
+        return this.mapToDTO(this.repo.save(toUpdate));
+
+
     }
 
     public boolean delete(long id) {

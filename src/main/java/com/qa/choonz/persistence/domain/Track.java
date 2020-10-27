@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Track {
 
@@ -24,9 +26,11 @@ public class Track {
     private String name;
 
     @ManyToOne
+    @JsonIgnoreProperties("tracks")
     private Album album;
 
     @ManyToOne
+    @JsonIgnoreProperties("tracks")
     private Playlist playlist;
 
     // in seconds
@@ -96,15 +100,6 @@ public class Track {
 
     public void setLyrics(String lyrics) {
         this.lyrics = lyrics;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Track [id=").append(id).append(", name=").append(name).append(", album=").append(album)
-                .append(", playlist=").append(playlist).append(", duration=").append(duration).append(", lyrics=")
-                .append(lyrics).append("]");
-        return builder.toString();
     }
 
     @Override

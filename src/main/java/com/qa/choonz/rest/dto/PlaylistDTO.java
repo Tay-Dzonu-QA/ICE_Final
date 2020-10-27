@@ -1,5 +1,6 @@
 package com.qa.choonz.rest.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,11 +8,11 @@ import com.qa.choonz.persistence.domain.Track;
 
 public class PlaylistDTO {
 
-    private long id;
+    private Long id;
     private String name;
     private String description;
     private String artwork;
-    private List<TrackDTO> tracks;
+    private List<TrackDTO> tracks = new ArrayList<>();
 
     public PlaylistDTO() {
         super();
@@ -95,15 +96,6 @@ public class PlaylistDTO {
      */
     public void setTracks(List<TrackDTO> tracks) {
         this.tracks = tracks;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("PlaylistDTO [id=").append(id).append(", name=").append(name).append(", description=")
-                .append(description).append(", artwork=").append(artwork).append(", tracks=").append(tracks)
-                .append("]");
-        return builder.toString();
     }
 
     @Override

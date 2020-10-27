@@ -1,6 +1,8 @@
 package com.qa.choonz.persistence.domain;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,8 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Album {
 
@@ -30,8 +34,12 @@ public class Album {
     private String name;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("albums")
-    private List<Track> tracks = new ArrayList<>();
+//<<<<<<< HEAD
+//    @JsonIgnoreProperties("albums")
+//    private List<Track> tracks = new ArrayList<>();
+//=======
+    private List<Track> tracks= new ArrayList<>();
+
 
     @ManyToOne
     @JsonIgnoreProperties("albums")
@@ -39,6 +47,7 @@ public class Album {
 
 
     @ManyToOne
+    @JsonIgnoreProperties("albums")
     private Genre genre;
 
     private String cover;
@@ -48,14 +57,12 @@ public class Album {
         // TODO Auto-generated constructor stub
     }
 
-    public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks, Artist artist, Genre genre,
+    public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks,
             String cover) {
         super();
         this.id = id;
         this.name = name;
         this.tracks = tracks;
-        this.artist = artist;
-        this.genre = genre;
         this.cover = cover;
     }
 
@@ -105,15 +112,6 @@ public class Album {
 
     public void setCover(String cover) {
         this.cover = cover;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Album [id=").append(id).append(", name=").append(name).append(", tracks=").append(tracks)
-                .append(", artist=").append(artist).append(", genre=").append(genre).append(", cover=").append(cover)
-                .append("]");
-        return builder.toString();
     }
 
     @Override

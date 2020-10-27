@@ -1,5 +1,7 @@
 package com.qa.choonz.persistence.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -33,6 +35,7 @@ public class Playlist {
     private List<Track> tracks;
 
     @ManyToOne
+    @JsonIgnoreProperties("playlist")
     private User user;
 
     public Playlist() {
@@ -91,14 +94,15 @@ public class Playlist {
         this.tracks = tracks;
     }
 
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }
 
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
