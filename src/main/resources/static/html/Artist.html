@@ -19,40 +19,44 @@
 
       <!-- Navbar -->
 
-    <nav class="navbar fixed-top navbar-expand-lg">
-      <a class="navbar-brand" href="./">
-          <img class="logo" src="../img/Choonz.jpg" width="auto" ml-auto
-              height="50"></a>
-      <button class="navbar-toggler collapsed border-0" type="button"
-          data-toggle="collapse" data-target="#collapsingNavbar">
-          <span class="navbar-toggler-icon"></span>
-          <div class="close-icon py-1">✖</div>
-      </button>
-      <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar" >
-          <ul class="nav navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="/tracks">Featured Tracks</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/artists">Artists</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/playlists">Top Playlists</a>
-              </li>
-          </ul>
-      </div>
+      <nav class="navbar fixed-top navbar-expand-lg">
+        <a class="navbar-brand" href="./">
+            <img class="logo" src="../img/Choonz.jpg" width="auto" ml-auto
+                height="50"></a>
+        <button class="navbar-toggler collapsed border-0" type="button"
+            data-toggle="collapse" data-target="#collapsingNavbar">
+            <span class="navbar-toggler-icon"></span>
+            <div class="close-icon py-1">✖</div>
+        </button>
+        <div class="collapse navbar-collapse w-100 order-3"
+            id="collapsingNavbar">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Track.html">Featured Tracks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Artist.html">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Album.html">Albums</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Top Playlists</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <!-- /Navbar -->
 
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNavArtist()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav('artistTitle'); document.getElementById('main').style.display = 'block'">&times;</a>
       <a href="#">Genres</a>
       <a href="#">Artist</a>
     </div>
     
     <div id="main">
-      <button class="openbtn" onclick="openNavArtist()">&#9776; Filter By</button>
+      <button class="openbtn" onclick="openNav('artistTitle'); document.getElementById('main').style.display = 'none'">&#9776; Filter By</button>
     </div>
     <!-- Sidebar -->
 

@@ -19,42 +19,46 @@
   </head>
 
   <body>
-    <!-- Navbar -->
 
+    <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg">
-    <a class="navbar-brand" href="./">
-        <img class="logo" src="../img/Choonz.jpg" width="auto" ml-auto
-            height="50"></a>
-    <button class="navbar-toggler collapsed border-0" type="button"
-        data-toggle="collapse" data-target="#collapsingNavbar">
-        <span class="navbar-toggler-icon"></span>
-        <div class="close-icon py-1">✖</div>
-    </button>
-    <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar" >
-        <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/tracks">Featured Tracks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/artists">Artists</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/playlists">Top Playlists</a>
-            </li>
-        </ul>
-    </div>
+      <a class="navbar-brand" href="./">
+          <img class="logo" src="../img/Choonz.jpg" width="auto" ml-auto
+              height="50"></a>
+      <button class="navbar-toggler collapsed border-0" type="button"
+          data-toggle="collapse" data-target="#collapsingNavbar">
+          <span class="navbar-toggler-icon"></span>
+          <div class="close-icon py-1">✖</div>
+      </button>
+      <div class="collapse navbar-collapse w-100 order-3"
+          id="collapsingNavbar">
+          <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="Track.html">Featured Tracks</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Artist.html">Artists</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Album.html">Albums</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Top Playlists</a>
+              </li>
+          </ul>
+      </div>
     </nav>
     <!-- /Navbar -->
 
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNavAlbum()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav('albumTitle'); document.getElementById('main').style.display = 'block'">&times;</a>
       <a href="#">Genres</a>
       <a href="#">Artist</a>
     </div>
     
     <div id="main">
-      <button class="openbtn" onclick="openNavAlbum()">&#9776; Filter By</button>
+      <button class="openbtn" onclick="openNav('albumTitle'); document.getElementById('main').style.display = 'none'">&#9776; Filter By</button>
     </div>
     <!-- Sidebar -->
 
@@ -98,41 +102,41 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="modal fade" id="EditAlbumModal" tabindex="-1" aria-labelledby="EditAlbumModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 id ="addTitle" class="modal-title" >Edit Album </h5>
-              <button type="button" class="close"data-dismiss="modal"aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="ModalFormEditAlbum" class="EditAlbum" method="PUT">
-                <div class="form-group">
-                  <label for="EditAlbumName">Album Name:</label>
-                  <input type="text" class="form-control"  id="EditAlbumName" required>
-                  <label for="EditAlbumGenre">Album Genre:</label>
-                  <select multiple class="form-control" id="EditAlbumGenre"required>
+    <div class="modal fade" id="EditAlbumModal" tabindex="-1" aria-labelledby="EditAlbumModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id ="addTitle" class="modal-title" >Edit Album </h5>
+            <button type="button" class="close"data-dismiss="modal"aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="ModalFormEditAlbum" class="EditAlbum" method="PUT">
+              <div class="form-group">
+                <label for="EditAlbumName">Album Name:</label>
+                <input type="text" class="form-control"  id="EditAlbumName" required>
+                <label for="EditAlbumGenre">Album Genre:</label>
+                <select multiple class="form-control" id="EditAlbumGenre"required>
 
-                  </select>
-                  <label for="EditAlbumArtist">Album Artist:</label>
-                  <select multiple class="form-control" id="EditAlbumArtist"required>
+                </select>
+                <label for="EditAlbumArtist">Album Artist:</label>
+                <select multiple class="form-control" id="EditAlbumArtist"required>
 
-                  </select>
-                  <label for="EditAlbumCover">Album Cover:</label>
-                  <input type="text" class="form-control"  id="EditAlbumCover" required>
-                </div>
-                <button id ="EditAlbumSubmit"type="submit" class="btn btn-primary">Add</button>
-                </form>
-            </div>
-            </div>
+                </select>
+                <label for="EditAlbumCover">Album Cover:</label>
+                <input type="text" class="form-control"  id="EditAlbumCover" required>
+              </div>
+              <button id ="EditAlbumSubmit"type="submit" class="btn btn-primary">Add</button>
+              </form>
+          </div>
           </div>
         </div>
       </div>
-
-      <!-- /Table -->
+    </div>
+    <!-- /Table -->
 
     <script src="../js/Album.js"></script>
     <script src="../js/Sidebar.js"></script>
