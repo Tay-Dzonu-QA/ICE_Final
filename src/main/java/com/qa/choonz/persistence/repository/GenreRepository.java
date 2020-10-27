@@ -9,7 +9,4 @@ import com.qa.choonz.persistence.domain.Genre;
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Long> {
 	
-	@Query(value ="SELECT name FROM genre Where id=?1", nativeQuery = true)
-    String getGenreName(Long id);
-
 }
