@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Album {
 
@@ -31,9 +33,11 @@ public class Album {
     private List<Track> tracks= new ArrayList<>();
 
     @ManyToOne
+    @JsonIgnoreProperties("albums")
     private Artist artist;
 
     @ManyToOne
+    @JsonIgnoreProperties("albums")
     private Genre genre;
 
     private String cover;
@@ -98,15 +102,6 @@ public class Album {
 
     public void setCover(String cover) {
         this.cover = cover;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Album [id=").append(id).append(", name=").append(name).append(", tracks=").append(tracks)
-                .append(", artist=").append(artist).append(", genre=").append(genre).append(", cover=").append(cover)
-                .append("]");
-        return builder.toString();
     }
 
     @Override

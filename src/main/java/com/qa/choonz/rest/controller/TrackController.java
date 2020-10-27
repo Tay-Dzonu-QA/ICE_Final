@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,17 +41,17 @@ public class TrackController {
     }
 
     @GetMapping("/read/{id}")
-    public ResponseEntity<TrackDTO> read(@PathVariable long id) {
+    public ResponseEntity<TrackDTO> read(@PathVariable Long id) {
         return new ResponseEntity<TrackDTO>(this.service.read(id), HttpStatus.OK);
     }
 
-    @PostMapping("/update/{id}")
-    public ResponseEntity<TrackDTO> update(@RequestBody Track track, @PathVariable long id) {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<TrackDTO> update(@RequestBody TrackDTO track, @PathVariable Long id) {
         return new ResponseEntity<TrackDTO>(this.service.update(track, id), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<TrackDTO> delete(@PathVariable long id) {
+    public ResponseEntity<TrackDTO> delete(@PathVariable Long id) {
         return this.service.delete(id) ? new ResponseEntity<TrackDTO>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<TrackDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
     }

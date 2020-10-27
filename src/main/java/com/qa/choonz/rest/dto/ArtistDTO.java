@@ -52,14 +52,6 @@ public class ArtistDTO {
     }
 
     @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("ArtistDTO [id=").append(id).append(", name=").append(name).append(", albums=").append(albums)
-                .append("]");
-        return builder.toString();
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(albums, id, name);
     }

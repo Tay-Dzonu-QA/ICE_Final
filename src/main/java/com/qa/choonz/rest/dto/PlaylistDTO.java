@@ -11,14 +11,14 @@ public class PlaylistDTO {
     private String name;
     private String description;
     private String artwork;
-    private List<Track> tracks;
+    private List<TrackDTO> tracks;
 
     public PlaylistDTO() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    public PlaylistDTO(long id, String name, String description, String artwork, List<Track> tracks) {
+    public PlaylistDTO(long id, String name, String description, String artwork, List<TrackDTO> tracks) {
         super();
         this.id = id;
         this.name = name;
@@ -86,24 +86,15 @@ public class PlaylistDTO {
     /**
      * @return the tracks
      */
-    public List<Track> getTracks() {
+    public List<TrackDTO> getTracks() {
         return tracks;
     }
 
     /**
      * @param tracks the tracks to set
      */
-    public void setTracks(List<Track> tracks) {
+    public void setTracks(List<TrackDTO> tracks) {
         this.tracks = tracks;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("PlaylistDTO [id=").append(id).append(", name=").append(name).append(", description=")
-                .append(description).append(", artwork=").append(artwork).append(", tracks=").append(tracks)
-                .append("]");
-        return builder.toString();
     }
 
     @Override

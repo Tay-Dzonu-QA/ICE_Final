@@ -41,6 +41,13 @@ public class AlbumService {
         Album found = this.repo.findById(id).orElseThrow(AlbumNotFoundException::new);
         return this.mapToDTO(found);
     }
+    public List<AlbumDTO> readArtist(Long id) {
+    	return this.repo.readArtist(id).stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+    
+    public List<AlbumDTO> readGenre(Long id) {
+    	return this.repo.readGenre(id).stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
 
     public AlbumDTO update(AlbumDTO album, long id) {
         Album toUpdate = this.repo.findById(id).orElseThrow(AlbumNotFoundException::new);

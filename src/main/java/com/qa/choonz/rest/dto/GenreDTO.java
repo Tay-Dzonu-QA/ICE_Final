@@ -59,14 +59,6 @@ public class GenreDTO {
     }
 
     @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("GenreDTO [id=").append(id).append(", name=").append(name).append(", description=")
-                .append(description).append(", albums=").append(albums).append("]");
-        return builder.toString();
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(albums, description, id, name);
     }

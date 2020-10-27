@@ -91,6 +91,9 @@ function generateTable(table, AlbumData, loggedIn) {
         }
         text = document.createTextNode(tracksNo);
       }
+      if(key ==="genre" ||key ==="artist"){
+        text =  document.createTextNode(element[key].name)
+      }
       cell.appendChild(text);
     }
     let newCell = row.insertCell();
@@ -279,10 +282,10 @@ function deleteAlbum(id) {
       body: (json = JSON.stringify({
         "id": AlbumId,
         "name": name,
-        "artists":{
+        "artist":{
           "id":artist
         },
-        "genres":{
+        "genre":{
           "id":genre
         },
         "cover":cover
@@ -324,10 +327,10 @@ function deleteAlbum(id) {
       },
       body: (json = JSON.stringify({
         "name": name,
-        "artists":{
+        "artist":{
           "id":artist
         },
-        "genres":{
+        "genre":{
           "id":genre
         },
         "cover":cover

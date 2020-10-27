@@ -10,6 +10,7 @@ import com.qa.choonz.exception.GenreNotFoundException;
 import com.qa.choonz.persistence.domain.Genre;
 import com.qa.choonz.persistence.repository.GenreRepository;
 import com.qa.choonz.rest.dto.GenreDTO;
+import com.qa.choonz.utils.SAPIBeanUtils;
 
 @Service
 public class GenreService {
@@ -41,10 +42,10 @@ public class GenreService {
         return this.mapToDTO(found);
     }
 
-    public GenreDTO update(Genre genre, long id) {
+    public GenreDTO update(GenreDTO genre, long id) {
         Genre toUpdate = this.repo.findById(id).orElseThrow(GenreNotFoundException::new);
-        Genre updated = this.repo.save(toUpdate);
-        return this.mapToDTO(updated);
+        SAPIBeanUtils.mergeNotNull(genre,toUpdate);
+        return this.mapToDTO(this.repo.save(toUpdate));
     }
 
     public boolean delete(long id) {
