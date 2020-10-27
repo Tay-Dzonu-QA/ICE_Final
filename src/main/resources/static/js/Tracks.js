@@ -73,7 +73,12 @@ function generateTableHead(table, data, loggedIn) {
   row.appendChild(th);
 
   if (loggedIn == true) {
-    
+
+    let th4 = document.createElement("th");
+    let text4 = document.createTextNode("Add to Playlist");
+    th4.appendChild(text4);
+    row.appendChild(th4);
+
     let th2 = document.createElement("th");
     let text2 = document.createTextNode("Edit");
     th2.appendChild(text2);
@@ -84,10 +89,7 @@ function generateTableHead(table, data, loggedIn) {
     th3.appendChild(text3);
     row.appendChild(th3);
 
-    let th4 = document.createElement("th");
-    let text4 = document.createTextNode("Add to Playlist");
-    th4.appendChild(text4);
-    row.appendChild(th4);
+    
   }
 }
 
