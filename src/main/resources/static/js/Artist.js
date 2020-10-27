@@ -4,7 +4,7 @@ let user = 0;
 for (const param of params) {
   if (param[0] === "user") {
     user = param[1];
-    if (user !== 0) {
+    if (user != 0) {
       loggedIn = true;
     }
   }
@@ -27,7 +27,7 @@ function getArtists(loggedIn, user) {
 
         generateTableHead(table, data, loggedIn);
         generateTable(table, ArtistData, loggedIn,user);
-        if (loggedIn) {
+        if (loggedIn == true) {
           generateAddArtistBtn(table);
         }
       });
@@ -50,7 +50,7 @@ function generateTableHead(table, data, loggedIn) {
   let text = document.createTextNode("View Artist");
   th.appendChild(text);
   row.appendChild(th);
-  if (loggedIn) {
+  if (loggedIn == true) {
     let th2 = document.createElement("th");
     let text2 = document.createTextNode("Edit");
     th2.appendChild(text2);
@@ -83,10 +83,7 @@ function generateTable(table, ArtistData, loggedIn,user) {
     myViewButton.className = "btn";
     myViewButton.id = "ViewArtistButton";
     let artist = element.id;
-    myViewButton.onclick = function () {
-      document.location =
-        "Album.html?user=" + user + "&artists=" + artist;
-    };
+    myViewButton.onclick = function(){document.location = "Artist.html?loggedIn=" + loggedIn + "&artists=" + artist};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
@@ -94,7 +91,7 @@ function generateTable(table, ArtistData, loggedIn,user) {
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-    if (loggedIn) {
+    if (loggedIn == true) {
       let newCell2 = row.insertCell();
       let myEditButton = document.createElement("button");
       myEditButton.className = "btn";

@@ -8,7 +8,7 @@ console.log(params);
 for (const param of params) {
   if (param[0] === "user") {
     user = param[1];
-    if (user !== 0) {
+    if (user != 0) {
       loggedIn = true;
     }
   } else if (param[0] === "albums") {
@@ -37,6 +37,7 @@ function getTracks(loggedIn, tracksToView, singleTrack, user) {
       // Examine the text in the response
       response.json().then(function (TrackData) {
         console.log(TrackData);
+        console.log(loggedIn);
         let table = document.querySelector("#TrackTable");
         let data;
         if (singleTrack === true) {
@@ -70,7 +71,9 @@ function generateTableHead(table, data, loggedIn) {
   let text = document.createTextNode("View Track");
   th.appendChild(text);
   row.appendChild(th);
-  if (loggedIn) {
+
+  if (loggedIn == true) {
+
     let th4 = document.createElement("th");
     let text4 = document.createTextNode("Add to Playlist");
     th4.appendChild(text4);
@@ -85,6 +88,8 @@ function generateTableHead(table, data, loggedIn) {
     let text3 = document.createTextNode("Delete");
     th3.appendChild(text3);
     row.appendChild(th3);
+
+    
   }
 }
 
@@ -113,7 +118,7 @@ function generateTable(table, TrackData, loggedIn, user) {
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-    if (loggedIn) {
+    if (loggedIn == true) {
       let ID = element.id;
       let Name = element.name;
       let Duration = element.duration;
@@ -334,12 +339,12 @@ document
     stop.preventDefault();
 
     let formElements = document.querySelector("form.Track").elements;
-    let TrackName = formElements["AlbumName"].value;
+    let TrackName = formElements["TrackName"].value;
     let TrackDuration = formElements["TrackDuration"].value;
-    let TrackLyrics = formElements["TrackLyrics "].value;
+    let TrackLyrics = formElements["TrackLyrics"].value;
     let TrackAlbum = formElements["TrackAlbum"].value;
-    let TrackAlbum = TrackAlbum.split(".");
-    let TrackAlbumId = parseInt(TrackAlbum[0]);
+    let TrackAlbum1 = TrackAlbum.split(".");
+    let TrackAlbumId = parseInt(TrackAlbum1[0]);
 
     addTrack(AlbumName, TrackDuration, TrackLyrics, TrackAlbumId);
   });

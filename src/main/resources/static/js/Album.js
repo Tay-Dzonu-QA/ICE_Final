@@ -6,7 +6,7 @@ console.log(params);
 for (const param of params) {
   if (param[0] === "user") {
     user = param[1];
-    if (user !== 0) {
+    if (user != 0) {
       loggedIn = true;
     }
   } else if(param[0]==="artists"||param[0]==="genres"){
@@ -36,7 +36,7 @@ function getAlbums(loggedIn,albumsToView,user) {
 
         generateTableHead(table, data, loggedIn);
         generateTable(table, AlbumData, loggedIn,user);
-        if(loggedIn){
+        if(loggedIn == true){
             generateAddAlbumBtn(table);
         }
         
@@ -60,7 +60,7 @@ function generateTableHead(table, data, loggedIn) {
   let text = document.createTextNode("View Album");
   th.appendChild(text);
   row.appendChild(th);
-  if (loggedIn) {
+  if (loggedIn == true) {
     let th2 = document.createElement("th");
     let text2 = document.createTextNode("Edit");
     th2.appendChild(text2);
@@ -103,7 +103,7 @@ function generateTable(table, AlbumData, loggedIn) {
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-    if (loggedIn) {
+    if (loggedIn == true) {
         let newCell2 = row.insertCell();
         let myEditButton = document.createElement("button");
         myEditButton.className = "btn";
