@@ -33,6 +33,7 @@ function getTracks(loggedIn,tracksToView, singleTrack) {
       // Examine the text in the response
       response.json().then(function (TrackData) {
         console.log(TrackData);
+        console.log(loggedIn);
         let table = document.querySelector("#TrackTable");
         let data;
         if(singleTrack ===true){
@@ -43,7 +44,8 @@ function getTracks(loggedIn,tracksToView, singleTrack) {
         }
         generateTableHead(table, data, loggedIn);
         generateTable(table, TrackData, loggedIn);
-        if(loggedIn){
+
+        if(loggedIn == true){
             generateAddTrackBtn(table);
         }
         
@@ -67,7 +69,7 @@ function generateTableHead(table, data, loggedIn) {
   let text = document.createTextNode("View Track");
   th.appendChild(text);
   row.appendChild(th);
-  if (loggedIn) {
+  if (loggedIn == true) {
     let th2 = document.createElement("th");
     let text2 = document.createTextNode("Edit");
     th2.appendChild(text2);
@@ -103,7 +105,7 @@ function generateTable(table, TrackData, loggedIn) {
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-    if (loggedIn) {
+    if (loggedIn == true) {
         let newCell2 = row.insertCell();
         let myEditButton = document.createElement("button");
         myEditButton.className = "btn";
