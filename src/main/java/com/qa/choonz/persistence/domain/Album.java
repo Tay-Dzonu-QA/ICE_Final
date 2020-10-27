@@ -42,6 +42,11 @@ public class Album {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    public Album(@NotNull @Size(max = 100) String name) {
+		super();
+		this.name = name;
+	}
 
     public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks, Artist artist, Genre genre,
             String cover) {
@@ -120,10 +125,5 @@ public class Album {
                 && Objects.equals(genre, other.genre) && id == other.id && Objects.equals(name, other.name)
                 && Objects.equals(tracks, other.tracks);
     }
-    
-    public Album(@NotNull @Size(max = 100) String name) {
-		super();
-		this.name = name;
-	}
 
 }

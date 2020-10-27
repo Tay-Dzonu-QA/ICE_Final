@@ -110,7 +110,7 @@ public class ArtistServiceUnitTest {
 
 	        assertThat(newArtistDTO).isEqualTo(this.service.update(artistDTO, this.id));
 
-	        verify(this.repository, times(1)).findById(1L);
+	        verify(this.repository, times(1)).findById(id);
 	        verify(this.repository, times(1)).save(newArtist);
 	    }
 
