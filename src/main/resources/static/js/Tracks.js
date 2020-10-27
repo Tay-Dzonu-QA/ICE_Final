@@ -272,14 +272,14 @@ function deleteTrack(id) {
     stop.preventDefault();
 
     let formElements = document.querySelector("form.Track").elements;
-    let TrackName = formElements["AlbumName"].value;
+    let TrackName = formElements["TrackName"].value;
     let TrackDuration = formElements["TrackDuration"].value;
-    let TrackLyrics = formElements["TrackLyrics "].value;
+    let TrackLyrics = formElements["TrackLyrics"].value;
     let TrackAlbum = formElements["TrackAlbum"].value;
     let TrackAlbum1 = TrackAlbum.split(".");
     let TrackAlbumId = parseInt(TrackAlbum1[0]);
 
-    addTrack(AlbumName,TrackDuration,TrackLyrics,TrackAlbumId)
+    addTrack(TrackName,TrackDuration,TrackLyrics,TrackAlbumId)
   });
 
   function addTrack(name, duration,lyrics,album) {
@@ -292,7 +292,7 @@ function deleteTrack(id) {
         "name": name,
         "duration":duration,
         "lyrics":lyrics,
-        "tracks":{
+        "album":{
           "id":album
         }
       })),
