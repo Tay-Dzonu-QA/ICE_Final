@@ -2,7 +2,6 @@ package com.qa.choonz.persistence.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -128,6 +127,7 @@ public class TrackTest {
 		assertTrue(track1.hashCode() == track2.hashCode());
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	public void equalsTest() {
 		Album al = new Album();
