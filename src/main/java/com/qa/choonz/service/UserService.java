@@ -37,7 +37,7 @@ public class UserService {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    public UserDTO read(long id) {
+    public UserDTO read(Long id) {
         User found = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
         return this.mapToDTO(found);
     }
@@ -46,13 +46,13 @@ public class UserService {
         return this.repo.checkPassword(username);
     }
 
-    public UserDTO update(UserDTO user, long id) {
+    public UserDTO update(UserDTO user, Long id) {
         User toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
         SAPIBeanUtils.mergeNotNull(user,toUpdate);
         return this.mapToDTO(this.repo.save(toUpdate));
     }
 
-    public boolean delete(long id) {
+    public boolean delete(Long id) {
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }
