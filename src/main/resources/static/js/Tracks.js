@@ -2,7 +2,6 @@ const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 let tracksToView="";
 console.log(params);
-let run = 0;
 
 for (const param of params) {
   if(param[0]==="loggedIn"){
