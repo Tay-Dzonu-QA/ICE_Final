@@ -56,7 +56,7 @@ public class GenreControllerIntegrationTest {
 	    void init() {
 	        this.repository.deleteAll();
 
-	        this.testGenre = new Genre("80s");
+	        this.testGenre = new Genre("80s","Dance hits");
 	        this.testGenreWithId = this.repository.save(this.testGenre);
 	        this.genreDTO = this.mapToDTO(testGenreWithId);
 

@@ -47,6 +47,14 @@ public class Playlist {
     	super();
     	this.name = name;
     }
+    
+    public Playlist(@NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
+            @NotNull @Size(max = 1000) String artwork) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.artwork = artwork;
+    }
 
     public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
             @NotNull @Size(max = 1000) String artwork, List<Track> tracks) {
@@ -77,7 +85,7 @@ public class Playlist {
     public String getDescription() {
         return description;
     }
-
+    
     public void setDescription(String description) {
         this.description = description;
     }
@@ -85,6 +93,7 @@ public class Playlist {
     public String getArtwork() {
         return artwork;
     }
+
 
     public void setArtwork(String artwork) {
         this.artwork = artwork;

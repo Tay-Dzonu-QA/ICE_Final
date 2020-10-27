@@ -57,7 +57,7 @@ public class PlaylistControllerIntegrationTest {
 	    void init() {
 	        this.repository.deleteAll();
 
-	        this.testPlaylist = new Playlist("Party");
+	        this.testPlaylist = new Playlist("Party","dance classics","Dancing Couple");
 	        this.testPlaylistWithId = this.repository.save(this.testPlaylist);
 	        this.PlaylistDTO = this.mapToDTO(testPlaylistWithId);
 	        this.id = this.testPlaylistWithId.getId();
