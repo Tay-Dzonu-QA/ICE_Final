@@ -34,11 +34,8 @@ public class Album {
     private String name;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
-//<<<<<<< HEAD
-//    @JsonIgnoreProperties("albums")
-//    private List<Track> tracks = new ArrayList<>();
-//=======
-    private List<Track> tracks= new ArrayList<>();
+    private List<Track> tracks = new ArrayList<>();
+
 
 
     @ManyToOne

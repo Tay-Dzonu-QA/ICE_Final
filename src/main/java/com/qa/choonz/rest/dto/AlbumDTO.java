@@ -113,22 +113,7 @@ public class AlbumDTO {
     }
 
     @Override
-    public String toString() {
-        return "AlbumDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", tracks=" + tracks +
-                ", cover='" + cover + '\'' +
-                '}';
-
-
-
-    }
-
-
-
-    @Override
     public int hashCode() {
-        return Objects.hash(id, name, tracks, cover);
+        return Objects.hash(id, name, tracks, cover,genre,artist);
     }
 }
