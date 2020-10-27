@@ -41,17 +41,17 @@ public class AlbumController {
     }
 
     @GetMapping("/read/{id}")
-    public ResponseEntity<AlbumDTO> read(@PathVariable long id) {
+    public ResponseEntity<AlbumDTO> read(@PathVariable Long id) {
         return new ResponseEntity<AlbumDTO>(this.service.read(id), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<AlbumDTO> update(@RequestBody AlbumDTO album, @PathVariable long id) {
+    public ResponseEntity<AlbumDTO> update(@RequestBody AlbumDTO album, @PathVariable Long id) {
         return new ResponseEntity<AlbumDTO>(this.service.update(album, id), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<AlbumDTO> delete(@PathVariable long id) {
+    public ResponseEntity<AlbumDTO> delete(@PathVariable Long id) {
         return this.service.delete(id) ? new ResponseEntity<AlbumDTO>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<AlbumDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
