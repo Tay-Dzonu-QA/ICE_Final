@@ -228,3 +228,4 @@ function addArtist(name) {
       console.log("Request failed", error);
     });
 }
+
