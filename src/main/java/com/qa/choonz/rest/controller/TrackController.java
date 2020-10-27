@@ -45,8 +45,8 @@ public class TrackController {
     }
 
     @PostMapping("/update/{id}")
-    public ResponseEntity<TrackDTO> update(@RequestBody Track track, @PathVariable long id) {
-        return new ResponseEntity<TrackDTO>(this.service.update(track, id), HttpStatus.ACCEPTED);
+    public ResponseEntity<TrackDTO> update(@RequestBody TrackDTO trackDTO, @PathVariable long id) {
+        return new ResponseEntity<TrackDTO>(this.service.update(trackDTO, id), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("delete/{id}")

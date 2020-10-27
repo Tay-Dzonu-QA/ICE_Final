@@ -39,6 +39,11 @@ public class Track {
         // TODO Auto-generated constructor stub
     }
 
+    public Track(@NotNull @Size(max =100) String name) {
+    	super();
+    	this.name = name;
+    }
+    
     public Track(long id, @NotNull @Size(max = 100) String name, Album album, Playlist playlist, int duration,
             String lyrics) {
         super();
