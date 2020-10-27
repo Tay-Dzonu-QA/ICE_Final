@@ -2,6 +2,7 @@ const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 let tracksToView="";
 console.log(params);
+let singleTrack = false;
 
 for (const param of params) {
   if(param[0]==="loggedIn"){
@@ -11,6 +12,7 @@ for (const param of params) {
     let artistOrGenreId = param[1];
     tracksToView = "/"+artistOrGenre+"/"+artistOrGenreId;
   } else if(param[0]="tracks"){
+    singleTrack=true;
     tracksToView = "/"+param[1];
   }
 }
@@ -19,7 +21,7 @@ console.log(tracksToView);
 console.log(loggedIn);
 getTracks(loggedIn,tracksToView);
 
-function getTracks(loggedIn,tracksToView) {
+function getTracks(loggedIn,tracksToView, singleTrack) {
   fetch("http://localhost:8082/tracks/read"+tracksToView)
     .then(function (response) {
       if (response.status !== 200) {
@@ -32,8 +34,12 @@ function getTracks(loggedIn,tracksToView) {
       response.json().then(function (TrackData) {
         console.log(TrackData);
         let table = document.querySelector("#TrackTable");
-        let data = Object.keys(TrackData[0]);
-
+        let data;
+        if(singleTrack){
+          data = Object.keys(TrackData)
+        } else{
+          data = Object.keys(TrackData[0]);
+        }
         generateTableHead(table, data, loggedIn);
         generateTable(table, TrackData, loggedIn);
         if(loggedIn){
