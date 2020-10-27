@@ -9,9 +9,9 @@ for (const param of params) {
   } else if(param[0]==="albums"){
     let artistOrGenre = param[0];
     let artistOrGenreId = param[1];
-    albumsToView = "/"+artistOrGenre+"/"+artistOrGenreId;
+    tracksToView = "/"+artistOrGenre+"/"+artistOrGenreId;
   } else if(param[0]="tracks"){
-    albumsToView = "/"+artistOrGenreId;
+    tracksToView = "/"+param[1];
   }
 }
 
@@ -88,7 +88,7 @@ function generateTable(table, TrackData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewTrackButton";
-    myViewButton.onclick = function(){document.location='Track.html?loggedIn='+loggedIn+'?tracks='+element.id};
+    myViewButton.onclick = function(){document.location='Track.html?loggedIn='+loggedIn+'&tracks='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
