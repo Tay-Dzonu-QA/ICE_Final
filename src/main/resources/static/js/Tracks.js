@@ -1,25 +1,19 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
-let tracksToView;
+let tracksToView="";
 console.log(params);
 let run = 0;
 
 for (const param of params) {
-  console.log(param);
-  if(run === 0){
+  if(param[0]==="loggedIn"){
     loggedIn = param[1];
-    run+=1;
-  } else if(run ===1){
-    let albumOrArtistOrGenre = param[0];
-    let albumOrArtistOrGenreId = param[1];
-    tracksToView = "/"+albumOrArtistOrGenre+"/"+albumOrArtistOrGenreId;
-    run+=1;
+  } else if(param[0]==="albums"){
+    let artistOrGenre = param[0];
+    let artistOrGenreId = param[1];
+    albumsToView = "/"+artistOrGenre+"/"+artistOrGenreId;
   }
 }
-console.log(run);
-if(run ===1){
-  tracksToView="";
-}
+
 console.log(tracksToView);
 console.log(loggedIn);
 getTracks(loggedIn,tracksToView);
