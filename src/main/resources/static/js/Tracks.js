@@ -78,10 +78,10 @@ function generateTable(table, TrackData, loggedIn) {
     for (key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
-      cell.appendChild(text);
       if(key ==="album"){
         text =  document.createTextNode(element[key].name)
       }
+      cell.appendChild(text);
     }
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
