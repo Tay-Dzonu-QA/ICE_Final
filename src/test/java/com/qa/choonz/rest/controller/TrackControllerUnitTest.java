@@ -20,7 +20,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.qa.choonz.persistence.domain.Track;
-import com.qa.choonz.rest.controller.TrackController;
 import com.qa.choonz.rest.dto.TrackDTO;
 import com.qa.choonz.service.TrackService;
 
@@ -95,21 +94,20 @@ public class TrackControllerUnitTest {
             .read();
     }
     
-//    @Test
-//    void updateTest() {
-//        // given
-//        TrackDTO newTrack= new TrackDTO(1l, "Yellow");
-//        TrackDTO updatedTrack= new TrackDTO(this.id, newTrack.getName());
-//
-//        when(this.service.update(newTrack, this.id))
-//            .thenReturn(updatedTrack);
-//        
-//        assertThat(new ResponseEntity<TrackDTO>(updatedTrack, HttpStatus.ACCEPTED))
-//                .isEqualTo(this.controller.update(newTrack, this.id));
-//        
-//        verify(this.service, times(1))
-//            .update(newTrack, this.id);
-//    }
+    @Test
+    void updateTest() {
+        TrackDTO newTrack= new TrackDTO(1l, "Yellow");
+        TrackDTO updatedTrack= new TrackDTO(this.id, newTrack.getName());
+
+        when(this.service.update(newTrack, this.id))
+            .thenReturn(updatedTrack);
+        
+        assertThat(new ResponseEntity<TrackDTO>(updatedTrack, HttpStatus.ACCEPTED))
+                .isEqualTo(this.controller.update(newTrack, this.id));
+        
+        verify(this.service, times(1))
+            .update(newTrack, this.id);
+    }
     
     @Test
     void deleteTest() {

@@ -57,8 +57,6 @@ public class AlbumDTO {
         this.tracks = tracks;
     }
 
-
-
     public String getCover() {
         return cover;
     }
@@ -66,7 +64,6 @@ public class AlbumDTO {
     public void setCover(String cover) {
         this.cover = cover;
     }
-
 
 
     @Override

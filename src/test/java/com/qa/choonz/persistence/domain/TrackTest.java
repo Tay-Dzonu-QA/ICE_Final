@@ -115,15 +115,7 @@ public class TrackTest {
 		
 		assertEquals(lyrics,newTrack.getLyrics());
 	}
-	
-	@Test
-	public void toStringTests() {		
-		Track track = new Track(id,name,null,null,229,lyrics);
-		
-		assertNotNull(track.toString());
-		assertEquals("Track [id=1, name=Brown Sugar, album=null, playlist=null, duration=229, lyrics=Gold Coast slave ship bound for cotton fields]"
-				,track.toString());
-	}
+
 	
 	@Test
 	public void hashCodeTest() {

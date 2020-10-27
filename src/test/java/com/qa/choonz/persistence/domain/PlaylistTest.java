@@ -103,14 +103,6 @@ public class PlaylistTest {
 		assertEquals(tracks,emptyPlaylist.getTracks());
 	}
 	
-	@Test
-	public void toStringTests() {		
-		Playlist pl = new Playlist(id,name,desc,artwork,null);
-		
-		assertNotNull(pl.toString());
-		assertEquals("Playlist [id=1, name=Party, description=Rock, artwork=Guitar, tracks=null]"
-				,pl.toString());
-	}
 	
 	@Test
 	public void hashCodeTest() {		

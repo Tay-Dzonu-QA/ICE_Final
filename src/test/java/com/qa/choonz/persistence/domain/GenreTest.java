@@ -117,14 +117,6 @@ public class GenreTest {
 			assertThat(this.testGenre.getAlbums() == newAlbums);
 		}
 		
-		@Test
-		void ToStringTest() {
-			Genre genre = new Genre(id,name,description,null);
-			
-			assertNotNull(genre.toString());
-			assertEquals("Genre [id=1, name=Tunes, description=Heavy, albums=null]"
-					,genre.toString());
-		}
 		
 		@Test
 		void HashcodeTest() {
