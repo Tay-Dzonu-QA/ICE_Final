@@ -3,7 +3,7 @@ let loggedIn = false;
 let tracksToView = "";
 let albumOrTrack="";
 let singleTrack = false;
-let user = 1;
+let user = 0;
 console.log(params);
 
 for (const param of params) {
