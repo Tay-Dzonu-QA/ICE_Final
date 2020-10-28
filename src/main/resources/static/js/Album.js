@@ -95,7 +95,7 @@ function generateTable(table, AlbumData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewAlbumButton";
-    myViewButton.onclick = function(){document.location='Tracks.html?user='+user+'?albums='+element.id};
+    myViewButton.onclick = function(){document.location='Track.html?user='+user+'&albums='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
