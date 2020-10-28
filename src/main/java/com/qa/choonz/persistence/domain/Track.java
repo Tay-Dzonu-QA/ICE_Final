@@ -34,9 +34,6 @@ public class Track {
     private Album album;
 
     @ManyToMany
-    @JoinTable( name = "track_playlist",
-    	joinColumns = @JoinColumn(name = "track_id"),
-    	inverseJoinColumns = @JoinColumn(name = "playlist_id"))
     @JsonIgnoreProperties("tracks")
     private List<Playlist> playlists;
 

@@ -54,6 +54,13 @@ public class Playlist {
         this.tracks = tracks;
         this.user = user;
     }
+    
+    public void addTrack(Track track) {
+    	this.tracks.add(track);
+    }
+    public void removeTrack(Track track) {
+    	this.tracks.remove(track);
+    }
 
     public long getId() {
         return id;
