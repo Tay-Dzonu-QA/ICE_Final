@@ -10,9 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.qa.choonz.persistence.domain.Album;
-
-
 public class AlbumDTOTest {
 	
 	
@@ -21,6 +18,11 @@ public class AlbumDTOTest {
 	final String name = "Rumours";
 	final String cover = "no";
 	List<TrackDTO> tracks;
+	
+	private static int activeTest = 1;
+	private static StringBuilder sBuilder = new StringBuilder();
+	private static String div = "=============================================\n";
+	
 
 	@BeforeEach
 	void init() {
@@ -28,6 +30,17 @@ public class AlbumDTOTest {
 		this.testAlbumDTO = new AlbumDTO(
 				this.id, 
 				this.name);
+		
+		// Start of console test format
+				sBuilder.setLength(0);
+				sBuilder
+				.append("\tTest ").append(activeTest).append("\n")
+				.append(div);
+				// Append info about vending machine here
+				
+				System.out.println(sBuilder.toString());
+				activeTest++;
+				// End of console test format
 	}
 	
 	@Test
