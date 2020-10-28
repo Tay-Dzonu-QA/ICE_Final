@@ -33,18 +33,21 @@
                 id="collapsingNavbar">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="Track.html">Featured
+                        <a class="nav-link" id="TrackLink" >Featured
                             Tracks</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Artist.html">Artists</a>
+                        <a class="nav-link" id="ArtistLink" >Artists</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Album.html">Albums</a>
+                      <a class="nav-link" id="GenreLink" >Genres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Top Playlists</a>
+                        <a class="nav-link" id="AlbumLink" >Albums</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="IndexLink"href="index.html"></a>
+                  </li>
                 </ul>
             </div>
         </nav>
@@ -66,7 +69,7 @@
         <!-- Table -->
         <div class="TableBody" id="trackTitle">
             <br>
-            <h2> Track List</h2>
+            <h2 id = "TrackTitle"></h2>
             <table id="TrackTable" class="table table-hover"></table>
         </div>
 
@@ -134,8 +137,37 @@
             </div>
           </div>
 
+          <div class="modal fade" id="AddToPlaylistModal" tabindex="-1" aria-labelledby="AddToPlaylistModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 id ="addTitle" class="modal-title" >Add To Playlist </h5>
+                  <button type="button" class="close"data-dismiss="modal"aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="ModalFormAddToPlaylist" class="AddToPlaylist" method="PUT">
+                    <div class="form-group">
+                      <label for="PlaylistAddTrack">Track Name:</label>
+                      <input type="text" class="form-control"  id="PlaylistAddTrack" required>
+                    
+                      <label for="PlaylistAdd">Playlists:</label>
+                      <select multiple class="form-control" id="PlaylistAdd"required>
+    
+                      </select>
+                    </div>
+                    <button id ="AddToPlaylistSubmit"type="submit" class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <script src="../js/Tracks.js"></script>
         <script src="../js/Sidebar.js"></script>
+        <script src="../js/NavLinks.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

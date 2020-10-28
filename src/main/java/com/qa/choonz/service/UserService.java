@@ -41,12 +41,16 @@ public class UserService {
     public UserDTO read(long id) {
         User found = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
 
+
+
+
         return this.mapToDTO(found);
     }
     
     public String checkPassword(String username) {
         return this.repo.checkPassword(username);
     }
+
 
     public String checkUsername(String username) {
         return this.repo.checkUsername(username);
@@ -59,13 +63,15 @@ public class UserService {
             return new UserDTO();
     }
 
-    public UserDTO update(UserDTO user, long id) {
+
+    public UserDTO update(UserDTO user, Long id) {
         User toUpdate = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
+
         SAPIBeanUtils.mergeNotNull(user,toUpdate);
         return this.mapToDTO(this.repo.save(toUpdate));
     }
 
-    public boolean delete(long id) {
+    public boolean delete(Long id) {
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }

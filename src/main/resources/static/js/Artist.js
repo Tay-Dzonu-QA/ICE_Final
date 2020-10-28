@@ -1,13 +1,17 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
+let user = 0;
 for (const param of params) {
-  if(param[0]==="loggedIn"){
-    loggedIn = param[1];
-  } 
+  if (param[0] === "user") {
+    user = param[1];
+    if (user != 0) {
+      loggedIn = true;
+    }
+  }
 }
-getArtists(loggedIn);
+getArtists(loggedIn, user);
 
-function getArtists(loggedIn) {
+function getArtists(loggedIn, user) {
   fetch("http://localhost:8082/artists/read")
     .then(function (response) {
       if (response.status !== 200) {
@@ -22,8 +26,8 @@ function getArtists(loggedIn) {
         let data = Object.keys(ArtistData[0]);
 
         generateTableHead(table, data, loggedIn);
-        generateTable(table, ArtistData, loggedIn);
-        if (loggedIn) {
+        generateTable(table, ArtistData, loggedIn,user);
+        if (loggedIn == true) {
           generateAddArtistBtn(table);
         }
       });
@@ -46,7 +50,7 @@ function generateTableHead(table, data, loggedIn) {
   let text = document.createTextNode("View Artist");
   th.appendChild(text);
   row.appendChild(th);
-  if (loggedIn) {
+  if (loggedIn == true) {
     let th2 = document.createElement("th");
     let text2 = document.createTextNode("Edit");
     th2.appendChild(text2);
@@ -59,7 +63,7 @@ function generateTableHead(table, data, loggedIn) {
   }
 }
 
-function generateTable(table, ArtistData, loggedIn) {
+function generateTable(table, ArtistData, loggedIn,user) {
   for (let element of ArtistData) {
     let row = table.insertRow();
     for (key in element) {
@@ -87,7 +91,7 @@ function generateTable(table, ArtistData, loggedIn) {
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-    if (loggedIn) {
+    if (loggedIn == true) {
       let newCell2 = row.insertCell();
       let myEditButton = document.createElement("button");
       myEditButton.className = "btn";
@@ -132,7 +136,6 @@ function generateAddArtistBtn(table) {
   myAddArtistButton.setAttribute("data-toggle", "modal");
   myAddArtistButton.setAttribute("data-target", "#AddArtistModal");
 
-
   tableFooter.appendChild(myAddArtistButton);
   table.appendChild(tableFooter);
 }
@@ -172,7 +175,6 @@ document
 
     let EditArtistname = formElements["EditArtistName"].value;
 
-
     console.log(EditArtistname);
     editArtist(EditArtistname, ArtistId);
   });
@@ -185,8 +187,8 @@ function editArtist(name, ArtistId) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      "id": ID,
-      "name": name
+      id: ID,
+      name: name,
     })),
   })
     .then(json)
@@ -217,7 +219,7 @@ function addArtist(name) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      "name": name
+      name: name,
     })),
   })
     .then(json)
@@ -229,4 +231,3 @@ function addArtist(name) {
       console.log("Request failed", error);
     });
 }
-

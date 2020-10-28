@@ -1,13 +1,17 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
+let user = 0;
 for (const param of params) {
-  if(param[0]==="loggedIn"){
-    loggedIn = param[1];
-  } 
+  if (param[0] === "user") {
+    user = param[1];
+    if (user !== 0) {
+      loggedIn = true;
+    }
+  }
 }
-getGenres(loggedIn);
+getGenres(loggedIn,user);
 
-function getGenres(loggedIn) {
+function getGenres(loggedIn,user) {
   fetch("http://localhost:8082/genres/read")
     .then(function (response) {
       if (response.status !== 200) {
@@ -22,7 +26,7 @@ function getGenres(loggedIn) {
         let data = Object.keys(GenreData[0]);
 
         generateTableHead(table, data, loggedIn);
-        generateTable(table, GenreData, loggedIn);
+        generateTable(table, GenreData, loggedIn,user);
         if (loggedIn) {
           generateAddGenreBtn(table);
         }
@@ -59,7 +63,7 @@ function generateTableHead(table, data, loggedIn) {
   }
 }
 
-function generateTable(table, GenreData, loggedIn) {
+function generateTable(table, GenreData, loggedIn,user) {
   for (let element of GenreData) {
     let row = table.insertRow();
     for (key in element) {
@@ -79,7 +83,7 @@ function generateTable(table, GenreData, loggedIn) {
     myViewButton.className = "btn";
     myViewButton.id = "ViewGenreButton";
     let genre = element.id;
-    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "&genres=" + genre};
+    myViewButton.onclick = function(){document.location = "Album.html?user=" + user + "&genres=" + genre};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";

@@ -33,19 +33,23 @@
       <div class="collapse navbar-collapse w-100 order-3"
           id="collapsingNavbar">
           <ul class="nav navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="Track.html">Featured Tracks</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="Artist.html">Artists</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="Album.html">Albums</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Top Playlists</a>
-              </li>
-          </ul>
+            <li class="nav-item">
+                <a class="nav-link" id="TrackLink" >Featured
+                    Tracks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="ArtistLink" >Artists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="GenreLink" >Genres</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="AlbumLink" >Albums</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="IndexLink"href="index.html"></a>
+            </li>
+        </ul>
       </div>
     </nav>
     <!-- /Navbar -->
@@ -53,8 +57,16 @@
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav('albumTitle'); document.getElementById('main').style.display = 'block'">&times;</a>
-      <a href="#">Genres</a>
-      <a href="#">Artist</a>
+      <div>
+        <h2>Genres</h2>
+        <div id = "genreList">
+        </div>
+      </div>
+      <div>
+        <h2>Artists</h2>
+        <div id = "artistList">
+        </div>
+      </div>
     </div>
     
     <div id="main">
@@ -65,7 +77,7 @@
     <!-- Table -->
     <div class ="TableBody" id="albumTitle">
       <br>
-        <h2> Album List</h2>
+        <h2 id ="AlbumTitle"> </h2>
         <table id="AlbumTable"class="table table-hover"></table>
     </div>
 
@@ -140,6 +152,8 @@
 
     <script src="../js/Album.js"></script>
     <script src="../js/Sidebar.js"></script>
+    <script src="../js/SidebarNav.js"></script>
+    <script src="../js/NavLinks.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

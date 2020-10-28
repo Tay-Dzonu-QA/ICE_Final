@@ -2,6 +2,7 @@ package com.qa.choonz.persistence.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,11 +32,15 @@ public class Playlist {
     @Column(unique = true)
     private String artwork;
 
-    @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
-    private List<Track> tracks;
+    @ManyToMany(mappedBy = "playlists",cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+        })
+    @JsonIgnoreProperties({"playlist","album"})
+    private List<Track> tracks= new ArrayList<>();
 
     @ManyToOne
-    @JsonIgnoreProperties("playlist")
+    @JsonIgnoreProperties("playlists")
     private User user;
 
     public Playlist() {
@@ -52,6 +57,15 @@ public class Playlist {
         this.artwork = artwork;
         this.tracks = tracks;
         this.user = user;
+    }
+    
+    public void addTrack(Track track) {
+    	this.tracks.add(track);
+    	track.getPlaylist().add(this);
+    }
+    public void removeTrack(Track track) {
+    	this.tracks.remove(track);
+    	track.getPlaylist().remove(this);
     }
 
     public long getId() {
