@@ -36,7 +36,7 @@ function doesAccountExist(username,password){
                     else{
                         if(isPasswordCorrect !== password)alert("The password is incorrect")
                         else{
-                            document.location = "Album.html?user="+data.id;
+                            document.location = "User.html?user="+data.id;
 
                         }
                     }

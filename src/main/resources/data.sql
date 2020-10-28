@@ -16,7 +16,7 @@ INSERT INTO `track` (`id`,`duration`,`lyrics`,`name`,`album_id`) VALUES(3,5,'thi
 INSERT INTO `track` (`id`,`duration`,`lyrics`,`name`,`album_id`) VALUES(4,5,'this is the lyrics','track 4',4);
 INSERT INTO `track` (`id`,`duration`,`lyrics`,`name`,`album_id`) VALUES(5,5,'this is the lyrics','track 5',5);
 
-INSERT INTO `user` (`id`,`password`,`username`) VALUES(1,'root','root');
+INSERT INTO `user` (`id`,`password`,`username`) VALUES(1,'rootroot','rootroot');
 
 INSERT INTO `playlist` (`id`,`artwork`,`description`,`name`,`user_id`) VALUES(1,'my artwork','my playlist','my playlist',1);
 INSERT INTO `playlist` (`id`,`artwork`,`description`,`name`,`user_id`) VALUES(2,'your artwork','your playlist','your playlist',1);
