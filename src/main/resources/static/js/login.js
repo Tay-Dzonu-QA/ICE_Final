@@ -35,6 +35,10 @@ function doesAccountExist(username,password){
                     if (isAccountCorrect !== username)alert("This account does not exist")
                     else{
                         if(isPasswordCorrect !== password)alert("The password is incorrect")
+                        else{
+                            document.location = "Album.html?user="+data.id;
+
+                        }
                     }
                 });
             }
