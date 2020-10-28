@@ -1,6 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 let tracksToView = "";
+let albumOrTrack="";
 let singleTrack = false;
 let user = 1;
 console.log(params);
@@ -12,10 +13,11 @@ for (const param of params) {
       loggedIn = true;
     }
   } else if (param[0] === "albums") {
-    let artistOrGenre = param[0];
-    let artistOrGenreId = param[1];
-    tracksToView = "/" + artistOrGenre + "/" + artistOrGenreId;
+    albumOrTrack = param[0];
+    let albumOrTrackId = param[1];
+    tracksToView = "/" + albumOrTrack + "/" + albumOrTrackId;
   } else if ((param[0] = "tracks")) {
+    albumOrTrack = param[0];
     singleTrack = true;
     tracksToView = "/" + param[1];
   }
@@ -38,6 +40,16 @@ function getTracks(loggedIn, tracksToView, singleTrack, user) {
       response.json().then(function (TrackData) {
         console.log(TrackData);
         console.log(loggedIn);
+
+        let title = document.querySelector("#TrackTitle");
+        if(albumOrTrack==="albums"){
+          title.innerHTML = "Tracks from Album: "+TrackData[0].album.name;
+        }else if(albumOrTrack==="tracks"){
+          title.innerHTML = "Track: "+TrackData.name;
+        }else{
+          title.innerHTML = "List of all Tracks";
+        }
+
         let table = document.querySelector("#TrackTable");
         let data;
         if (singleTrack === true) {
