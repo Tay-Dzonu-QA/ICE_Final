@@ -22,10 +22,11 @@ public class PlaylistService {
     private TrackRepository trackRepo;
     private ModelMapper mapper;
 
-    public PlaylistService(PlaylistRepository repo, ModelMapper mapper) {
+    public PlaylistService(PlaylistRepository repo, ModelMapper mapper,TrackRepository trackRepo) {
         super();
         this.repo = repo;
         this.mapper = mapper;
+        this.trackRepo=trackRepo;
     }
 
     private PlaylistDTO mapToDTO(Playlist playlist) {
@@ -60,6 +61,7 @@ public class PlaylistService {
     	Playlist toUpdate = this.repo.findById(playlistId).orElseThrow(PlaylistNotFoundException::new);
     	Track toAdd = this.trackRepo.findById(TrackId).orElseThrow(TrackNotFoundException::new);
     	toUpdate.addTrack(toAdd);
+    	this.trackRepo.save(toAdd);
     	return this.mapToDTO(this.repo.save(toUpdate));
     }
     

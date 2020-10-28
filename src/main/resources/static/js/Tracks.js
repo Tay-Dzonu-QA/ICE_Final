@@ -128,13 +128,15 @@ function generateTable(table, TrackData, loggedIn, user) {
       let addToPlaylistButton = document.createElement("button");
       addToPlaylistButton.className = "btn";
       addToPlaylistButton.id = "addToPlaylistButton" + element.name;
+      addToPlaylistButton.setAttribute("data-toggle", "modal");
+      addToPlaylistButton.setAttribute("data-target", "#AddToPlaylistModal");
 
       let addToPlaylistIcon = document.createElement("span");
       addToPlaylistIcon.className = "material-icons";
       addToPlaylistIcon.innerHTML = "add";
       addToPlaylistButton.appendChild(addToPlaylistIcon);
       addToPlaylistButton.onclick = function () {
-        changeaddToPlaylistModal(ID, Name, user);
+        changeAddToPlaylistModal(ID, Name, user);
       };
       newCell4.appendChild(addToPlaylistButton);
 
@@ -373,3 +375,33 @@ function addTrack(name, duration, lyrics, album) {
       console.log("Request failed", error);
     });
 }
+
+document
+  .querySelector("form.AddToPlaylist")
+  .addEventListener("submit", function (stop) {
+    stop.preventDefault();
+
+    let formElements = document.querySelector("form.AddToPlaylist").elements;
+    
+    let TrackPlaylist = formElements["PlaylistAdd"].value;
+    let TrackPlaylist1 = TrackPlaylist.split(".");
+    let TrackPlaylistId = parseInt(TrackPlaylist1[0]);
+    let TrackId1 = parseInt(TrackId);
+    addToPlaylist( TrackId1,TrackPlaylistId);
+  });
+
+  function addToPlaylist(TrackId1,TrackPlaylistId) {
+    fetch("http://localhost:8082/playlists/add/"+TrackPlaylistId+"/"+TrackId1, {
+      method: "put",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      // .then(json)
+      .then(function (data) {
+        console.log("Request succeeded with JSON response", data);
+      })
+      .catch(function (error) {
+        console.log("Request failed", error);
+      });
+  }

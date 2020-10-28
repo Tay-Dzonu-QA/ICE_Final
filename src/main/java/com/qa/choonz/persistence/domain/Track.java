@@ -1,15 +1,15 @@
 package com.qa.choonz.persistence.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
@@ -33,9 +33,12 @@ public class Track {
     @JsonIgnoreProperties("tracks")
     private Album album;
 
-    @ManyToMany
-    @JsonIgnoreProperties("tracks")
-    private List<Playlist> playlists;
+    @ManyToMany(cascade = {
+        CascadeType.PERSIST,
+        CascadeType.MERGE
+    })
+    @JsonIgnoreProperties({"tracks","user"})
+    private List<Playlist> playlists= new ArrayList<>();
 
     // in seconds
     private int duration;
@@ -56,6 +59,13 @@ public class Track {
         this.playlists = playlists;
         this.duration = duration;
         this.lyrics = lyrics;
+    }
+    
+    public void addPlaylist(Playlist playlist) {
+    	this.playlists.add(playlist);
+    }
+    public void removePlaylist(Playlist playlist) {
+    	this.playlists.remove(playlist);
     }
 
     public Long getId() {

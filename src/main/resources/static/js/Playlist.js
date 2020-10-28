@@ -14,9 +14,10 @@ for (const param of params) {
     playlistToView = param[1];
   }
 }
+console.log(playlistToView);
 getTracks(loggedIn, playlistToView, user);
 function getTracks(loggedIn, playlistToView, user) {
-  fetch("http://localhost:8082/playlists/read" + playlistToView)
+  fetch("http://localhost:8082/playlists/read/" + playlistToView)
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
@@ -97,4 +98,23 @@ function generateTable(table, TrackData, user) {
     };
     newCell3.appendChild(myRemoveButton);
   }
+}
+
+function removeTrack(TrackId){
+  fetch("http://localhost:8082/playlists/remove/"+playlistToView+"/"+TrackId, {
+    method: "put",
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    // .then(json)
+    .then(function (data) {
+      console.log("Request succeeded with JSON response", data);
+      location.reload();
+    })
+    .catch(function (error) {
+      console.log("Request failed", error);
+    });
+
+
 }
