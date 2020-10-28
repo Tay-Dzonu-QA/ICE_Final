@@ -11,7 +11,7 @@ body {
   display: none;
 }
 
-.navbar-toggler:not(.collapsed)  {
+.navbar-toggler:not(.collapsed) {
   display: inline;
 }
 
@@ -30,7 +30,7 @@ body {
 
 .nav > li > a:hover {
   color: #db7f15;
-  transition: 0.3s
+  transition: 0.3s;
 }
 
 .logo:hover {
@@ -97,14 +97,27 @@ body {
   padding: 20px;
 }
 
-.UserGreetings, .UserPlaylist{
+.UserGreetings,
+.UserPlaylist {
   padding: 20px;
 }
- .card {
-   margin-right: 20px;
- }
 
+.Album,
+.Artist,
+.Tracks,
+.Genre {
+  padding-left: 20px;
+}
+.card {
+  margin-right: 20px;
+}
 
+.card ul {
+  height: 160px;
+  width: 18rem;
+  overflow: hidden;
+  overflow-y: scroll;
+}
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;
