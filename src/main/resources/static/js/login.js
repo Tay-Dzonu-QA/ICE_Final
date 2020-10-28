@@ -11,13 +11,13 @@ document.querySelector("form.login-form").addEventListener("submit",function(sto
 
     console.log(username);
 
-
-    doesAccountExist(username,password);
-
+    if (username !== null) {
+        doesAccountExistTwo(username, password);
+    }
 
 })
 
-function doesAccountExist(username,password){
+function doesAccountExistTwo(username,password){
 
     fetch('http://localhost:8082/users/username/'+username)
         .then(
@@ -36,7 +36,7 @@ function doesAccountExist(username,password){
                     else{
                         if(isPasswordCorrect !== password)alert("The password is incorrect")
                         else{
-                            document.location = "Album.html?user="+data.id;
+                            document.location = "User.html?user="+data.id;
 
                         }
                     }
