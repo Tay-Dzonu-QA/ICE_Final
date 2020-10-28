@@ -357,10 +357,6 @@ document
     let TrackDuration = formElements["TrackDuration"].value;
     let TrackLyrics = formElements["TrackLyrics"].value;
     let TrackAlbum = formElements["TrackAlbum"].value;
-
-    TrackAlbum = TrackAlbum.split(".");
-    //let TrackAlbumId = parseInt(TrackAlbum[0]);
-
     let TrackAlbum1 = TrackAlbum.split(".");
     let TrackAlbumId = parseInt(TrackAlbum1[0]);
 
