@@ -19,6 +19,7 @@ public class PlaylistTest {
 	final String name = "Party";
 	final String desc = "Rock";
 	final String artwork = "Guitar";
+	final String user = "Johnny";
 	List<Track> tracks;
 	
 	private static int activeTest = 1;
@@ -34,7 +35,8 @@ public class PlaylistTest {
 				this.name, 
 				this.desc, 
 				this.artwork,
-				this.tracks);
+				this.tracks,
+				null);
 		
 		// Start of console test format
 		sBuilder.setLength(0);
@@ -95,6 +97,7 @@ public class PlaylistTest {
 				this.name, 
 				this.desc, 
 				this.artwork,
+				null,
 				null);
 		
 		assertThat(newPl instanceof Playlist);
@@ -105,7 +108,7 @@ public class PlaylistTest {
 		Playlist newPl = new Playlist();
 		
 		assertTrue(newPl instanceof Playlist);		
-		Playlist pl = new Playlist(id,name,desc,artwork,null);
+		Playlist pl = new Playlist(id,name,desc,artwork,null,null);
 		assertTrue(pl instanceof Playlist);
 	}
 	
@@ -172,8 +175,8 @@ public class PlaylistTest {
 	
 	@Test
 	public void hashCodeTest() {		
-		Playlist pl1 = new Playlist(id,name,desc,artwork,null);
-		Playlist pl2 = new Playlist(id,name,desc,artwork,null);
+		Playlist pl1 = new Playlist(id,name,desc,artwork,null,null);
+		Playlist pl2 = new Playlist(id,name,desc,artwork,null,null);
 		
 		assertTrue(pl1.hashCode() == pl2.hashCode());
 	}
@@ -181,7 +184,7 @@ public class PlaylistTest {
 	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	public void equalsTest() {
-		Playlist pl = new Playlist(id,name,desc,artwork,null);
+		Playlist pl = new Playlist(id,name,desc,artwork,null,null);
 		Track track = new Track();
 		
 		assertTrue(pl.equals(pl));

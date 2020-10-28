@@ -34,7 +34,7 @@ public class TrackDTO {
 		this.name = name;
 		this.duration = duration;
 		this.lyrics = lyrics;
-		this.album=album;
+		this.album = album;
 	}
 
 	public Long getId() {

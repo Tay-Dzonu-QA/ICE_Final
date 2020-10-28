@@ -35,9 +35,10 @@ public class AlbumDTO {
         this.id = id;
         this.name = name;
         this.tracks = tracks;
-        this.cover = cover;
-        this.genre = genre;
         this.artist = artist;
+        this.genre = genre;
+        this.cover = cover;
+        
     }
 
     public Long getId() {

@@ -18,10 +18,9 @@ public class TrackTest {
 	final Long id = 1l;
 	final String name = "Brown Sugar";
 	final String album = "Sticky Fingers";
-	final String playlist = "Rock";
 	final int duration = 200;
 	final String lyrics = "Gold Coast slave ship bound for cotton fields";
-	List<Track> tracks;
+	List<Playlist> playlists;
 	
 	private static int activeTest = 1;
 	private static StringBuilder sBuilder = new StringBuilder();
@@ -29,12 +28,12 @@ public class TrackTest {
 	
 	@BeforeEach
 	void init() {
-		this.tracks = new ArrayList<Track>();
+		this.playlists = new ArrayList<Playlist>();
 		this.testTrack = new Track(
 				this.id, 
 				this.name, 
 				null, 
-				null,
+				this.playlists,
 				this.duration,
 				this.lyrics);
 		
@@ -57,9 +56,8 @@ public class TrackTest {
 		assertTrue(newTrack instanceof Track);
 		
 		Album album = new Album();
-		Playlist playlist = new Playlist();
 		
-		Track track = new Track(id,name,album,playlist,229,lyrics);
+		Track track = new Track(id,name,album,playlists,229,lyrics);
 		
 		assertTrue(track instanceof Track);
 	}
@@ -135,14 +133,14 @@ public class TrackTest {
 		assertEquals(al,newTrack.getAlbum());
 	}
 	
-	@Test
-	public void getSetPlaylistTest() {
-		Track newTrack = new Track();
-		Playlist pl = new Playlist();
-		
-		newTrack.setPlaylist(pl);		
-		assertEquals(pl,newTrack.getPlaylist());
-	}
+//	@Test
+//	public void getSetPlaylistTest() {
+//		Track newTrack = new Track();
+//		Playlist pl = new Playlist();
+//		
+//		newTrack.setPlaylist(pl);		
+//		assertEquals(pl,newTrack.getPlaylist());
+//	}
 	
 	@Test
 	public void getSetDurationTest() {
@@ -164,11 +162,9 @@ public class TrackTest {
 	
 	@Test
 	public void hashCodeTest() {
-		Album album = new Album();
-		Playlist pl = new Playlist();
 		
-		Track track1 = new Track(id,name,album,pl,229,lyrics);
-		Track track2 = new Track(id,name,album,pl,229,lyrics);
+		Track track1 = new Track(id,name,null,null,229,lyrics);
+		Track track2 = new Track(id,name,null,null,229,lyrics);
 		
 		assertTrue(track1.hashCode() == track2.hashCode());
 	}
@@ -177,9 +173,8 @@ public class TrackTest {
 	@Test
 	public void equalsTest() {
 		Album al = new Album();
-		Playlist pl = new Playlist();
 		
-		Track track = new Track(id,name,al,pl,229,lyrics);		
+		Track track = new Track(id,name,null,null,229,lyrics);		
 		assertTrue(track.equals(track));
 		assertFalse(track.equals(al));
 	}

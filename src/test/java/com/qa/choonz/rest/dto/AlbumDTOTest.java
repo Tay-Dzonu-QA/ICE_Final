@@ -14,9 +14,11 @@ public class AlbumDTOTest {
 	
 	
 	AlbumDTO testAlbumDTO;
-	final Long id = 1L;
+	final long id = 1L;
 	final String name = "Rumours";
 	final String cover = "no";
+	final String genre = "rock";
+	final String artist = "Pink Floyd";
 	List<TrackDTO> tracks;
 	
 	private static int activeTest = 1;
@@ -65,6 +67,8 @@ public class AlbumDTOTest {
 				this.id,
 				this.name,
 				this.tracks,
+				null,
+				null,
 				this.cover);
 		
 		assertThat(newAlbumDTO instanceof AlbumDTO);
@@ -125,6 +129,8 @@ public class AlbumDTOTest {
 					this.id,
 					this.name,
 					this.tracks,
+					null,
+					null,
 					this.cover);
 			
 			assertThat(!this.testAlbumDTO.equals(emptyAlbum));
@@ -135,8 +141,8 @@ public class AlbumDTOTest {
 		@Test
 		void HashCodeTest() {
 		
-			AlbumDTO a1 = new AlbumDTO(id,name,tracks,cover);
-			AlbumDTO a2 = new AlbumDTO(id,name,tracks,cover);
+			AlbumDTO a1 = new AlbumDTO(id,name,tracks,null,null,cover);
+			AlbumDTO a2 = new AlbumDTO(id,name,tracks,null,null,cover);
 			
 			assertTrue(a1.hashCode() == a2.hashCode());
 		}

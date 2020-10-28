@@ -18,8 +18,8 @@ public class PlaylistDTOTest {
 	final Long id = 1L;
 	private String description;
 	private String artwork;
-	final String name = "Funky Fresh";
-	List<TrackDTO> tracks;
+	private String name;
+	private List<TrackDTO>tracks;
 	
 	private static int activeTest = 1;
 	private static StringBuilder sBuilder = new StringBuilder();
@@ -79,7 +79,8 @@ public class PlaylistDTOTest {
 				this.name,
 				this.description,
 				this.artwork,
-				this.tracks);
+				this.tracks,
+				null);
 		
 		assertThat(newPlaylistDTO instanceof PlaylistDTO);
 	}
@@ -146,7 +147,8 @@ public class PlaylistDTOTest {
 					this.name,
 					this.description,
 					this.artwork,
-					this.tracks);
+					this.tracks,
+					null);
 			
 			assertThat(!this.testPlaylistDTO.equals(emptyPl));
 			assertThat(this.testPlaylistDTO.equals(fullPl));
@@ -156,8 +158,8 @@ public class PlaylistDTOTest {
 		@Test
 		void HashCodeTest() {
 		
-			PlaylistDTO a1 = new PlaylistDTO(id,name,description,artwork,tracks);
-			PlaylistDTO a2 = new PlaylistDTO(id,name,description,artwork,tracks);
+			PlaylistDTO a1 = new PlaylistDTO(id,name,description,artwork,tracks,null);
+			PlaylistDTO a2 = new PlaylistDTO(id,name,description,artwork,tracks,null);
 			
 			assertTrue(a1.hashCode() == a2.hashCode());
 		}

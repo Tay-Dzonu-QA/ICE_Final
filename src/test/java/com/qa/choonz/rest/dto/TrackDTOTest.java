@@ -28,7 +28,8 @@ public class TrackDTOTest {
 				this.id, 
 				this.name,
 				this.duration,
-				this.lyrics);
+				this.lyrics,
+				null);
 		
 		// Start of console test format
 				sBuilder.setLength(0);
@@ -64,7 +65,8 @@ public class TrackDTOTest {
 				this.id,
 				this.name,
 				this.duration,
-				this.lyrics);
+				this.lyrics,
+				null);
 		
 		assertThat(newPlaylistDTO instanceof TrackDTO);
 	}
@@ -125,7 +127,8 @@ public class TrackDTOTest {
 					this.id,
 					this.name,
 					this.duration,
-					this.lyrics);
+					this.lyrics,
+					null);
 			
 			assertThat(!this.testTrackDTO.equals(emptyPl));
 			assertThat(this.testTrackDTO.equals(fullPl));
@@ -135,8 +138,8 @@ public class TrackDTOTest {
 		@Test
 		void HashCodeTest() {
 		
-			TrackDTO a1 = new TrackDTO(id,name,duration,lyrics);
-			TrackDTO a2 = new TrackDTO(id,name,duration,lyrics);
+			TrackDTO a1 = new TrackDTO(id,name,duration,lyrics,null);
+			TrackDTO a2 = new TrackDTO(id,name,duration,lyrics,null);
 			
 			assertTrue(a1.hashCode() == a2.hashCode());
 		}
