@@ -50,6 +50,7 @@ public class GenreController {
     public ResponseEntity<GenreDTO> update(@RequestBody GenreDTO genre, @PathVariable Long id) {
         return new ResponseEntity<GenreDTO>(this.service.update(genre, id), HttpStatus.ACCEPTED);
     }
+    
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<GenreDTO> delete(@PathVariable Long id) {

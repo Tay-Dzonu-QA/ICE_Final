@@ -8,14 +8,18 @@ public class ArtistDTO {
 
     private Long id;
     private String name;
+
     private List<AlbumDTO> albums= new ArrayList<>();
+
 
     public ArtistDTO() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+
     public ArtistDTO(Long id, String name, List<AlbumDTO> albums) {
+
         super();
         this.id = id;
         this.name = name;

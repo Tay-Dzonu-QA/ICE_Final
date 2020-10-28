@@ -38,7 +38,7 @@ public class Genre {
         super();
         // TODO Auto-generated constructor stub
     }
-    
+   
     public Genre(@NotNull @Size(max = 100) String name) {
     	super();
     	this.name = name;
@@ -58,7 +58,6 @@ public class Genre {
         this.description = description;
         this.albums = albums;
     }
-    
 
     public long getId() {
 		return id;

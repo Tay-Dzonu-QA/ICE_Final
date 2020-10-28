@@ -11,12 +11,14 @@ public class GenreDTO {
     private Long id;
     private String name;
     private String description;
+
     private List<AlbumDTO> albums= new ArrayList<>();
 
     public GenreDTO() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 
 
     public GenreDTO(Long id, String name) {
@@ -26,6 +28,7 @@ public class GenreDTO {
     }
     
     public GenreDTO(Long id, String name, String description, List<AlbumDTO> albums) {
+
         super();
         this.id = id;
         this.name = name;

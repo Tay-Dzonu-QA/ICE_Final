@@ -1,14 +1,21 @@
 package com.qa.choonz.rest.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class AlbumDTO {
+import com.qa.choonz.persistence.domain.Artist;
+import com.qa.choonz.persistence.domain.Genre;
 
+public class AlbumDTO {
+	
     private Long id;
     private String name;
-    private List<TrackDTO> tracks;
+    private List<TrackDTO> tracks = new ArrayList<>();
+
     private String cover;
+    private Genre genre;
+    private Artist artist;
 
     public AlbumDTO() {
         super();
@@ -21,19 +28,23 @@ public class AlbumDTO {
 		this.name = name;
 	}
 
-    public AlbumDTO(long id, String name, List<TrackDTO> tracks, String cover) {
+
+    public AlbumDTO(long id, String name, List<TrackDTO> tracks, Artist artist, Genre genre, String cover) {
+
         super();
         this.id = id;
         this.name = name;
         this.tracks = tracks;
         this.cover = cover;
+        this.genre = genre;
+        this.artist = artist;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,7 +56,9 @@ public class AlbumDTO {
         this.name = name;
     }
 
+
     public List<TrackDTO> getTracks() {
+
         return tracks;
     }
 
@@ -62,10 +75,24 @@ public class AlbumDTO {
     }
 
 
-    @Override
-    public int hashCode() {
-        return Objects.hash( cover, id, name, tracks);
-    }
+    public Genre getGenre() {
+		return genre;
+	}
+
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
+	
+
+	public Artist getArtist() {
+		return artist;
+	}
+
+	public void setArtist(Artist artist) {
+		this.artist = artist;
+	}
+
 
     @Override
     public boolean equals(Object obj) {
@@ -76,8 +103,14 @@ public class AlbumDTO {
             return false;
         }
         AlbumDTO other = (AlbumDTO) obj;
-        return  Objects.equals(cover, other.cover) && id == other.id 
-        		&& Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks);
+
+        return Objects.equals(artist, other.artist) && Objects.equals(cover, other.cover)
+                && Objects.equals(genre, other.genre) && id == other.id && Objects.equals(name, other.name)
+                && Objects.equals(tracks, other.tracks);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, tracks, cover,genre,artist);
+    }
 }

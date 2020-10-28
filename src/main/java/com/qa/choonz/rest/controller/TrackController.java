@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.choonz.persistence.domain.Track;
+import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.rest.dto.TrackDTO;
 import com.qa.choonz.service.TrackService;
 
@@ -43,6 +44,10 @@ public class TrackController {
     @GetMapping("/read/{id}")
     public ResponseEntity<TrackDTO> read(@PathVariable Long id) {
         return new ResponseEntity<TrackDTO>(this.service.read(id), HttpStatus.OK);
+    }
+    @GetMapping("/read/albums/{id}")
+    public ResponseEntity<List<TrackDTO>> readArtists(@PathVariable Long id) {
+        return new ResponseEntity<List<TrackDTO>>(this.service.readAlbum(id), HttpStatus.OK);
     }
 
 

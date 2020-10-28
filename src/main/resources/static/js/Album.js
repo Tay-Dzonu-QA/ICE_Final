@@ -1,30 +1,25 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
-let albumsToView;
+let albumsToView="";
+let user =0;
 console.log(params);
-let run = 0;
-
 for (const param of params) {
-  console.log(param);
-  if(run === 0){
-    loggedIn = param[1];
-    run+=1;
-  } else if(run ===1){
+  if (param[0] === "user") {
+    user = param[1];
+    if (user != 0) {
+      loggedIn = true;
+    }
+  } else if(param[0]==="artists"||param[0]==="genres"){
     let artistOrGenre = param[0];
     let artistOrGenreId = param[1];
     albumsToView = "/"+artistOrGenre+"/"+artistOrGenreId;
-    run+=1;
   }
-}
-console.log(run);
-if(run ===1){
-  albumsToView="";
 }
 console.log(albumsToView);
 console.log(loggedIn);
-getAlbums(loggedIn,albumsToView);
+getAlbums(loggedIn,albumsToView,user);
 
-function getAlbums(loggedIn,albumsToView) {
+function getAlbums(loggedIn,albumsToView,user) {
   fetch("http://localhost:8082/albums/read"+albumsToView)
     .then(function (response) {
       if (response.status !== 200) {
@@ -40,8 +35,8 @@ function getAlbums(loggedIn,albumsToView) {
         let data = Object.keys(AlbumData[0]);
 
         generateTableHead(table, data, loggedIn);
-        generateTable(table, AlbumData, loggedIn);
-        if(loggedIn){
+        generateTable(table, AlbumData, loggedIn,user);
+        if(loggedIn == true){
             generateAddAlbumBtn(table);
         }
         
@@ -65,7 +60,7 @@ function generateTableHead(table, data, loggedIn) {
   let text = document.createTextNode("View Album");
   th.appendChild(text);
   row.appendChild(th);
-  if (loggedIn) {
+  if (loggedIn == true) {
     let th2 = document.createElement("th");
     let text2 = document.createTextNode("Edit");
     th2.appendChild(text2);
@@ -91,13 +86,16 @@ function generateTable(table, AlbumData, loggedIn) {
         }
         text = document.createTextNode(tracksNo);
       }
+      if(key ==="genre" ||key ==="artist"){
+        text =  document.createTextNode(element[key].name)
+      }
       cell.appendChild(text);
     }
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewAlbumButton";
-    myViewButton.onclick = function(){document.location='Tracks.html?loggedIn='+loggedIn+'?albums='+element.id};
+    myViewButton.onclick = function(){document.location='Tracks.html?user='+user+'&albums='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
@@ -105,7 +103,7 @@ function generateTable(table, AlbumData, loggedIn) {
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-    if (loggedIn) {
+    if (loggedIn == true) {
         let newCell2 = row.insertCell();
         let myEditButton = document.createElement("button");
         myEditButton.className = "btn";
@@ -279,10 +277,10 @@ function deleteAlbum(id) {
       body: (json = JSON.stringify({
         "id": AlbumId,
         "name": name,
-        "artists":{
+        "artist":{
           "id":artist
         },
-        "genres":{
+        "genre":{
           "id":genre
         },
         "cover":cover
@@ -324,10 +322,10 @@ function deleteAlbum(id) {
       },
       body: (json = JSON.stringify({
         "name": name,
-        "artists":{
+        "artist":{
           "id":artist
         },
-        "genres":{
+        "genre":{
           "id":genre
         },
         "cover":cover
