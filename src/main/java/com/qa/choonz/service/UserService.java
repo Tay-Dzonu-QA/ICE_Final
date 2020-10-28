@@ -40,6 +40,7 @@ public class UserService {
 
     public UserDTO read(long id) {
         User found = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
+
         return this.mapToDTO(found);
     }
     
@@ -47,7 +48,16 @@ public class UserService {
         return this.repo.checkPassword(username);
     }
 
+    public String checkUsername(String username) {
+        return this.repo.checkUsername(username);
+    }
 
+    public UserDTO findUser(String username){
+        if (this.repo.findUsersByUsernameEquals(username) != null)
+        return this.mapToDTO(this.repo.findUsersByUsernameEquals(username));
+        else
+            return new UserDTO();
+    }
 
     public UserDTO update(UserDTO user, long id) {
         User toUpdate = this.repo.findById(id).orElseThrow(UserNotFoundException::new);

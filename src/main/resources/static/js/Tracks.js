@@ -274,7 +274,7 @@ function deleteTrack(id) {
     let TrackDuration = formElements["TrackDuration"].value;
     let TrackLyrics = formElements["TrackLyrics "].value;
     let TrackAlbum = formElements["TrackAlbum"].value;
-    let TrackAlbum = TrackAlbum.split(".");
+    TrackAlbum = TrackAlbum.split(".");
     let TrackAlbumId = parseInt(TrackAlbum[0]);
 
     addTrack(AlbumName,TrackDuration,TrackLyrics,TrackAlbumId)
