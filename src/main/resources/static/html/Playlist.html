@@ -61,13 +61,38 @@
     </nav>
     <!-- /Navbar -->
 
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+      <a
+        href="javascript:void(0)"
+        class="closebtn"
+        onclick="closeNav('playlistTitle'); document.getElementById('main').style.display = 'block'"
+        >&times;</a
+      >
+      <div>
+        <h2>Placeholder</h2>
+        <div id=""></div>
+      </div>
+    </div>
+
+    <div id="main">
+      <button
+        class="openbtn"
+        onclick="openNav('playlistTitle'); document.getElementById('main').style.display = 'none'"
+      >
+        &#9776; Filter By
+      </button>
+    </div>
+    <!-- Sidebar -->
+
     <!-- Table -->
-    <div class="TableBody" id="trackTitle">
+    <div class="TableBody" id="playlistTitle">
       <br />
       <h2>Playlists</h2>
       <table id="TrackTable" class="table table-hover"></table>
     </div>
     <!-- /Table -->
+    <script src="../js/Sidebar.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

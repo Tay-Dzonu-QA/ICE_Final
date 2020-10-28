@@ -44,6 +44,10 @@ body {
   transition: 0.5s;
 }
 
+.sidebar h2 {
+  color: #6d6d6d;
+}
+
 .sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -82,7 +86,8 @@ body {
 #albumTitle,
 #artistTitle,
 #trackTitle,
-#genreTitle {
+#genreTitle,
+#playlistTitle {
   transition: margin-left 0.5s;
   padding: 20px;
 }
