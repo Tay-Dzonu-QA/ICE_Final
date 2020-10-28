@@ -43,6 +43,9 @@ function generateTableHead(table, data) {
   let thead = table.createTHead();
   let row = thead.insertRow();
   for (let key of data) {
+    if (key === "playlist") {
+      continue;
+    }
     let th = document.createElement("th");
     let text = document.createTextNode(key);
     th.appendChild(text);
@@ -63,6 +66,9 @@ function generateTable(table, TrackData, user) {
   for (let element of TrackData) {
     let row = table.insertRow();
     for (key in element) {
+      if (key === "playlist") {
+        continue;
+      }
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
       if (key === "album") {
