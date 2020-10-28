@@ -11,8 +11,13 @@ body {
   display: none;
 }
 
-.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+.navbar-toggler:not(.collapsed)  {
   display: inline;
+}
+
+.navbar-toggler-icon {
+  display: inline;
+  border-color: #fff;
 }
 
 .navbar {
