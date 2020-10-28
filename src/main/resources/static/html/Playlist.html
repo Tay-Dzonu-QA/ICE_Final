@@ -25,10 +25,10 @@
       <a class="navbar-brand" href="./">
         <img
           class="logo"
-          src="../img/Choonz.jpg"
+          src="../img/Choonz.png"
           width="auto"
           ml-auto
-          height="50"
+          height="60"
       /></a>
       <button
         class="navbar-toggler collapsed border-0"
@@ -53,18 +53,46 @@
           <li class="nav-item">
             <a class="nav-link" href="Playlist.html">Top Playlists</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Genre.html">Genres</a>
+          </li>
         </ul>
       </div>
     </nav>
     <!-- /Navbar -->
 
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+      <a
+        href="javascript:void(0)"
+        class="closebtn"
+        onclick="closeNav('playlistTitle'); document.getElementById('main').style.display = 'block'"
+        >&times;</a
+      >
+      <div>
+        <h2>Placeholder</h2>
+        <div id=""></div>
+      </div>
+    </div>
+
+    <div id="main">
+      <button
+        class="openbtn"
+        onclick="openNav('playlistTitle'); document.getElementById('main').style.display = 'none'"
+      >
+        &#9776; Filter By
+      </button>
+    </div>
+    <!-- Sidebar -->
+
     <!-- Table -->
-    <div class="TableBody" id="trackTitle">
-        <br>
-        <h2> Playlists</h2>
-        <table id="TrackTable" class="table table-hover"></table>
+    <div class="TableBody" id="playlistTitle">
+      <br />
+      <h2>Playlists</h2>
+      <table id="TrackTable" class="table table-hover"></table>
     </div>
     <!-- /Table -->
+    <script src="../js/Sidebar.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

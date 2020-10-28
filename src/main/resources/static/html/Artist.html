@@ -21,8 +21,8 @@
 
       <nav class="navbar fixed-top navbar-expand-lg">
         <a class="navbar-brand" href="./">
-            <img class="logo" src="../img/Choonz.jpg" width="auto" ml-auto
-                height="50"></a>
+          <img class="logo" src="../img/Choonz.png" width="auto" ml-auto
+          height="60"></a>
         <button class="navbar-toggler collapsed border-0" type="button"
             data-toggle="collapse" data-target="#collapsingNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -43,6 +43,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="Playlist.html">Top Playlists</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Genre.html">Genres</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -51,8 +54,11 @@
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav('artistTitle'); document.getElementById('main').style.display = 'block'">&times;</a>
-      <a href="#">Genres</a>
-      <a href="#">Artist</a>
+      <div>
+        <h2>Genres</h2>
+        <div id = "genreList">
+        </div>
+      </div>
     </div>
     
     <div id="main">
