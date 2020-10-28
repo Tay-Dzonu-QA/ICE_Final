@@ -28,6 +28,11 @@ body {
   transition: 0.3s
 }
 
+.logo:hover {
+  filter: invert(100%);
+  transition: 0.3;
+}
+
 .sidebar {
   height: 100%;
   width: 0;
