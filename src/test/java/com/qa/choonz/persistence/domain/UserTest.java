@@ -105,7 +105,7 @@ public class UserTest {
 	
 	@Test
 	void GetPasswordTest() {
-		assertThat(this.testUser.getPassword().equals(this.password));
+		assertThat(this.testUser.getPassword().equals(this.username));
 	}
 	
 	@Test

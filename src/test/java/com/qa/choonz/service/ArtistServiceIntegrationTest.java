@@ -89,8 +89,8 @@ public class ArtistServiceIntegrationTest {
 //    	ArtistDTO newArtist = new ArtistDTO(id, "Proclaimers");
 //    	ArtistDTO updatedArtist = new ArtistDTO(this.id, newArtist.getName());
 //
-// //       assertThat(updatedArtist)
-// //           .isEqualTo(this.service.update(newArtist, this.id));
+//       assertThat(updatedArtist)
+//            .isEqualTo(this.service.update(newArtist, this.id));
 //        ArtistDTO updatedDTO = new ModelMapper().map(updatedArtist, ArtistDTO.class);
 //
 //

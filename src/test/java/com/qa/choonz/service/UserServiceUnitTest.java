@@ -89,40 +89,40 @@ public class UserServiceUnitTest {
         verify(this.repository, times(1)).findAll();
     }
 
-//    @Test
-//    void updateTest() {
-//    	
-//    	User user = new User("JJ");
-//    	
-//        user.setId(this.id);
-//
-//        UserDTO userDTO = new UserDTO(id, "JJ","password",null);
-//
-//        User newUser = new User(userDTO.getUsername());
-//        
-//        newUser.setId(this.id);
-//
-//        UserDTO newUserDTO = new UserDTO(this.id, newUser.getUsername());
-//
-//        when(this.repository.findById(this.id)).thenReturn(Optional.of(user));
-//        when(this.repository.save(user)).thenReturn(newUser);
-//        when(this.modelMapper.map(newUser, UserDTO.class)).thenReturn(newUserDTO);
-//
-//        assertThat(newUserDTO).isEqualTo(this.service.update(userDTO, this.id));
-//
-//        verify(this.repository, times(1)).findById(1L);
-//        verify(this.repository, times(1)).save(newUser);
-//    }
+    @Test
+    void updateTest() {
+    	
+    	User user = new User("JJ");
+    	
+        user.setId(this.id);
+
+        UserDTO userDTO = new UserDTO(id, "JJ","password",null);
+
+        User newUser = new User(userDTO.getUsername());
+        
+        newUser.setId(this.id);
+
+        UserDTO newUserDTO = new UserDTO(this.id, newUser.getUsername());
+
+        when(this.repository.findById(this.id)).thenReturn(Optional.of(user));
+        when(this.repository.save(user)).thenReturn(newUser);
+        when(this.modelMapper.map(newUser, UserDTO.class)).thenReturn(newUserDTO);
+
+        assertThat(newUserDTO).isEqualTo(this.service.update(userDTO, this.id));
+
+        verify(this.repository, times(1)).findById(1L);
+        verify(this.repository, times(1)).save(newUser);
+    }
     
-//    @Test
-//    void CheckPasswordTest() {
-//        when(this.repository.checkPassword()).thenReturn(this.password);
-//        when(this.modelMapper.map(this.testUserWithId, UserDTO.class)).thenReturn(this.userDTO);
-//
-//        assertThat(this.service.read().isEmpty()).isFalse();
-//
-//        verify(this.repository, times(1)).checkPassword();
-//    }
+    @Test
+    void CheckPasswordTest() {
+        when(this.repository.checkPassword()).thenReturn(this.password);
+        when(this.modelMapper.map(this.testUserWithId, UserDTO.class)).thenReturn(this.userDTO);
+
+        assertThat(this.service.read().isEmpty()).isFalse();
+
+        verify(this.repository, times(1)).checkPassword();
+    }
     	
 
     @Test
