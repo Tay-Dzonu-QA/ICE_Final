@@ -32,7 +32,7 @@ function getTracks(loggedIn, playlistToView, user) {
         let title = document.querySelector("#PLTitle");
         title.innerHTML = "Playlist: "+PlaylistData.name;
         
-        let table = document.querySelector("#TrackTable");
+        let table = document.querySelector("#PlaylistTable");
         let data = Object.keys(TrackData[0]);
         generateTableHead(table, data);
         generateTable(table, TrackData, user);
