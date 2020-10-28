@@ -360,6 +360,7 @@ document
     let TrackAlbum1 = TrackAlbum.split(".");
     let TrackAlbumId = parseInt(TrackAlbum1[0]);
 
+
     addTrack(AlbumName, TrackDuration, TrackLyrics, TrackAlbumId);
   });
 

@@ -40,6 +40,10 @@ public class UserController {
 	public ResponseEntity<String> readLastID(@PathVariable String username){
 		return ResponseEntity.ok(this.service.checkPassword(username));
 	}
+    @GetMapping("/username/{username}")
+    public ResponseEntity<UserDTO> findUser(@PathVariable String username){
+        return ResponseEntity.ok(this.service.findUser(username));
+    }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<UserDTO> update(@RequestBody UserDTO user, @PathVariable Long id) {

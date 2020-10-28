@@ -1,7 +1,8 @@
 package com.qa.choonz.service;
 
-import com.qa.choonz.exception.PlaylistNotFoundException;
 
+
+import com.qa.choonz.exception.UserNotFoundException;
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.UserRepository;
 
@@ -37,8 +38,12 @@ public class UserService {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    public UserDTO read(Long id) {
-        User found = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+    public UserDTO read(long id) {
+        User found = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
+
+
+
+
         return this.mapToDTO(found);
     }
     
@@ -46,8 +51,22 @@ public class UserService {
         return this.repo.checkPassword(username);
     }
 
+
+    public String checkUsername(String username) {
+        return this.repo.checkUsername(username);
+    }
+
+    public UserDTO findUser(String username){
+        if (this.repo.findUsersByUsernameEquals(username) != null)
+        return this.mapToDTO(this.repo.findUsersByUsernameEquals(username));
+        else
+            return new UserDTO();
+    }
+
+
     public UserDTO update(UserDTO user, Long id) {
-        User toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
+        User toUpdate = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
+
         SAPIBeanUtils.mergeNotNull(user,toUpdate);
         return this.mapToDTO(this.repo.save(toUpdate));
     }
