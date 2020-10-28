@@ -64,6 +64,21 @@ public class TrackTest {
 	}
 	
 	@Test
+    public void equalsWithNull() {
+        assertFalse(testTrack.equals(null));
+    }
+	
+	@Test
+    public void equalsWithDifferentObject() {
+        assertFalse(testTrack.equals(new Object()));
+    }
+	
+	@Test
+	public void checkEquality() {
+	     assertTrue(testTrack.equals(testTrack));
+	    }
+	
+	@Test
 	public void getSetIdTest() {
 		Track newTrack = new Track();
 		

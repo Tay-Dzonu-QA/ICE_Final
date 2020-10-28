@@ -1,6 +1,7 @@
 package com.qa.choonz.persistence.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class AlbumTest {
 					null, 
 					this.cover);
 			
+					
 			sBuilder.setLength(0);
 			sBuilder
 			.append("\tTest ").append(activeTest).append("\n")
@@ -72,6 +74,22 @@ public class AlbumTest {
 					this.cover);
 			assertThat(newAl instanceof Album);
 		}
+		
+		@Test
+	    public void equalsWithNull() {
+	        assertFalse(testAlbum.equals(null));
+	    }
+		
+		@Test
+	    public void equalsWithDifferentObject() {
+	        assertFalse(testAlbum.equals(new Object()));
+	    }
+		
+		@Test
+		public void checkEquality() {
+		     assertTrue(testAlbum.equals(testAlbum));
+		    }
+		  
 		
 		@Test
 		void GetIdTest() {
@@ -185,7 +203,6 @@ public class AlbumTest {
 			assertTrue(a1.hashCode() == a2.hashCode());
 		}
 		
-
 		@AfterEach
 		void teardown() {
 			this.testAlbum = null;

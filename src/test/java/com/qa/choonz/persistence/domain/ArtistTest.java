@@ -2,6 +2,7 @@ package com.qa.choonz.persistence.domain;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -65,6 +66,21 @@ public class ArtistTest {
 					newTestAlbums);	
 			assertThat(newTestArtist instanceof Artist);
 		}
+		
+		@Test
+	    public void equalsWithNull() {
+	        assertFalse(testArtist.equals(null));
+	    }
+		
+		@Test
+	    public void equalsWithDifferentObject() {
+	        assertFalse(testArtist.equals(new Object()));
+	    }
+		
+		@Test
+		public void checkEquality() {
+		     assertTrue(testArtist.equals(testArtist));
+		    }
 		
 		
 		@Test

@@ -58,6 +58,21 @@ public class PlaylistTest {
 	}
 	
 	@Test
+    public void equalsWithNull() {
+        assertFalse(testPl.equals(null));
+    }
+	
+	@Test
+    public void equalsWithDifferentObject() {
+        assertFalse(testPl.equals(new Object()));
+    }
+	
+	@Test
+	public void checkEquality() {
+	     assertTrue(testPl.equals(testPl));
+	    }
+	
+	@Test
 	public void getSetIdTest() {
 		Playlist newPl = new Playlist();
 		
