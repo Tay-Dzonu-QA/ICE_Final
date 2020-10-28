@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 let tracksToView = "";
 let singleTrack = false;
-let user = 0;
+let user = 1;
 console.log(params);
 
 for (const param of params) {
