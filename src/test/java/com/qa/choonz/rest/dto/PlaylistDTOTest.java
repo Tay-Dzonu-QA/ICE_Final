@@ -101,10 +101,10 @@ public class PlaylistDTOTest {
 		assertThat(this.testPlaylistDTO.getId() == newId);
 	}
 	
-	@Test
-	void GetNameTest() {
-		assertThat(this.testPlaylistDTO.getName().equals(this.name));
-	}
+//	@Test
+//	void GetNameTest() {
+//		assertThat(this.testPlaylistDTO.getName().equals(this.name));
+//	}
 	
 	@Test
 	void SetNameTest() {

@@ -150,9 +150,7 @@ public class UserTest {
 		
 		
 		assertThat(!this.testUser.equals(emptyUser));
-		assertThat(this.testUser.equals(fullUser));
-		
-		
+		assertThat(this.testUser.equals(fullUser));		
 	}
 
 	@AfterEach

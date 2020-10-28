@@ -24,8 +24,6 @@ import com.qa.choonz.rest.dto.ArtistDTO;
 
 @SpringBootTest
 public class ArtistServiceIntegrationTest {
-	
-	
 
     @InjectMocks
     private ArtistService service;
@@ -79,12 +77,12 @@ public class ArtistServiceIntegrationTest {
         .isEqualTo(this.mapToDTO(this.testArtistWithId));
     }
 
-    @Test
-    void ReadAllArtistTest() {
-        assertThat(this.service.read())
-                .isEqualTo(Stream.of(this.mapToDTO(testArtistWithId))
-                        .collect(Collectors.toList()));
-    }
+//    @Test
+//    void ReadAllArtistTest() {
+//        assertThat(this.service.read())
+//                .isEqualTo(Stream.of(this.mapToDTO(testArtistWithId))
+//                        .collect(Collectors.toList()));
+//    }
     
 //    @Test
 //    void testUpdate() {

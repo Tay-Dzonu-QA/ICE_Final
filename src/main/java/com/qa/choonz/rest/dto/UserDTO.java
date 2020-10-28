@@ -12,14 +12,20 @@ public class UserDTO {
     public UserDTO(){
         super();
     }
+    
+    public UserDTO(Long id, String username) {
+    	super();
+    	this.id = id;
+    	this.username = username;
+    	
+    }
 
     public UserDTO(Long id, String username, String password, List<PlaylistDTO> playlist){
-        this.id = id;
+        super();
+    	this.id = id;
         this.username = username;
         this.password = password;
         this.playlist = playlist;
-
-
     }
 
     public Long getId() {
