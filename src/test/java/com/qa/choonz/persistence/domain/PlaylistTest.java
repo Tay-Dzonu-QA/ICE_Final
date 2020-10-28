@@ -1,5 +1,6 @@
 package com.qa.choonz.persistence.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -47,6 +48,57 @@ public class PlaylistTest {
 		// End of console test format
 		
 	}
+	
+	void noArguConsTest() {
+
+		Playlist newTestPlaylist = new Playlist();
+		assertThat(newTestPlaylist instanceof Playlist);
+	}
+	
+	@Test
+	void oneArguConsTest() {
+
+		Playlist newPl = new Playlist(
+				this.name);
+		
+		assertThat(newPl instanceof Playlist);
+	}
+	
+	@Test
+	void threeArguConsTest() {
+
+		Playlist newPl = new Playlist( 
+				this.name, 
+				this.desc, 
+				this.artwork);
+		
+		assertThat(newPl instanceof Playlist);
+	}
+	
+	@Test
+	void fourArguConsTest() {
+
+		Playlist newPl = new Playlist(
+				this.name, 
+				this.desc, 
+				this.artwork, 
+				null);
+		
+		assertThat(newPl instanceof Playlist);
+	}
+	
+	@Test
+	void AllArguConsTest() {
+
+		Playlist newPl = new Playlist(
+				this.id, 
+				this.name, 
+				this.desc, 
+				this.artwork,
+				null);
+		
+		assertThat(newPl instanceof Playlist);
+	}	
 	
 	@Test
 	public void consTests() {

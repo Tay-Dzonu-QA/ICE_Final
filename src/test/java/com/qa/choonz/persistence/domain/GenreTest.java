@@ -54,6 +54,25 @@ public class GenreTest {
 		}
 		
 		@Test
+		void oneArguConsTest() {
+
+			Genre newGenre = new Genre(
+					this.name);
+			
+			assertThat(newGenre instanceof Genre);
+		}		
+		
+		@Test
+		void twoArguConsTest() {
+
+			Genre newGenre = new Genre(
+					this.name, 
+					this.description);
+			
+			assertThat(newGenre instanceof Genre);
+		}		
+		
+		@Test
 		void AllArguConsTest() {
 
 			Genre newGenre = new Genre(

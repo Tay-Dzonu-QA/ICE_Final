@@ -1,5 +1,6 @@
 package com.qa.choonz.persistence.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -61,6 +62,36 @@ public class TrackTest {
 		Track track = new Track(id,name,album,playlist,229,lyrics);
 		
 		assertTrue(track instanceof Track);
+	}
+	
+	@Test
+	void noArguConsTest() {
+
+		Track newTrack = new Track();			
+		assertThat(newTrack instanceof Track);
+	}
+	
+	@Test
+	void oneArguConsTest() {
+
+		Track newGenre = new Track(
+				this.name);
+		
+		assertThat(newGenre instanceof Track);
+	}		
+	
+	@Test
+	void AllArguConsTest() {
+
+		Track newTrack = new Track(
+				this.id, 
+				this.name, 
+				null, 
+				null,
+				this.duration, 
+				this.lyrics);
+		
+		assertThat(newTrack instanceof Track);
 	}
 	
 	@Test

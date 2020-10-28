@@ -55,6 +55,40 @@ public class ArtistTest {
 		}
 		
 		@Test
+		void oneArguConsTest() {
+
+			Artist newArt = new Artist(
+					this.name);
+			
+			assertThat(newArt instanceof Artist);
+		}
+		
+		@Test
+		void twoArguConsTest() {
+
+			Artist newArt = new Artist(
+					this.id, 
+					this.name);
+			
+			assertThat(newArt instanceof Artist);
+		}
+		
+		@Test
+		void threeArguConsTest() {
+
+			Long newId = this.id + 1;
+			String newName = "The Rolling Stones";
+			List<Album> newTestAlbums = new ArrayList<Album>();
+			Artist newArt = new Artist( 
+					newId, 
+					newName, 
+					newTestAlbums);
+			
+			assertThat(newArt instanceof Artist);
+		}
+		
+		
+		@Test
 		void AllArguConsTest() {
 
 			Long newId = this.id + 1;
