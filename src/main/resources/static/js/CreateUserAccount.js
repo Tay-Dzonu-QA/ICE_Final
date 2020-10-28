@@ -1,3 +1,4 @@
+let doesAccount;
 document.querySelector("form.createUser").addEventListener("submit",function(stop){
     stop.preventDefault();
 
@@ -19,14 +20,10 @@ document.querySelector("form.createUser").addEventListener("submit",function(sto
     }
 
 })
-let doesAccount = null;
+
 function createAccount(username,password){
 
-    doesAccountExist(username)
-    if ( doesAccount !== null )alert("Account exists already");
-    else{
-        createRecord(password,username);
-    }
+    doesAccountExist(username,password)
 
 
 }
@@ -49,9 +46,9 @@ function createAccount(username,password){
 //         });
 // }
 
-function doesAccountExist(id){
+function doesAccountExist(username,password){
 
-    fetch('http://localhost:8082/users/username/'+id)
+    fetch('http://localhost:8082/users/username/'+username)
         .then(
             function(response) {
                 if (response.status !== 200) {
@@ -63,16 +60,13 @@ function doesAccountExist(id){
                 // Examine the text in the response
                 console.log(response);
                 response.json().then(function(data) {
-                    doesAccount = data.username;
+                    if (data.username !== null){alert("this account exists")}
+                    else{
+                        createRecord(password,username)
+                    }
 
-                    // document.getElementById("id").value = data.id;
-                    // document.getElementById("name").value = data.name;
-                    // document.getElementById("foodgroup").value = data.foodGroup;
-                    // document.getElementById("price").value = data.price;
-                    // document.getElementById("weight").value = data.weight;
 
-                    //document.getElementById("noOfStrings").value = data.strings;
-                    //document.getElementById("type").value = data.type;
+
                 });
             }
         )
@@ -101,6 +95,7 @@ function createRecord(password,username){
         .then(function (data) {
             alert("You have created an account")
             console.log('Request succeeded with JSON response', data);
+            doesAccountExistTwo(username,password)
         })
         .catch(function (error) {
             console.log('Request failed', error);
