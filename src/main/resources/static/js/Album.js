@@ -1,6 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 let loggedIn = false;
 let albumsToView="";
+let artistOrGenre="";
 let user =0;
 console.log(params);
 for (const param of params) {
@@ -10,16 +11,16 @@ for (const param of params) {
       loggedIn = true;
     }
   } else if(param[0]==="artists"||param[0]==="genres"){
-    let artistOrGenre = param[0];
+    artistOrGenre = param[0];
     let artistOrGenreId = param[1];
     albumsToView = "/"+artistOrGenre+"/"+artistOrGenreId;
   }
 }
 console.log(albumsToView);
 console.log(loggedIn);
-getAlbums(loggedIn,albumsToView,user);
+getAlbums(loggedIn,albumsToView,user,artistOrGenre);
 
-function getAlbums(loggedIn,albumsToView,user) {
+function getAlbums(loggedIn,albumsToView,user,artistOrGenre) {
   fetch("http://localhost:8082/albums/read"+albumsToView)
     .then(function (response) {
       if (response.status !== 200) {
@@ -31,6 +32,15 @@ function getAlbums(loggedIn,albumsToView,user) {
       // Examine the text in the response
       response.json().then(function (AlbumData) {
         console.log(AlbumData);
+        let title = document.querySelector("#AlbumTitle");
+        if(artistOrGenre==="artists"){
+          title.innerHTML = "Albums by "+AlbumData[0].artist.name;
+        }else if(artistOrGenre==="genres"){
+          title.innerHTML = AlbumData[0].genre.name+" Albums";
+        }else{
+          title.innerHTML = "Albums";
+        }
+
         let table = document.querySelector("#AlbumTable");
         let data = Object.keys(AlbumData[0]);
 
@@ -95,7 +105,7 @@ function generateTable(table, AlbumData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewAlbumButton";
-    myViewButton.onclick = function(){document.location='Tracks.html?user='+user+'&albums='+element.id};
+    myViewButton.onclick = function(){document.location='Track.html?user='+user+'&albums='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";

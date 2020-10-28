@@ -29,6 +29,9 @@ function getTracks(loggedIn, playlistToView, user) {
       response.json().then(function (PlaylistData) {
         let TrackData = PlaylistData.tracks;
 
+        let title = document.querySelector("#PLTitle");
+        title.innerHTML = "Playlist: "+PlaylistData.name;
+        
         let table = document.querySelector("#TrackTable");
         let data = Object.keys(TrackData[0]);
         generateTableHead(table, data);
