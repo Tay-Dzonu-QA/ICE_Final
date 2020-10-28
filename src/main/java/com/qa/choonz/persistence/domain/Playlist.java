@@ -31,7 +31,8 @@ public class Playlist {
     @Column(unique = true)
     private String artwork;
 
-    @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "playlists")
+    @JsonIgnoreProperties("playlists")
     private List<Track> tracks;
 
     @ManyToOne
