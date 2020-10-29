@@ -1,13 +1,3 @@
-for (const param of params) {
-  if (param[0] === "user") {
-    user = param[1];
-    if (user !== 0) {
-      loggedIn = true;
-    }
-  }else if(param[0]==="order"){
-    order = "/"+param[1];
-  }
-}
 getGenres(loggedIn,user,order);
 
 function getGenres(loggedIn,user,order) {

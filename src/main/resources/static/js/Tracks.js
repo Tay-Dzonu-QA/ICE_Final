@@ -1,22 +1,3 @@
-for (const param of params) {
-  if (param[0] === "user") {
-    user = param[1];
-    if (user != 0) {
-      loggedIn = true;
-    }
-  } else if (param[0] === "albums") {
-    albumOrTrack = param[0];
-    let albumOrTrackId = param[1];
-    tracksToView = "/" + albumOrTrack + "/" + albumOrTrackId;
-  } else if ((param[0] = "tracks")) {
-    albumOrTrack = param[0];
-    singleTrack = true;
-    tracksToView = "/" + param[1];
-  }
-}
-
-console.log(tracksToView);
-console.log(loggedIn);
 getTracks(loggedIn, tracksToView, singleTrack, user);
 
 function getTracks(loggedIn, tracksToView, singleTrack, user) {

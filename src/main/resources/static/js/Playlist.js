@@ -1,19 +1,19 @@
-const params = new URLSearchParams(window.location.search);
-let loggedIn = false;
-let playlistToView = "";
-let user = 0;
-console.log(params);
+// const params = new URLSearchParams(window.location.search);
+// let loggedIn = false;
+// let playlistToView = "";
+// let user = 0;
+// console.log(params);
 
-for (const param of params) {
-  if (param[0] === "user") {
-    user = param[1];
-    if (user != 0) {
-      loggedIn = true;
-    }
-  } else if ((param[0] = "playlists")) {
-    playlistToView = param[1];
-  }
-}
+// for (const param of params) {
+//   if (param[0] === "user") {
+//     user = param[1];
+//     if (user != 0) {
+//       loggedIn = true;
+//     }
+//   } else if ((param[0] = "playlists")) {
+//     playlistToView = param[1];
+//   }
+// }
 console.log(playlistToView);
 getTracks(loggedIn, playlistToView, user);
 function getTracks(loggedIn, playlistToView, user) {
