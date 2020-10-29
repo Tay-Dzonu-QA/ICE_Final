@@ -53,7 +53,8 @@ public class ArtistServiceIntegrationTest {
 
     @BeforeEach
     public void init() {
-    	
+
+//    	this.repo.deleteAll();
         this.artist = new ArrayList<>();
         this.artist.add(testArtist);
         this.testArtist = new Artist(testName);
@@ -81,12 +82,26 @@ public class ArtistServiceIntegrationTest {
         .isEqualTo(this.mapToDTO(this.testArtistWithId));
     }
 
-   @Test
-    void ReadAllArtistTest() {
-        assertThat(this.service.read())
-                .isEqualTo(Stream.of(this.mapToDTO(testArtistWithId))
-                        .collect(Collectors.toList()));
-    }
+
+//    @Test
+//    void ReadAllArtistTest() {
+//        assertThat(this.service.read())
+//                .isEqualTo(Stream.of(this.mapToDTO(testArtistWithId))
+//                        .collect(Collectors.toList()));
+//    }
+//    @Test
+//  void ReadAllArtistDescTest() {
+//      assertThat(this.service.read())
+//              .isEqualTo(Stream.of(this.mapToDTO(testArtistWithId))
+//                      .collect(Collectors.toList()));
+//  } 
+//    @Test
+//  void ReadNameTest() {
+//} 
+//    @Test
+//  void ReadNameDescTest() {
+//}
+
     
     @Test
     void testUpdate() {

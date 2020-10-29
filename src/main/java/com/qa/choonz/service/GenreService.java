@@ -36,6 +36,15 @@ public class GenreService {
     public List<GenreDTO> read() {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
+    public List<GenreDTO> readDesc() {
+        return this.repo.findAllDesc().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+    public List<GenreDTO> readByName() {
+        return this.repo.orderByName().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+    public List<GenreDTO> readByNameDesc() {
+        return this.repo.orderByNameDesc().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
 
     public GenreDTO read(long id) {
         Genre found = this.repo.findById(id).orElseThrow(GenreNotFoundException::new);

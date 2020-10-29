@@ -87,6 +87,16 @@ public class TrackServiceUnitTest {
 
         verify(this.repository, times(1)).findAll();
     }
+    @Test
+    void readAlbumTest() {
+
+        when(this.repository.readAlbum(1l)).thenReturn(this.tracks);
+        when(this.modelMapper.map(this.testTrackWithId, TrackDTO.class)).thenReturn(this.trackDTO);
+
+        assertThat(this.service.readAlbum(1l).isEmpty()).isFalse();
+
+        verify(this.repository, times(1)).readAlbum(1l);
+    }
 
     @Test
     void updateTest() {

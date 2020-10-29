@@ -95,6 +95,20 @@ public class TrackControllerUnitTest {
         verify(this.service, times(1))
             .read();
     }
+    @Test
+    void readAlbumTest() {
+        when(service.readAlbum(1l))
+            .thenReturn(this.tracks
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readAlbum(1l).getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readAlbum(1l);
+    }
     
     @Test
     void updateTest() {

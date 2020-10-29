@@ -39,6 +39,18 @@ public class GenreController {
     public ResponseEntity<List<GenreDTO>> read() {
         return new ResponseEntity<List<GenreDTO>>(this.service.read(), HttpStatus.OK);
     }
+    @GetMapping("/read/desc")
+    public ResponseEntity<List<GenreDTO>> readDesc() {
+        return new ResponseEntity<List<GenreDTO>>(this.service.readDesc(), HttpStatus.OK);
+    }
+    @GetMapping("/read/name")
+    public ResponseEntity<List<GenreDTO>> readByName() {
+        return new ResponseEntity<List<GenreDTO>>(this.service.readByName(), HttpStatus.OK);
+    }
+    @GetMapping("/read/nameDesc")
+    public ResponseEntity<List<GenreDTO>> readByNameDesc() {
+        return new ResponseEntity<List<GenreDTO>>(this.service.readByNameDesc(), HttpStatus.OK);
+    }
 
     @GetMapping("/read/{id}")
     public ResponseEntity<GenreDTO> read(@PathVariable Long id) {

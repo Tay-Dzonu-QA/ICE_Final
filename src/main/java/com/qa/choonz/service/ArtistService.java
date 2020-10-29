@@ -36,6 +36,15 @@ public class ArtistService {
     public List<ArtistDTO> read() {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
+    public List<ArtistDTO> readDesc() {
+        return this.repo.findAllDesc().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+    public List<ArtistDTO> readByName() {
+        return this.repo.orderByName().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+    public List<ArtistDTO> readByNameDesc() {
+        return this.repo.orderByNameDesc().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
 
     public ArtistDTO read(long id) {
         Artist found = this.repo.findById(id).orElseThrow(ArtistNotFoundException::new);

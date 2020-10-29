@@ -1,18 +1,7 @@
-const params = new URLSearchParams(window.location.search);
-let loggedIn = false;
-let user = 0;
-for (const param of params) {
-  if (param[0] === "user") {
-    user = param[1];
-    if (user != 0) {
-      loggedIn = true;
-    }
-  }
-}
-getArtists(loggedIn, user);
+getArtists(loggedIn, user,order);
 
-function getArtists(loggedIn, user) {
-  fetch("http://localhost:8082/artists/read")
+function getArtists(loggedIn, user,order) {
+  fetch("http://localhost:8082/artists/read"+order)
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
@@ -25,8 +14,8 @@ function getArtists(loggedIn, user) {
         let table = document.querySelector("#ArtistTable");
         let data = Object.keys(ArtistData[0]);
 
-        generateTableHead(table, data, loggedIn);
-        generateTable(table, ArtistData, loggedIn,user);
+        generateTableHeadAr(table, data, loggedIn);
+        generateTableAr(table, ArtistData, loggedIn,user);
         if (loggedIn == true) {
           generateAddArtistBtn(table);
         }
@@ -37,7 +26,7 @@ function getArtists(loggedIn, user) {
     });
 }
 
-function generateTableHead(table, data, loggedIn) {
+function generateTableHeadAr(table, data, loggedIn) {
   let thead = table.createTHead();
   let row = thead.insertRow();
   for (let key of data) {
@@ -63,7 +52,7 @@ function generateTableHead(table, data, loggedIn) {
   }
 }
 
-function generateTable(table, ArtistData, loggedIn,user) {
+function generateTableAr(table, ArtistData, loggedIn,user) {
   for (let element of ArtistData) {
     let row = table.insertRow();
     for (key in element) {
@@ -83,7 +72,7 @@ function generateTable(table, ArtistData, loggedIn,user) {
     myViewButton.className = "btn";
     myViewButton.id = "ViewArtistButton";
     let artist = element.id;
-    myViewButton.onclick = function(){document.location = "Artist.html?loggedIn=" + loggedIn + "&artists=" + artist};
+    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "&artists=" + artist};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
@@ -187,8 +176,8 @@ function editArtist(name, ArtistId) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      id: ID,
-      name: name,
+      "id": ID,
+      "name": name
     })),
   })
     .then(json)
@@ -219,7 +208,7 @@ function addArtist(name) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      name: name,
+      "name": name
     })),
   })
     .then(json)

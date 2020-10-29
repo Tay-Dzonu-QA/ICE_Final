@@ -94,6 +94,48 @@ public class GenreControllerUnitTest {
         verify(this.service, times(1))
             .read();
     }
+    @Test
+    void readAllDescTest() {
+        when(service.readDesc())
+            .thenReturn(this.genre
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readDesc().getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readDesc();
+    }
+    @Test
+    void readByNameTest() {
+        when(service.readByName())
+            .thenReturn(this.genre
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readByName().getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readByName();
+    }
+    @Test
+    void readByNameDescTest() {
+        when(service.readByNameDesc())
+            .thenReturn(this.genre
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readByNameDesc().getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readByNameDesc();
+    }
     
     @Test
     void updateTest() {

@@ -88,6 +88,34 @@ public class GenreServiceUnitTest {
 
 	        verify(this.repository, times(1)).findAll();
 	    }
+	    @Test
+	    void readAllDescTest() {
+	        when(repository.findAllDesc()).thenReturn(this.genres);
+	        when(this.modelMapper.map(testGenreWithId, GenreDTO.class)).thenReturn(genreDTO);
+	        
+	        assertThat(this.service.readDesc().isEmpty()).isFalse();
+
+	        verify(repository, times(1)).findAllDesc();
+	    }
+	    
+	    @Test
+	    void readByNameTest() {
+	        when(repository.orderByName()).thenReturn(this.genres);
+	        when(this.modelMapper.map(testGenreWithId, GenreDTO.class)).thenReturn(genreDTO);
+
+	        assertThat(this.service.readByName().isEmpty()).isFalse();
+
+	        verify(repository, times(1)).orderByName();
+	    }
+	    @Test
+	    void readByNameDescTest() {
+	        when(repository.orderByNameDesc()).thenReturn(this.genres);
+	        when(this.modelMapper.map(testGenreWithId, GenreDTO.class)).thenReturn(genreDTO);
+
+	        assertThat(this.service.readByNameDesc().isEmpty()).isFalse();
+
+	        verify(repository, times(1)).orderByNameDesc();
+	    }
 
 	    @Test
 	    void updateTest() {

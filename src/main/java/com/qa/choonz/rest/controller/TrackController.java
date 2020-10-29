@@ -45,7 +45,7 @@ public class TrackController {
         return new ResponseEntity<TrackDTO>(this.service.read(id), HttpStatus.OK);
     }
     @GetMapping("/read/albums/{id}")
-    public ResponseEntity<List<TrackDTO>> readArtists(@PathVariable Long id) {
+    public ResponseEntity<List<TrackDTO>> readAlbum(@PathVariable Long id) {
         return new ResponseEntity<List<TrackDTO>>(this.service.readAlbum(id), HttpStatus.OK);
     }
 

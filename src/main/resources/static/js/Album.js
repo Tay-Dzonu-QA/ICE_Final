@@ -1,25 +1,6 @@
-const params = new URLSearchParams(window.location.search);
-let loggedIn = false;
-let albumsToView="";
-let user =0;
-console.log(params);
-for (const param of params) {
-  if (param[0] === "user") {
-    user = param[1];
-    if (user != 0) {
-      loggedIn = true;
-    }
-  } else if(param[0]==="artists"||param[0]==="genres"){
-    let artistOrGenre = param[0];
-    let artistOrGenreId = param[1];
-    albumsToView = "/"+artistOrGenre+"/"+artistOrGenreId;
-  }
-}
-console.log(albumsToView);
-console.log(loggedIn);
-getAlbums(loggedIn,albumsToView,user);
+getAlbums(loggedIn,albumsToView,user,artistOrGenre);
 
-function getAlbums(loggedIn,albumsToView,user) {
+function getAlbums(loggedIn,albumsToView,user,artistOrGenre) {
   fetch("http://localhost:8082/albums/read"+albumsToView)
     .then(function (response) {
       if (response.status !== 200) {
@@ -30,12 +11,20 @@ function getAlbums(loggedIn,albumsToView,user) {
       }
       // Examine the text in the response
       response.json().then(function (AlbumData) {
-        console.log(AlbumData);
+        let title = document.querySelector("#AlbumTitle");
+        if(artistOrGenre==="artists"){
+          title.innerHTML = "Albums by "+AlbumData[0].artist.name;
+        }else if(artistOrGenre==="genres"){
+          title.innerHTML = AlbumData[0].genre.name+" Albums";
+        }else{
+          title.innerHTML = "Albums";
+        }
+
         let table = document.querySelector("#AlbumTable");
         let data = Object.keys(AlbumData[0]);
 
-        generateTableHead(table, data, loggedIn);
-        generateTable(table, AlbumData, loggedIn,user);
+        generateTableHeadAl(table, data, loggedIn);
+        generateTableAl(table, AlbumData, loggedIn,user);
         if(loggedIn == true){
             generateAddAlbumBtn(table);
         }
@@ -47,7 +36,7 @@ function getAlbums(loggedIn,albumsToView,user) {
     });
 }
 
-function generateTableHead(table, data, loggedIn) {
+function generateTableHeadAl(table, data, loggedIn) {
   let thead = table.createTHead();
   let row = thead.insertRow();
   for (let key of data) {
@@ -73,7 +62,7 @@ function generateTableHead(table, data, loggedIn) {
   }
 }
 
-function generateTable(table, AlbumData, loggedIn) {
+function generateTableAl(table, AlbumData, loggedIn) {
   for (let element of AlbumData) {
     let row = table.insertRow();
     for (key in element) {
@@ -95,7 +84,7 @@ function generateTable(table, AlbumData, loggedIn) {
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
     myViewButton.id = "ViewAlbumButton";
-    myViewButton.onclick = function(){document.location='Tracks.html?user='+user+'&albums='+element.id};
+    myViewButton.onclick = function(){document.location='Track.html?user='+user+'&albums='+element.id};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
@@ -206,9 +195,7 @@ function deleteAlbum(id) {
         }
         // Examine the text in the response
         response.json().then(function (ArtistData) {
-          console.log(ArtistData);
           for(let element of ArtistData){
-            console.log(element);
             let artistList = document.createElement("option");
             artistList.innerHTML = element.id +". "+element.name;
             modalArtistList.appendChild(artistList);
@@ -232,9 +219,7 @@ function deleteAlbum(id) {
         }
         // Examine the text in the response
         response.json().then(function (GenreData) {
-          console.log(GenreData);
           for(let element of GenreData){
-            console.log(element);
             let GenreList = document.createElement("option");
             GenreList.innerHTML = element.id +". "+element.name;
             modalArtistList.appendChild(GenreList);
@@ -252,7 +237,6 @@ function deleteAlbum(id) {
      stop.preventDefault();
 
     let formElements = document.querySelector("form.EditAlbum").elements;
-    console.log(formElements);
 
     let EditAlbumName = formElements["EditAlbumName"].value;
     let EditAlbumCover = formElements["EditAlbumCover"].value;
@@ -264,7 +248,6 @@ function deleteAlbum(id) {
     let AlbumGenreId = parseInt(AlbumGenre[0]);
 
     let AlbumId1 = parseInt(AlbumId);
-    console.log(AlbumId1);
     editAlbum(EditAlbumName, AlbumId1,EditAlbumCover,AlbumArtistId,AlbumGenreId);
   });
 

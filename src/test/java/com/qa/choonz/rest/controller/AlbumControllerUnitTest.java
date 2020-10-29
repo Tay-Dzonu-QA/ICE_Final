@@ -97,6 +97,35 @@ public class AlbumControllerUnitTest {
     }
     
     @Test
+    void readArtistsTest() {
+        when(service.readArtist(1l))
+            .thenReturn(this.albums
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readArtists(1l).getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readArtist(1l);
+    }
+    @Test
+    void readGenresTest() {
+        when(service.readGenre(1l))
+            .thenReturn(this.albums
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readGenres(1l).getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readGenre(1l);
+    }
+    
+    @Test
     void updateTest() {
 
         AlbumDTO newAlbum= new AlbumDTO(id, testName);

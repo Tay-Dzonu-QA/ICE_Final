@@ -20,7 +20,9 @@ public class PlaylistDTOTest {
 	final Long id = 1L;
 	private String description;
 	private String artwork;
+
 	private String name = "Choonz";
+
 	private List<Track>tracks;
 	
 	private static int activeTest = 1;
