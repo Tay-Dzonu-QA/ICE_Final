@@ -43,7 +43,7 @@ public class User {
         this.id = id;
         this.username = username;
     }
-    
+       
     
     public User(Long id, @NotNull @Size(max = 100) String username,
                 @NotNull @Size(max = 100) String password, List<Playlist> playlists){

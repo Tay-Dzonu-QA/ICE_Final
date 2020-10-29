@@ -169,6 +169,12 @@ public class UserTest {
 		assertThat(!this.testUser.equals(emptyUser));
 		assertThat(this.testUser.equals(fullUser));		
 	}
+	
+	@Test
+	void testToString() {
+		assertThat(this.testUser.toString()
+				.equals("User [id=1, username=OJ, password=password, playlists=null]"));
+	}
 
 	@AfterEach
 	void teardown() {
