@@ -57,7 +57,7 @@
 
             <div class="row col-12">
 
-                <div class="card col-6" id="playlistTitle">
+                <div class="playlistCard col-3" id="playlistTitle">
                     <br />
                     <h2 id="PLTitle"></h2>
                     <table id="PlaylistTable" class="table table-hover"></table>
@@ -66,7 +66,7 @@
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="../img/AddPlaylist.png" alt="Card image cap">
                 </div>
-                
+
             </div>
 
 
@@ -90,8 +90,8 @@
                     <div class="modal-header">
                         <h5 class="modal-title">Add Album</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+              <span aria-hidden="true">&times;</span>
+            </button>
                     </div>
                     <div class="modal-body">
                         <form id="ModalForm" class="Album" method="POST">
@@ -101,32 +101,27 @@
                             </div>
                             <label for="AlbumGenre">Album Genre:</label>
                             <select multiple class="form-control" id="AlbumGenre" required>
-
-                                </select>
+              </select>
                             <label for="AlbumArtist">Album Artist:</label>
                             <select multiple class="form-control" id="AlbumArtist" required>
-
-                                </select>
+              </select>
                             <label for="AlbumCover">Album Cover:</label>
                             <input type="text" class="form-control" id="AlbumCover" required>
                     </div>
-                    <button id="AddAlbumSubmit" type="submit" class="btn
-                                btn-primary">Add</button>
+                    <button id="AddAlbumSubmit" type="submit" class="btn btn-primary">Add</button>
                     </form>
                 </div>
             </div>
         </div>
 
-
         <div class="modal fade" id="EditAlbumModal" tabindex="-1" aria-labelledby="EditAlbumModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 id="addTitle" class="modal-title">Edit Album
-                        </h5>
+                        <h5 id="addTitle" class="modal-title">Edit Album </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+              <span aria-hidden="true">&times;</span>
+            </button>
                     </div>
                     <div class="modal-body">
                         <form id="ModalFormEditAlbum" class="EditAlbum" method="PUT">
@@ -136,15 +131,16 @@
                                 <label for="EditAlbumGenre">Album Genre:</label>
                                 <select multiple class="form-control" id="EditAlbumGenre" required>
 
-                                    </select>
+                </select>
                                 <label for="EditAlbumArtist">Album Artist:</label>
                                 <select multiple class="form-control" id="EditAlbumArtist" required>
 
-                                    </select>
+                </select>
                                 <label for="EditAlbumCover">Album Cover:</label>
                                 <input type="text" class="form-control" id="EditAlbumCover" required>
                             </div>
-                            <button id="EditAlbumSubmit" type="submit" class="btn btn-primary">Add</button>
+                            <button id="EditAlbumSubmit" type="submit" class="btn
+                btn-primary">Add</button>
                         </form>
                     </div>
                 </div>
