@@ -53,6 +53,14 @@ function generateTableHeadPl(table, data) {
 function generateTablePl(table, TrackData, user) {
     for (let element of TrackData) {
         let row = table.insertRow();
+        let path = window.location.pathname;
+        console.log(path)
+        if (path == "/html/Playlist.html") {
+            row.className = "table";
+        } else {
+            row.className = "card";
+            console.log(row.className);
+        }
         for (key in element) {
             if (key === "playlist") {
                 continue;
