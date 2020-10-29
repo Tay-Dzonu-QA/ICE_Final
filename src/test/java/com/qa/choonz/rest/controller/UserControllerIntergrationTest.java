@@ -44,8 +44,8 @@ public class UserControllerIntergrationTest {
     private UserDTO userDTO;
 
     private Long id;
-    @SuppressWarnings("unused")
-	private String testUsername;
+
+	private String testUsername = "OJ";
 
     private UserDTO mapToDTO(User track) {
         return this.modelMapper.map(track, UserDTO.class);
@@ -55,7 +55,7 @@ public class UserControllerIntergrationTest {
     void init() {
         this.repository.deleteAll();
 
-        this.testUser = new User("OJ");
+        this.testUser = new User(testUsername);
         this.testUserWithId = this.repository.save(this.testUser);
         this.userDTO = this.mapToDTO(testUserWithId);
 
@@ -96,7 +96,7 @@ public class UserControllerIntergrationTest {
 
     @Test
     void testUpdate() throws Exception {
-    	UserDTO newUser = new UserDTO(id, "JJ");
+    	UserDTO newUser = new UserDTO(id, testUsername);
     	User updatedUser = new User(newUser.getUsername());
         updatedUser.setId(this.id);
 

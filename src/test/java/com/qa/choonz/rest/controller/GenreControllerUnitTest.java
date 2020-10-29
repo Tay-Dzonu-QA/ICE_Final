@@ -39,6 +39,8 @@ public class GenreControllerUnitTest {
     private Genre testGenreWithId;
     private GenreDTO genreDTO;
     private final Long id = 1L;
+    
+    private String testName = "Funkyfresh";
 
     private GenreDTO mapToDTO(Genre genre) {
         return this.mapper.map(genre, GenreDTO.class);
@@ -47,7 +49,7 @@ public class GenreControllerUnitTest {
     @BeforeEach
     void init() {
         this.genre = new ArrayList<>();
-        this.testGenre = new Genre("Funkyfresh");
+        this.testGenre = new Genre(testName);
         this.testGenreWithId = new Genre(testGenre.getName());
         this.testGenreWithId.setId(id);
         this.genre.add(testGenreWithId);
@@ -95,7 +97,7 @@ public class GenreControllerUnitTest {
     
     @Test
     void updateTest() {
-    	GenreDTO newGenre = new GenreDTO(id, "Rock");
+    	GenreDTO newGenre = new GenreDTO(id, testName);
     	GenreDTO updatedGenre = new GenreDTO(this.id, newGenre.getName());
 
         when(this.service.update(newGenre, this.id))

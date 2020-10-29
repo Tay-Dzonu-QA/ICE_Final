@@ -27,7 +27,7 @@ public class PlaylistDTO {
     	this.name = name;
     }
     
-    public PlaylistDTO(String name, String Description, String artwork) {
+    public PlaylistDTO(String name, String description, String artwork) {
     	super();
     	this.name = name;
     	this.description = description;

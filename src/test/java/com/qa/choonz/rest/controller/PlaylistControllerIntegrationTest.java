@@ -46,8 +46,10 @@ public class PlaylistControllerIntegrationTest {
 	    private PlaylistDTO PlaylistDTO;
 
 	    private Long id;
-	    @SuppressWarnings("unused")
-		private String testName;
+
+		private String testName = "Party";
+		private String testDesc = "dance classics";
+		private String testArtwork = "none";
 
 	    private PlaylistDTO mapToDTO(Playlist playlist) {
 	        return this.modelMapper.map(playlist, PlaylistDTO.class);
@@ -57,7 +59,7 @@ public class PlaylistControllerIntegrationTest {
 	    void init() {
 	        this.repository.deleteAll();
 
-	        this.testPlaylist = new Playlist("Party","dance classics","Dancing Couple");
+	        this.testPlaylist = new Playlist(testName,testDesc,testArtwork);
 	        this.testPlaylistWithId = this.repository.save(this.testPlaylist);
 	        this.PlaylistDTO = this.mapToDTO(testPlaylistWithId);
 	        this.id = this.testPlaylistWithId.getId();
@@ -95,8 +97,8 @@ public class PlaylistControllerIntegrationTest {
 
 	    @Test
 	    void testUpdate() throws Exception {
-	    	PlaylistDTO newPl = new PlaylistDTO(id, "Drum & Bass");
-	    	Playlist updatedPl = new Playlist(newPl.getName());
+	    	PlaylistDTO newPl = new PlaylistDTO(testName, testDesc, testArtwork);
+	    	Playlist updatedPl = new Playlist(newPl.getName(),newPl.getDescription(),newPl.getArtwork());
 	        updatedPl.setId(this.id);
 
 	        String result = this.mock

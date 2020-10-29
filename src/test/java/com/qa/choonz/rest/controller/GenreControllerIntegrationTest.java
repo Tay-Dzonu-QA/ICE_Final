@@ -45,8 +45,9 @@ public class GenreControllerIntegrationTest {
 	    private GenreDTO genreDTO;
 
 	    private Long id;
-	    @SuppressWarnings("unused")
-		private String testName;
+
+		private String testName = "80s";
+	    private String testDesc = "Dance hits";
 
 	    private GenreDTO mapToDTO(Genre genre) {
 	        return this.modelMapper.map(genre, GenreDTO.class);
@@ -56,7 +57,7 @@ public class GenreControllerIntegrationTest {
 	    void init() {
 	        this.repository.deleteAll();
 
-	        this.testGenre = new Genre("80s","Dance hits");
+	        this.testGenre = new Genre(testName,testDesc);
 	        this.testGenreWithId = this.repository.save(this.testGenre);
 	        this.genreDTO = this.mapToDTO(testGenreWithId);
 
@@ -95,8 +96,8 @@ public class GenreControllerIntegrationTest {
 
 	    @Test
 	    void testUpdate() throws Exception {
-	    	GenreDTO newGenre = new GenreDTO(id, "90s");
-	    	Genre updatedGenre = new Genre(newGenre.getName());
+	    	GenreDTO newGenre = new GenreDTO(id, testName, testDesc);
+	    	Genre updatedGenre = new Genre(newGenre.getName(),newGenre.getDescription());
 	        updatedGenre.setId(this.id);
 
 	        String result = this.mock
