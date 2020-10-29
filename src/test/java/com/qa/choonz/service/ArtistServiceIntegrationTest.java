@@ -50,6 +50,7 @@ public class ArtistServiceIntegrationTest {
 
     @BeforeEach
     public void init() {
+    	
         this.artist = new ArrayList<>();
         this.artist.add(testArtist);
         this.testArtist = new Artist("White Lies");
