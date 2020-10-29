@@ -1,11 +1,3 @@
-const params = new URLSearchParams(window.location.search);
-let loggedIn = false;
-let tracksToView = "";
-let albumOrTrack="";
-let singleTrack = false;
-let user = 0;
-console.log(params);
-
 for (const param of params) {
   if (param[0] === "user") {
     user = param[1];

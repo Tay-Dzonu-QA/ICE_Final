@@ -102,12 +102,6 @@ body {
   padding: 20px;
 }
 
-.Album,
-.Artist,
-.Tracks,
-.Genre {
-  padding-left: 20px;
-}
 .card {
   margin-right: 20px;
 }
@@ -118,6 +112,21 @@ body {
   overflow: hidden;
   overflow-y: scroll;
 }
+
+
+#AlbumTable thead th,
+#GenreTable thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.Album, .Genre {
+  overflow-y: scroll;
+  height: 500px;
+  display: block;
+}
+
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;
