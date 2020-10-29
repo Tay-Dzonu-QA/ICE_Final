@@ -39,6 +39,18 @@ public class ArtistController {
     public ResponseEntity<List<ArtistDTO>> read() {
         return new ResponseEntity<List<ArtistDTO>>(this.service.read(), HttpStatus.OK);
     }
+    @GetMapping("/read/desc")
+    public ResponseEntity<List<ArtistDTO>> readDesc() {
+        return new ResponseEntity<List<ArtistDTO>>(this.service.readDesc(), HttpStatus.OK);
+    }
+    @GetMapping("/read/name")
+    public ResponseEntity<List<ArtistDTO>> readByName() {
+        return new ResponseEntity<List<ArtistDTO>>(this.service.readByName(), HttpStatus.OK);
+    }
+    @GetMapping("/read/nameDesc")
+    public ResponseEntity<List<ArtistDTO>> readByNameDesc() {
+        return new ResponseEntity<List<ArtistDTO>>(this.service.readByNameDesc(), HttpStatus.OK);
+    }
 
     @GetMapping("/read/{id}")
     public ResponseEntity<ArtistDTO> read(@PathVariable Long id) {
