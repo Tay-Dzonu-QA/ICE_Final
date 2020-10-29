@@ -58,7 +58,7 @@ public class UserService {
 
     public UserDTO findUser(String username){
         if (this.repo.findUsersByUsernameEquals(username) != null)
-        return this.mapToDTO(this.repo.findUsersByUsernameEquals(username));
+                return this.mapToDTO(this.repo.findUsersByUsernameEquals(username));
         else
             return new UserDTO();
     }
