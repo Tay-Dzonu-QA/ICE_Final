@@ -1,408 +1,490 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Page</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>User Page</title>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../css/style.css" />
-</head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet" />
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
 
-<body>
-    <!-- Navbar -->
+    <body>
+        <!-- Navbar -->
 
-    <nav class="navbar fixed-top navbar-expand-lg">
-        <a class="navbar-brand" href="./">
-            <img class="logo" src="../img/Choonz.png" width="auto" ml-auto height="60" /></a>
-        <button class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
-        <span class="navbar-toggler-icon"></span>
-        <div class="close-icon py-1">✖</div>
-      </button>
-        <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar">
-            <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" id = "UserLink">
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="TrackLink" >Featured
-                        Tracks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="ArtistLink" >Artists</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="GenreLink" >Genres</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="AlbumLink" >Albums</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="IndexLink"href="index.html"></a>
-              </li>
-            </ul>
+        <nav class="navbar fixed-top navbar-expand-lg">
+            <a class="navbar-brand" href="./">
+                <img class="logo" src="../img/Choonz.png" width="auto" ml-auto
+                    height="60" /></a>
+            <button class="navbar-toggler collapsed border-0" type="button"
+                data-toggle="collapse" data-target="#collapsingNavbar">
+                <span class="navbar-toggler-icon"></span>
+                <div class="close-icon py-1">✖</div>
+            </button>
+            <div class="collapse navbar-collapse w-100 order-3"
+                id="collapsingNavbar">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" id="UserLink">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="TrackLink">Featured
+                            Tracks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ArtistLink">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="GenreLink">Genres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="AlbumLink">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="IndexLink" href="index.html"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- /Navbar -->
+
+        <div class="UserGreetings">
+            <h2 id="userName">Welcome, User Name</h2>
         </div>
-    </nav>
-    <!-- /Navbar -->
 
-    <div class="UserGreetings">
-        <h2 id="userName">Welcome, User Name</h2>
-    </div>
+        <!-- Playlist Cards -->
+        <div class="UserPlaylist">
+            <h3>Your Playlists</h3>
+            <div class="AllCards">
 
-    <!-- Playlist Cards -->
-    <div class="UserPlaylist">
-        <h3>Your Playlists</h3>
-        <div class="AllCards">
+                <div class="row col-12">
 
-            <div class="row col-12">
-
-                <div class="card" style="width: auto">
-                    <div class="card-body">
-                        <h5 class="card-title">Playlist Title</h5>
+                    <div class="card" style="width: auto">
+                        <div class="card-body">
+                            <h5 class="card-title">Playlist Title</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Track 1</li>
+                            <li class="list-group-item">Track 2</li>
+                            <li class="list-group-item">Track 3</li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="btn btn-primary">Link to Playlist</a>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Track 1</li>
-                        <li class="list-group-item">Track 2</li>
-                        <li class="list-group-item">Track 3</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="btn btn-primary">Link to Playlist</a>
+
+                    <div class="card" style="width: auto">
+                        <div class="card-body">
+                            <h5 class="card-title">Playlist Title 2</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Track 1</li>
+                            <li class="list-group-item">Track 2</li>
+                            <li class="list-group-item">Track 3</li>
+                            <li class="list-group-item">Track 1</li>
+                            <li class="list-group-item">Track 2</li>
+                            <li class="list-group-item">Track 3</li>
+                            <li class="list-group-item">Track 1</li>
+                            <li class="list-group-item">Track 2</li>
+                            <li class="list-group-item">Track 3</li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="btn btn-primary">Link to Playlist</a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="../img/AddPlaylist.png"
+                            alt="Card image cap">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- / Playlist Cards -->
+
+        <!-- Album CRUD Table-->
+
+        <div class="Album">
+            <div class="TableBody" id="albumTitle">
+                <br>
+                <h2 id="AlbumTitle"> </h2>
+                <table id="AlbumTable" class="table table-hover"></table>
+            </div>
+
+            <div class="modal fade" id="AddAlbumModal" tabindex="-1"
+                aria-labelledby="AddAlbumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Album</h5>
+                            <button type="button" class="close"
+                                data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="ModalForm" class="Album"
+                                method="POST">
+                                <div class="form-group">
+                                    <label for="AlbumName">Album Name:</label>
+                                    <input type="text"
+                                        class="form-control"
+                                        id="AlbumName" required>
+                                </div>
+                                <label for="AlbumGenre">Album Genre:</label>
+                                <select multiple class="form-control"
+                                    id="AlbumGenre" required>
+
+                                </select>
+                                <label for="AlbumArtist">Album Artist:</label>
+                                <select multiple class="form-control"
+                                    id="AlbumArtist" required>
+
+                                </select>
+                                <label for="AlbumCover">Album Cover:</label>
+                                <input type="text" class="form-control"
+                                    id="AlbumCover" required>
+                            </div>
+                            <button id="AddAlbumSubmit" type="submit"
+                                class="btn btn-primary">Add</button>
+                        </form>
                     </div>
                 </div>
-
-                <div class="card" style="width: auto">
-                    <div class="card-body">
-                        <h5 class="card-title">Playlist Title 2</h5>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Track 1</li>
-                        <li class="list-group-item">Track 2</li>
-                        <li class="list-group-item">Track 3</li>
-                        <li class="list-group-item">Track 1</li>
-                        <li class="list-group-item">Track 2</li>
-                        <li class="list-group-item">Track 3</li>
-                        <li class="list-group-item">Track 1</li>
-                        <li class="list-group-item">Track 2</li>
-                        <li class="list-group-item">Track 3</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="btn btn-primary">Link to Playlist</a>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="../img/AddPlaylist.png" alt="Card image cap">
-                </div>
-
             </div>
-        </div>
-    </div>
-    <!-- / Playlist Cards -->
 
-    <!-- Album CRUD Table-->
-    
-      <div class ="TableBody" id="albumTitle">
-        <br>
-          <h2 id ="AlbumTitle"> </h2>
-          <table id="AlbumTable"class="table table-hover"></table>
-      </div>
-  
-      <div class="modal fade" id="AddAlbumModal" tabindex="-1" aria-labelledby="AddAlbumModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" >Add Album</h5>
-                <button type="button" class="close"data-dismiss="modal"aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form id="ModalForm" class="Album" method="POST">
-                  <div class="form-group">
-                    <label for="AlbumName">Album Name:</label>
-                    <input type="text" class="form-control"  id="AlbumName" required>
-                  </div>
-                  <label for="AlbumGenre">Album Genre:</label>
-                    <select multiple class="form-control" id="AlbumGenre"required>
-  
-                    </select>
-                    <label for="AlbumArtist">Album Artist:</label>
-                    <select multiple class="form-control" id="AlbumArtist"required>
-  
-                    </select>
-                    <label for="AlbumCover">Album Cover:</label>
-                    <input type="text" class="form-control"  id="AlbumCover" required>
-                  </div>
-                  <button id ="AddAlbumSubmit" type="submit" class="btn btn-primary">Add</button>
-                  </form>
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="modal fade" id="EditAlbumModal" tabindex="-1" aria-labelledby="EditAlbumModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 id ="addTitle" class="modal-title" >Edit Album </h5>
-              <button type="button" class="close"data-dismiss="modal"aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="ModalFormEditAlbum" class="EditAlbum" method="PUT">
-                <div class="form-group">
-                  <label for="EditAlbumName">Album Name:</label>
-                  <input type="text" class="form-control"  id="EditAlbumName" required>
-                  <label for="EditAlbumGenre">Album Genre:</label>
-                  <select multiple class="form-control" id="EditAlbumGenre"required>
-  
-                  </select>
-                  <label for="EditAlbumArtist">Album Artist:</label>
-                  <select multiple class="form-control" id="EditAlbumArtist"required>
-  
-                  </select>
-                  <label for="EditAlbumCover">Album Cover:</label>
-                  <input type="text" class="form-control"  id="EditAlbumCover" required>
-                </div>
-                <button id ="EditAlbumSubmit"type="submit" class="btn btn-primary">Add</button>
-                </form>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    <!-- /Album CRUD Table-->
-
-    <!-- Artist CRUD Table-->
-    <div class="Artist">
-        <div class="TableBody" id="artistTitle">
-            <br>
-            <h2> Artist List</h2>
-            <table id="ArtistTable" class="table table-hover"></table>
         </div>
 
-        <div class="modal fade" id="AddArtistModal" tabindex="-1" aria-labelledby="AddArtistModalLabel" aria-hidden="true">
+
+        <div class="modal fade" id="EditAlbumModal" tabindex="-1"
+            aria-labelledby="EditAlbumModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Artist</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+                        <h5 id="addTitle" class="modal-title">Edit Album
+                        </h5>
+                        <button type="button" class="close"
+                            data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                        <form id="ModalForm" class="Artist" method="POST">
+                        <form id="ModalFormEditAlbum" class="EditAlbum"
+                            method="PUT">
                             <div class="form-group">
-                                <label for="ArtistName">Artist Name:</label>
-                                <input type="text" class="form-control" id="ArtistName" required>
+                                <label for="EditAlbumName">Album Name:</label>
+                                <input type="text" class="form-control"
+                                    id="EditAlbumName" required>
+                                <label for="EditAlbumGenre">Album Genre:</label>
+                                <select multiple class="form-control"
+                                    id="EditAlbumGenre" required>
+
+                                </select>
+                                <label for="EditAlbumArtist">Album Artist:</label>
+                                <select multiple class="form-control"
+                                    id="EditAlbumArtist" required>
+
+                                </select>
+                                <label for="EditAlbumCover">Album Cover:</label>
+                                <input type="text" class="form-control"
+                                    id="EditAlbumCover" required>
                             </div>
-                            <button id="AddArtistSubmit" type="submit" class="btn btn-primary">Add</button>
+                            <button id="EditAlbumSubmit" type="submit"
+                                class="btn btn-primary">Add</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- /Album CRUD Table-->
 
-    <div class="modal fade" id="EditArtistModal" tabindex="-1" aria-labelledby="EditArtistModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="addTitle" class="modal-title">Edit Artist </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-                </div>
-                <div class="modal-body">
-                    <form id="ModalFormEditArtist" class="EditArtist" method="PUT">
-                        <div class="form-group">
-                            <label for="EditArtistName">Artist Name:</label>
-                            <input type="text" class="form-control" id="EditArtistName" required>
+        <!-- Artist CRUD Table-->
+        <div class="Artist">
+
+            <div class="TableBody" id="artistTitle">
+                <br>
+                <h2> Artist List</h2>
+                <table id="ArtistTable" class="table table-hover"></table>
+            </div>
+
+            <div class="modal fade" id="AddArtistModal" tabindex="-1"
+                aria-labelledby="AddArtistModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Artist</h5>
+                            <button type="button" class="close"
+                                data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <button id="EditArtistSubmit" type="submit" class="btn btn-primary">Add</button>
-                    </form>
+                        <div class="modal-body">
+                            <form id="ModalForm" class="Artist"
+                                method="POST">
+                                <div class="form-group">
+                                    <label for="ArtistName">Artist Name:</label>
+                                    <input type="text" class="form-control"
+                                        id="ArtistName" required>
+                                </div>
+                                <button id="AddArtistSubmit" type="submit"
+                                    class="btn btn-primary">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="EditArtistModal" tabindex="-1"
+                aria-labelledby="EditArtistModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="addTitle" class="modal-title">Edit
+                                Artist </h5>
+                            <button type="button" class="close"
+                                data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="ModalFormEditArtist"
+                                class="EditArtist" method="PUT">
+                                <div class="form-group">
+                                    <label for="EditArtistName">Artist Name:</label>
+                                    <input type="text" class="form-control"
+                                        id="EditArtistName" required>
+                                </div>
+                                <button id="EditArtistSubmit" type="submit"
+                                    class="btn btn-primary">Add</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
+        <!-- /Artist CRUD Table-->
 
-    <!-- /Artist CRUD Table-->
 
-    <!-- Genre CRUD Table-->
-    <div class="TableBody" id="genreTitle">
-        <br>
-        <h2> Genre List</h2>
-        <table id="GenreTable" class="table table-hover"></table>
-    </div>
+        <!-- Tracks CRUD Table-->
+        <div class="Track">
+            <div class="TableBody" id="trackTitle">
+                <br>
+                <h2 id="TrackTitle"></h2>
+                <table id="TrackTable" class="table table-hover"></table>
+            </div>
 
-    <div class="modal fade" id="AddGenreModal" tabindex="-1" aria-labelledby="AddGenreModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Genre</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-                </div>
-                <div class="modal-body">
-                    <form id="ModalForm" class="Genre" method="POST">
-                        <div class="form-group">
-                            <label for="GenreName">Genre Name:</label>
-                            <input type="text" class="form-control" id="GenreName" required>
-                            <label for="GenreDescription">Genre Description:</label>
-                            <input type="text" class="form-control"  id="GenreDescription" required>
+            <div class="modal fade" id="AddTrackModal" tabindex="-1"
+                aria-labelledby="AddTrackModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Track</h5>
+                            <button type="button" class="close"
+                                data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <button id="AddGenreSubmit" type="submit" class="btn btn-primary">Add</button>
-                    </form>
+                        <div class="modal-body">
+                            <form id="ModalForm" class="Track" method="POST">
+                                <div class="form-group">
+                                    <label for="TrackName">Track Name:</label>
+                                    <input type="text" class="form-control"
+                                        id="TrackName" required>
+                                    <label for="TrackDuration">Track Duration:</label>
+                                    <input type="text" class="form-control"
+                                        id="TrackDuration" required>
+                                    <label for="TrackLyrics">Track Lyrics:</label>
+                                    <input type="text" class="form-control"
+                                        id="TrackLyrics" required>
+
+                                    <label for="TrackAlbum">Track Album:</label>
+                                    <select multiple class="form-control"
+                                        id="TrackAlbum" required>
+
+                                    </select>
+                                </div>
+                                <button id="AddTrackSubmit" type="submit"
+                                    class="btn btn-primary">Add</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
-    <div class="modal fade" id="EditGenreModal" tabindex="-1" aria-labelledby="EditGenreModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="addTitle" class="modal-title">Edit Genre </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-                </div>
-                <div class="modal-body">
-                    <form id="ModalFormEditGenre" class="EditGenre" method="PUT">
-                        <div class="form-group">
-                            <label for="EditGenreName">Genre Name:</label>
-                            <input type="text" class="form-control" id="EditGenreName" required>
-                            <label for="EditGenreDescription">Genre Description:</label>
-                            <input type="text" class="form-control"  id="EditGenreDescription" required>
-                        </div>
-                        <button id="EditGenreSubmit" type="submit" class="btn btn-primary">Add</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- /Genre CRUD Table-->
+        <div class="modal fade" id="EditTrackModal" tabindex="-1"
+            aria-labelledby="EditTrackModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 id="addTitle" class="modal-title">Edit Track </h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="ModalFormEditTrack" class="EditTrack"
+                            method="PUT">
+                            <div class="form-group">
+                                <label for="EditTrackName">Track Name:</label>
+                                <input type="text" class="form-control"
+                                    id="EditTrackName" required>
+                                <label for="EditTrackDuration">Track Duration:</label>
+                                <input type="text" class="form-control"
+                                    id="EditTrackDuration" required>
+                                <label for="EditTrackLyrics">Track Lyrics:</label>
+                                <input type="text" class="form-control"
+                                    id="EditTrackLyrics" required>
 
-    <!-- Tracks CRUD Table-->
-    <div class="TableBody" id="trackTitle">
-        <br>
-        <h2 id="TrackTitle"></h2>
-        <table id="TrackTable" class="table table-hover"></table>
-    </div>
+                                <label for="EditTrackAlbum">Track Album:</label>
+                                <select multiple class="form-control"
+                                    id="EditTrackAlbum" required>
 
-    <div class="modal fade" id="AddTrackModal" tabindex="-1" aria-labelledby="AddTrackModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Track</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-                </div>
-                <div class="modal-body">
-                    <form id="ModalForm" class="Track" method="POST">
-                        <div class="form-group">
-                            <label for="TrackName">Track Name:</label>
-                            <input type="text" class="form-control" id="TrackName" required>
-                            <label for="TrackDuration">Track Duration:</label>
-                            <input type="text" class="form-control" id="TrackDuration" required>
-                            <label for="TrackLyrics">Track Lyrics:</label>
-                            <input type="text" class="form-control" id="TrackLyrics" required>
-
-                            <label for="TrackAlbum">Track Album:</label>
-                            <select multiple class="form-control" id="TrackAlbum" required>
-
-            </select>
-                        </div>
-                        <button id="AddTrackSubmit" type="submit" class="btn btn-primary">Add</button>
-                    </form>
+                                </select>
+                            </div>
+                            <button id="EditTrackSubmit" type="submit"
+                                class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
-    <div class="modal fade" id="EditTrackModal" tabindex="-1" aria-labelledby="EditTrackModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="addTitle" class="modal-title">Edit Track </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-                </div>
-                <div class="modal-body">
-                    <form id="ModalFormEditTrack" class="EditTrack" method="PUT">
-                        <div class="form-group">
-                            <label for="EditTrackName">Track Name:</label>
-                            <input type="text" class="form-control" id="EditTrackName" required>
-                            <label for="EditTrackDuration">Track Duration:</label>
-                            <input type="text" class="form-control" id="EditTrackDuration" required>
-                            <label for="EditTrackLyrics">Track Lyrics:</label>
-                            <input type="text" class="form-control" id="EditTrackLyrics" required>
 
-                            <label for="EditTrackAlbum">Track Album:</label>
-                            <select multiple class="form-control" id="EditTrackAlbum" required>
+        <div class="modal fade" id="AddToPlaylistModal" tabindex="-1"
+            aria-labelledby="AddToPlaylistModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 id="addTitle" class="modal-title">Add To Playlist
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="ModalFormAddToPlaylist" class="AddToPlaylist"
+                            method="PUT">
+                            <div class="form-group">
+                                <label for="PlaylistAddTrack">Track Name:</label>
+                                <input type="text" class="form-control"
+                                    id="PlaylistAddTrack" disabled>
 
-            </select>
-                        </div>
-                        <button id="EditTrackSubmit" type="submit" class="btn btn-primary">Add</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+                                <label for="PlaylistAdd">Playlists:</label>
+                                <select multiple class="form-control"
+                                    id="PlaylistAdd" required>
 
-    <div class="modal fade" id="AddToPlaylistModal" tabindex="-1" aria-labelledby="AddToPlaylistModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="addTitle" class="modal-title">Add To Playlist </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-                </div>
-                <div class="modal-body">
-                    <form id="ModalFormAddToPlaylist" class="AddToPlaylist" method="PUT">
-                        <div class="form-group">
-                            <label for="PlaylistAddTrack">Track Name:</label>
-                            <input type="text" class="form-control" id="PlaylistAddTrack" disabled>
-
-                            <label for="PlaylistAdd">Playlists:</label>
-                            <select multiple class="form-control" id="PlaylistAdd" required>
-  
-                    </select>
-                        </div>
-                        <button id="AddToPlaylistSubmit" type="submit" class="btn btn-primary">Add</button>
-                    </form>
+                                </select>
+                            </div>
+                            <button id="AddToPlaylistSubmit" type="submit"
+                                class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    <!-- /Tracks CRUD Table-->
+        <!-- /Tracks CRUD Table-->
 
+        <!-- Genre CRUD Table-->
+        <div class="Genre">
+            <div class="TableBody" id="genreTitle">
+                <br>
+                <h2> Genre List</h2>
+                <table id="GenreTable" class="table table-hover" style="float:
+                    left;"></table>
+            </div>
 
+            <div class="modal fade" id="AddGenreModal" tabindex="-1"
+                aria-labelledby="AddGenreModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Genre</h5>
+                            <button type="button" class="close"
+                                data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="ModalForm" class="Genre" method="POST">
+                                <div class="form-group">
+                                    <label for="GenreName">Genre Name:</label>
+                                    <input type="text" class="form-control"
+                                        id="GenreName" required>
+                                    <label for="GenreDescription">Genre
+                                        Description:</label>
+                                    <input type="text" class="form-control"
+                                        id="GenreDescription" required>
+                                </div>
+                                <button id="AddGenreSubmit" type="submit"
+                                    class="btn btn-primary">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="EditGenreModal" tabindex="-1"
+            aria-labelledby="EditGenreModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 id="addTitle" class="modal-title">Edit Genre </h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="ModalFormEditGenre" class="EditGenre"
+                            method="PUT">
+                            <div class="form-group">
+                                <label for="EditGenreName">Genre Name:</label>
+                                <input type="text" class="form-control"
+                                    id="EditGenreName" required>
+                                <label for="EditGenreDescription">Genre
+                                    Description:</label>
+                                <input type="text" class="form-control"
+                                    id="EditGenreDescription" required>
+                            </div>
+                            <button id="EditGenreSubmit" type="submit"
+                                class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /Genre CRUD Table-->
 
         <script src="../js/Params.js"></script>
         <script src="../js/Album.js"></script>
         <script src="../js/Artist.js"></script>
         <script src="../js/Tracks.js"></script>
-        <script src="../js/Genre.js"></script> 
+        <script src="../js/Genre.js"></script>
         <script src="../js/NavLinks.js"></script>
-        <sc src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></sc>
-        <sc src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></sc>
-        <sc src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></sc>
-</body>
+        <sc src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous">
+        </sc>
+        <sc
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous">
+        </sc>
+        <sc
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous">
+        </sc>
+    </body>
 
 </html>

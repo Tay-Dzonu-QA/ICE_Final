@@ -114,17 +114,28 @@ body {
 }
 
 
-#AlbumTable thead th,
+/* #AlbumTable thead th,
 #GenreTable thead th {
   position: sticky;
   top: 0;
   background-color: #fff;
+} */
+
+/* .TableBody {
+  overflow-y: scroll;
+  height: 400px;
+  display: inline-block;
+  padding: 20px;
+} */
+
+.Album, .Artist {
+  display: inline-table;
+  padding: 20px;
 }
 
-.Album, .Genre {
-  overflow-y: scroll;
-  height: 500px;
-  display: block;
+.Genre, .Track {
+  display: inline-table;
+  padding: 20px;
 }
 
 @media screen and (max-height: 450px) {
