@@ -20,6 +20,21 @@ public class PlaylistDTO {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    public PlaylistDTO(Long id, String name) {
+    	super();
+    	this.id = id;
+    	this.name = name;
+    }
+    
+    public PlaylistDTO(String name, String description, String artwork, List<Track> tracks) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.artwork = artwork;
+        this.tracks = tracks;
+    }
+
 
     public PlaylistDTO(Long id, String name, String description, String artwork, List<Track> tracks,User user) {
         super();

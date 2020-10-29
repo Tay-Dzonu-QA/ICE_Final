@@ -6,6 +6,15 @@ let genreLink = document.querySelector("#GenreLink");
 genreLink.href= "Genre.html?user=" + user;
 let trackLink = document.querySelector("#TrackLink");
 trackLink.href= "Track.html?user=" + user;
+let userLink = document.querySelector("#UserLink");
+if(user!=0){
+    let userHref = document.createElement("a");
+    userHref.setAttribute("class","nav-link");
+    userHref.innerHTML = "UserPage";
+    userHref.href= "User.html?user=" + user;
+    userLink.appendChild(userHref);
+}
+
 
 let indexLink = document.querySelector("#IndexLink");
 if(user==0){

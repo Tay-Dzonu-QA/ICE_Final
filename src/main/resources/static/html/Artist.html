@@ -31,6 +31,8 @@
         <div class="collapse navbar-collapse w-100 order-3"
             id="collapsingNavbar">
             <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item" id = "UserLink">
+              </li>
               <li class="nav-item">
                   <a class="nav-link" id="TrackLink" >Featured
                       Tracks</a>
@@ -56,8 +58,12 @@
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav('artistTitle'); document.getElementById('main').style.display = 'block'">&times;</a>
       <div>
-        <h2>Genres</h2>
-        <div id = "genreList">
+        <h2>Order By</h2>
+        <div >
+          <a id = "IDup">ID Increasing</a>
+          <a id = "IDdown">ID Decreasing</a>
+          <a id = "nameUp">Name Increasing</a>
+          <a id ="nameDown">Name Decreasing</a>
         </div>
       </div>
     </div>
@@ -126,6 +132,7 @@
     <script src="../js/Artist.js"></script>
     <script src="../js/Sidebar.js"></script>
     <script src="../js/NavLinks.js"></script>
+    <script src="../js/SideBarNavArtist.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

@@ -4,12 +4,14 @@ for (const param of params) {
     if (user != 0) {
       loggedIn = true;
     }
+  } else if(param[0]==="order"){
+    order = "/"+param[1];
   }
 }
-getArtists(loggedIn, user);
+getArtists(loggedIn, user,order);
 
-function getArtists(loggedIn, user) {
-  fetch("http://localhost:8082/artists/read")
+function getArtists(loggedIn, user,order) {
+  fetch("http://localhost:8082/artists/read"+order)
     .then(function (response) {
       if (response.status !== 200) {
         console.log(

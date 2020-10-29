@@ -49,6 +49,7 @@ public class PlaylistController {
         return new ResponseEntity<List<PlaylistDTO>>(this.service.readUserPlaylists(id), HttpStatus.OK);
     }
 
+
     @PutMapping("/update/{id}")
     public ResponseEntity<PlaylistDTO> update(@RequestBody PlaylistDTO playlist, @PathVariable Long id) {
         return new ResponseEntity<PlaylistDTO>(this.service.update(playlist, id), HttpStatus.ACCEPTED);

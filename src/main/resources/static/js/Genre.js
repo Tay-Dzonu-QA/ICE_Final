@@ -4,12 +4,14 @@ for (const param of params) {
     if (user !== 0) {
       loggedIn = true;
     }
+  }else if(param[0]==="order"){
+    order = "/"+param[1];
   }
 }
-getGenres(loggedIn,user);
+getGenres(loggedIn,user,order);
 
-function getGenres(loggedIn,user) {
-  fetch("http://localhost:8082/genres/read")
+function getGenres(loggedIn,user,order) {
+  fetch("http://localhost:8082/genres/read"+order)
     .then(function (response) {
       if (response.status !== 200) {
         console.log(

@@ -19,13 +19,22 @@ public class TrackDTO {
         super();
         // TODO Auto-generated constructor stub
     }
+
+    
+    public TrackDTO(Long id, String name) {
+    	super();
+    	this.id = id;
+    	this.name = name;
+    }
+    
+
 	public TrackDTO(Long id, String name, Integer duration, String lyrics,Album album) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.duration = duration;
 		this.lyrics = lyrics;
-		this.album=album;
+		this.album = album;
 	}
 
 	public Long getId() {
