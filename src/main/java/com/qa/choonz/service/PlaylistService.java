@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.choonz.exception.PlaylistNotFoundException;
 import com.qa.choonz.exception.TrackNotFoundException;
@@ -16,6 +17,7 @@ import com.qa.choonz.rest.dto.PlaylistDTO;
 import com.qa.choonz.utils.SAPIBeanUtils;
 
 @Service
+@Transactional
 public class PlaylistService {
 
     private PlaylistRepository repo;
