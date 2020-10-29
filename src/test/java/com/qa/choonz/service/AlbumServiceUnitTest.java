@@ -90,11 +90,11 @@ public class AlbumServiceUnitTest {
 	    @Test
 	    void updateTest() {
 	    	
-	        Album al = new Album("Sticky Fingers");
+	        Album al = new Album(testName);
 	        
 	        al.setId(this.id);
 
-	        AlbumDTO albumDTO = new AlbumDTO(id, "Sticky Fingers");
+	        AlbumDTO albumDTO = new AlbumDTO(id, testName);
 
 	        Album newAlbum = new Album(albumDTO.getName());
 	        

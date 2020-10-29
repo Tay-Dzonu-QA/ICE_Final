@@ -9,12 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.request;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
@@ -26,12 +35,17 @@ public class PlaylistServiceUnitTest {
 	
 	@Autowired
     private PlaylistService service;
+	
+	@Autowired
+	 private MockMvc mock;
 
     @MockBean
     private PlaylistRepository repository;
 
     @MockBean
     private ModelMapper modelMapper;
+    
+    private ObjectMapper objectMapper;
 
 
     private List<Playlist> playlists;
@@ -41,6 +55,9 @@ public class PlaylistServiceUnitTest {
 
     final Long id = 1L;
     final String testName = "Funky Disco Robot";
+    final String testDesc = "UpBeat";
+    final String testArtwork = "art";
+    
 
     @BeforeEach
     void init() {
@@ -91,26 +108,19 @@ public class PlaylistServiceUnitTest {
     @Test
     void updateTest() {
     	
-    	Playlist pl = new Playlist("Summer Choonz");
-    	
-        pl.setId(this.id);
+    	final PlaylistDTO newPlaylist = new PlaylistDTO(testName,testDesc,testArtwork);
+    	newPlaylist.setId(this.id);
+    	Playlist updatedPlaylist = new Playlist(newPlaylist.getName(), newPlaylist.getDescription(), newPlaylist.getArtwork());
+        updatedPlaylist.setId(this.id);
 
-        PlaylistDTO playlistDTO = new PlaylistDTO(id, "Summer Choonz");
+        String result = this.mock
+                .perform(request(HttpMethod.PUT, "/playlists/update/" + this.id)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(this.objectMapper.writeValueAsString(newPlaylist)))
+                .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
 
-        Playlist newPlaylist = new Playlist(playlistDTO.getName());
-        
-        newPlaylist.setId(this.id);
-
-        PlaylistDTO newPlaylistDTO = new PlaylistDTO(this.id, newPlaylist.getName());
-
-        when(this.repository.findById(this.id)).thenReturn(Optional.of(pl));
-        when(this.repository.save(pl)).thenReturn(newPlaylist);
-        when(this.modelMapper.map(newPlaylist, PlaylistDTO.class)).thenReturn(newPlaylistDTO);
-
-        assertThat(newPlaylistDTO).isEqualTo(this.service.update(playlistDTO, this.id));
-
-        verify(this.repository, times(1)).findById(1L);
-        verify(this.repository, times(1)).save(newPlaylist);
+        assertEquals(this.objectMapper.writeValueAsString(this.mapToDTO(updatedPlaylist)), result);
     }
 
     @Test

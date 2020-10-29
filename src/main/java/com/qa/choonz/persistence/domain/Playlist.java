@@ -71,7 +71,6 @@ public class Playlist {
         this.tracks = tracks;
     }
 
-
     public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
             @NotNull @Size(max = 1000) String artwork, List<Track> tracks, User user) {
         super();

@@ -92,11 +92,11 @@ public class GenreServiceUnitTest {
 	    @Test
 	    void updateTest() {
 	    	
-	    	Genre genre = new Genre("Rock");
+	    	Genre genre = new Genre(testName);
 	    	
 	        genre.setId(this.id);
 
-	        GenreDTO genreDTO = new GenreDTO(id, "Rock");
+	        GenreDTO genreDTO = new GenreDTO(id, testName);
 
 	        Genre newGenre = new Genre(genreDTO.getName());
 	        newGenre.setId(this.id);
