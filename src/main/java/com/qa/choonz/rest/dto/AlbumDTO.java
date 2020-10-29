@@ -8,7 +8,7 @@ import com.qa.choonz.persistence.domain.Artist;
 import com.qa.choonz.persistence.domain.Genre;
 
 public class AlbumDTO {
-
+	
     private Long id;
     private String name;
     private List<TrackDTO> tracks = new ArrayList<>();
@@ -21,6 +21,12 @@ public class AlbumDTO {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    public AlbumDTO(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 
 
     public AlbumDTO(long id, String name, List<TrackDTO> tracks, Artist artist, Genre genre, String cover) {
@@ -29,9 +35,10 @@ public class AlbumDTO {
         this.id = id;
         this.name = name;
         this.tracks = tracks;
-        this.cover = cover;
-        this.genre = genre;
         this.artist = artist;
+        this.genre = genre;
+        this.cover = cover;
+        
     }
 
     public Long getId() {
@@ -51,8 +58,6 @@ public class AlbumDTO {
     }
 
 
-
-
     public List<TrackDTO> getTracks() {
 
         return tracks;
@@ -62,10 +67,6 @@ public class AlbumDTO {
         this.tracks = tracks;
     }
 
-
-
-
-
     public String getCover() {
         return cover;
     }
@@ -73,8 +74,6 @@ public class AlbumDTO {
     public void setCover(String cover) {
         this.cover = cover;
     }
-
-
 
 
     public Genre getGenre() {
@@ -94,7 +93,6 @@ public class AlbumDTO {
 	public void setArtist(Artist artist) {
 		this.artist = artist;
 	}
-
 
 
     @Override

@@ -33,6 +33,11 @@ public class Artist {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    public Artist(@NotNull @Size(max =100) String name) {
+    	super();
+    	this.name = name;
+    }
 
     public Artist(long id, @NotNull @Size(max = 100) String name, List<Album> albums) {
         super();
@@ -40,6 +45,7 @@ public class Artist {
         this.name = name;
         this.albums = albums;
     }
+    
     public Artist(long id, @NotNull @Size(max = 100) String name) {
         super();
         this.id = id;

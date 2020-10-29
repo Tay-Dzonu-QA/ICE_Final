@@ -51,10 +51,12 @@ public class ArtistService {
         return this.mapToDTO(found);
     }
 
+
     public ArtistDTO update(ArtistDTO artist, Long id) {
         Artist toUpdate = this.repo.findById(id).orElseThrow(ArtistNotFoundException::new);
         SAPIBeanUtils.mergeNotNull(artist,toUpdate);
         return this.mapToDTO(this.repo.save(toUpdate));
+
     }
 
     public boolean delete(long id) {

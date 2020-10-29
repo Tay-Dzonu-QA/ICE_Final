@@ -51,6 +51,7 @@ public class GenreService {
         return this.mapToDTO(found);
     }
 
+
     public GenreDTO update(GenreDTO genre, long id) {
         Genre toUpdate = this.repo.findById(id).orElseThrow(GenreNotFoundException::new);
         SAPIBeanUtils.mergeNotNull(genre,toUpdate);

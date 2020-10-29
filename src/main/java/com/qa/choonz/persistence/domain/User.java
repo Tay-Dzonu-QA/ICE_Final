@@ -32,6 +32,13 @@ public class User {
     public User(){
         super();
     }
+    
+    public User(@NotNull @Size(max = 100) String username){
+        super();
+        this.username = username;
+    }
+    
+    
     public User(Long id, @NotNull @Size(max = 100) String username,
                 @NotNull @Size(max = 100) String password, List<Playlist> playlists){
         super();

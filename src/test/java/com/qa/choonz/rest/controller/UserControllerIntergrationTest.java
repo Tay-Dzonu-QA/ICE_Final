@@ -19,20 +19,19 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.qa.choonz.rest.dto.TrackDTO;
-import com.qa.choonz.persistence.domain.Track;
-import com.qa.choonz.persistence.repository.TrackRepository;
-
+import com.qa.choonz.persistence.domain.User;
+import com.qa.choonz.persistence.repository.UserRepository;
+import com.qa.choonz.rest.dto.UserDTO;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class TrackControllerIntegrationTest {
+public class UserControllerIntergrationTest {
 	
 	@Autowired
     private MockMvc mock;
 
     @Autowired
-    private TrackRepository repository;
+    private UserRepository repository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -40,56 +39,56 @@ public class TrackControllerIntegrationTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    private Track testTrack; 
-    private Track testTrackWithId;
-    private TrackDTO trackDTO;
+    private User testUser; 
+    private User testUserWithId;
+    private UserDTO userDTO;
 
     private Long id;
     @SuppressWarnings("unused")
-	private String testName;
+	private String testUsername;
 
-    private TrackDTO mapToDTO(Track track) {
-        return this.modelMapper.map(track, TrackDTO.class);
+    private UserDTO mapToDTO(User track) {
+        return this.modelMapper.map(track, UserDTO.class);
     }
 
     @BeforeEach
     void init() {
         this.repository.deleteAll();
 
-        this.testTrack = new Track("We Are The Champions");
-        this.testTrackWithId = this.repository.save(this.testTrack);
-        this.trackDTO = this.mapToDTO(testTrackWithId);
+        this.testUser = new User("OJ");
+        this.testUserWithId = this.repository.save(this.testUser);
+        this.userDTO = this.mapToDTO(testUserWithId);
 
-        this.id = this.testTrackWithId.getId();
-        this.testName = this.testTrackWithId.getName();
+        this.id = this.testUserWithId.getId();
+        this.testUsername = this.testUserWithId.getUsername();
     }
 
     @Test
     void testCreate() throws Exception {
         this.mock
-                .perform(request(HttpMethod.POST, "/tracks/create").contentType(MediaType.APPLICATION_JSON)
-                        .content(this.objectMapper.writeValueAsString(testTrack))
+                .perform(request(HttpMethod.POST, "/users/create").contentType(MediaType.APPLICATION_JSON)
+                        .content(this.objectMapper.writeValueAsString(testUser))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().json(this.objectMapper.writeValueAsString(trackDTO)));
+                .andExpect(content().json(this.objectMapper.writeValueAsString(userDTO)));
     }
 
     @Test
     void testReadOne() throws Exception {
         this.mock
-        		.perform(request(HttpMethod.GET, "/tracks/read/" + this.id)
+        		.perform(request(HttpMethod.GET, "/users/read/" + this.id)
         				.accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json(this.objectMapper.writeValueAsString(this.trackDTO)));
+                .andExpect(content().json(this.objectMapper.writeValueAsString(this.userDTO)));
     }
 
     @Test
     void testReadAll() throws Exception {
-        List<TrackDTO> tracks = new ArrayList<>();
-        tracks.add(this.trackDTO);
+        List<UserDTO> tracks = new ArrayList<>();
+        tracks.add(this.userDTO);
 
         String content = this.mock
-                .perform(request(HttpMethod.GET, "/tracks/read").accept(MediaType.APPLICATION_JSON))
+                .perform(request(HttpMethod.GET, "/users/read").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 
         assertEquals(this.objectMapper.writeValueAsString(tracks), content);
@@ -97,23 +96,22 @@ public class TrackControllerIntegrationTest {
 
     @Test
     void testUpdate() throws Exception {
-    	TrackDTO newTrack = new TrackDTO(id, "North American Scum");
-    	Track updatedTrack = new Track(newTrack.getName());
-        updatedTrack.setId(this.id);
+    	UserDTO newUser = new UserDTO(id, "JJ");
+    	User updatedUser = new User(newUser.getUsername());
+        updatedUser.setId(this.id);
 
         String result = this.mock
-                .perform(request(HttpMethod.PUT, "/tracks/update/" + this.id).accept(MediaType.APPLICATION_JSON)
+                .perform(request(HttpMethod.PUT, "/users/update/" + this.id).accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(this.objectMapper.writeValueAsString(newTrack)))
+                        .content(this.objectMapper.writeValueAsString(newUser)))
                 .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
 
-        assertEquals(this.objectMapper.writeValueAsString(this.mapToDTO(updatedTrack)), result);
+        assertEquals(this.objectMapper.writeValueAsString(this.mapToDTO(updatedUser)), result);
     }
 
     @Test
     void testDelete() throws Exception {
-        this.mock.perform(request(HttpMethod.DELETE, "/tracks/delete/" + this.id)).andExpect(status().isNoContent());
+        this.mock.perform(request(HttpMethod.DELETE, "/users/delete/" + this.id)).andExpect(status().isNoContent());
     }
-
 
 }

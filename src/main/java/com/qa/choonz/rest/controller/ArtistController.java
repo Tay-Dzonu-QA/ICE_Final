@@ -57,6 +57,7 @@ public class ArtistController {
         return new ResponseEntity<ArtistDTO>(this.service.read(id), HttpStatus.OK);
     }
 
+
     @PutMapping("/update/{id}")
     public ResponseEntity<ArtistDTO> update(@RequestBody ArtistDTO artist, @PathVariable Long id) {
         return new ResponseEntity<ArtistDTO>(this.service.update(artist, id), HttpStatus.ACCEPTED);

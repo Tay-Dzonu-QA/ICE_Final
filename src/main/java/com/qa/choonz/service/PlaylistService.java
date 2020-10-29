@@ -51,6 +51,7 @@ public class PlaylistService {
         return this.repo.readUserPlaylists(id).stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
+
     public PlaylistDTO update(PlaylistDTO playlist, Long id) {
         Playlist toUpdate = this.repo.findById(id).orElseThrow(PlaylistNotFoundException::new);
         SAPIBeanUtils.mergeNotNull(playlist,toUpdate);

@@ -38,6 +38,17 @@ public class Genre {
         super();
         // TODO Auto-generated constructor stub
     }
+   
+    public Genre(@NotNull @Size(max = 100) String name) {
+    	super();
+    	this.name = name;
+    }
+    
+    public Genre(@NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String description) {
+ 		super();
+ 		this.name = name;
+ 		this.description = description;
+ 	}
 
     public Genre(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 250) String description,
             List<Album> albums) {
@@ -47,6 +58,7 @@ public class Genre {
         this.description = description;
         this.albums = albums;
     }
+
     public long getId() {
 		return id;
 	}

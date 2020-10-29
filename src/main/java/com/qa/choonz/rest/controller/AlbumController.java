@@ -53,6 +53,7 @@ public class AlbumController {
         return new ResponseEntity<List<AlbumDTO>>(this.service.readGenre(id), HttpStatus.OK);
     }
 
+
     @PutMapping("/update/{id}")
     public ResponseEntity<AlbumDTO> update(@RequestBody AlbumDTO album, @PathVariable Long id) {
         return new ResponseEntity<AlbumDTO>(this.service.update(album, id), HttpStatus.ACCEPTED);

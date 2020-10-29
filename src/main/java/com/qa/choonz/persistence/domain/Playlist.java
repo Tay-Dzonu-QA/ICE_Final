@@ -10,6 +10,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.qa.choonz.rest.dto.TrackDTO;
+
 @Entity
 public class Playlist {
 
@@ -47,6 +49,28 @@ public class Playlist {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    public Playlist(@NotNull @Size(max = 100) String name) {
+    	super();
+    	this.name = name;
+    }
+    
+    public Playlist(@NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
+            @NotNull @Size(max = 1000) String artwork) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.artwork = artwork;
+    }
+    
+    public Playlist(String name, String description, String artwork, List<Track> tracks) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.artwork = artwork;
+        this.tracks = tracks;
+    }
+
 
     public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
             @NotNull @Size(max = 1000) String artwork, List<Track> tracks, User user) {
@@ -87,7 +111,7 @@ public class Playlist {
     public String getDescription() {
         return description;
     }
-
+    
     public void setDescription(String description) {
         this.description = description;
     }
@@ -95,6 +119,7 @@ public class Playlist {
     public String getArtwork() {
         return artwork;
     }
+
 
     public void setArtwork(String artwork) {
         this.artwork = artwork;
