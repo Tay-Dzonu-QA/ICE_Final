@@ -17,8 +17,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.qa.choonz.persistence.domain.Playlist;
+import com.qa.choonz.persistence.domain.Track;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
+import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.rest.dto.PlaylistDTO;
+import com.qa.choonz.rest.dto.TrackDTO;
 
 
 @SpringBootTest
@@ -29,6 +32,9 @@ public class PlaylistServiceUnitTest {
 
     @MockBean
     private PlaylistRepository repository;
+    
+    @MockBean
+    private TrackRepository trackRepo;
 
     @MockBean
     private ModelMapper modelMapper;
@@ -38,6 +44,10 @@ public class PlaylistServiceUnitTest {
     private Playlist testPlaylist;
     private Playlist testPlaylistWithId;
     private PlaylistDTO playlistDTO;
+    
+    private Track testTrack;
+    private Track testTrackWithId;
+    private TrackDTO trackDTO;
 
     final Long id = 1L;
     final String testName = "Funky Disco Robot";
@@ -50,6 +60,11 @@ public class PlaylistServiceUnitTest {
         this.testPlaylistWithId = new Playlist(testPlaylist.getName());
         this.testPlaylistWithId.setId(id);
         this.playlistDTO = modelMapper.map(testPlaylistWithId, PlaylistDTO.class);
+        
+        this.testTrack = new Track(testName);
+        this.testTrackWithId = new Track(testTrack.getName());
+        this.testTrackWithId.setId(id);
+        this.trackDTO = modelMapper.map(testTrackWithId, TrackDTO.class);
     }
 
     @Test
@@ -87,6 +102,17 @@ public class PlaylistServiceUnitTest {
 
         verify(this.repository, times(1)).findAll();
     }
+    @Test
+    void readUserPlaylistsTest() {
+
+        when(this.repository.readUserPlaylists(1l)).thenReturn(this.playlists);
+        when(this.modelMapper.map(this.testPlaylistWithId, PlaylistDTO.class)).thenReturn(this.playlistDTO);
+
+        assertThat(this.service.readUserPlaylists(1l).isEmpty()).isFalse();
+
+        verify(this.repository, times(1)).readUserPlaylists(1l);
+    }
+    
 
     @Test
     void updateTest() {
@@ -111,6 +137,33 @@ public class PlaylistServiceUnitTest {
 
         verify(this.repository, times(1)).findById(1L);
         verify(this.repository, times(1)).save(newPlaylist);
+    }
+    
+    @Test
+    void addTrackTest() {
+
+    	when(this.repository.findById(this.id)).thenReturn(Optional.of(this.testPlaylistWithId));
+    	when(this.trackRepo.findById(this.id)).thenReturn(Optional.of(this.testTrackWithId));
+        when(this.modelMapper.map(this.testPlaylistWithId, PlaylistDTO.class)).thenReturn(this.playlistDTO);
+
+        assertThat(this.service.addTrack(1l,1l));
+
+        verify(this.repository, times(1)).findById(this.id);
+        verify(this.trackRepo, times(1)).findById(this.id);
+        verify(this.repository, times(1)).save(testPlaylistWithId);
+    }
+    @Test
+    void removeTrackTest() {
+
+    	when(this.repository.findById(this.id)).thenReturn(Optional.of(this.testPlaylistWithId));
+    	when(this.trackRepo.findById(this.id)).thenReturn(Optional.of(this.testTrackWithId));
+        when(this.modelMapper.map(this.testPlaylistWithId, PlaylistDTO.class)).thenReturn(this.playlistDTO);
+
+        assertThat(this.service.removeTrack(1l,1l));
+
+        verify(this.repository, times(1)).findById(this.id);
+        verify(this.trackRepo, times(1)).findById(this.id);
+        verify(this.repository, times(1)).save(testPlaylistWithId);
     }
 
     @Test

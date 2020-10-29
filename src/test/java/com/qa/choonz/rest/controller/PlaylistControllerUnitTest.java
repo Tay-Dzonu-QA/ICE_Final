@@ -92,6 +92,42 @@ public class PlaylistControllerUnitTest {
         verify(this.service, times(1))
             .read();
     }
+    @Test
+    void readUserPlaylistsTest() {
+        when(service.readUserPlaylists(1l))
+            .thenReturn(this.playlists
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readUserPlaylists(1l).getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readUserPlaylists(1l);
+    }
+    
+    @Test
+    void addTrackTest() {
+        when(service.addTrack(1l,1l))
+            .thenReturn(this.playlistsDTO);
+        
+        assertThat(this.controller.addTrack(1l,1l).hasBody());
+        
+        verify(this.service, times(1))
+            .addTrack(1l,1l);
+    }
+    
+    @Test
+    void removeTrackTest() {
+        when(service.removeTrack(1l,1l))
+            .thenReturn(this.playlistsDTO);
+        
+        assertThat(this.controller.removeTrack(1l,1l).hasBody());
+        
+        verify(this.service, times(1))
+            .removeTrack(1l,1l);
+    }
     
     @Test
     void updateTest() {
