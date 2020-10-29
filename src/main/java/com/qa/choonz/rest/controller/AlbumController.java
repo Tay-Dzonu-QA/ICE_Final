@@ -2,6 +2,7 @@ package com.qa.choonz.rest.controller;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,8 +32,10 @@ public class AlbumController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<AlbumDTO> create(@RequestBody Album album) {
-        return new ResponseEntity<AlbumDTO>(this.service.create(album), HttpStatus.CREATED);
+    public ResponseEntity<AlbumDTO> create(@RequestBody AlbumDTO album) {
+        ModelMapper mapper = new ModelMapper();
+        Album returned = mapper.map(album,Album.class);
+        return new ResponseEntity<AlbumDTO>(this.service.create(returned), HttpStatus.CREATED);
     }
 
     @GetMapping("/read")
