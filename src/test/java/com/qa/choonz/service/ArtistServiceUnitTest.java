@@ -88,6 +88,34 @@ public class ArtistServiceUnitTest {
 
 	        verify(this.repository, times(1)).findAll();
 	    }
+	    @Test
+	    void readAllDescTest() {
+	        when(repository.findAllDesc()).thenReturn(this.artists);
+	        when(this.modelMapper.map(testArtistWithId, ArtistDTO.class)).thenReturn(artistDTO);
+	        
+	        assertThat(this.service.readByName().isEmpty()).isFalse();
+
+	        verify(repository, times(1)).findAllDesc();
+	    }
+	    
+	    @Test
+	    void readByNameTest() {
+	        when(repository.orderByName()).thenReturn(this.artists);
+	        when(this.modelMapper.map(testArtistWithId, ArtistDTO.class)).thenReturn(artistDTO);
+
+	        assertThat(this.service.readByName().isEmpty()).isFalse();
+
+	        verify(repository, times(1)).orderByName();
+	    }
+	    @Test
+	    void readByNameDescTest() {
+	        when(repository.orderByNameDesc()).thenReturn(this.artists);
+	        when(this.modelMapper.map(testArtistWithId, ArtistDTO.class)).thenReturn(artistDTO);
+
+	        assertThat(this.service.readByName().isEmpty()).isFalse();
+
+	        verify(repository, times(1)).orderByNameDesc();
+	    }
 
 	    @Test
 	    void updateTest() {
