@@ -59,7 +59,7 @@ public class Album {
 		this.name = name;
 	}
     
-    public Album(long id, @NotNull @Size(max = 100) String name, Artist artist, Genre genre,
+    public Album(Long id, @NotNull @Size(max = 100) String name, Artist artist, Genre genre,
             String cover) {
         super();
         this.id = id;
@@ -69,7 +69,7 @@ public class Album {
         this.cover = cover;
     }
 
-    public Album(long id, @NotNull @Size(max = 100) String name, List<Track> tracks, Artist artist, Genre genre,
+    public Album(Long id, @NotNull @Size(max = 100) String name, List<Track> tracks, Artist artist, Genre genre,
             String cover) {
         super();
         this.id = id;
@@ -80,11 +80,11 @@ public class Album {
         this.cover = cover;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -146,5 +146,12 @@ public class Album {
                 && Objects.equals(genre, other.genre) && id == other.id && Objects.equals(name, other.name)
                 && Objects.equals(tracks, other.tracks);
     }
+
+	@Override
+	public String toString() {
+		return "Album [id=" + id + ", name=" + name + ", tracks=" + tracks + ", artist=" + artist + ", genre=" + genre
+				+ ", cover=" + cover + "]";
+	}
+    
 
 }

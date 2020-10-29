@@ -29,7 +29,7 @@ public class AlbumDTO {
 	}
 
 
-    public AlbumDTO(long id, String name, List<TrackDTO> tracks, Artist artist, Genre genre, String cover) {
+    public AlbumDTO(Long id, String name, List<TrackDTO> tracks, Artist artist, Genre genre, String cover) {
 
         super();
         this.id = id;
