@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -44,6 +45,8 @@ public class ArtistServiceIntegrationTest {
 
     final long id = 1L;
     
+    private String testName = "White Lies";
+    
     private ArtistDTO mapToDTO(Artist artist) {
         return this.modelMapper.map(artist, ArtistDTO.class);
     }
@@ -53,7 +56,7 @@ public class ArtistServiceIntegrationTest {
     	
         this.artist = new ArrayList<>();
         this.artist.add(testArtist);
-        this.testArtist = new Artist("White Lies");
+        this.testArtist = new Artist(testName);
         this.testArtistWithId = new Artist(id, testArtist.getName());
         this.testArtistWithId.setId(id);
         this.ArtistDTO = new ModelMapper().map(testArtistWithId, ArtistDTO.class);
@@ -78,34 +81,33 @@ public class ArtistServiceIntegrationTest {
         .isEqualTo(this.mapToDTO(this.testArtistWithId));
     }
 
-//    @Test
-//    void ReadAllArtistTest() {
-//        assertThat(this.service.read())
-//                .isEqualTo(Stream.of(this.mapToDTO(testArtistWithId))
-//                        .collect(Collectors.toList()));
-//    }
+   @Test
+    void ReadAllArtistTest() {
+        assertThat(this.service.read())
+                .isEqualTo(Stream.of(this.mapToDTO(testArtistWithId))
+                        .collect(Collectors.toList()));
+    }
     
-//    @Test
-//    void testUpdate() {
-//    	ArtistDTO newArtist = new ArtistDTO(id, "Proclaimers");
-//    	ArtistDTO updatedArtist = new ArtistDTO(this.id, newArtist.getName());
-//
-//       assertThat(updatedArtist)
-//            .isEqualTo(this.service.update(newArtist, this.id));
-//        ArtistDTO updatedDTO = new ModelMapper().map(updatedArtist, ArtistDTO.class);
-//
-//
-//        when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testArtistWithId));
-//        when(this.modelMapper.map(updatedArtist, ArtistDTO.class)).thenReturn(updatedDTO);
-//
-//        // You NEED to configure a .equals() method in Booking.java for this to work
-//        when(this.repo.save(updatedArtist)).thenReturn(updatedArtist);
-//
-//        assertEquals(updatedDTO, this.service.update(newArtist, this.id));
-//
-//        verify(this.repo, times(1)).findById(1L);
-//        verify(this.repo, times(1)).save(updatedArtist);
-//    }
+    @Test
+    void testUpdate() {
+    	ArtistDTO newArtist = new ArtistDTO(id, testName);
+    	ArtistDTO updatedArtist = new ArtistDTO(this.id, newArtist.getName());
+
+       assertThat(updatedArtist)
+            .isEqualTo(this.service.update(newArtist, this.id));
+        ArtistDTO updatedDTO = new ModelMapper().map(updatedArtist, ArtistDTO.class);
+
+
+        when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testArtistWithId));
+        when(this.modelMapper.map(updatedArtist, ArtistDTO.class)).thenReturn(updatedDTO);
+
+        when(this.repo.save(updatedArtist)).thenReturn(updatedArtist);
+
+        assertEquals(updatedDTO, this.service.update(newArtist, this.id));
+
+        verify(this.repo, times(1)).findById(1L);
+        verify(this.repo, times(1)).save(updatedArtist);
+    }
     
     @Test
     void DeleteTest() {
