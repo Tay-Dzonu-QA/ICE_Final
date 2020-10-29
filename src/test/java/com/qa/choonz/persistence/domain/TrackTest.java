@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 public class TrackTest {
 	
 	Track testTrack;
+	Track testTrack2;
 	final Long id = 1l;
 	final String name = "Brown Sugar";
 	final String album = "Sticky Fingers";
@@ -37,12 +38,19 @@ public class TrackTest {
 				this.duration,
 				this.lyrics);
 		
+		this.testTrack2 = new Track(
+				this.id, 
+				this.name, 
+				null, 
+				this.playlists,
+				this.duration,
+				this.lyrics);
+		
 		// Start of console test format
 		sBuilder.setLength(0);
 		sBuilder
 		.append("\tTest ").append(activeTest).append("\n")
 		.append(div);
-		// Append info about vending machine here
 		
 		System.out.println(sBuilder.toString());
 		activeTest++;
@@ -105,6 +113,17 @@ public class TrackTest {
 	@Test
 	public void checkEquality() {
 	     assertTrue(testTrack.equals(testTrack));
+	}
+	
+	@Test
+    public void checkEqualityBetweenDifferentObjects() {
+        assertTrue(testTrack.equals(testTrack2));
+    }
+	
+	 @Test
+	    public void otherIdDifferent() {
+	        testTrack2.setId(2L);
+	        assertFalse(testTrack.equals(testTrack2));
 	    }
 	
 	@Test

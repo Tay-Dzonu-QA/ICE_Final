@@ -120,11 +120,11 @@ public class ArtistServiceUnitTest {
 	    @Test
 	    void updateTest() {
 	    	
-	        Artist art = new Artist("Nortorious BIG");
+	        Artist art = new Artist(testName);
 	        
 	        art.setId(this.id);
 
-	        ArtistDTO artistDTO = new ArtistDTO(id, "Nortorious BIG");
+	        ArtistDTO artistDTO = new ArtistDTO(id, testName);
 
 	        Artist newArtist = new Artist(artistDTO.getName());
 	        

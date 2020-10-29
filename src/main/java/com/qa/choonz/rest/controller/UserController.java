@@ -1,7 +1,5 @@
 package com.qa.choonz.rest.controller;
 
-
-
 import com.qa.choonz.persistence.domain.User;
 
 

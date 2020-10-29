@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 public class UserTest {
 	
 	User testUser;
+	User testUser2;
 	final Long id = 1l;
 	final String username = "OJ";
 	final String password = "password";
@@ -32,12 +33,17 @@ public class UserTest {
 				this.password,
 				this.playlists);
 		
+		this.testUser2 = new User(
+				this.id, 
+				this.username, 
+				this.password,
+				this.playlists);
+		
 		// Start of console test format
 		sBuilder.setLength(0);
 		sBuilder
 		.append("\tTest ").append(activeTest).append("\n")
 		.append(div);
-		// Append info about vending machine here
 		
 		System.out.println(sBuilder.toString());
 		activeTest++;
@@ -77,7 +83,18 @@ public class UserTest {
 	@Test
 	public void checkEquality() {
 	     assertTrue(testUser.equals(testUser));
-	    }
+	}
+	
+	@Test
+    public void checkEqualityBetweenDifferentObjects() {
+        assertTrue(testUser.equals(testUser2));
+    }
+	
+	 @Test
+	    public void otherIdDifferent() {
+	        testUser2.setId(2L);
+	        assertFalse(testUser.equals(testUser2));
+	}
 	
 	@Test
 	void GetIdTest() {
@@ -151,6 +168,12 @@ public class UserTest {
 		
 		assertThat(!this.testUser.equals(emptyUser));
 		assertThat(this.testUser.equals(fullUser));		
+	}
+	
+	@Test
+	void testToString() {
+		assertThat(this.testUser.toString()
+				.equals("User [id=1, username=OJ, password=password, playlists=null]"));
 	}
 
 	@AfterEach

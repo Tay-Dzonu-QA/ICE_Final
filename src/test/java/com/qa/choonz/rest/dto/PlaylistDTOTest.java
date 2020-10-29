@@ -20,7 +20,9 @@ public class PlaylistDTOTest {
 	final Long id = 1L;
 	private String description;
 	private String artwork;
-	private String name;
+
+	private String name = "Choonz";
+
 	private List<Track>tracks;
 	
 	private static int activeTest = 1;
@@ -40,7 +42,6 @@ public class PlaylistDTOTest {
 				sBuilder
 				.append("\tTest ").append(activeTest).append("\n")
 				.append(div);
-				// Append info about vending machine here
 				
 				System.out.println(sBuilder.toString());
 				activeTest++;
@@ -103,10 +104,10 @@ public class PlaylistDTOTest {
 		assertThat(this.testPlaylistDTO.getId() == newId);
 	}
 	
-//	@Test
-//	void GetNameTest() {
-//		assertThat(this.testPlaylistDTO.getName().equals(this.name));
-//	}
+	@Test
+	void GetNameTest() {
+		assertThat(this.testPlaylistDTO.getName().equals(this.name));
+	}
 	
 	@Test
 	void SetNameTest() {

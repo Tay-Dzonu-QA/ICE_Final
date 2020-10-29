@@ -1,0 +1,1176 @@
+commit aaa26b2ef3382493898b82e8c7179d19dc549f1e
+Author: Owen <OJackson@qa.com>
+Date:   Thu Oct 29 11:23:48 2020 +0000
+
+    tests
+
+commit 09306eedb2da53eb79cffaa602c2a981a476a854
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 18:05:46 2020 +0000
+
+    more tests buy fixes
+
+commit 90d411c2b9a84358de3931c35997a06116bfd6bf
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 17:36:09 2020 +0000
+
+    user controller unit tests complete
+
+commit 2aef6142a3ee26d63b79a4556f5604b1bc6ba757
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 17:29:53 2020 +0000
+
+    user service unit tests
+
+commit bba48aded482b12e8b817d9ab391628df7ef52a8
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 16:13:23 2020 +0000
+
+    domian user tests
+
+commit a9cce4836057ba07cd6bc13e06f6616cdf94f601
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 15:58:09 2020 +0000
+
+    merge fixes - lots of bugs now present
+
+commit 98b9954023815713671c97f14205cbc244b5a6c4
+Merge: 688e197 e950b16
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 14:53:18 2020 +0000
+
+    merge fixes
+
+commit 688e1970d6ee34366bfcb2cab2995017c2263d9a
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 14:33:27 2020 +0000
+
+    more tests
+
+commit e950b160174740c50dec4f1a60e3551e8771e03a
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Wed Oct 28 14:33:26 2020 +0000
+
+    fixed Backend to enable M2M relationship, and implemented add/remove track from playlist in FE
+
+commit f041a35c2d5281703ef1ec97c8747b9474b46bfa
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 13:01:34 2020 +0000
+
+    DTO tests comeplete - room for more tests though
+
+commit 28e9ca9d7e75bc012500304ae211211b6c0aa119
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 12:21:26 2020 +0000
+
+    added Album DTO test
+
+commit 8e7c000ce8074a6cd92b795c360cf802292eadac
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Wed Oct 28 11:31:15 2020 +0000
+
+    added controller and service methods for add and remove tracks
+
+commit 90b8275c1b509d922c4a9c2eb0a1e264fba5438c
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 10:54:03 2020 +0000
+
+    tests added to domain to up coverage
+
+commit 759c49b0c9de7d7e0429661ad00c2b62f3d9582c
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Wed Oct 28 10:36:36 2020 +0000
+
+    implemented track playlist M2M relationship
+
+commit 396b6b81b5882c13b8c24948583b9d18f64f818a
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Wed Oct 28 10:23:59 2020 +0000
+
+    bug fix
+
+commit 0bf52bfc748cdb8608bb7d75aded2ee7568e73fc
+Author: Owen <OJackson@qa.com>
+Date:   Wed Oct 28 10:20:13 2020 +0000
+
+    more tests added to domain
+
+commit 07a1ce0bb10071fdcad14e02c95b435b525473f9
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 20:41:32 2020 +0000
+
+    added to domainb to run int tests
+
+commit 7d56aaa3c2757a8580e120928efd8e0990a9eff4
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 18:16:56 2020 +0000
+
+    bug fixes - genre and playplaylist still not workig
+
+commit d455edcf93056fc80a38568f61c786727fd97c35
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 17:24:22 2020 +0000
+
+    created playlist.js
+
+commit 3498520a006f3024c909f48f8351ddd51daae1f9
+Merge: 1500f21 539c661
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Tue Oct 27 17:07:22 2020 +0000
+
+    Merge pull request #8 from MRashid98/dev
+    
+    Dev
+
+commit 539c661f8d9378e697ba8c2f210adc95eab25b61
+Merge: 70463cf 1500f21
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 17:03:27 2020 +0000
+
+    Merge remote-tracking branch 'upstream/dev' into dev
+
+commit 70463cf72c723f11c9b9109ebdf188433f4737d1
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 17:02:44 2020 +0000
+
+    Minor changes
+
+commit 1500f21869f446c3f15fa756722e727eb1db2a86
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 16:58:52 2020 +0000
+
+    fixed sidebar
+
+commit fa8038fd6ad0ed501f097922aac4023684da4920
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 16:42:54 2020 +0000
+
+    created sidebarlists for album
+
+commit 73aca152788f1f209ac6d0f453af477c825a508a
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 16:38:34 2020 +0000
+
+    Included Playlist Page
+
+commit b319c309a0694c701aa50df8ae842ee856add83f
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 16:34:16 2020 +0000
+
+    formatted sidebar
+
+commit c103fdf9f2eb41611ec85aeb7ffb66bf71d5a9a1
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 16:22:24 2020 +0000
+
+    Rearranged buttons order in Track Table
+
+commit 75d7df33b117fb749dbb4794bd47fdce27ca5e62
+Merge: 652a10e 71dade3
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 16:15:58 2020 +0000
+
+    Solved Conflicts
+
+commit 652a10ee30e27c0a8b97f73a95323bad70277380
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 16:09:29 2020 +0000
+
+    Modified JSON
+
+commit 71dade369ddde52ade4de1b88e7f06570e1e84c7
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 16:05:56 2020 +0000
+
+    fixe tracks
+
+commit a98be810ed13936914355da408cf69131d18f5aa
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 15:58:29 2020 +0000
+
+    added repo to get playluists for a certain user
+
+commit 57a13f2b62d7b044b300658d38f00e411c9bdfaf
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 15:51:22 2020 +0000
+
+    album,artist,genre,play;ist int tests - with bugs to fix
+
+commit 72147c5df072c659e3d017571b964ae3077f0157
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 15:49:40 2020 +0000
+
+    incorporated user in tracks
+
+commit ff1bc1a4a1cdfa2da6a97d6509b32d071d51adc8
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 15:33:05 2020 +0000
+
+    incorporated user into artist album and genre
+
+commit 777060fc891a51401363ebbd5e19486979d5fd78
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 15:25:35 2020 +0000
+
+    fix
+
+commit 790da6e71b4d2eba06ada27ea1d00590ae852c00
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 15:19:02 2020 +0000
+
+    created repo to get users password
+
+commit 2e6d68d49044affbe0949a3a18d647ae416e40b3
+Merge: e0abc9b 4dc9127
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 15:11:02 2020 +0000
+
+    Merge branch 'dev' of https://github.com/Tay-Dzonu-QA/ICE_Final into dev
+
+commit e0abc9bedeae761ea02da8cbdf1b7e78dac3acaa
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 15:10:01 2020 +0000
+
+    fixes
+
+commit 4dc9127d1854f14a72e88f37964163d231cb46d3
+Merge: 35dc6a7 57cb217
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Tue Oct 27 15:00:32 2020 +0000
+
+    Merge pull request #7 from CodewithOsatQA/dev
+    
+    Dev
+
+commit 36ba84229a0a53a65ef3472e720b56014be344e7
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 15:00:08 2020 +0000
+
+    Fixed Album page when not logged in
+
+commit 57cb217c0e1a166b2636b8f170d63bed64b52e4e
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Tue Oct 27 14:59:20 2020 +0000
+
+    reverted change
+
+commit 350598545040fb4f786b52b854ac62af114be9ae
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 14:58:40 2020 +0000
+
+    Fixed View Album target path
+
+commit ef6979cd54152c3ee4eb42eaaffcdebba69fe20b
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Tue Oct 27 14:58:34 2020 +0000
+
+    Update Album.java
+    
+    fixed merge
+
+commit 31a2cfab9239268cf54ce07a1751270eb835c6df
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Tue Oct 27 14:57:13 2020 +0000
+
+    removed toString, updated hashcode()
+
+commit ab7a7d752874948e569136512daea0aa1386a83f
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 14:56:29 2020 +0000
+
+    Fixed view single artist path and Artist page when not logged in
+
+commit ee87b2738c55d2929227508d8a0b998b6c355a21
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 14:54:30 2020 +0000
+
+    Fixed Track Page when not logged in
+
+commit cda9b2232f4bb75df24a25ea888f6519c9f76fe4
+Merge: 2967cc1 fd08efc
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Tue Oct 27 14:44:54 2020 +0000
+
+    merge
+
+commit 96db8c4a2be90c5122a7c20fcc93519fee445dc6
+Merge: 85445b9 3b4facc
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 14:35:06 2020 +0000
+
+    Solved conflicts
+
+commit 85445b922702806db385f6c61ceb07b3f2de8fde
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 14:33:49 2020 +0000
+
+    Minor changes
+
+commit 3b4facc04dc866bf87b841704fa958e4bec049f0
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 14:31:14 2020 +0000
+
+    fix for single track table
+
+commit abc3bd830f92269f88f43d406261aa7e7952c1b5
+Merge: 20c8aa0 97420af
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 13:22:03 2020 +0000
+
+    Merge remote-tracking branch 'upstream/features_FE_pt2' into minor_fixes
+
+commit 97420af1c3a91662171f957eba808589b47a789f
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 13:21:20 2020 +0000
+
+    fixed single track
+
+commit 20c8aa019db5f35c59bf56b26b4fb2a38ebc3db0
+Merge: 81e99c8 9ed093d
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 13:10:42 2020 +0000
+
+    Merge remote-tracking branch 'upstream/features_FE_pt2' into minor_fixes
+
+commit 81e99c8a68841d57f365a3814832a93582be0af3
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 13:10:23 2020 +0000
+
+    Minor changes
+
+commit 9ed093d4e59ed06b0569ccbbb60be4fb4ee61760
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 13:10:07 2020 +0000
+
+    minor fixes
+
+commit 74e37fe478c2236729a63f4ec2a0a3171a55d6f6
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 13:00:57 2020 +0000
+
+    added controller to get tracks of an album
+
+commit 9951f8f2740079e2fd164b27d0303d1cf1ddf33b
+Merge: 46eedf9 7e36bff
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 12:58:09 2020 +0000
+
+    Merge remote-tracking branch 'upstream/features_FE_pt2' into minor_fixes
+
+commit 46eedf9605d863524d2b6d340fc6c2dece0de931
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 12:57:45 2020 +0000
+
+    Formatting fixes to Genre page
+
+commit 7e36bff893f091ab2483e5474b12f45273e86b47
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 12:55:34 2020 +0000
+
+    fixed link to single track
+
+commit 789d950edbff4bc80a703bff50f5642e6ba62352
+Merge: c64a72a 07036f0
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 12:53:00 2020 +0000
+
+    Merge remote-tracking branch 'upstream/features_FE_pt2' into dev
+
+commit 07036f0040c3d1163cca6bf88e2d0090d4113e09
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 12:51:37 2020 +0000
+
+    added Genre js
+
+commit babfbedfbce7c631ac8b0b17922d833766c7f56b
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 12:50:58 2020 +0000
+
+    album integration test
+
+commit c64a72a3220b6cc249e531222ebbbb99e91f70e8
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 12:50:18 2020 +0000
+
+    Minor fixes
+
+commit 5725b9ff4811a825370d620f1fa1ee0dc5177189
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 12:47:24 2020 +0000
+
+    minor fixes
+
+commit cbc0bd7677e89e6b7168e9a55ab429b0006e6536
+Merge: e719b1b 2bf96c5
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 12:43:44 2020 +0000
+
+    Merge remote-tracking branch 'upstream/features_FE_pt2' into dev
+
+commit 2bf96c5caa8ed5642e1301ea9a90b3187baf7800
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 12:42:49 2020 +0000
+
+    fixed URL params
+
+commit e719b1b505f8222a0117848ded9f96b5dc4049f8
+Merge: 444aa67 86e3197
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 12:42:16 2020 +0000
+
+    Merge remote-tracking branch 'upstream/features_FE_pt2' into dev
+
+commit 86e3197726dbec1b48dacbabc422352523f3edf8
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 12:40:49 2020 +0000
+
+    tracks and album fix
+
+commit 2967cc1c81693fc9e9db45f33230c6b95d9f888b
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Tue Oct 27 12:39:27 2020 +0000
+
+    trying to fix recursions again
+
+commit 444aa6783797845ac33404a5c7e2eac27ab6cdc0
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 12:37:42 2020 +0000
+
+    Fixes to Track page
+
+commit 15b3b90c087ea0f3066f8f7e96bfb72ccf0ea3e1
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 12:36:31 2020 +0000
+
+    service tests complete bar artist update
+
+commit 35dc6a7211e355651f4730e3e4bf7b07ae1b9d92
+Merge: fd08efc f55624e
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Tue Oct 27 12:24:33 2020 +0000
+
+    Merge pull request #6 from MRashid98/dev
+    
+    Dev
+
+commit 01a604b0d54c38154fc01b3f020d834be2cf2f73
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 12:22:41 2020 +0000
+
+    playlist service tests
+
+commit f55624efb5091d96cbb3933b9be59b4ab6ebb236
+Merge: 8a1730d fd08efc
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 12:21:34 2020 +0000
+
+    Fixed Conflists in Album html page
+
+commit fd08efc913de11664bc825818c7dca9751eff5fe
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 11:54:54 2020 +0000
+
+    removed genre repo method
+
+commit 71129200fbbc7959f2bc4294771f4bd96c15714b
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 11:53:41 2020 +0000
+
+    additional DTO fixes
+
+commit deeb278f2b378aed83b96c4c20c08528aa956191
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 11:49:04 2020 +0000
+
+    artist service tests
+
+commit c952b964053d81d9998c38ba5145d7fbb24a748c
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 11:49:00 2020 +0000
+
+    fixed FE issues
+
+commit 6391ba56cfbd297bd22118f77ae0b1a0c072deb2
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 11:42:09 2020 +0000
+
+    made it possible to view artist and genre on album page
+
+commit 8a1730d97609006730771b48cb432d8c7a560d2c
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 11:40:45 2020 +0000
+
+    Formatted file
+
+commit d2db41e666976e4df55a7c77923c313e1fecdadc
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 11:38:35 2020 +0000
+
+    Added missing fields to Add Album Modal Form
+
+commit f1023770f24c9f71c1e1cca67e94b0a790d92089
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 11:35:28 2020 +0000
+
+    album service test
+
+commit a844ba555b34ca21f262d0c1c3e5989fc0591b48
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 11:34:45 2020 +0000
+
+    added genre and artist in albumDTO
+
+commit 1d6971b42c14a5b322269a40140f296f49eeb34f
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 11:27:02 2020 +0000
+
+    Minor Fixes
+
+commit a7cc88979b45e816d9055e8a78adf7da7ce83985
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 11:20:42 2020 +0000
+
+    unit test fixes
+
+commit 085db9ab3dd80c035d7314051bb24d0a2a5ab3cf
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 11:13:20 2020 +0000
+
+    Added toggle Filter By Button
+
+commit 94b59ded390bdb703f75b19ec45ee340bd1d824d
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 11:02:31 2020 +0000
+
+    added repo to get genre name
+
+commit 889818826fdbe3060fffd75248a15f9ec807028b
+Merge: 19c1fe0 77b299a
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 10:56:47 2020 +0000
+
+    merge fixes
+
+commit 5167a423f174858b519ac1d74929d958779a573d
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Tue Oct 27 10:43:55 2020 +0000
+
+    Users are working now
+
+commit 3fd370bb76a880503bb89ed8fcb8b6ec8890568b
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 10:42:38 2020 +0000
+
+    Changed sidebar background colour
+
+commit f127a3812aeb6968295100b325425391328a0a8d
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 10:41:00 2020 +0000
+
+    Moved Tracks html to existing Track html file
+
+commit 19c1fe0b705ef9502fc1060ee238fe8d998850d4
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 10:40:21 2020 +0000
+
+    controller tests complete so far
+
+commit decf164c1657f435cd765178a91a31a2e31b33af
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 10:37:12 2020 +0000
+
+    added repos to select by album and genres
+
+commit 2d8259a75cf239a3e60d4b73aa3b4e329f03d60e
+Merge: 9a169cd 822a678
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 10:35:28 2020 +0000
+
+    Merge branch 'features_FE_Artist' into dev
+
+commit 822a6786e729c6113fa9587ba27fde08f37ad65e
+Merge: de652bc 0b294b4
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 10:35:03 2020 +0000
+
+    Merge branch 'features_FE_Artist' of https://github.com/Tay-Dzonu-QA/ICE_Final into features_FE_Artist
+
+commit 9a169cdc508097467062ed1b94ac55b79bb0e4c1
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 10:31:05 2020 +0000
+
+    Removed repitition on Sidebar.js
+
+commit a13a22bded0599f51f93490c9b1f0c4a6af5283d
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 10:19:53 2020 +0000
+
+    playlist unit tests
+
+commit a27ba39d236fcdc50e3255fc3a0e35d2aca051a2
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Tue Oct 27 10:16:36 2020 +0000
+
+    PlaylistDTO was deleted
+
+commit 81ede4f2fb09345d7ea6b18f0bb46de4752b566a
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Tue Oct 27 10:12:37 2020 +0000
+
+    fixed some issues from yesterday, finished the user controller
+
+commit 77b299ac00f4c0eaf33ed07305d3d27379545d0a
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 10:02:19 2020 +0000
+
+    got rid of to string in domains
+
+commit e0c5c79536af9e50a5c5942cac20000deec171fe
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 10:00:56 2020 +0000
+
+    fixed DTO
+
+commit 006917ca483fa02b4a1f9591637c7fc6c279e3cf
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 09:57:30 2020 +0000
+
+    arist dto, service and domian fix
+
+commit 6a17293ae4b68a46757a1d2f9dbac2998ae77f3f
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 09:52:05 2020 +0000
+
+    service + controller fixes
+
+commit d93db168f7f39310fad433bc0bc1460a9c3a398e
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 09:51:38 2020 +0000
+
+    Moved index.html inside html folder and adjusted code accordingly
+
+commit 9716000e705f9efcd2f8ba4a87ea7166bb34373a
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 09:47:33 2020 +0000
+
+    Added Logo to Navbar
+
+commit b772ee3282f9d7eef459e33de9323c931da293cb
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 09:44:31 2020 +0000
+
+    Added link destination to Navbar
+
+commit ad169f85de311aacc7cc35c2b1f68fb9aa11b4b6
+Merge: 0b294b4 f3e82cb
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 09:43:23 2020 +0000
+
+    Merge branch 'dev' of https://github.com/Tay-Dzonu-QA/ICE_Final into dev
+
+commit a52ef5603ce6aabce672cdd15742d5ba4ca5d1b9
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 09:43:03 2020 +0000
+
+    ABlum Controller update changed
+
+commit 0b294b421690ed4495966c337ee28546a61e416a
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Tue Oct 27 09:41:08 2020 +0000
+
+    added tracks html
+
+commit f3e82cb90f1cce17bfb314df9edcb0abff9dbf3d
+Merge: 8b6b93f d77f98a
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Tue Oct 27 09:39:47 2020 +0000
+
+    Merge pull request #4 from MRashid98/features_navbar_and_sidebar
+    
+    Features navbar and sidebar
+
+commit 6af98ef1a63e033a3f3b2960b67adbbbaf0474da
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Tue Oct 27 09:35:29 2020 +0000
+
+    Added Album Tab on Navbar
+
+commit d356651923f8458cc379b757fb2faae93cf3ed8c
+Author: Owen <OJackson@qa.com>
+Date:   Tue Oct 27 09:34:19 2020 +0000
+
+    args added to AblumDTO
+
+commit 40cc89f10d2719ed8ed86e143377fdb39d521c5f
+Author: Owen <OJackson@qa.com>
+Date:   Mon Oct 26 17:54:58 2020 +0000
+
+    domain tests done
+
+commit 1e2174d05a4e166d2412d6c294b68cdb3684a49c
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 17:29:06 2020 +0000
+
+    created track js [unfinished] + album js bug fixes
+
+commit d77f98a8c7360a3e526a6a369b52a3e70b8383ef
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 17:21:15 2020 +0000
+
+    Added Sidebar Animation Javascript
+
+commit 14a391cd67ec2eeda2c5aa4790ddb2f1c90961b8
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 17:20:47 2020 +0000
+
+    Removed sidebar animation functions
+
+commit fbf8b611182d8f49e1bdd7de245c5d422eae5a68
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Mon Oct 26 17:19:26 2020 +0000
+
+    UserDTO: Created UserDTO, PlaylistDTO: edited the Update method, UserService: Finished the userservice.java
+
+commit 2527c255b6feecf318d98bc34f7af31a50cb98d9
+Merge: bbb23bb de652bc
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:56:28 2020 +0000
+
+    Merge branch 'features_FE_Artist' into dev
+
+commit de652bca974276ce3ee41bc9bb1921382958696b
+Merge: 1fc43b8 0ded4ce
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:56:06 2020 +0000
+
+    Merge branch 'features_FE_Artist' of https://github.com/Tay-Dzonu-QA/ICE_Final into features_FE_Artist
+
+commit 0ded4ce81133869c38f9d7ea27e65d48313785f3
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 16:55:36 2020 +0000
+
+    fixed album update
+
+commit bbb23bbfcce7eb2e7c61ec5fdb9988e2da90c00a
+Merge: a0ad722 1fc43b8
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:55:07 2020 +0000
+
+    Merge branch 'features_FE_Artist' into dev
+
+commit 1fc43b803c2684eaead800e5ff2b10b58da29c70
+Merge: 69eb34a d31989f
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:54:38 2020 +0000
+
+    Merge branch 'features_FE_Artist' of https://github.com/Tay-Dzonu-QA/ICE_Final into features_FE_Artist
+
+commit a0ad722df51d3d378542715d64b98bf998a2c3b7
+Merge: 8b6b93f 846a876
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:53:57 2020 +0000
+
+    Merge branch 'features_sidebar' into dev
+
+commit 846a8768bb05c6cf447b6b98ee989acfcea93684
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:53:41 2020 +0000
+
+    Added slide animation stylesheet to Track page
+
+commit 7fe503f989d8273939a4b154ba9dba59d619230f
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:52:00 2020 +0000
+
+    Added Track page html
+
+commit d31989ff76805db9dfcd69a5bc3cebbd0d4e56e6
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 16:48:44 2020 +0000
+
+    Album js updates + backend fixes
+
+commit 2ebf1a66a96c0b89574b6301414f9efb8b675561
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:18:54 2020 +0000
+
+    Changed page title page
+
+commit d5c56a4ec4ad82b78a2ebb4556ae66bd1fc9befa
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:16:03 2020 +0000
+
+    Included sidebar style to Album page
+
+commit 64524e407e7bc59095c5e39ab09d6b72fb855d6c
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Mon Oct 26 16:15:36 2020 +0000
+
+    repository for user
+
+commit 58ab029e0b5fe11a9697ba6e5d27ac4501f72910
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:15:21 2020 +0000
+
+    Added sidebar animation functions Album.js
+
+commit 808ca8bffdf0fdcd266b2ad5554a399461ee18da
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 16:14:41 2020 +0000
+
+    Added sidebar menu to Album page
+
+commit 0d134977e6df096f87e23fa1442f8f76e3f3e82e
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Mon Oct 26 16:02:07 2020 +0000
+
+    created a User entity
+
+commit fb5da64079a0a76ff2ed3b0badabc57e4930fb21
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 15:57:37 2020 +0000
+
+    Added Sidebar animation functions in Artist.js
+
+commit 0373c6efaa4cae044f359a513364eb4700ed2f38
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 15:56:57 2020 +0000
+
+    Included general style for Sidebar in stylesheet
+
+commit eb26b21383a1c1c3f64080fe62444c651e487690
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 15:56:15 2020 +0000
+
+    Added sidebar menu to Artist Page
+
+commit 5b6315345dfa13c659b066304b201e9519988374
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Mon Oct 26 15:15:09 2020 +0000
+
+    added getters and setters to trackDTO
+
+commit 53cc6e07267f1fed5e3f0b342cf96cee17488434
+Merge: 4d5cbd5 36d8333
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Mon Oct 26 14:53:52 2020 +0000
+
+    Merge branch 'feature_backend_artist' into dev
+
+commit 36d83336c5800767b1bf8d5ed2d251178cc7e9c9
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Mon Oct 26 14:48:33 2020 +0000
+
+    no more recursive calls
+
+commit b51937e6cb806ee60d06d9097a0929662b9a4b41
+Merge: a896179 69eb34a
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 14:40:04 2020 +0000
+
+    Merge branch 'features_FE_Artist' into features_navbar
+
+commit 69eb34a479807d7e14bcef5f8b4d982cfafce5dd
+Merge: bd350d8 f51232f
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 14:39:21 2020 +0000
+
+    Merge branch 'features_FE_Artist' of https://github.com/Tay-Dzonu-QA/ICE_Final into features_FE_Artist
+
+commit f51232feaced45fe2f623efc7515f63ed9ab04e6
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 14:38:23 2020 +0000
+
+    fixes to artist and album js, and quick backend fix to give correct json output
+
+commit a89617912e8293bf188b74ce7616266729becdc2
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 14:36:16 2020 +0000
+
+    Changed colour for navbar
+
+commit 96ff96968dc6221bb1da5bacec51025136e7356a
+Author: Owen <OJackson@qa.com>
+Date:   Mon Oct 26 14:30:47 2020 +0000
+
+    domain tests completed excepet for genre 25% cov
+
+commit b9d5054f034216bda174d484e50185ffdfd6835b
+Author: Owen <OJackson@qa.com>
+Date:   Mon Oct 26 13:44:59 2020 +0000
+
+    Artist tests
+
+commit f177fcadb077ae1f5d0333edc8835a3dd824a07c
+Author: Owen <OJackson@qa.com>
+Date:   Mon Oct 26 13:36:32 2020 +0000
+
+    test fixes
+
+commit 5bcb2ed318662df51691d32d3a350314ae1c66bd
+Author: Owen <OJackson@qa.com>
+Date:   Mon Oct 26 13:28:18 2020 +0000
+
+    album tests
+
+commit 55b6e3ef1fc07d2632505fc4fe19881f472a177e
+Author: Owen <OJackson@qa.com>
+Date:   Mon Oct 26 13:24:31 2020 +0000
+
+    domain test folders added
+
+commit e9ec4c19528b1873e030ab981113035356d6066c
+Author: Owen <OJackson@qa.com>
+Date:   Mon Oct 26 13:06:21 2020 +0000
+
+    genre getters and setters added
+
+commit 69727fdcdb4c92523cda6e396c7b3223c98a1305
+Merge: c5aa86c bd350d8
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 12:53:05 2020 +0000
+
+    Solved Conflicts
+
+commit bd350d8a320bbeb231a31f8f84d7ad335823d630
+Merge: 45def67 0ce77f4
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 12:39:16 2020 +0000
+
+    Merge branch 'features_FE_Artist' of https://github.com/Tay-Dzonu-QA/ICE_Final into features_FE_Artist
+
+commit 8b6b93f9f329e8d50758677b70f14db35ce9dce7
+Merge: 4d5cbd5 8ee7901
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Mon Oct 26 12:38:39 2020 +0000
+
+    Merge pull request #3 from MRashid98/features_FE_Artist
+    
+    JavaScript file for Artist Page
+
+commit 0ce77f46b2e5b3e014989bb14d5c18a1cae7a80b
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 12:36:04 2020 +0000
+
+    minor artist bug fix
+
+commit a038425ba337148eff6ebd4436999900e2ae33f7
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 12:34:26 2020 +0000
+
+    completed album functionality and small artist fixes
+
+commit c5aa86c73d44eb1ca9f35aaa74d47d7d4fc351d6
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 12:33:08 2020 +0000
+
+    Added navbar to Album Page
+
+commit 40eb649acf51aedd1f57b4e7e8255b305f538cca
+Merge: ca517c7 b1cb871
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 12:29:54 2020 +0000
+
+    Merge branch 'features_album_page' into features_navbar
+
+commit 0905269d654acece1aa6b2b3c6f74f86afa52961
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 12:13:00 2020 +0000
+
+    changes to artist js
+
+commit b1cb8712ac16ccbbec92ce8fdf53b76d22a29a87
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 12:07:11 2020 +0000
+
+    Formatted html file
+
+commit 714eaf91d2c1817beaa6e8464815584c8a1bd62e
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 12:06:03 2020 +0000
+
+    Created Album page
+
+commit ca517c7e1a5756b5c3ba22e31b8d842fefe8bdec
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 12:01:03 2020 +0000
+
+    Added navbar to Artist Page
+
+commit 99d81f7441b1082338a4dc00bd46da1eb7749e5c
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 11:57:38 2020 +0000
+
+    Changed hover color for nav links
+
+commit eaf272fb809becaf47623423599261d3fce639b6
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 11:55:00 2020 +0000
+
+    Minor changes to navbar
+
+commit 404cc7a2ebd084b827845bbf7c767f2b979784ad
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 11:54:25 2020 +0000
+
+    Added background colour for navbar
+
+commit 2aafd2326df7a93fa29af83ccb7f2ba3336d3b7f
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 11:49:09 2020 +0000
+
+    created edit album functionality + minor fixes
+
+commit bbb622e8c0fe64158e43a20768fb59669bbe4237
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Mon Oct 26 11:15:18 2020 +0000
+
+    Moved links in the navbar to the right
+
+commit de8aabd34928d4e8f0f5b1135d36d7f01e68422c
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 10:37:27 2020 +0000
+
+    changed view icon
+
+commit d5d65c338366f718044497fe864410c534e91635
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Mon Oct 26 10:25:40 2020 +0000
+
+    added icon link
+
+commit 8ee790188189cd65e616bd81a1747fb0303dc04b
+Merge: cfe10d5 45def67
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Sat Oct 24 12:53:21 2020 +0100
+
+    Merge branch 'features_FE_Artist' into dev
+
+commit 45def67245f228c58e95e9baedd17fe99d34fdeb
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Sat Oct 24 12:51:02 2020 +0100
+
+    Fixed fetch paths
+
+commit 1da8acbc69bf488672d05561296ec17ec76ef23c
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 17:29:00 2020 +0100
+
+    created Album.js file using Artist.js as a template - unfinished
+
+commit cfe10d55e5cf7a7aaf0b5dde06e284011dc8dbbb
+Merge: 19d45c4 4d5cbd5
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Thu Oct 22 17:11:15 2020 +0100
+
+    Merge remote-tracking branch 'upstream/dev' into dev
+
+commit 0fca8e101377e85f374a7cb555bd9890e1ae32fb
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 17:03:15 2020 +0100
+
+    changed artist.js output so it shows the number of albums not the list
+
+commit 69db03f046f1d9cafd3b80465aaab1e5680838e0
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 16:57:13 2020 +0100
+
+    extra bug fixes
+
+commit 4d5cbd5ea8f2ed47b43549be86085fb0d1b785c4
+Merge: f53add1 f93349f
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Thu Oct 22 16:48:31 2020 +0100
+
+    Merge pull request #2 from OJackson1/feature/testfolders
+    
+    Folders and classes done for service, controller and DTO unit and int…
+
+commit fb28747aef915719e9104f4a4b5fbe81f2a54bf7
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 16:44:55 2020 +0100
+
+    additional fixes to Artist.js
+
+commit bd29e554f94c2484cc6b37b36495b243a1245f76
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 16:37:47 2020 +0100
+
+    small fixes with Artist.js
+
+commit 4a12cb666075c03ef5e53c0dd88f65327bfa306d
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 16:24:19 2020 +0100
+
+    fix issue with fetch url
+
+commit ccf6fe3e3e18fb4adcd0593cf522419d4fa0ecb2
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 16:18:21 2020 +0100
+
+    fix issue in reading in loggedIn
+
+commit f93349f82a6b8f2d1aa1fd4022539fa12838beaf
+Author: Owen <OJackson@qa.com>
+Date:   Thu Oct 22 15:56:17 2020 +0100
+
+    Folders and classes down for service, controller and DTO unit and integration tests
+
+commit 19d45c4f1462c1533755d64a5e51c5bedee8c07b
+Merge: 793e263 0f4c5be
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Thu Oct 22 15:55:17 2020 +0100
+
+    Merge branch 'features_FE_Artist' into dev
+
+commit 793e26318574c08308647f6dab3016a6c395f29a
+Merge: 2cb240c f53add1
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Thu Oct 22 15:50:44 2020 +0100
+
+    Merge remote-tracking branch 'upstream/dev' into dev
+
+commit f53add1e56276b20f8c44565cc4d5095cdf65820
+Merge: a1fdff1 84f0b85
+Author: Tay-Dzonu-QA <69895319+Tay-Dzonu-QA@users.noreply.github.com>
+Date:   Thu Oct 22 15:47:49 2020 +0100
+
+    Merge pull request #1 from CodewithOsatQA/documentation
+    
+    This is the first ERD, I have uploaded the PDF and Workbench file so …
+
+commit 0f4c5be9006183ca11c73a530d31085b3217747f
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 15:44:54 2020 +0100
+
+    simple html for artist page with table insertion and modals
+
+commit 2cb240cc8dbf6e076ec6f71e894882ee3a0a253e
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Thu Oct 22 15:39:10 2020 +0100
+
+    Added styles for Login and Register Form
+
+commit 6016f7ce8768fad55773e4d4b5f1276dae57f8e8
+Author: Mohammad Rashid <MRashid1@qa.com>
+Date:   Thu Oct 22 15:35:40 2020 +0100
+
+    Added Login and Register Form into Home Page
+
+commit 7fbc24d8be3fba53a4d6f17c053b0e33259c0835
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 15:35:00 2020 +0100
+
+    javaScript for Artist page table
+
+commit 84f0b8557a3a9dcdb55fe4460f50c6781448c790
+Author: CodewithOsatQA <OTowesho@qa.com>
+Date:   Thu Oct 22 15:16:06 2020 +0100
+
+    This is the first ERD, I have uploaded the PDF and Workbench file so there can be changes in the future
+
+commit a1fdff11e10b8466a0a695760c0c8071fa4aab69
+Author: Tay-Dzonu-QA <tdzonu@qa.com>
+Date:   Thu Oct 22 10:25:00 2020 +0100
+
+    Choonz Starter

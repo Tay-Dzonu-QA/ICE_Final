@@ -38,14 +38,20 @@ public class User {
         this.username = username;
     }
     
+    public User(Long id,@NotNull @Size(max = 100) String username){
+        super();
+        this.id = id;
+        this.username = username;
+    }
+       
     
     public User(Long id, @NotNull @Size(max = 100) String username,
                 @NotNull @Size(max = 100) String password, List<Playlist> playlists){
         super();
         this.id = id;
-        this.password = password;
-        this.playlists = playlists;
         this.username = username;
+        this.password = password;
+        this.playlists = playlists;    
     }
 
     public Long getId() {

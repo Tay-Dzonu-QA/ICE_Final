@@ -39,6 +39,8 @@ public class PlaylistControllerUnitTest {
     private Playlist testPlaylistWithId;
     private PlaylistDTO playlistsDTO;
     private final Long id = 1L;
+    
+    private String testName = "Funky fresh";
 
     private PlaylistDTO mapToDTO(Playlist playlist) {
         return this.mapper.map(playlist, PlaylistDTO.class);
@@ -47,7 +49,7 @@ public class PlaylistControllerUnitTest {
     @BeforeEach
     void init() {
         this.playlists = new ArrayList<>();
-        this.testPlaylist = new Playlist("Fresh and Funky");
+        this.testPlaylist = new Playlist(testName);
         this.testPlaylistWithId = new Playlist(testPlaylist.getName());
         this.testPlaylistWithId.setId(id);
         this.playlists.add(testPlaylistWithId);
@@ -132,7 +134,7 @@ public class PlaylistControllerUnitTest {
     @Test
     void updateTest() {
         // given
-    	PlaylistDTO newPlaylist = new PlaylistDTO(id, "Summer Choonz");
+    	PlaylistDTO newPlaylist = new PlaylistDTO(id, testName);
     	PlaylistDTO updatedPlaylist = new PlaylistDTO(this.id, newPlaylist.getName());
 
         when(this.service.update(newPlaylist, this.id))
