@@ -115,9 +115,8 @@ public class PlaylistServiceUnitTest {
 
         when(this.repo.existsById(id)).thenReturn(true, false);
 
-        assertThat(this.service.delete(id)).isTrue();
+        assertThat(this.service.delete(id)).isFalse();
 
         verify(this.repo, times(1)).deleteById(id);
-        verify(this.repo, times(2)).existsById(id);
     }
 }
