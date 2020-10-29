@@ -14,7 +14,6 @@ public class ArtistDTO {
 
     public ArtistDTO() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 

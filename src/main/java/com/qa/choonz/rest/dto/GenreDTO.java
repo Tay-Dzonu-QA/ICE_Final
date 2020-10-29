@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.qa.choonz.persistence.domain.Album;
 
 public class GenreDTO {
 
@@ -16,7 +15,6 @@ public class GenreDTO {
 
     public GenreDTO() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 

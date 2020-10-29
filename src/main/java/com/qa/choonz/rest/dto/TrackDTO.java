@@ -3,9 +3,6 @@ package com.qa.choonz.rest.dto;
 import java.util.Objects;
 
 import com.qa.choonz.persistence.domain.Album;
-import com.qa.choonz.persistence.domain.Playlist;
-
-import java.util.Objects;
 
 public class TrackDTO {
 
@@ -17,7 +14,6 @@ public class TrackDTO {
 
     public TrackDTO() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     
