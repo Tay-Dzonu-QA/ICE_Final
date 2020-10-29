@@ -13,7 +13,7 @@ public class PlaylistDTO {
     private String name;
     private String description;
     private String artwork;
-    private List<TrackDTO> tracks = new ArrayList<>();
+    private List<Track> tracks = new ArrayList<>();
     private User user;
 
     public PlaylistDTO() {
@@ -27,7 +27,7 @@ public class PlaylistDTO {
     	this.name = name;
     }
     
-    public PlaylistDTO(String name, String description, String artwork, List<TrackDTO> tracks) {
+    public PlaylistDTO(String name, String description, String artwork, List<Track> tracks) {
         super();
         this.name = name;
         this.description = description;
@@ -36,7 +36,7 @@ public class PlaylistDTO {
     }
 
 
-    public PlaylistDTO(Long id, String name, String description, String artwork, List<TrackDTO> tracks,User user) {
+    public PlaylistDTO(Long id, String name, String description, String artwork, List<Track> tracks,User user) {
         super();
         this.id = id;
         this.name = name;
@@ -112,14 +112,14 @@ public class PlaylistDTO {
     /**
      * @return the tracks
      */
-    public List<TrackDTO> getTracks() {
+    public List<Track> getTracks() {
         return tracks;
     }
 
     /**
      * @param tracks the tracks to set
      */
-    public void setTracks(List<TrackDTO> tracks) {
+    public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
     
