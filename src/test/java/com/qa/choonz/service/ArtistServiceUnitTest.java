@@ -93,7 +93,7 @@ public class ArtistServiceUnitTest {
 	        when(repository.findAllDesc()).thenReturn(this.artists);
 	        when(this.modelMapper.map(testArtistWithId, ArtistDTO.class)).thenReturn(artistDTO);
 	        
-	        assertThat(this.service.readByName().isEmpty()).isFalse();
+	        assertThat(this.service.readDesc().isEmpty()).isFalse();
 
 	        verify(repository, times(1)).findAllDesc();
 	    }
@@ -112,7 +112,7 @@ public class ArtistServiceUnitTest {
 	        when(repository.orderByNameDesc()).thenReturn(this.artists);
 	        when(this.modelMapper.map(testArtistWithId, ArtistDTO.class)).thenReturn(artistDTO);
 
-	        assertThat(this.service.readByName().isEmpty()).isFalse();
+	        assertThat(this.service.readByNameDesc().isEmpty()).isFalse();
 
 	        verify(repository, times(1)).orderByNameDesc();
 	    }
