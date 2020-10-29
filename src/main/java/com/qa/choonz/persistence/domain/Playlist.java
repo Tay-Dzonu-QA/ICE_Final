@@ -10,7 +10,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.qa.choonz.rest.dto.TrackDTO;
 
 @Entity
 public class Playlist {
@@ -47,7 +46,6 @@ public class Playlist {
 
     public Playlist() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     public Playlist(@NotNull @Size(max = 100) String name) {

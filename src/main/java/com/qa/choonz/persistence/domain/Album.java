@@ -19,7 +19,6 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Album {
@@ -51,7 +50,6 @@ public class Album {
 
     public Album() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     public Album(@NotNull @Size(max = 100) String name) {
