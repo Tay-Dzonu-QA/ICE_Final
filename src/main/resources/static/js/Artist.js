@@ -14,8 +14,8 @@ function getArtists(loggedIn, user,order) {
         let table = document.querySelector("#ArtistTable");
         let data = Object.keys(ArtistData[0]);
 
-        generateTableHead(table, data, loggedIn);
-        generateTable(table, ArtistData, loggedIn,user);
+        generateTableHeadAr(table, data, loggedIn);
+        generateTableAr(table, ArtistData, loggedIn,user);
         if (loggedIn == true) {
           generateAddArtistBtn(table);
         }
@@ -26,7 +26,7 @@ function getArtists(loggedIn, user,order) {
     });
 }
 
-function generateTableHead(table, data, loggedIn) {
+function generateTableHeadAr(table, data, loggedIn) {
   let thead = table.createTHead();
   let row = thead.insertRow();
   for (let key of data) {
@@ -52,7 +52,7 @@ function generateTableHead(table, data, loggedIn) {
   }
 }
 
-function generateTable(table, ArtistData, loggedIn,user) {
+function generateTableAr(table, ArtistData, loggedIn,user) {
   for (let element of ArtistData) {
     let row = table.insertRow();
     for (key in element) {
@@ -176,8 +176,8 @@ function editArtist(name, ArtistId) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      id: ID,
-      name: name,
+      "id": ID,
+      "name": name
     })),
   })
     .then(json)
@@ -208,7 +208,7 @@ function addArtist(name) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      name: name,
+      "name": name
     })),
   })
     .then(json)

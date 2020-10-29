@@ -23,26 +23,25 @@
       </button>
         <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">User Page</a>
+                <li class="nav-item" id = "UserLink">
                 </li>
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" id="TrackLink">Featured
-                    Tracks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="ArtistLink">Artists</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="GenreLink">Genres</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="AlbumLink">Albums</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="IndexLink" href="index.html"></a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="TrackLink" >Featured
+                        Tracks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="ArtistLink" >Artists</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="GenreLink" >Genres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="AlbumLink" >Albums</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="IndexLink"href="index.html"></a>
+              </li>
+            </ul>
         </div>
     </nav>
     <!-- /Navbar -->
@@ -181,7 +180,7 @@
     <!-- /Album CRUD Table-->
 
     <!-- Artist CRUD Table-->
-    <!-- <div class="Artist">
+    <div class="Artist">
         <div class="TableBody" id="artistTitle">
             <br>
             <h2> Artist List</h2>
@@ -233,12 +232,12 @@
         </div>
     </div>
     </div>
-    </div> -->
+    </div>
 
     <!-- /Artist CRUD Table-->
 
     <!-- Genre CRUD Table-->
-    <!-- <div class="TableBody" id="genreTitle">
+    <div class="TableBody" id="genreTitle">
         <br>
         <h2> Genre List</h2>
         <table id="GenreTable" class="table table-hover"></table>
@@ -258,6 +257,8 @@
                         <div class="form-group">
                             <label for="GenreName">Genre Name:</label>
                             <input type="text" class="form-control" id="GenreName" required>
+                            <label for="GenreDescription">Genre Description:</label>
+                            <input type="text" class="form-control"  id="GenreDescription" required>
                         </div>
                         <button id="AddGenreSubmit" type="submit" class="btn btn-primary">Add</button>
                     </form>
@@ -281,6 +282,8 @@
                         <div class="form-group">
                             <label for="EditGenreName">Genre Name:</label>
                             <input type="text" class="form-control" id="EditGenreName" required>
+                            <label for="EditGenreDescription">Genre Description:</label>
+                            <input type="text" class="form-control"  id="EditGenreDescription" required>
                         </div>
                         <button id="EditGenreSubmit" type="submit" class="btn btn-primary">Add</button>
                     </form>
@@ -288,11 +291,11 @@
             </div>
         </div>
     </div>
-    </div> -->
+    </div>
     <!-- /Genre CRUD Table-->
 
     <!-- Tracks CRUD Table-->
-    <!-- <div class="TableBody" id="trackTitle">
+    <div class="TableBody" id="trackTitle">
         <br>
         <h2 id="TrackTitle"></h2>
         <table id="TrackTable" class="table table-hover"></table>
@@ -386,16 +389,16 @@
                     </form>
                 </div>
             </div>
-        </div> -->
+        </div>
     <!-- /Tracks CRUD Table-->
 
 
 
-        <!-- <script src="../js/Params.js"></script> -->
+        <script src="../js/Params.js"></script>
         <script src="../js/Album.js"></script>
-        <!-- <script src="../js/Artist.js"></script>
+        <script src="../js/Artist.js"></script>
         <script src="../js/Tracks.js"></script>
-        <script src="../js/Genre.js"></script>  -->
+        <script src="../js/Genre.js"></script> 
         <script src="../js/NavLinks.js"></script>
         <sc src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></sc>
         <sc src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></sc>

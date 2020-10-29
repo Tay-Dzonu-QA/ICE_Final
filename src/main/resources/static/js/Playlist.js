@@ -1,20 +1,3 @@
-// const params = new URLSearchParams(window.location.search);
-// let loggedIn = false;
-// let playlistToView = "";
-// let user = 0;
-// console.log(params);
-
-// for (const param of params) {
-//   if (param[0] === "user") {
-//     user = param[1];
-//     if (user != 0) {
-//       loggedIn = true;
-//     }
-//   } else if ((param[0] = "playlists")) {
-//     playlistToView = param[1];
-//   }
-// }
-console.log(playlistToView);
 getTracks(loggedIn, playlistToView, user);
 function getTracks(loggedIn, playlistToView, user) {
   fetch("http://localhost:8082/playlists/read/" + playlistToView)
@@ -34,15 +17,15 @@ function getTracks(loggedIn, playlistToView, user) {
         
         let table = document.querySelector("#PlaylistTable");
         let data = Object.keys(TrackData[0]);
-        generateTableHead(table, data);
-        generateTable(table, TrackData, user);
+        generateTableHeadPl(table, data);
+        generateTablePl(table, TrackData, user);
       });
     })
     .catch(function (err) {
       console.log("Fetch Error :-S", err);
     });
 }
-function generateTableHead(table, data) {
+function generateTableHeadPl(table, data) {
   let thead = table.createTHead();
   let row = thead.insertRow();
   for (let key of data) {
@@ -65,7 +48,7 @@ function generateTableHead(table, data) {
   row.appendChild(th4);
 }
 
-function generateTable(table, TrackData, user) {
+function generateTablePl(table, TrackData, user) {
   for (let element of TrackData) {
     let row = table.insertRow();
     for (key in element) {
