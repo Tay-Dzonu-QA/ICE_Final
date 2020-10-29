@@ -11,6 +11,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.qa.choonz.persistence.domain.Track;
+
 public class PlaylistDTOTest {
 	
 
@@ -19,7 +21,7 @@ public class PlaylistDTOTest {
 	private String description;
 	private String artwork;
 	private String name;
-	private List<TrackDTO>tracks;
+	private List<Track>tracks;
 	
 	private static int activeTest = 1;
 	private static StringBuilder sBuilder = new StringBuilder();
@@ -28,7 +30,7 @@ public class PlaylistDTOTest {
 
 	@BeforeEach
 	void init() {
-		this.tracks = new ArrayList<TrackDTO>();
+		this.tracks = new ArrayList<Track>();
 		this.testPlaylistDTO = new PlaylistDTO(
 				this.id, 
 				this.name);
@@ -133,7 +135,7 @@ public class PlaylistDTOTest {
 	@Test
 	void SetAlbumTest() {
 
-		List<TrackDTO> newTracks = new ArrayList<TrackDTO>();
+		List<Track> newTracks = new ArrayList<Track>();
 		this.testPlaylistDTO.setTracks(newTracks);
 		
 		assertThat(this.testPlaylistDTO.getTracks() == newTracks);
