@@ -45,8 +45,6 @@ public class AlbumServiceIntegrationTest {
     	this.repo.deleteAll();
         this.testAlbum = new Album("White Album");
         this.testAlbumWithId = this.repo.save(this.testAlbum);
-
-
     }
 
     @Test

@@ -3,11 +3,14 @@ package com.qa.choonz.rest.dto;
 import java.util.List;
 import java.util.Objects;
 
+import com.qa.choonz.persistence.domain.Track;
+import com.qa.choonz.persistence.domain.User;
+
 public class UserDTO {
     private Long id;
     private String username;
     private String password;
-    private List<PlaylistDTO> playlist;
+    private List<PlaylistDTO> playlists;
 
     public UserDTO(){
         super();
@@ -20,12 +23,12 @@ public class UserDTO {
     	
     }
 
-    public UserDTO(Long id, String username, String password, List<PlaylistDTO> playlist){
+    public UserDTO(Long id, String username, String password, List<PlaylistDTO> playlists){
         super();
     	this.id = id;
         this.username = username;
         this.password = password;
-        this.playlist = playlist;
+        this.playlists = playlists;
     }
 
     public Long getId() {
@@ -53,27 +56,29 @@ public class UserDTO {
     }
 
     public List<PlaylistDTO> getPlaylist() {
-        return playlist;
+        return playlists;
     }
 
-    public void setPlaylist(List<PlaylistDTO> playlist) {
-        this.playlist = playlist;
+    public void setPlaylist(List<PlaylistDTO> playlists) {
+        this.playlists = playlists;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserDTO userDTO = (UserDTO) o;
-        return id.equals(userDTO.id) &&
-                username.equals(userDTO.username) &&
-                password.equals(userDTO.password) &&
-                playlist.equals(userDTO.playlist);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Track)) {
+            return false;
+        }
+        UserDTO other = (UserDTO) obj;
+        return Objects.equals(username, other.username) &&  Objects.equals(id, other.id)
+                && Objects.equals(password, other.password) && Objects.equals(playlists, other.playlists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, playlist);
+        return Objects.hash(id, username, password, playlists);
     }
 
     @Override
@@ -82,7 +87,7 @@ public class UserDTO {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", playlist=" + playlist +
+                ", playlist=" + playlists +
                 '}';
     }
 }

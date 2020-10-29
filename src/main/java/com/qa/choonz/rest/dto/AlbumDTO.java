@@ -106,7 +106,7 @@ public class AlbumDTO {
         AlbumDTO other = (AlbumDTO) obj;
 
         return Objects.equals(artist, other.artist) && Objects.equals(cover, other.cover)
-                && Objects.equals(genre, other.genre) && id == other.id && Objects.equals(name, other.name)
+                && Objects.equals(genre, other.genre) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
                 && Objects.equals(tracks, other.tracks);
     }
 

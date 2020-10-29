@@ -143,15 +143,8 @@ public class Album {
         }
         Album other = (Album) obj;
         return Objects.equals(artist, other.artist) && Objects.equals(cover, other.cover)
-                && Objects.equals(genre, other.genre) && id == other.id && Objects.equals(name, other.name)
+                && Objects.equals(genre, other.genre) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
                 && Objects.equals(tracks, other.tracks);
     }
-
-	@Override
-	public String toString() {
-		return "Album [id=" + id + ", name=" + name + ", tracks=" + tracks + ", artist=" + artist + ", genre=" + genre
-				+ ", cover=" + cover + "]";
-	}
-    
 
 }

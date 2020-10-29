@@ -154,7 +154,7 @@ public class PlaylistDTO {
         }
         PlaylistDTO other = (PlaylistDTO) obj;
         return Objects.equals(artwork, other.artwork) && Objects.equals(description, other.description)
-                && id == other.id && Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks)
+                && Objects.equals(id, other.id) && Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks)
                 && Objects.equals(user, other.user);
     }
 

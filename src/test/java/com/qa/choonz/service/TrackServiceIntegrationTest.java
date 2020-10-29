@@ -1,21 +1,14 @@
 package com.qa.choonz.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.qa.choonz.persistence.domain.Track;
@@ -24,72 +17,68 @@ import com.qa.choonz.rest.dto.TrackDTO;
 
 @SpringBootTest
 public class TrackServiceIntegrationTest {
-	
-	 @InjectMocks
-	    private TrackService service;
 
-	    @Mock
-	    private TrackRepository repo;
+	@Autowired
+    private TrackService service;
 
-	    @Mock
-	    private ModelMapper modelMapper;
+    @Autowired
+    private TrackRepository repo;
 
-	    private List<Track> tracks;
+    @Autowired	
+    private ModelMapper modelMapper;
 
-	    private Track testTrack;
 
-	    private Track testTrackWithId;
+    private Track testTrack;
+    private Track testTrackWithId;
 
-	    private TrackDTO trackDTO;
-	    
-	    private String testName = "North American Scum";
 
-	    final long id = 1L;
-	    
-	    private TrackDTO mapToDTO(Track track) {
-	        return this.modelMapper.map(track, TrackDTO.class);
-	    }
+    
+    private TrackDTO mapToDTO(Track track) {
+        return this.modelMapper.map(track, TrackDTO.class);
+    }
 
-	    @BeforeEach
-	    public void init() {
-	        this.tracks = new ArrayList<>();
-	        this.tracks.add(testTrack);
-	        this.testTrack = new Track(testName);
-	        this.testTrackWithId = new Track(id, testTrack.getName(),testTrack.getAlbum(),testTrack.getPlaylist(),testTrack.getDuration(),testTrack.getLyrics());
-	        this.testTrackWithId.setId(id);
-	        this.trackDTO = new ModelMapper().map(testTrackWithId, TrackDTO.class);
-	    }
 
-	    @Test
-	    public void createAlbumTest() {
-	        when(this.repo.save(testTrack)).thenReturn(testTrackWithId);
-	        when(this.modelMapper.map(testTrackWithId, TrackDTO.class)).thenReturn(trackDTO);
+    @BeforeEach
+    public void init() {
+    	this.repo.deleteAll();
+        this.testTrack = new Track("White Track",1);
+        this.testTrackWithId = this.repo.save(this.testTrack);
+    }
 
-	        assertEquals(this.trackDTO, this.service.create(testTrack));
+    @Test
+    public void createTrackTest() {
+        assertThat(this.mapToDTO(this.testTrackWithId))
+        .isEqualTo(this.service.create(testTrack));
+    }
 
-	        verify(this.repo, times(1)).save(this.testTrack);
-	    }
+ 
+    @Test
+    void ReadByIdTest() {
+        assertThat(this.service.read(this.testTrackWithId.getId()))
+        .isEqualTo(this.mapToDTO(this.testTrackWithId));
+    }
 
-	 
-	    @Test
-	    void ReadByIdTest() {
-	        assertThat(this.trackDTO)
-	               .isEqualTo(this.service.read(this.id));
-	        assertThat(this.service.read(this.testTrackWithId.getId()))
-	        .isEqualTo(this.mapToDTO(this.testTrackWithId));
-	    }
+    @Test
+    void ReadAllTracksTest() {
+    	assertThat(this.service.read())
+        .isEqualTo(Stream.of(this.mapToDTO(testTrackWithId)).collect(Collectors.toList()));
+    }
+    @Test
+    void testUpdate() {
+    	TrackDTO newTrack = new TrackDTO(null, "Tuesday",1);
+    	TrackDTO updatedTrack = new TrackDTO(this.testTrackWithId.getId(), newTrack.getName(),newTrack.getDuration());
 
-	    @Test
-	    void ReadAllAlbumsTest() {
-	        assertThat(this.service.read())
-	                .isEqualTo(Stream.of(this.mapToDTO(testTrackWithId))
-	                        .collect(Collectors.toList()));
-	    }
-	    
-	    @Test
-	    void DeleteTest() {
-	        assertThat(this.service.delete(this.id)).isTrue();
-	    }
-
+    	System.out.println(updatedTrack.toString());
+    	TrackDTO newT = this.service.update(newTrack, this.testTrackWithId.getId());
+        assertThat(newT)
+            .isEqualTo(updatedTrack);
+        System.out.println(updatedTrack.toString());
+        System.out.println(newT.toString());
+    }
+    
+    @Test
+    void DeleteTest() {
+        assertThat(this.service.delete(this.testTrackWithId.getId())).isTrue();
+    }
 
 }

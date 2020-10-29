@@ -89,7 +89,7 @@ public class GenreDTO {
             return false;
         }
         GenreDTO other = (GenreDTO) obj;
-        return Objects.equals(albums, other.albums) && Objects.equals(description, other.description) && id == other.id
+        return Objects.equals(albums, other.albums) && Objects.equals(description, other.description) && Objects.equals(id, other.id)
                 && Objects.equals(name, other.name);
     }
 
