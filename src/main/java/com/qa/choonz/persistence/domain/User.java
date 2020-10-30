@@ -109,13 +109,4 @@ public class User {
         return Objects.hash(id, username, password, playlists);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", playlists=" + playlists +
-                '}';
-    }
 }

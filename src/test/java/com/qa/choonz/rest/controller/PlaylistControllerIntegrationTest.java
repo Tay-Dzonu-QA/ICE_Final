@@ -35,6 +35,7 @@ public class PlaylistControllerIntegrationTest {
 
 	    @Autowired
 	    private PlaylistRepository repository;
+
 	    @Autowired
 	    private TrackRepository TRepo;
 

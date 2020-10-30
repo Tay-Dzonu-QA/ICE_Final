@@ -35,6 +35,7 @@ public class UserControllerIntergrationTest {
 
     @Autowired
     private UserRepository repository;
+
     @Autowired
     private TrackRepository TRepo;
 
@@ -51,6 +52,7 @@ public class UserControllerIntergrationTest {
     private Long id;
 
 	private String testName = "username";
+	private String testPassword = "password";
 
     private UserDTO mapToDTO(User users) {
         return this.modelMapper.map(users, UserDTO.class);
@@ -61,7 +63,7 @@ public class UserControllerIntergrationTest {
     	this.TRepo.deleteAll();
         this.repository.deleteAll();
 
-        this.testUser = new User(testName);
+        this.testUser = new User(testName, testPassword);
         this.testUserWithId = this.repository.save(this.testUser);
         this.userDTO = this.mapToDTO(testUserWithId);
 
@@ -102,8 +104,8 @@ public class UserControllerIntergrationTest {
 
     @Test
     void testUpdate() throws Exception {
-    	UserDTO newUser = new UserDTO(id, testName);
-    	User updatedUser = new User(newUser.getUsername());
+    	UserDTO newUser = new UserDTO(id, testName, testPassword);
+    	User updatedUser = new User(newUser.getUsername(),newUser.getPassword());
         updatedUser.setId(this.id);
 
         String result = this.mock
