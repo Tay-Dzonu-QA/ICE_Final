@@ -19,8 +19,14 @@ public class UserDTO {
     public UserDTO(Long id, String username) {
     	super();
     	this.id = id;
-    	this.username = username;
-    	
+    	this.username = username;   	
+    }
+    
+    public UserDTO(Long id, String username, String password) {
+    	super();
+    	this.id = id;
+    	this.username = username;  
+    	this.password = password;
     }
 
     public UserDTO(Long id, String username, String password, List<PlaylistDTO> playlists){

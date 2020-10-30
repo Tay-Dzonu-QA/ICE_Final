@@ -56,6 +56,26 @@ public class UserDTOTest {
 	}
 	
 	@Test
+	void twoArguConsTest() {
+
+		UserDTO newUser = new UserDTO(
+				this.id, 
+				this.username);			
+		assertThat(newUser instanceof UserDTO);
+	}
+	
+	@Test
+	void threeArguConsTest() {
+
+		UserDTO newUser = new UserDTO(
+				this.id, 
+				this.username,
+				this.password);	
+		
+		assertThat(newUser instanceof UserDTO);
+	}
+	
+	@Test
 	void AllArguConsTest() {
 
 		UserDTO newUser = new UserDTO(
