@@ -20,6 +20,7 @@ public class UserDTOTest {
 	final Long id = 1l;
 	final String username = "OJ";
 	final String password = "password";
+	final String name = "myname";
 	List<PlaylistDTO> playlists;
 	
 	private static int activeTest = 1;
@@ -33,6 +34,7 @@ public class UserDTOTest {
 				this.id, 
 				this.username, 
 				this.password,
+				this.name,
 				this.playlists);
 		
 		// Start of console test format
@@ -73,6 +75,17 @@ public class UserDTOTest {
 		
 		assertThat(newUser instanceof UserDTO);
 	}
+	@Test
+	void fourArguConsTest() {
+
+		UserDTO newUser = new UserDTO(
+				this.id, 
+				this.username,
+				this.password,
+				this.name);	
+		
+		assertThat(newUser instanceof UserDTO);
+	}
 	
 	@Test
 	void AllArguConsTest() {
@@ -81,6 +94,7 @@ public class UserDTOTest {
 				this.id, 
 				this.username, 
 				this.password,
+				this.name,
 				this.playlists);
 		
 		assertThat(newUser instanceof UserDTO);
@@ -114,12 +128,12 @@ public class UserDTOTest {
 	}
 	
 	@Test
-	void GetUserameTest() {
+	void GetUsernameTest() {
 		assertThat(this.testUserDTO.getUsername().equals(this.username));
 	}
 	
 	@Test
-	void SetUsernameameTest() {
+	void SetUsernameTest() {
 		String newUsername = "Funk";
 		this.testUserDTO.setUsername(newUsername);
 		assertThat(this.testUserDTO.getUsername().equals(newUsername));
@@ -135,6 +149,17 @@ public class UserDTOTest {
 		String newPass = "Funky";
 		this.testUserDTO.setPassword(newPass);
 		assertThat(this.testUserDTO.getPassword().equals(newPass));
+	}
+	@Test
+	void GetNameTest() {
+		assertThat(this.testUserDTO.getName().equals(this.name));
+	}
+	
+	@Test
+	void SetNameTest() {
+		String newName = "Funk";
+		this.testUserDTO.setName(newName);
+		assertThat(this.testUserDTO.getName().equals(newName));
 	}
 	
 	
@@ -155,8 +180,8 @@ public class UserDTOTest {
 	
 	@Test
 	void HashcodeTest() {
-		UserDTO pl1 = new UserDTO(id,username,password,playlists);
-		UserDTO pl2 = new UserDTO(id,username,password,playlists);
+		UserDTO pl1 = new UserDTO(id,username,password,name,playlists);
+		UserDTO pl2 = new UserDTO(id,username,password,name,playlists);
 		
 		assertTrue(pl1.hashCode() == pl2.hashCode());
 	}
@@ -168,6 +193,7 @@ public class UserDTOTest {
 				this.id, 
 				this.username, 
 				this.password,
+				this.name,
 				this.playlists);
 		
 		

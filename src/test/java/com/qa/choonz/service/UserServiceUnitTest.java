@@ -41,6 +41,7 @@ public class UserServiceUnitTest {
     final Long id = 1L;
     final String password = "password";
     final String testUsername = "OJ";
+    final String testName = "myname";
 
     @BeforeEach
     void init() {
@@ -92,17 +93,17 @@ public class UserServiceUnitTest {
     @Test
     void updateTest() {
     	
-    	User user = new User("JJ","password");
+    	User user = new User("JJ","password","name");
     	
         user.setId(this.id);
 
-        UserDTO userDTO = new UserDTO(id, "JJ","password",null);
+        UserDTO userDTO = new UserDTO(id, "JJ","password","name",null);
 
-        User newUser = new User(userDTO.getUsername(),userDTO.getPassword());
+        User newUser = new User(userDTO.getUsername(),userDTO.getPassword(),user.getName());
         
         newUser.setId(this.id);
 
-        UserDTO newUserDTO = new UserDTO(this.id, newUser.getUsername(),newUser.getPassword(),null);
+        UserDTO newUserDTO = new UserDTO(this.id, newUser.getUsername(),newUser.getPassword(),newUser.getName(),null);
 
         when(this.repository.findById(this.id)).thenReturn(Optional.of(user));
         when(this.repository.save(user)).thenReturn(newUser);
