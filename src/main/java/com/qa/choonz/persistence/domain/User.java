@@ -95,7 +95,7 @@ public class User {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof Track)) {
+        if (!(obj instanceof User)) {
             return false;
         }
         User other = (User) obj;
