@@ -3,13 +3,11 @@ package com.qa.choonz.rest.dto;
 import java.util.List;
 import java.util.Objects;
 
-import com.qa.choonz.persistence.domain.Track;
-import com.qa.choonz.persistence.domain.User;
-
 public class UserDTO {
     private Long id;
     private String username;
     private String password;
+    private String name;
     private List<PlaylistDTO> playlists;
 
     public UserDTO(){
@@ -22,18 +20,27 @@ public class UserDTO {
     	this.username = username;   	
     }
     
-    public UserDTO(Long id, String username, String password) {
+
+	public UserDTO(Long id, String username, String password) {
     	super();
     	this.id = id;
     	this.username = username;  
     	this.password = password;
     }
+    public UserDTO(Long id, String username, String password,String name) {
+    	super();
+    	this.id = id;
+    	this.username = username;  
+    	this.password = password;
+    	this.name=name;
+    }
 
-    public UserDTO(Long id, String username, String password, List<PlaylistDTO> playlists){
+    public UserDTO(Long id, String username, String password,String name, List<PlaylistDTO> playlists){
         super();
     	this.id = id;
         this.username = username;
         this.password = password;
+        this.name=name;
         this.playlists = playlists;
     }
 
@@ -61,13 +68,21 @@ public class UserDTO {
         this.password = password;
     }
 
-    public List<PlaylistDTO> getPlaylist() {
-        return playlists;
-    }
+    public String getName() {
+		return name;
+	}
 
-    public void setPlaylist(List<PlaylistDTO> playlists) {
-        this.playlists = playlists;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
+
+    public List<PlaylistDTO> getPlaylists() {
+		return playlists;
+	}
+
+	public void setPlaylists(List<PlaylistDTO> playlists) {
+		this.playlists = playlists;
+	}
 
     @Override
     public boolean equals(Object obj) {
@@ -78,13 +93,13 @@ public class UserDTO {
             return false;
         }
         UserDTO other = (UserDTO) obj;
-        return Objects.equals(username, other.username) &&  Objects.equals(id, other.id)
+        return Objects.equals(username, other.username) &&  Objects.equals(id, other.id) && Objects.equals(name, other.name)
                 && Objects.equals(password, other.password) && Objects.equals(playlists, other.playlists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, playlists);
+        return Objects.hash(id, username, password,name, playlists);
     }
 
 }

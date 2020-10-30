@@ -25,6 +25,10 @@ public class User {
     @Column
     @Size(min = 8)
     private String password;
+    
+    @NotNull
+    @Column
+    private String name;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Playlist> playlists = new ArrayList<>();
@@ -42,6 +46,12 @@ public class User {
         this.username = username;
         this.password =password;
     }
+    public User(@NotNull @Size(max = 100) String username,@NotNull @Size(max = 100) String password,@NotNull @Size(max = 100) String name){
+        super();
+        this.username = username;
+        this.password =password;
+        this.name=name;
+    }
     
     public User(Long id,@NotNull @Size(max = 100) String username){
         super();
@@ -51,12 +61,14 @@ public class User {
        
     
     public User(Long id, @NotNull @Size(max = 100) String username,
-                @NotNull @Size(max = 100) String password, List<Playlist> playlists){
+                @NotNull @Size(max = 100) String password,String name, List<Playlist> playlists){
         super();
         this.id = id;
         this.username = username;
         this.password = password;
-        this.playlists = playlists;    
+        this.name=name;
+        this.playlists = playlists;  
+
     }
 
     public Long getId() {
@@ -83,7 +95,15 @@ public class User {
         this.password = password;
     }
 
-    public List<Playlist> getPlaylists() {
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Playlist> getPlaylists() {
         return playlists;
     }
 
@@ -100,13 +120,13 @@ public class User {
             return false;
         }
         User other = (User) obj;
-        return Objects.equals(username, other.username) &&  Objects.equals(id, other.id)
+        return Objects.equals(username, other.username) &&  Objects.equals(id, other.id) && Objects.equals(name, other.name)
                 && Objects.equals(password, other.password) && Objects.equals(playlists, other.playlists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, playlists);
+        return Objects.hash(id, username, password,name, playlists);
     }
 
 }

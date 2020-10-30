@@ -217,3 +217,8 @@ body {
   display: inline-block;
   padding: 10px;
 }
+
+.row{
+  margin-bottom: 50px;
+}
+

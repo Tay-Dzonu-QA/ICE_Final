@@ -49,7 +49,7 @@ public class UserServiceIntergrationTest {
     public void init() {
     	this.TRepo.deleteAll();
     	this.repo.deleteAll();
-        this.testUser = new User("WhiteUser","password");
+        this.testUser = new User("WhiteUser","password","myname");
         this.testUserWithId = this.repo.save(this.testUser);
     }
 
@@ -73,8 +73,8 @@ public class UserServiceIntergrationTest {
     }
     @Test
     void testUpdate() {
-    	UserDTO newUser = new UserDTO(null, "Tuesday","password2");
-    	UserDTO updatedUser = new UserDTO(this.testUserWithId.getId(), newUser.getUsername(),newUser.getPassword());
+    	UserDTO newUser = new UserDTO(null, "Tuesday","password2","newName");
+    	UserDTO updatedUser = new UserDTO(this.testUserWithId.getId(), newUser.getUsername(),newUser.getPassword(),newUser.getName());
 
         assertThat(this.service.update(newUser, this.testUserWithId.getId()))
             .isEqualTo(updatedUser);
