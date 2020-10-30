@@ -175,15 +175,6 @@ public class UserDTOTest {
 		assertThat(!this.testUserDTO.equals(emptyUser));
 		assertThat(this.testUserDTO.equals(fullUser));		
 	}
-	
-	@Test
-	public void toStringTests() {		
-		UserDTO user = new UserDTO(id,username,password,null);
-		
-		assertNotNull(user.toString());
-		assertEquals("UserDTO{id=1, username='OJ', password='password', playlist=null}"
-				,user.toString());
-	}
 
 	@AfterEach
 	void teardown() {
