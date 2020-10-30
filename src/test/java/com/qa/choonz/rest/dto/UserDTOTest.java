@@ -56,6 +56,26 @@ public class UserDTOTest {
 	}
 	
 	@Test
+	void twoArguConsTest() {
+
+		UserDTO newUser = new UserDTO(
+				this.id, 
+				this.username);			
+		assertThat(newUser instanceof UserDTO);
+	}
+	
+	@Test
+	void threeArguConsTest() {
+
+		UserDTO newUser = new UserDTO(
+				this.id, 
+				this.username,
+				this.password);	
+		
+		assertThat(newUser instanceof UserDTO);
+	}
+	
+	@Test
 	void AllArguConsTest() {
 
 		UserDTO newUser = new UserDTO(
@@ -154,15 +174,6 @@ public class UserDTOTest {
 		
 		assertThat(!this.testUserDTO.equals(emptyUser));
 		assertThat(this.testUserDTO.equals(fullUser));		
-	}
-	
-	@Test
-	public void toStringTests() {		
-		UserDTO user = new UserDTO(id,username,password,null);
-		
-		assertNotNull(user.toString());
-		assertEquals("UserDTO{id=1, username='OJ', password='password', playlist=null}"
-				,user.toString());
 	}
 
 	@AfterEach

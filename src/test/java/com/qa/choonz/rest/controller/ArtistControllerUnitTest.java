@@ -40,6 +40,8 @@ public class ArtistControllerUnitTest {
     private Artist testArtistWithId;
     private ArtistDTO artistDTO;
     private final Long id = 1L;
+    
+    private String testName = "Skepta";
 
     private ArtistDTO mapToDTO(Artist artist) {
         return this.mapper.map(artist, ArtistDTO.class);
@@ -48,7 +50,7 @@ public class ArtistControllerUnitTest {
     @BeforeEach
     void init() {
         this.artists = new ArrayList<>();
-        this.testArtist = new Artist("Skepta");
+        this.testArtist = new Artist(testName);
         this.testArtistWithId = new Artist(testArtist.getName());
         this.testArtistWithId.setId(id);
         this.artists.add(testArtistWithId);
@@ -138,7 +140,7 @@ public class ArtistControllerUnitTest {
     
     @Test
     void updateTest() {
-    	ArtistDTO newArtist= new ArtistDTO(id, "The Rolling Stones");
+    	ArtistDTO newArtist= new ArtistDTO(id, testName);
     	ArtistDTO updatedArtist= new ArtistDTO(this.id, newArtist.getName());
 
         when(this.service.update(newArtist, this.id))

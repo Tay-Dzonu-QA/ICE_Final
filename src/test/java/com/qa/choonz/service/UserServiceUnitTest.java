@@ -92,17 +92,17 @@ public class UserServiceUnitTest {
     @Test
     void updateTest() {
     	
-    	User user = new User("JJ");
+    	User user = new User("JJ","password");
     	
         user.setId(this.id);
 
         UserDTO userDTO = new UserDTO(id, "JJ","password",null);
 
-        User newUser = new User(userDTO.getUsername());
+        User newUser = new User(userDTO.getUsername(),userDTO.getPassword());
         
         newUser.setId(this.id);
 
-        UserDTO newUserDTO = new UserDTO(this.id, newUser.getUsername());
+        UserDTO newUserDTO = new UserDTO(this.id, newUser.getUsername(),newUser.getPassword(),null);
 
         when(this.repository.findById(this.id)).thenReturn(Optional.of(user));
         when(this.repository.save(user)).thenReturn(newUser);
@@ -111,7 +111,7 @@ public class UserServiceUnitTest {
         assertThat(newUserDTO).isEqualTo(this.service.update(userDTO, this.id));
 
         verify(this.repository, times(1)).findById(1L);
-        verify(this.repository, times(1)).save(newUser);
+        verify(this.repository, times(1)).save(user);
     }
     
 //    @Test

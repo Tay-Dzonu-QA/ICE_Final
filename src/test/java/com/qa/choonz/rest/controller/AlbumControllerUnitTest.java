@@ -40,6 +40,8 @@ public class AlbumControllerUnitTest {
     private Album testAlbumWithId;
     private AlbumDTO albumDTO;
     private final Long id = 1L;
+    
+    private String testName = "Rumours";
 
     private AlbumDTO mapToDTO(Album album) {
         return this.mapper.map(album, AlbumDTO.class);
@@ -48,7 +50,7 @@ public class AlbumControllerUnitTest {
     @BeforeEach
     void init() {
         this.albums = new ArrayList<>();
-        this.testAlbum = new Album("Rumours");
+        this.testAlbum = new Album(testName);
         this.testAlbumWithId = new Album(testAlbum.getName());
         this.testAlbumWithId.setId(id);
         this.albums.add(testAlbumWithId);
@@ -96,17 +98,17 @@ public class AlbumControllerUnitTest {
     
     @Test
     void readArtistsTest() {
-        when(service.readArtist(1l))
+        when(service.readArtist(id))
             .thenReturn(this.albums
                     .stream()
                     .map(this::mapToDTO)
                     .collect(Collectors.toList()));
         
-        assertThat(this.controller.readArtists(1l).getBody()
+        assertThat(this.controller.readArtists(id).getBody()
                 .isEmpty()).isFalse();
         
         verify(this.service, times(1))
-            .readArtist(1l);
+            .readArtist(id);
     }
     @Test
     void readGenresTest() {
@@ -126,7 +128,7 @@ public class AlbumControllerUnitTest {
     @Test
     void updateTest() {
 
-        AlbumDTO newAlbum= new AlbumDTO(id, "Thunderstruck");
+        AlbumDTO newAlbum= new AlbumDTO(id, testName);
         AlbumDTO updatedAlbum= new AlbumDTO(this.id, newAlbum.getName());
 
         when(this.service.update(newAlbum, this.id))

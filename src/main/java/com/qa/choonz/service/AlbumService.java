@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.choonz.exception.AlbumNotFoundException;
 import com.qa.choonz.persistence.domain.Album;
@@ -13,6 +14,7 @@ import com.qa.choonz.rest.dto.AlbumDTO;
 import com.qa.choonz.utils.SAPIBeanUtils;
 
 @Service
+@Transactional
 public class AlbumService {
 
     private AlbumRepository repo;
@@ -37,7 +39,7 @@ public class AlbumService {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    public AlbumDTO read(long id) {
+    public AlbumDTO read(Long id) {
         Album found = this.repo.findById(id).orElseThrow(AlbumNotFoundException::new);
         return this.mapToDTO(found);
     }
@@ -49,13 +51,13 @@ public class AlbumService {
     	return this.repo.readGenre(id).stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
-    public AlbumDTO update(AlbumDTO album, long id) {
+    public AlbumDTO update(AlbumDTO album, Long id) {
         Album toUpdate = this.repo.findById(id).orElseThrow(AlbumNotFoundException::new);
         SAPIBeanUtils.mergeNotNull(album,toUpdate);
         return this.mapToDTO(this.repo.save(toUpdate));
     }
 
-    public boolean delete(long id) {
+    public boolean delete(Long id) {
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }

@@ -38,7 +38,7 @@ public class AlbumDTOTest {
 				sBuilder
 				.append("\tTest ").append(activeTest).append("\n")
 				.append(div);
-				// Append info about vending machine here
+
 				
 				System.out.println(sBuilder.toString());
 				activeTest++;

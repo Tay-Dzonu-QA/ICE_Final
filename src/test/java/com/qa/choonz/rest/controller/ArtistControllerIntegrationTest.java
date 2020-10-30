@@ -45,8 +45,8 @@ public class ArtistControllerIntegrationTest {
 	    private ArtistDTO artistDTO;
 	 
 	    private Long id;
-	    @SuppressWarnings("unused")
-		private String testName;
+
+		private String testName = "Gerry Rafferty";
 
 	    private ArtistDTO mapToDTO(Artist artist) {
 	        return this.modelMapper.map(artist, ArtistDTO.class);
@@ -55,7 +55,7 @@ public class ArtistControllerIntegrationTest {
 	    @BeforeEach
 	    void init() {
 	        this.repository.deleteAll();
-	        this.testArtist = new Artist("Gerry Rafferty");
+	        this.testArtist = new Artist(testName);
 	        this.testArtistWithId = this.repository.save(this.testArtist);
 	        this.artistDTO = this.mapToDTO(testArtistWithId);
 	        this.id = this.testArtistWithId.getId();
@@ -93,7 +93,7 @@ public class ArtistControllerIntegrationTest {
 
 	    @Test
 	    void testUpdate() throws Exception {
-	    	ArtistDTO newArt = new ArtistDTO(id, "Gerry Rafferty");
+	    	ArtistDTO newArt = new ArtistDTO(id, testName);
 	    	Artist updatedArt = new Artist(newArt.getName());
 	        updatedArt.setId(this.id);
 

@@ -27,6 +27,13 @@ public class GenreDTO {
     	this.name = name;
     }
     
+    public GenreDTO(Long id, String name, String description) {
+    	super();
+    	this.id = id;
+    	this.name = name;
+    	this.description = description;
+    }
+    
     public GenreDTO(Long id, String name, String description, List<AlbumDTO> albums) {
 
         super();
@@ -82,7 +89,7 @@ public class GenreDTO {
             return false;
         }
         GenreDTO other = (GenreDTO) obj;
-        return Objects.equals(albums, other.albums) && Objects.equals(description, other.description) && id == other.id
+        return Objects.equals(albums, other.albums) && Objects.equals(description, other.description) && Objects.equals(id, other.id)
                 && Objects.equals(name, other.name);
     }
 

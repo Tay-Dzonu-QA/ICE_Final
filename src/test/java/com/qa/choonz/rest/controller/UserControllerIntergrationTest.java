@@ -17,14 +17,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.choonz.persistence.domain.User;
+import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.persistence.repository.UserRepository;
 import com.qa.choonz.rest.dto.UserDTO;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Transactional
 public class UserControllerIntergrationTest {
 	
 	@Autowired
@@ -32,6 +35,9 @@ public class UserControllerIntergrationTest {
 
     @Autowired
     private UserRepository repository;
+
+    @Autowired
+    private TrackRepository TRepo;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -44,23 +50,25 @@ public class UserControllerIntergrationTest {
     private UserDTO userDTO;
 
     private Long id;
-    @SuppressWarnings("unused")
-	private String testUsername;
 
-    private UserDTO mapToDTO(User track) {
-        return this.modelMapper.map(track, UserDTO.class);
+	private String testName = "username";
+	private String testPassword = "password";
+
+    private UserDTO mapToDTO(User users) {
+        return this.modelMapper.map(users, UserDTO.class);
     }
 
     @BeforeEach
     void init() {
+    	this.TRepo.deleteAll();
         this.repository.deleteAll();
 
-        this.testUser = new User("OJ");
+        this.testUser = new User(testName, testPassword);
         this.testUserWithId = this.repository.save(this.testUser);
         this.userDTO = this.mapToDTO(testUserWithId);
 
         this.id = this.testUserWithId.getId();
-        this.testUsername = this.testUserWithId.getUsername();
+        this.testName = this.testUserWithId.getUsername();
     }
 
     @Test
@@ -96,8 +104,8 @@ public class UserControllerIntergrationTest {
 
     @Test
     void testUpdate() throws Exception {
-    	UserDTO newUser = new UserDTO(id, "JJ");
-    	User updatedUser = new User(newUser.getUsername());
+    	UserDTO newUser = new UserDTO(id, testName, testPassword);
+    	User updatedUser = new User(newUser.getUsername(),newUser.getPassword());
         updatedUser.setId(this.id);
 
         String result = this.mock
