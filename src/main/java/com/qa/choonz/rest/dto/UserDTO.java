@@ -74,7 +74,7 @@ public class UserDTO {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof Track)) {
+        if (!(obj instanceof UserDTO)) {
             return false;
         }
         UserDTO other = (UserDTO) obj;

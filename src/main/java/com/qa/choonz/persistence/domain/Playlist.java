@@ -36,8 +36,7 @@ public class Playlist {
 
     @ManyToMany(mappedBy = "playlists",cascade = {
             CascadeType.PERSIST,
-            CascadeType.MERGE,
-            CascadeType.DETACH
+            CascadeType.MERGE
         })
     @JsonIgnoreProperties({"playlist","album"})
     private List<Track> tracks= new ArrayList<>();

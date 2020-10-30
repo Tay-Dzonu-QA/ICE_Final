@@ -40,7 +40,7 @@ public class User {
     public User(@NotNull @Size(max = 100) String username,@NotNull @Size(max = 100) String password){
         super();
         this.username = username;
-        this.password = password;
+        this.password =password;
     }
     
     public User(Long id,@NotNull @Size(max = 100) String username){

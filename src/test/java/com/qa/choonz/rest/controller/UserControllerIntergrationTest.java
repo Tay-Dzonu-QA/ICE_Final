@@ -25,9 +25,9 @@ import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.persistence.repository.UserRepository;
 import com.qa.choonz.rest.dto.UserDTO;
 
-@Transactional
 @SpringBootTest
 @AutoConfigureMockMvc
+@Transactional
 public class UserControllerIntergrationTest {
 	
 	@Autowired
@@ -35,7 +35,7 @@ public class UserControllerIntergrationTest {
 
     @Autowired
     private UserRepository repository;
-    
+
     @Autowired
     private TrackRepository TRepo;
 

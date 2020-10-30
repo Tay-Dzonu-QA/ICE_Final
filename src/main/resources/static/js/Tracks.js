@@ -335,7 +335,7 @@ function addTrack(name, duration, lyrics, album) {
       "duration": duration,
       "lyrics": lyrics,
       "album": {
-        id: album,
+        "id": album,
       }
     })),
   })
