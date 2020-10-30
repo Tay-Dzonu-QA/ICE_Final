@@ -15,6 +15,7 @@ public class GenreTest {
 	
 
 		Genre testGenre;
+		Genre testGenre2;
 		final Long id = 1l;
 		final String name = "Tunes";
 		final String description = "Heavy";
@@ -33,12 +34,17 @@ public class GenreTest {
 					this.description, 
 					this.albums);
 			
+			this.testGenre2 = new Genre(
+					this.id, 
+					this.name, 
+					this.description, 
+					this.albums);
+			
 			// Start of console test format
 			sBuilder.setLength(0);
 			sBuilder
 			.append("\tTest ").append(activeTest).append("\n")
 			.append(div);
-			// Append info about vending machine here
 			
 			System.out.println(sBuilder.toString());
 			activeTest++;
@@ -73,6 +79,18 @@ public class GenreTest {
 		}		
 		
 		@Test
+		void threeArguConsTest() {
+
+			Genre newGenre = new Genre(
+					this.id,
+					this.name, 
+					this.description);
+			
+			assertThat(newGenre instanceof Genre);
+		}		
+		
+		
+		@Test
 		void AllArguConsTest() {
 
 			Genre newGenre = new Genre(
@@ -97,6 +115,17 @@ public class GenreTest {
 		@Test
 		public void checkEquality() {
 		     assertTrue(testGenre.equals(testGenre));
+		}
+		
+		@Test
+	    public void checkEqualityBetweenDifferentObjects() {
+	        assertTrue(testGenre.equals(testGenre2));
+	    }
+		
+		 @Test
+		    public void otherIdDifferent() {
+		        testGenre2.setId(2L);
+		        assertFalse(testGenre.equals(testGenre2));
 		    }
 		
 		@Test

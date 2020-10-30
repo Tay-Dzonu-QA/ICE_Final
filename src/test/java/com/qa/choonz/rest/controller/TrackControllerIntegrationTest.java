@@ -45,8 +45,8 @@ public class TrackControllerIntegrationTest {
     private TrackDTO trackDTO;
 
     private Long id;
-    @SuppressWarnings("unused")
-	private String testName;
+
+	private String testName = "Aint nothing changed";
 
     private TrackDTO mapToDTO(Track track) {
         return this.modelMapper.map(track, TrackDTO.class);
@@ -56,7 +56,7 @@ public class TrackControllerIntegrationTest {
     void init() {
         this.repository.deleteAll();
 
-        this.testTrack = new Track("We Are The Champions");
+        this.testTrack = new Track(testName);
         this.testTrackWithId = this.repository.save(this.testTrack);
         this.trackDTO = this.mapToDTO(testTrackWithId);
 
@@ -97,7 +97,7 @@ public class TrackControllerIntegrationTest {
 
     @Test
     void testUpdate() throws Exception {
-    	TrackDTO newTrack = new TrackDTO(id, "North American Scum");
+    	TrackDTO newTrack = new TrackDTO(id, testName);
     	Track updatedTrack = new Track(newTrack.getName());
         updatedTrack.setId(this.id);
 

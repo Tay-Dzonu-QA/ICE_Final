@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.choonz.exception.ArtistNotFoundException;
 import com.qa.choonz.persistence.domain.Artist;
@@ -13,6 +14,7 @@ import com.qa.choonz.rest.dto.ArtistDTO;
 import com.qa.choonz.utils.SAPIBeanUtils;
 
 @Service
+@Transactional
 public class ArtistService {
 
     private ArtistRepository repo;

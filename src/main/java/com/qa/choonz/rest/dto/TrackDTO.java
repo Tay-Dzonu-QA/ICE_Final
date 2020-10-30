@@ -26,6 +26,12 @@ public class TrackDTO {
     	this.id = id;
     	this.name = name;
     }
+    public TrackDTO(Long id, String name, Integer duration) {
+    	super();
+    	this.id = id;
+    	this.name = name;
+		this.duration = duration;
+    }
     
 
 	public TrackDTO(Long id, String name, Integer duration, String lyrics,Album album) {
@@ -96,7 +102,5 @@ public class TrackDTO {
                 && id == other.id && Objects.equals(name, other.name)
                 		&& Objects.equals(album, other.album);
     }
-    
-
 
 }

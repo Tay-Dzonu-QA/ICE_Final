@@ -39,6 +39,8 @@ public class GenreControllerUnitTest {
     private Genre testGenreWithId;
     private GenreDTO genreDTO;
     private final Long id = 1L;
+    
+    private String testName = "Funkyfresh";
 
     private GenreDTO mapToDTO(Genre genre) {
         return this.mapper.map(genre, GenreDTO.class);
@@ -47,7 +49,7 @@ public class GenreControllerUnitTest {
     @BeforeEach
     void init() {
         this.genre = new ArrayList<>();
-        this.testGenre = new Genre("Funkyfresh");
+        this.testGenre = new Genre(testName);
         this.testGenreWithId = new Genre(testGenre.getName());
         this.testGenreWithId.setId(id);
         this.genre.add(testGenreWithId);
@@ -92,10 +94,52 @@ public class GenreControllerUnitTest {
         verify(this.service, times(1))
             .read();
     }
+    @Test
+    void readAllDescTest() {
+        when(service.readDesc())
+            .thenReturn(this.genre
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readDesc().getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readDesc();
+    }
+    @Test
+    void readByNameTest() {
+        when(service.readByName())
+            .thenReturn(this.genre
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readByName().getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readByName();
+    }
+    @Test
+    void readByNameDescTest() {
+        when(service.readByNameDesc())
+            .thenReturn(this.genre
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readByNameDesc().getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readByNameDesc();
+    }
     
     @Test
     void updateTest() {
-    	GenreDTO newGenre = new GenreDTO(id, "Rock");
+    	GenreDTO newGenre = new GenreDTO(id, testName);
     	GenreDTO updatedGenre = new GenreDTO(this.id, newGenre.getName());
 
         when(this.service.update(newGenre, this.id))

@@ -29,7 +29,7 @@ public class AlbumDTO {
 	}
 
 
-    public AlbumDTO(long id, String name, List<TrackDTO> tracks, Artist artist, Genre genre, String cover) {
+    public AlbumDTO(Long id, String name, List<TrackDTO> tracks, Artist artist, Genre genre, String cover) {
 
         super();
         this.id = id;
@@ -106,7 +106,7 @@ public class AlbumDTO {
         AlbumDTO other = (AlbumDTO) obj;
 
         return Objects.equals(artist, other.artist) && Objects.equals(cover, other.cover)
-                && Objects.equals(genre, other.genre) && id == other.id && Objects.equals(name, other.name)
+                && Objects.equals(genre, other.genre) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
                 && Objects.equals(tracks, other.tracks);
     }
 

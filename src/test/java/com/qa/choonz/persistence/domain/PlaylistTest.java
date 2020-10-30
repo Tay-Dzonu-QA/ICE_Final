@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 public class PlaylistTest {
 	
 	Playlist testPl;
+	Playlist testPl2;
 	final Long id = 1l;
 	final String name = "Party";
 	final String desc = "Rock";
@@ -38,12 +39,19 @@ public class PlaylistTest {
 				this.tracks,
 				null);
 		
+		this.testPl2 = new Playlist(
+				this.id, 
+				this.name, 
+				this.desc, 
+				this.artwork,
+				this.tracks,
+				null);
+		
 		// Start of console test format
 		sBuilder.setLength(0);
 		sBuilder
 		.append("\tTest ").append(activeTest).append("\n")
 		.append(div);
-		// Append info about vending machine here
 		
 		System.out.println(sBuilder.toString());
 		activeTest++;
@@ -125,6 +133,12 @@ public class PlaylistTest {
 	@Test
 	public void checkEquality() {
 	     assertTrue(testPl.equals(testPl));
+	 }
+	
+	 @Test
+	    public void otherIdDifferent() {
+	        testPl2.setId(2L);
+	        assertFalse(testPl.equals(testPl2));
 	    }
 	
 	@Test

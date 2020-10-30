@@ -102,12 +102,6 @@ body {
   padding: 20px;
 }
 
-.Album,
-.Artist,
-.Tracks,
-.Genre {
-  padding-left: 20px;
-}
 .card {
   margin-right: 20px;
 }
@@ -118,6 +112,32 @@ body {
   overflow: hidden;
   overflow-y: scroll;
 }
+
+
+/* #AlbumTable thead th,
+#GenreTable thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+} */
+
+/* .TableBody {
+  overflow-y: scroll;
+  height: 400px;
+  display: inline-block;
+  padding: 20px;
+} */
+
+.Album, .Artist {
+  display: inline-table;
+  padding: 20px;
+}
+
+.Genre, .Track {
+  display: inline-table;
+  padding: 20px;
+}
+
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;
@@ -189,4 +209,8 @@ body {
   color: #0062cc;
   font-weight: 600;
   text-decoration: none;
+}
+
+.playlistCard th{
+  display: none;
 }

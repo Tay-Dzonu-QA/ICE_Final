@@ -47,8 +47,8 @@ public class AlbumControllerIntegrationTest {
     private AlbumDTO albumDTO;
  
     private Long id;
-    @SuppressWarnings("unused")
-	private String testName;
+
+	private String testName = "AM";
 
     private AlbumDTO mapToDTO(Album album) {
         return this.modelMapper.map(album, AlbumDTO.class);
@@ -58,7 +58,7 @@ public class AlbumControllerIntegrationTest {
     void init() {
         this.repository.deleteAll();
 
-        this.testAlbum = new Album("AM");
+        this.testAlbum = new Album(testName);
         this.testAlbumWithId = this.repository.save(this.testAlbum);
         this.albumDTO = this.mapToDTO(testAlbumWithId);
 
@@ -97,7 +97,7 @@ public class AlbumControllerIntegrationTest {
 
     @Test
     void testUpdate() throws Exception {
-    	AlbumDTO newAl = new AlbumDTO(id, "Sticky Fingers");
+    	AlbumDTO newAl = new AlbumDTO(id, testName);
     	Album updatedAl = new Album(newAl.getName());
         updatedAl.setId(this.id);
 

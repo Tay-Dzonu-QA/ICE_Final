@@ -36,7 +36,8 @@ public class Playlist {
 
     @ManyToMany(mappedBy = "playlists",cascade = {
             CascadeType.PERSIST,
-            CascadeType.MERGE
+            CascadeType.MERGE,
+            CascadeType.DETACH
         })
     @JsonIgnoreProperties({"playlist","album"})
     private List<Track> tracks= new ArrayList<>();
@@ -70,7 +71,6 @@ public class Playlist {
         this.artwork = artwork;
         this.tracks = tracks;
     }
-
 
     public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
             @NotNull @Size(max = 1000) String artwork, List<Track> tracks, User user) {
@@ -143,16 +143,17 @@ public class Playlist {
 
     }
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Playlist playlist = (Playlist) o;
-        return id == playlist.id &&
-                name.equals(playlist.name) &&
-                description.equals(playlist.description) &&
-                artwork.equals(playlist.artwork) &&
-                tracks.equals(playlist.tracks) &&
-                user.equals(playlist.user);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Playlist)) {
+            return false;
+        }
+        Playlist other = (Playlist) obj;
+        return Objects.equals(name, other.name) &&  id == other.id && Objects.equals(user, other.user)
+                && Objects.equals(artwork, other.artwork) && Objects.equals(tracks, other.tracks)
+                && Objects.equals(description, other.description);
     }
 
     @Override

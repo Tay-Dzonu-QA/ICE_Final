@@ -1,30 +1,3 @@
-const params = new URLSearchParams(window.location.search);
-let loggedIn = false;
-let tracksToView = "";
-let albumOrTrack="";
-let singleTrack = false;
-let user = 0;
-console.log(params);
-
-for (const param of params) {
-  if (param[0] === "user") {
-    user = param[1];
-    if (user != 0) {
-      loggedIn = true;
-    }
-  } else if (param[0] === "albums") {
-    albumOrTrack = param[0];
-    let albumOrTrackId = param[1];
-    tracksToView = "/" + albumOrTrack + "/" + albumOrTrackId;
-  } else if ((param[0] = "tracks")) {
-    albumOrTrack = param[0];
-    singleTrack = true;
-    tracksToView = "/" + param[1];
-  }
-}
-
-console.log(tracksToView);
-console.log(loggedIn);
 getTracks(loggedIn, tracksToView, singleTrack, user);
 
 function getTracks(loggedIn, tracksToView, singleTrack, user) {
@@ -38,15 +11,12 @@ function getTracks(loggedIn, tracksToView, singleTrack, user) {
       }
       // Examine the text in the response
       response.json().then(function (TrackData) {
-        console.log(TrackData);
-        console.log(loggedIn);
-
         let title = document.querySelector("#TrackTitle");
-        if(albumOrTrack==="albums"){
-          title.innerHTML = "Tracks from Album: "+TrackData[0].album.name;
-        }else if(albumOrTrack==="tracks"){
-          title.innerHTML = "Track: "+TrackData.name;
-        }else{
+        if (albumOrTrack === "albums") {
+          title.innerHTML = "Tracks from Album: " + TrackData[0].album.name;
+        } else if (albumOrTrack === "tracks") {
+          title.innerHTML = "Track: " + TrackData.name;
+        } else {
           title.innerHTML = "List of all Tracks";
         }
 
@@ -58,8 +28,8 @@ function getTracks(loggedIn, tracksToView, singleTrack, user) {
         } else {
           data = Object.keys(TrackData[0]);
         }
-        generateTableHead(table, data, loggedIn);
-        generateTable(table, TrackData, loggedIn, user);
+        generateTableHeadTR(table, data, loggedIn);
+        generateTableTR(table, TrackData, loggedIn, user);
         if (loggedIn) {
           generateAddTrackBtn(table);
         }
@@ -70,7 +40,7 @@ function getTracks(loggedIn, tracksToView, singleTrack, user) {
     });
 }
 
-function generateTableHead(table, data, loggedIn) {
+function generateTableHeadTR(table, data, loggedIn) {
   let thead = table.createTHead();
   let row = thead.insertRow();
   for (let key of data) {
@@ -85,7 +55,6 @@ function generateTableHead(table, data, loggedIn) {
   row.appendChild(th);
 
   if (loggedIn == true) {
-
     let th4 = document.createElement("th");
     let text4 = document.createTextNode("Add to Playlist");
     th4.appendChild(text4);
@@ -100,18 +69,16 @@ function generateTableHead(table, data, loggedIn) {
     let text3 = document.createTextNode("Delete");
     th3.appendChild(text3);
     row.appendChild(th3);
-
-    
   }
 }
 
-function generateTable(table, TrackData, loggedIn, user) {
+function generateTableTR(table, TrackData, loggedIn, user) {
   for (let element of TrackData) {
     let row = table.insertRow();
     for (key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
-      if (key === "album") {
+      if (key == "album") {
         text = document.createTextNode(element[key].name);
       }
       cell.appendChild(text);
@@ -238,7 +205,7 @@ function changeAddToPlaylistModal(id, name, user) {
   modalEditTrackName.setAttribute("value", name);
 
   let modalAddToPlaylist = document.getElementById("PlaylistAdd");
-  addPlaylists(modalAddToPlaylist,user);
+  addPlaylists(modalAddToPlaylist, user);
   TrackId = id;
 }
 function changeAddTrackModal() {
@@ -257,9 +224,7 @@ function addAlbumList(modalAlbumList) {
       }
       // Examine the text in the response
       response.json().then(function (AlbumData) {
-        console.log(AlbumData);
         for (let element of AlbumData) {
-          console.log(element);
           let albumList = document.createElement("option");
           albumList.innerHTML = element.id + ". " + element.name;
           modalAlbumList.appendChild(albumList);
@@ -270,8 +235,8 @@ function addAlbumList(modalAlbumList) {
       console.log("Fetch Error :-S", err);
     });
 }
-function addPlaylists(modalAddToPlaylist,user) {
-  fetch("http://localhost:8082/playlists/user/"+user)
+function addPlaylists(modalAddToPlaylist, user) {
+  fetch("http://localhost:8082/playlists/user/" + user)
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
@@ -281,9 +246,7 @@ function addPlaylists(modalAddToPlaylist,user) {
       }
       // Examine the text in the response
       response.json().then(function (PlaylistData) {
-        console.log(PlaylistData);
         for (let element of PlaylistData) {
-          console.log(element);
           let playlists = document.createElement("option");
           playlists.innerHTML = element.id + ". " + element.name;
           modalAddToPlaylist.appendChild(playlists);
@@ -301,7 +264,6 @@ document
     stop.preventDefault();
 
     let formElements = document.querySelector("form.EditTrack").elements;
-    console.log(formElements);
 
     let EditTrackName = formElements["EditTrackName"].value;
     let EditTrackDuration = formElements["EditTrackDuration"].value;
@@ -311,7 +273,6 @@ document
     let TrackAlbumId = parseInt(TrackAlbum[0]);
 
     let TrackId1 = parseInt(TrackId);
-    console.log(TrackId1);
     editTrack(
       EditTrackName,
       TrackId1,
@@ -334,7 +295,7 @@ function editTrack(name, TrackId, duration, lyrics, album) {
       "lyrics": lyrics,
       "album": {
         "id": album,
-      },
+      }
     })),
   })
     .then(json)
@@ -360,7 +321,6 @@ document
     let TrackAlbum1 = TrackAlbum.split(".");
     let TrackAlbumId = parseInt(TrackAlbum1[0]);
 
-
     addTrack(AlbumName, TrackDuration, TrackLyrics, TrackAlbumId);
   });
 
@@ -375,8 +335,8 @@ function addTrack(name, duration, lyrics, album) {
       "duration": duration,
       "lyrics": lyrics,
       "album": {
-        "id": album,
-      },
+        id: album,
+      }
     })),
   })
     .then(json)
@@ -395,26 +355,29 @@ document
     stop.preventDefault();
 
     let formElements = document.querySelector("form.AddToPlaylist").elements;
-    
+
     let TrackPlaylist = formElements["PlaylistAdd"].value;
     let TrackPlaylist1 = TrackPlaylist.split(".");
     let TrackPlaylistId = parseInt(TrackPlaylist1[0]);
     let TrackId1 = parseInt(TrackId);
-    addToPlaylist( TrackId1,TrackPlaylistId);
+    addToPlaylist(TrackId1, TrackPlaylistId);
   });
 
-  function addToPlaylist(TrackId1,TrackPlaylistId) {
-    fetch("http://localhost:8082/playlists/add/"+TrackPlaylistId+"/"+TrackId1, {
+function addToPlaylist(TrackId1, TrackPlaylistId) {
+  fetch(
+    "http://localhost:8082/playlists/add/" + TrackPlaylistId + "/" + TrackId1,
+    {
       method: "put",
       headers: {
         "Content-type": "application/json",
       },
+    }
+  )
+    // .then(json)
+    .then(function (data) {
+      console.log("Request succeeded with JSON response", data);
     })
-      // .then(json)
-      .then(function (data) {
-        console.log("Request succeeded with JSON response", data);
-      })
-      .catch(function (error) {
-        console.log("Request failed", error);
-      });
-  }
+    .catch(function (error) {
+      console.log("Request failed", error);
+    });
+}

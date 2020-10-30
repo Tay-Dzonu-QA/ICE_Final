@@ -39,6 +39,8 @@ public class UserControllerUnitTest {
     private User testUserWithId;
     private UserDTO userDTO;
     private final Long id = 1L;
+    
+    private String testName = "OJ";
 
     private UserDTO mapToDTO(User user) {
         return this.mapper.map(user, UserDTO.class);
@@ -47,7 +49,7 @@ public class UserControllerUnitTest {
     @BeforeEach
     void init() {
         this.users = new ArrayList<>();
-        this.testUser = new User("OJ");
+        this.testUser = new User(testName);
         this.testUserWithId = new User(testUser.getUsername());
         this.testUserWithId.setId(id);
         this.users.add(testUserWithId);
@@ -95,7 +97,7 @@ public class UserControllerUnitTest {
     
     @Test
     void updateTest() {
-        UserDTO newUser= new UserDTO(1l, "Yellow");
+        UserDTO newUser= new UserDTO(id, testName);
         UserDTO updatedUser= new UserDTO(this.id, newUser.getUsername());
 
         when(this.service.update(newUser, this.id))

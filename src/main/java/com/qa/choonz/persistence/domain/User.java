@@ -37,15 +37,25 @@ public class User {
         super();
         this.username = username;
     }
+    public User(@NotNull @Size(max = 100) String username,@NotNull @Size(max = 100) String password){
+        super();
+        this.username = username;
+    }
     
+    public User(Long id,@NotNull @Size(max = 100) String username){
+        super();
+        this.id = id;
+        this.username = username;
+    }
+       
     
     public User(Long id, @NotNull @Size(max = 100) String username,
                 @NotNull @Size(max = 100) String password, List<Playlist> playlists){
         super();
         this.id = id;
-        this.password = password;
-        this.playlists = playlists;
         this.username = username;
+        this.password = password;
+        this.playlists = playlists;    
     }
 
     public Long getId() {
@@ -81,14 +91,16 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id.equals(user.id) &&
-                username.equals(user.username) &&
-                password.equals(user.password) &&
-                playlists.equals(user.playlists);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof User)) {
+            return false;
+        }
+        User other = (User) obj;
+        return Objects.equals(username, other.username) &&  Objects.equals(id, other.id)
+                && Objects.equals(password, other.password) && Objects.equals(playlists, other.playlists);
     }
 
     @Override
