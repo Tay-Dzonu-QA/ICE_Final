@@ -267,7 +267,7 @@ document
 
     let EditTrackName = formElements["EditTrackName"].value;
     let EditTrackDuration = formElements["EditTrackDuration"].value;
-    let EditTrackLyrics = formElements["EditTrackLyrics "].value;
+    let EditTrackLyrics = formElements["EditTrackLyrics"].value;
     let EditTrackAlbum = formElements["EditTrackAlbum"].value;
     let TrackAlbum = EditTrackAlbum.split(".");
     let TrackAlbumId = parseInt(TrackAlbum[0]);
@@ -320,8 +320,8 @@ document
     let TrackAlbum = formElements["TrackAlbum"].value;
     let TrackAlbum1 = TrackAlbum.split(".");
     let TrackAlbumId = parseInt(TrackAlbum1[0]);
-
-    addTrack(AlbumName, TrackDuration, TrackLyrics, TrackAlbumId);
+    console.log("Here")
+    addTrack(TrackName, TrackDuration, TrackLyrics, TrackAlbumId);
   });
 
 function addTrack(name, duration, lyrics, album) {
@@ -335,7 +335,7 @@ function addTrack(name, duration, lyrics, album) {
       "duration": duration,
       "lyrics": lyrics,
       "album": {
-        id: album,
+        "id": album,
       }
     })),
   })
