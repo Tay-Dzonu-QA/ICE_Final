@@ -71,6 +71,18 @@ public class AlbumTest {
 		}
 		
 		@Test
+		void FiveArguConsTest() {
+
+			Album newAl = new Album(
+					this.id,
+					this.name,
+					null,
+					null,
+					this.cover);
+			assertThat(newAl instanceof Album);
+		}
+		
+		@Test
 		void AllArguConsTest() {
 
 			Album newAl = new Album(

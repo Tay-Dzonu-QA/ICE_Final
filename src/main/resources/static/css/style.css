@@ -1,5 +1,5 @@
 body {
-  padding-top: 70px;
+  padding-top: 40px;
 }
 
 .navbar-toggler:focus,
@@ -21,7 +21,9 @@ body {
 }
 
 .navbar {
-  background-color: #23338a;
+  background-color: #131d57;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .nav-link {
@@ -34,7 +36,7 @@ body {
 }
 
 .logo:hover {
-  filter: invert(100%);
+  filter: brightness(100);
   transition: 0.3;
 }
 
@@ -161,10 +163,12 @@ body {
 
 .login-container {
   margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+
 }
 .login-form {
-  padding: 5%;
+  padding: 2%;
+  margin-left: 16%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form h3 {
@@ -172,7 +176,7 @@ body {
   color: #333;
 }
 .register-form {
-  padding: 5%;
+  padding: 2%;
   background: #0062cc;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
@@ -181,7 +185,7 @@ body {
   color: #fff;
 }
 .login-container form {
-  padding: 10%;
+  padding: 5%;
 }
 .btnSubmit {
   width: 50%;
