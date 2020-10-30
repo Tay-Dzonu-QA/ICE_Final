@@ -19,8 +19,14 @@ public class UserDTO {
     public UserDTO(Long id, String username) {
     	super();
     	this.id = id;
-    	this.username = username;
-    	
+    	this.username = username;   	
+    }
+    
+    public UserDTO(Long id, String username, String password) {
+    	super();
+    	this.id = id;
+    	this.username = username;  
+    	this.password = password;
     }
 
     public UserDTO(Long id, String username, String password, List<PlaylistDTO> playlists){
@@ -68,7 +74,7 @@ public class UserDTO {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof Track)) {
+        if (!(obj instanceof UserDTO)) {
             return false;
         }
         UserDTO other = (UserDTO) obj;
@@ -81,13 +87,4 @@ public class UserDTO {
         return Objects.hash(id, username, password, playlists);
     }
 
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", playlist=" + playlists +
-                '}';
-    }
 }

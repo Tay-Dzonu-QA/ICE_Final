@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.choonz.rest.dto.PlaylistDTO;
 import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
+import com.qa.choonz.persistence.repository.TrackRepository;
 
 
 @SpringBootTest
@@ -34,6 +35,9 @@ public class PlaylistControllerIntegrationTest {
 
 	    @Autowired
 	    private PlaylistRepository repository;
+
+	    @Autowired
+	    private TrackRepository TRepo;
 
 	    @Autowired
 	    private ModelMapper modelMapper;
@@ -57,6 +61,7 @@ public class PlaylistControllerIntegrationTest {
 
 	    @BeforeEach
 	    void init() {
+	    	this.TRepo.deleteAll();
 	        this.repository.deleteAll();
 
 	        this.testPlaylist = new Playlist(testName,testDesc,testArtwork);

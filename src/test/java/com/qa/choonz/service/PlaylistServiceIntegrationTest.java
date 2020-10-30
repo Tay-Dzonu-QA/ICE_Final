@@ -46,11 +46,10 @@ public class PlaylistServiceIntegrationTest {
     @BeforeEach
     public void init() {
     	
-////    	this.repo.deleteTPL();
     	this.TRepo.deleteAll();
     	this.repo.deleteAll();
     	
-        this.testPlaylist = new Playlist("White Playlist");
+        this.testPlaylist = new Playlist("White Playlist","this","this");
         this.testPlaylistWithId = this.repo.save(this.testPlaylist);
     }
 
@@ -74,8 +73,8 @@ public class PlaylistServiceIntegrationTest {
     }
     @Test
     void testUpdate() {
-    	PlaylistDTO newPlaylist = new PlaylistDTO(null, "Tuesday");
-    	PlaylistDTO updatedPlaylist = new PlaylistDTO(this.testPlaylistWithId.getId(), newPlaylist.getName());
+    	PlaylistDTO newPlaylist = new PlaylistDTO( null,"Tuesday","that","that");
+    	PlaylistDTO updatedPlaylist = new PlaylistDTO(this.testPlaylistWithId.getId(), newPlaylist.getName(),newPlaylist.getDescription(),newPlaylist.getArtwork());
 
         assertThat(this.service.update(newPlaylist, this.testPlaylistWithId.getId()))
             .isEqualTo(updatedPlaylist);

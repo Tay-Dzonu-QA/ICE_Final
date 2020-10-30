@@ -270,43 +270,66 @@
         </div>
 
 
-        <div class="modal fade" id="AddToPlaylistModal" tabindex="-1" aria-labelledby="AddToPlaylistModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 id="addTitle" class="modal-title">Add To Playlist
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="ModalFormAddToPlaylist" class="AddToPlaylist" method="PUT">
-                            <div class="form-group">
-                                <label for="PlaylistAddTrack">Track Name:</label>
-                                <input type="text" class="form-control" id="PlaylistAddTrack" disabled>
+    <div class="modal fade" id="AddTrackModal" tabindex="-1" aria-labelledby="AddTrackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Track</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="ModalForm" class="Track" method="POST">
+                        <div class="form-group">
+                            <label for="TrackName">Track Name:</label>
+                            <input type="text" class="form-control" id="TrackName" required>
+                            <label for="TrackDuration">Track Duration:</label>
+                            <input type="text" class="form-control" id="TrackDuration" required>
+                            <label for="TrackLyrics">Track Lyrics:</label>
+                            <input type="text" class="form-control" id="TrackLyrics" required>
 
-                                <label for="PlaylistAdd">Playlists:</label>
-                                <select multiple class="form-control" id="PlaylistAdd" required>
+                            <label for="TrackAlbum">Track Album:</label>
+                            <select multiple class="form-control" id="TrackAlbum" required>
 
-                                    </select>
-                            </div>
-                            <button id="AddToPlaylistSubmit" type="submit" class="btn btn-primary">Add</button>
-                        </form>
-                    </div>
+                            </select>
+                        </div>
+                        <button id="AddTrackSubmit" type="submit" class="btn btn-primary">Add</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <!-- /Tracks CRUD Table-->
 
-    <!-- Genre CRUD Table-->
-    <div class="Genre">
-        <div class="TableBody" id="genreTitle">
-            <br>
-            <h2> Genre List</h2>
-            <table id="GenreTable" class="table table-hover" style="float:
-                    left;"></table>
+    <div class="modal fade" id="EditTrackModal" tabindex="-1" aria-labelledby="EditTrackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="addTitle" class="modal-title">Edit Track </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    <form id="ModalFormEditTrack" class="EditTrack" method="PUT">
+                        <div class="form-group">
+                            <label for="EditTrackName">Track Name:</label>
+                            <input type="text" class="form-control" id="EditTrackName" required>
+                            <label for="EditTrackDuration">Track Duration:</label>
+                            <input type="text" class="form-control" id="EditTrackDuration" required>
+                            <label for="EditTrackLyrics">Track Lyrics:</label>
+                            <input type="text" class="form-control" id="EditTrackLyrics" required>
+
+                            <label for="EditTrackAlbum">Track Album:</label>
+                            <select multiple class="form-control" id="EditTrackAlbum" required>
+
+                             </select>
+                        </div>
+                        <button id="EditTrackSubmit" type="submit" class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <div class="modal fade" id="AddGenreModal" tabindex="-1" aria-labelledby="AddGenreModalLabel" aria-hidden="true">

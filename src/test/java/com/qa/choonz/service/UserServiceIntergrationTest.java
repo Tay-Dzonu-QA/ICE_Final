@@ -2,6 +2,7 @@ package com.qa.choonz.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -10,12 +11,15 @@ import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.choonz.persistence.domain.User;
+import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.persistence.repository.UserRepository;
 import com.qa.choonz.rest.dto.UserDTO;
 
 @SpringBootTest
+@Transactional
 public class UserServiceIntergrationTest {
 	
 	@Autowired
@@ -24,6 +28,8 @@ public class UserServiceIntergrationTest {
     @Autowired
     private UserRepository repo;
     
+    @Autowired
+    private TrackRepository TRepo;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -41,8 +47,9 @@ public class UserServiceIntergrationTest {
 
     @BeforeEach
     public void init() {
+    	this.TRepo.deleteAll();
     	this.repo.deleteAll();
-        this.testUser = new User("White User");
+        this.testUser = new User("WhiteUser","password");
         this.testUserWithId = this.repo.save(this.testUser);
     }
 
@@ -66,8 +73,8 @@ public class UserServiceIntergrationTest {
     }
     @Test
     void testUpdate() {
-    	UserDTO newUser = new UserDTO(null, "Tuesday");
-    	UserDTO updatedUser = new UserDTO(this.testUserWithId.getId(), newUser.getUsername());
+    	UserDTO newUser = new UserDTO(null, "Tuesday","password2");
+    	UserDTO updatedUser = new UserDTO(this.testUserWithId.getId(), newUser.getUsername(),newUser.getPassword());
 
         assertThat(this.service.update(newUser, this.testUserWithId.getId()))
             .isEqualTo(updatedUser);

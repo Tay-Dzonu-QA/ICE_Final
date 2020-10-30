@@ -59,6 +59,35 @@ public class UserTest {
 	}
 	
 	@Test
+	void oneArguConsTest() {
+
+		User newGenre = new User( 
+				this.username);
+		
+		assertThat(newGenre instanceof User);
+	}
+	
+	@Test
+	void twoArguConsTest() {
+
+		User newGenre = new User( 
+				this.username,
+				this.password);
+		
+		assertThat(newGenre instanceof User);
+	}
+	
+	@Test
+	void otherTwoArguConsTest() {
+
+		User newGenre = new User( 
+				this.id,
+				this.password);
+		
+		assertThat(newGenre instanceof User);
+	}
+	
+	@Test
 	void AllArguConsTest() {
 
 		User newGenre = new User(
@@ -168,12 +197,6 @@ public class UserTest {
 		
 		assertThat(!this.testUser.equals(emptyUser));
 		assertThat(this.testUser.equals(fullUser));		
-	}
-	
-	@Test
-	void testToString() {
-		assertThat(this.testUser.toString()
-				.equals("User [id=1, username=OJ, password=password, playlists=null]"));
 	}
 
 	@AfterEach

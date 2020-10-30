@@ -40,6 +40,7 @@ public class User {
     public User(@NotNull @Size(max = 100) String username,@NotNull @Size(max = 100) String password){
         super();
         this.username = username;
+        this.password =password;
     }
     
     public User(Long id,@NotNull @Size(max = 100) String username){
@@ -108,13 +109,4 @@ public class User {
         return Objects.hash(id, username, password, playlists);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", playlists=" + playlists +
-                '}';
-    }
 }
