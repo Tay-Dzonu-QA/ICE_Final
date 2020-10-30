@@ -37,6 +37,11 @@ public class User {
         super();
         this.username = username;
     }
+    public User(@NotNull @Size(max = 100) String username,@NotNull @Size(max = 100) String password){
+        super();
+        this.username = username;
+        this.password =password;
+    }
     
     public User(Long id,@NotNull @Size(max = 100) String username){
         super();
@@ -87,14 +92,16 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id.equals(user.id) &&
-                username.equals(user.username) &&
-                password.equals(user.password) &&
-                playlists.equals(user.playlists);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof User)) {
+            return false;
+        }
+        User other = (User) obj;
+        return Objects.equals(username, other.username) &&  Objects.equals(id, other.id)
+                && Objects.equals(password, other.password) && Objects.equals(playlists, other.playlists);
     }
 
     @Override
@@ -102,13 +109,4 @@ public class User {
         return Objects.hash(id, username, password, playlists);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", playlists=" + playlists +
-                '}';
-    }
 }

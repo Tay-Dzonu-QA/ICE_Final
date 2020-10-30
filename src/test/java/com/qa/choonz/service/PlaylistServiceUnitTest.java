@@ -105,12 +105,12 @@ public class PlaylistServiceUnitTest {
     @Test
     void readUserPlaylistsTest() {
 
-        when(this.repository.readUserPlaylists(1l)).thenReturn(this.playlists);
+        when(this.repo.readUserPlaylists(1l)).thenReturn(this.playlists);
         when(this.modelMapper.map(this.testPlaylistWithId, PlaylistDTO.class)).thenReturn(this.playlistDTO);
 
         assertThat(this.service.readUserPlaylists(1l).isEmpty()).isFalse();
 
-        verify(this.repository, times(1)).readUserPlaylists(1l);
+        verify(this.repo, times(1)).readUserPlaylists(1l);
     }
     
 
@@ -139,28 +139,28 @@ public class PlaylistServiceUnitTest {
     @Test
     void addTrackTest() {
 
-    	when(this.repository.findById(this.id)).thenReturn(Optional.of(this.testPlaylistWithId));
+    	when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testPlaylistWithId));
     	when(this.trackRepo.findById(this.id)).thenReturn(Optional.of(this.testTrackWithId));
         when(this.modelMapper.map(this.testPlaylistWithId, PlaylistDTO.class)).thenReturn(this.playlistDTO);
 
         assertThat(this.service.addTrack(1l,1l));
 
-        verify(this.repository, times(1)).findById(this.id);
+        verify(this.repo, times(1)).findById(this.id);
         verify(this.trackRepo, times(1)).findById(this.id);
-        verify(this.repository, times(1)).save(testPlaylistWithId);
+        verify(this.repo, times(1)).save(testPlaylistWithId);
     }
     @Test
     void removeTrackTest() {
 
-    	when(this.repository.findById(this.id)).thenReturn(Optional.of(this.testPlaylistWithId));
+    	when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testPlaylistWithId));
     	when(this.trackRepo.findById(this.id)).thenReturn(Optional.of(this.testTrackWithId));
         when(this.modelMapper.map(this.testPlaylistWithId, PlaylistDTO.class)).thenReturn(this.playlistDTO);
 
         assertThat(this.service.removeTrack(1l,1l));
 
-        verify(this.repository, times(1)).findById(this.id);
+        verify(this.repo, times(1)).findById(this.id);
         verify(this.trackRepo, times(1)).findById(this.id);
-        verify(this.repository, times(1)).save(testPlaylistWithId);
+        verify(this.repo, times(1)).save(testPlaylistWithId);
     }
 
     @Test

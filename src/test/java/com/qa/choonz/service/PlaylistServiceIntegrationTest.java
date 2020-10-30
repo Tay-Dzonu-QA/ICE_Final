@@ -11,77 +11,78 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.qa.choonz.rest.dto.PlaylistDTO;
 import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.repository.PlaylistRepository;
+import com.qa.choonz.persistence.repository.TrackRepository;
+import com.qa.choonz.rest.dto.PlaylistDTO;
 
 
 @SpringBootTest
 public class PlaylistServiceIntegrationTest {
 	
-	 @Autowired
-	    private PlaylistService service;
+	@Autowired
+    private PlaylistService service;
 
-	    @Autowired
-	    private PlaylistRepository repo;
+    @Autowired
+    private PlaylistRepository repo;
+    
+    @Autowired
+    private TrackRepository TRepo;
 
-	    @Autowired
-	    private ModelMapper modelMapper;
+    @Autowired
+    private ModelMapper modelMapper;
 
-	    private PlaylistDTO mapToDTO(Playlist playlist) {
-	        return this.modelMapper.map(playlist, PlaylistDTO.class);
-	    }
 
-	    private Playlist testPlaylist;
-	    private Playlist testPlaylistWithId;
-	    private PlaylistDTO testPlaylistDTO;
+    private Playlist testPlaylist;
+    private Playlist testPlaylistWithId;
 
-	    private Long id;
-	    private final String testName = "Dance Hits";
-	    private final String testDesc = "80s hits";
-	    private final String testArtwork = "none";
-	    
-	    @BeforeEach
-	    void init() {
-	        this.repo.deleteAll();
-	        this.testPlaylist= new Playlist(testName, testDesc, testArtwork);
-	        this.testPlaylistWithId = this.repo.save(this.testPlaylist);
-	        this.testPlaylistDTO = this.mapToDTO(testPlaylistWithId);
-	        this.id = this.testPlaylistWithId.getId();
-	    }
 
-	    @Test
-	    void testCreate() {
-	        assertThat(this.testPlaylistDTO)
-	            .isEqualTo(this.service.create(testPlaylist));
-	    }
+    
+    private PlaylistDTO mapToDTO(Playlist playlist) {
+        return this.modelMapper.map(playlist, PlaylistDTO.class);
+    }
 
-	    @Test
-	    void testReadOne() {
-	        assertThat(this.testPlaylistDTO)
-	                .isEqualTo(this.service.read(this.id));
 
-	    }
+    @BeforeEach
+    public void init() {
+    	
+    	this.TRepo.deleteAll();
+    	this.repo.deleteAll();
+    	
+        this.testPlaylist = new Playlist("White Playlist","this","this");
+        this.testPlaylistWithId = this.repo.save(this.testPlaylist);
+    }
 
-	    @Test
-	    void testReadAll() {
-	        assertThat(this.service.read())
-	        .isEqualTo(Stream.of(this.testPlaylistDTO)
-	                .collect(Collectors.toList()));
-	    }
+    @Test
+    public void createPlaylistTest() {
+        assertThat(this.mapToDTO(this.testPlaylistWithId))
+        .isEqualTo(this.service.create(testPlaylist));
+    }
 
-	    @Test
-	    void testUpdate() {
-	    	PlaylistDTO newPlaylist = new PlaylistDTO(testName, testDesc, testArtwork);
-	    	PlaylistDTO updatedPlaylist = new PlaylistDTO(newPlaylist.getName(), newPlaylist.getDescription(), newPlaylist.getArtwork());
+ 
+    @Test
+    void ReadByIdTest() {
+        assertThat(this.service.read(this.testPlaylistWithId.getId()))
+        .isEqualTo(this.mapToDTO(this.testPlaylistWithId));
+    }
 
-	        assertThat(updatedPlaylist)
-	            .isEqualTo(this.service.update(newPlaylist, this.id));
-	    }
+    @Test
+    void ReadAllPlaylistsTest() {
+    	assertThat(this.service.read())
+        .isEqualTo(Stream.of(this.mapToDTO(testPlaylistWithId)).collect(Collectors.toList()));
+    }
+    @Test
+    void testUpdate() {
+    	PlaylistDTO newPlaylist = new PlaylistDTO( null,"Tuesday","that","that");
+    	PlaylistDTO updatedPlaylist = new PlaylistDTO(this.testPlaylistWithId.getId(), newPlaylist.getName(),newPlaylist.getDescription(),newPlaylist.getArtwork());
 
-	    @Test
-	    void testDelete() {
-	        assertThat(this.service.delete(this.id)).isTrue();
-	    }
+        assertThat(this.service.update(newPlaylist, this.testPlaylistWithId.getId()))
+            .isEqualTo(updatedPlaylist);
+    }
+    
+    @Test
+    void DeleteTest() {
+        assertThat(this.service.delete(this.testPlaylistWithId.getId())).isTrue();
+    }
 
 }

@@ -33,6 +33,14 @@ public class PlaylistDTO {
     	this.description = description;
     	this.artwork = artwork;
     }
+    public PlaylistDTO(Long id,String name, String description, String artwork) {
+    	super();
+    	this.id=id;
+    	this.name = name;
+    	this.description = description;
+    	this.artwork = artwork;
+    }
+    
     
     public PlaylistDTO(String name, String description, String artwork, List<Track> tracks) {
         super();
@@ -154,7 +162,7 @@ public class PlaylistDTO {
         }
         PlaylistDTO other = (PlaylistDTO) obj;
         return Objects.equals(artwork, other.artwork) && Objects.equals(description, other.description)
-                && id == other.id && Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks)
+                && Objects.equals(id, other.id) && Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks)
                 && Objects.equals(user, other.user);
     }
 

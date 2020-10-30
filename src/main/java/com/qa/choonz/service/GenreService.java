@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.choonz.exception.GenreNotFoundException;
 import com.qa.choonz.persistence.domain.Genre;
@@ -13,6 +14,7 @@ import com.qa.choonz.rest.dto.GenreDTO;
 import com.qa.choonz.utils.SAPIBeanUtils;
 
 @Service
+@Transactional
 public class GenreService {
 
     private GenreRepository repo;

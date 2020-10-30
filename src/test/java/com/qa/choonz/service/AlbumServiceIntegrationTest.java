@@ -1,21 +1,14 @@
 package com.qa.choonz.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.qa.choonz.persistence.domain.Album;
@@ -27,68 +20,63 @@ import com.qa.choonz.rest.dto.AlbumDTO;
 public class AlbumServiceIntegrationTest {
 	
 
-    @InjectMocks
+    @Autowired
     private AlbumService service;
 
-    @Mock
+    @Autowired
     private AlbumRepository repo;
 
-    @Mock
+    @Autowired
     private ModelMapper modelMapper;
 
-    private List<Album> albums;
 
     private Album testAlbum;
-
     private Album testAlbumWithId;
 
-    private AlbumDTO albumDTO;
 
-    final long id = 1L;
     
     private AlbumDTO mapToDTO(Album album) {
         return this.modelMapper.map(album, AlbumDTO.class);
     }
 
+
     @BeforeEach
     public void init() {
-        this.albums = new ArrayList<>();
-        this.albums.add(testAlbum);
+    	this.repo.deleteAll();
         this.testAlbum = new Album("White Album");
-        this.testAlbumWithId = new Album(id, testAlbum.getName(),testAlbum.getArtist(),testAlbum.getGenre(),testAlbum.getCover());
-        this.testAlbumWithId.setId(id);
-        this.albumDTO = new ModelMapper().map(testAlbumWithId, AlbumDTO.class);
+        this.testAlbumWithId = this.repo.save(this.testAlbum);
     }
 
     @Test
     public void createAlbumTest() {
-        when(this.repo.save(testAlbum)).thenReturn(testAlbumWithId);
-        when(this.modelMapper.map(testAlbumWithId, AlbumDTO.class)).thenReturn(albumDTO);
-
-        assertEquals(this.albumDTO, this.service.create(testAlbum));
-
-        verify(this.repo, times(1)).save(this.testAlbum);
+        assertThat(this.mapToDTO(this.testAlbumWithId))
+        .isEqualTo(this.service.create(testAlbum));
     }
 
  
     @Test
     void ReadByIdTest() {
-        assertThat(this.albumDTO)
-               .isEqualTo(this.service.read(this.id));
         assertThat(this.service.read(this.testAlbumWithId.getId()))
         .isEqualTo(this.mapToDTO(this.testAlbumWithId));
     }
 
     @Test
     void ReadAllAlbumsTest() {
-        assertThat(this.service.read())
-                .isEqualTo(Stream.of(this.mapToDTO(testAlbumWithId))
-                        .collect(Collectors.toList()));
+    	assertThat(this.service.read())
+        .isEqualTo(Stream.of(this.mapToDTO(testAlbumWithId)).collect(Collectors.toList()));
+    }
+    @Test
+    void testUpdate() {
+    	AlbumDTO newAlbum = new AlbumDTO(null, "Tuesday");
+    	AlbumDTO updatedAlbum = new AlbumDTO(this.testAlbumWithId.getId(), newAlbum.getName());
+
+        assertThat(this.service.update(newAlbum, this.testAlbumWithId.getId()))
+            .isEqualTo(updatedAlbum);
     }
     
     @Test
     void DeleteTest() {
-        assertThat(this.service.delete(this.id)).isTrue();
+        assertThat(this.service.delete(this.testAlbumWithId.getId())).isTrue();
     }
 
 
