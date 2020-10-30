@@ -75,6 +75,10 @@ function generateTableHeadTR(table, data, loggedIn) {
 function generateTableTR(table, TrackData, loggedIn, user) {
 
     changeAddTrackModal();
+
+    let modalAddToPlaylist = document.getElementById("PlaylistAdd");
+    addPlaylists(modalAddToPlaylist, user);
+
     let modalEditTrackAlbum = document.getElementById("EditTrackAlbum");
     addAlbumList(modalEditTrackAlbum);
 
@@ -204,9 +208,6 @@ function changeEditTrackModal(id, name, duration, lyrics) {
 function changeAddToPlaylistModal(id, name, user) {
     let modalEditTrackName = document.getElementById("PlaylistAddTrack");
     modalEditTrackName.setAttribute("value", name);
-
-    let modalAddToPlaylist = document.getElementById("PlaylistAdd");
-    addPlaylists(modalAddToPlaylist, user);
     TrackId = id;
 }
 
