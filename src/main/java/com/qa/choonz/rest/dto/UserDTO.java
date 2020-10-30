@@ -22,6 +22,12 @@ public class UserDTO {
     	this.username = username;
     	
     }
+    public UserDTO(Long id, String username, String password){
+        super();
+    	this.id = id;
+        this.username = username;
+        this.password = password;
+    }
 
     public UserDTO(Long id, String username, String password, List<PlaylistDTO> playlists){
         super();
@@ -68,7 +74,7 @@ public class UserDTO {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof Track)) {
+        if (!(obj instanceof UserDTO)) {
             return false;
         }
         UserDTO other = (UserDTO) obj;

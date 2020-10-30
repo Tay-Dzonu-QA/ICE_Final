@@ -17,14 +17,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.choonz.persistence.domain.User;
+import com.qa.choonz.persistence.repository.TrackRepository;
 import com.qa.choonz.persistence.repository.UserRepository;
 import com.qa.choonz.rest.dto.UserDTO;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Transactional
 public class UserControllerIntergrationTest {
 	
 	@Autowired
@@ -32,6 +35,8 @@ public class UserControllerIntergrationTest {
 
     @Autowired
     private UserRepository repository;
+    @Autowired
+    private TrackRepository TRepo;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -53,6 +58,7 @@ public class UserControllerIntergrationTest {
 
     @BeforeEach
     void init() {
+    	this.TRepo.deleteAll();
         this.repository.deleteAll();
 
         this.testUser = new User(testName);
