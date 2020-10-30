@@ -114,15 +114,15 @@ public class UserServiceUnitTest {
         verify(this.repository, times(1)).save(newUser);
     }
     
-    @Test
-    void CheckPasswordTest() {
-        when(this.repository.checkPassword()).thenReturn(this.password);
-        when(this.modelMapper.map(this.testUserWithId, UserDTO.class)).thenReturn(this.userDTO);
-
-        assertThat(this.service.read().isEmpty()).isFalse();
-
-        verify(this.repository, times(1)).checkPassword();
-    }
+//    @Test
+//    void CheckPasswordTest() {
+//        when(this.repository.checkPassword()).thenReturn(this.password);
+//        when(this.modelMapper.map(this.testUserWithId, UserDTO.class)).thenReturn(this.userDTO);
+//
+//        assertThat(this.service.read().isEmpty()).isFalse();
+//
+//        verify(this.repository, times(1)).checkPassword();
+//    }
     	
 
     @Test
