@@ -113,21 +113,6 @@ body {
   overflow-y: scroll;
 }
 
-
-/* #AlbumTable thead th,
-#GenreTable thead th {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-} */
-
-/* .TableBody {
-  overflow-y: scroll;
-  height: 400px;
-  display: inline-block;
-  padding: 20px;
-} */
-
 .Album, .Artist {
   display: inline-table;
   padding: 20px;
@@ -213,4 +198,9 @@ body {
 
 .playlistCard th{
   display: none;
+}
+
+.card {
+  display: inline-block;
+  padding: 10px;
 }
