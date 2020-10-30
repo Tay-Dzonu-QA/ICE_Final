@@ -96,7 +96,7 @@ public class PlaylistControllerUnitTest {
     }
     @Test
     void readUserPlaylistsTest() {
-        when(service.readUserPlaylists(1l))
+        when(service.readUserPlaylists(id))
             .thenReturn(this.playlists
                     .stream()
                     .map(this::mapToDTO)
@@ -111,24 +111,24 @@ public class PlaylistControllerUnitTest {
     
     @Test
     void addTrackTest() {
-        when(service.addTrack(1l,1l))
+        when(service.addTrack(id,id))
             .thenReturn(this.playlistsDTO);
         
-        assertThat(this.controller.addTrack(1l,1l).hasBody());
+        assertThat(this.controller.addTrack(id,id).hasBody());
         
         verify(this.service, times(1))
-            .addTrack(1l,1l);
+            .addTrack(id,id);
     }
     
     @Test
     void removeTrackTest() {
-        when(service.removeTrack(1l,1l))
+        when(service.removeTrack(id,id))
             .thenReturn(this.playlistsDTO);
         
-        assertThat(this.controller.removeTrack(1l,1l).hasBody());
+        assertThat(this.controller.removeTrack(id,id).hasBody());
         
         verify(this.service, times(1))
-            .removeTrack(1l,1l);
+            .removeTrack(id,id);
     }
     
     @Test

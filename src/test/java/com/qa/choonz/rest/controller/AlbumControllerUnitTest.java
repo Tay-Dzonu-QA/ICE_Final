@@ -98,17 +98,17 @@ public class AlbumControllerUnitTest {
     
     @Test
     void readArtistsTest() {
-        when(service.readArtist(1l))
+        when(service.readArtist(id))
             .thenReturn(this.albums
                     .stream()
                     .map(this::mapToDTO)
                     .collect(Collectors.toList()));
         
-        assertThat(this.controller.readArtists(1l).getBody()
+        assertThat(this.controller.readArtists(id).getBody()
                 .isEmpty()).isFalse();
         
         verify(this.service, times(1))
-            .readArtist(1l);
+            .readArtist(id);
     }
     @Test
     void readGenresTest() {
