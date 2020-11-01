@@ -51,6 +51,7 @@ function generateTableHeadPl(table, data) {
 function generateTablePl(table, TrackData, user) {
   for (let element of TrackData) {
     let row = table.insertRow();
+    row.className = "dataRow";
     for (key in element) {
       if (key === "playlist") {
         continue;

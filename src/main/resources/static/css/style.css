@@ -222,3 +222,20 @@ body {
   margin-bottom: 50px;
 }
 
+tr {
+  color: #fff;
+  background-color: #1b1f3b;
+}
+
+.dataRow{
+  color: #fff;
+  background-color: #736ced;
+}
+
+.dataRow:hover {
+  background-color: #847ef8;
+}
+
+.material-icons {
+  color: white;
+}
