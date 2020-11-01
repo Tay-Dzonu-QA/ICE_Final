@@ -239,3 +239,8 @@ tr {
 .material-icons {
   color: white;
 }
+
+.btn:hover {
+  
+  background-color: #5249fa;
+}
