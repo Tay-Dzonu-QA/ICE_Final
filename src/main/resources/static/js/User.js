@@ -51,3 +51,35 @@ function createTables(tables, PLData) {
     tables.appendChild(seperator);
   }
 }
+
+document
+  .querySelector("form.AddPL")
+  .addEventListener("submit", function (stop) {
+    stop.preventDefault();
+
+    let formElements = document.querySelector("form.AddPL").elements;
+
+    let AddPLname = formElements["EditPLName"].value;
+
+    addPL(AddPLname);
+  });
+
+function addPL(name) {
+  fetch("http://localhost:8082/playlists/create", {
+    method: "post",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: (json = JSON.stringify({
+      name: name
+    })),
+  })
+    .then(json)
+    .then(function (data) {
+      console.log("Request succeeded with JSON response", data);
+      // location.reload();
+    })
+    .catch(function (error) {
+      console.log("Request failed", error);
+    });
+}

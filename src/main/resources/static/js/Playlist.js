@@ -201,7 +201,7 @@ function editPL(name, PLID) {
     },
     body: (json = JSON.stringify({
       id: ID,
-      name: name,
+      name: name
     })),
   })
     .then(json)
