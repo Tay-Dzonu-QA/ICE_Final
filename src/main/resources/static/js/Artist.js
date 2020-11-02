@@ -55,6 +55,7 @@ function generateTableHeadAr(table, data, loggedIn) {
 function generateTableAr(table, ArtistData, loggedIn,user) {
   for (let element of ArtistData) {
     let row = table.insertRow();
+    row.className = "dataRow";
     for (key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);

@@ -84,6 +84,7 @@ function generateTableTR(table, TrackData, loggedIn, user) {
 
     for (let element of TrackData) {
         let row = table.insertRow();
+        row.className = "dataRow";
         for (key in element) {
             let cell = row.insertCell();
             let text = document.createTextNode(element[key]);

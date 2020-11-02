@@ -55,6 +55,7 @@ function generateTableHeadGe(table, data, loggedIn) {
 function generateTableGe(table, GenreData, loggedIn, user) {
   for (let element of GenreData) {
     let row = table.insertRow();
+    row.className = "dataRow";
     for (key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
