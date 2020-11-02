@@ -17,19 +17,27 @@ body {
 .navbar-toggler:focus,
 .navbar-toggler:active {
   outline: 0;
+  color: #fff;
+  
 }
 
 .navbar-toggler.collapsed .close-icon {
-  display: none;
+  display: inline;
+  color: #fff;
+}
+
+#collapseIcon:hover {
+  background-color: #9f9fed;
 }
 
 .navbar-toggler:not(.collapsed) {
   display: inline;
+  color: #fff;
 }
 
 .navbar-toggler-icon {
   display: inline;
-  border-color: #fff;
+  color: #fff;
 }
 
 .navbar {
