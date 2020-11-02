@@ -40,17 +40,17 @@ function generateTableHeadGe(table, data, loggedIn) {
   let text = document.createTextNode("");
   th.appendChild(text);
   row.appendChild(th);
-  if (loggedIn) {
-    let th2 = document.createElement("th");
-    let text2 = document.createTextNode("Edit");
-    th2.appendChild(text2);
-    row.appendChild(th2);
+  // if (loggedIn) {
+  //   let th2 = document.createElement("th");
+  //   let text2 = document.createTextNode("Edit");
+  //   th2.appendChild(text2);
+  //   row.appendChild(th2);
 
-    let th3 = document.createElement("th");
-    let text3 = document.createTextNode("Delete");
-    th3.appendChild(text3);
-    row.appendChild(th3);
-  }
+  //   let th3 = document.createElement("th");
+  //   let text3 = document.createTextNode("Delete");
+  //   th3.appendChild(text3);
+  //   row.appendChild(th3);
+  // }
 }
 
 function generateTableGe(table, GenreData, loggedIn, user) {
@@ -84,39 +84,39 @@ function generateTableGe(table, GenreData, loggedIn, user) {
     myViewButton.appendChild(viewIcon);
     newCell.appendChild(myViewButton);
 
-    if (loggedIn) {
-      let newCell2 = row.insertCell();
-      let myEditButton = document.createElement("button");
-      myEditButton.className = "btn";
-      myEditButton.id = "EditGenreButton";
-      myEditButton.setAttribute("data-toggle", "modal");
-      myEditButton.setAttribute("data-target", "#EditGenreModal");
+    // if (loggedIn) {
+    //   let newCell2 = row.insertCell();
+    //   let myEditButton = document.createElement("button");
+    //   myEditButton.className = "btn";
+    //   myEditButton.id = "EditGenreButton";
+    //   myEditButton.setAttribute("data-toggle", "modal");
+    //   myEditButton.setAttribute("data-target", "#EditGenreModal");
 
-      let editIcon = document.createElement("span");
-      editIcon.className = "material-icons";
-      editIcon.innerHTML = "create";
-      myEditButton.appendChild(editIcon);
-      let ID = element.id;
-      let Name = element.name;
-      myEditButton.onclick = function () {
-        changeEditGenreModal(ID, Name);
-      };
-      newCell2.appendChild(myEditButton);
+    //   let editIcon = document.createElement("span");
+    //   editIcon.className = "material-icons";
+    //   editIcon.innerHTML = "create";
+    //   myEditButton.appendChild(editIcon);
+    //   let ID = element.id;
+    //   let Name = element.name;
+    //   myEditButton.onclick = function () {
+    //     changeEditGenreModal(ID, Name);
+    //   };
+    //   newCell2.appendChild(myEditButton);
 
-      let newCell3 = row.insertCell();
-      let myDeleteButton = document.createElement("button");
-      myDeleteButton.className = "btn";
-      myDeleteButton.id = "DeleteGenreButton" + element.name;
+    //   let newCell3 = row.insertCell();
+    //   let myDeleteButton = document.createElement("button");
+    //   myDeleteButton.className = "btn";
+    //   myDeleteButton.id = "DeleteGenreButton" + element.name;
 
-      let deleteIcon = document.createElement("span");
-      deleteIcon.className = "material-icons";
-      deleteIcon.innerHTML = "delete";
-      myDeleteButton.appendChild(deleteIcon);
-      myDeleteButton.onclick = function () {
-        deleteGenre(element.id);
-      };
-      newCell3.appendChild(myDeleteButton);
-    }
+    //   let deleteIcon = document.createElement("span");
+    //   deleteIcon.className = "material-icons";
+    //   deleteIcon.innerHTML = "delete";
+    //   myDeleteButton.appendChild(deleteIcon);
+    //   myDeleteButton.onclick = function () {
+    //     deleteGenre(element.id);
+    //   };
+    //   newCell3.appendChild(myDeleteButton);
+    // }
   }
 }
 
