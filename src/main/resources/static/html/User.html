@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Page</title>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navbar -->
 
     <nav class="navbar fixed-top navbar-expand-lg">
         <a class="navbar-brand" href="./">
-            <img class="logo" src="../img/Choonz.png" width="auto" ml-auto height="60" /></a>
-        <button class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+            <img class="logo" src="../img/imgInvert.png" width="auto" ml-auto height="60" /></a>
+        <button id = "collapseIcon" class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
                 <span class="navbar-toggler-icon"></span>
-                <div class="close-icon py-1">✖</div>
+                <div class="close-icon py-1">&#9776</div>
             </button>
         <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" id="UserLink">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="TrackLink">Featured
-                            Tracks</a>
+                    <a class="nav-link" id="TrackLink">Tracks</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="ArtistLink">Artists</a>
@@ -47,42 +53,191 @@
     <!-- /Navbar -->
 
     <div class="UserGreetings">
-        <h2 id="userName"></h2>
+      <h2 id="userName"></h2>
     </div>
 
     <!-- Playlist Cards -->
     <div class="UserPlaylist">
-        <h3>Your Playlists</h3>
+        <h2>Your Playlists</h2>
         <div id="PLTables" class="row"></div>
 
-        <div id="PlaylistAdd" class="row ">
-            <!-- Button trigger modal -->
-            <div class = "col-4"></div>
+    <div id="PlaylistAdd" class="row">
+      <!-- Button trigger modal -->
+      <div class="col-4"></div>
+      <button
+        id="addPLButton"
+        type="button"
+        class="btn btn-primary col-3"
+        data-toggle="modal"
+        data-target="#AddPLModal"
+      >
+        Add New Playlist
+      </button>
+    </div>
+    <div
+      class="modal fade"
+      id="AddPLModal"
+      tabindex="-1"
+      aria-labelledby="AddPLModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="addTitle" class="modal-title">Add Playlist</h5>
             <button
-            id="addPLButton"
               type="button"
-              class="btn btn-primary col-3"
-              data-toggle="modal"
-              data-target="#exampleModal"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
             >
-              Add New Playlist
+              <span aria-hidden="true">&times;</span>
             </button>
-        
+          </div>
+          <div class="modal-body">
+            <form id="ModalFormAddPL" class="AddPL" method="POST">
+              <div class="form-group">
+                <label for="AddPLName">Playlist Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="AddPLName"
+                  required
+                />
+                <label for="AddPLDescription">Playlist Description:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="AddPLDescription"
+                  required
+                />
+              </div>
+              <button id="AddPLSubmit" type="submit" class="btn btn-primary">
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="EditPLModal"
+      tabindex="-1"
+      aria-labelledby="EditPLModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="addTitle" class="modal-title">Edit Playlist</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="ModalFormEditPL" class="EditPL" method="PUT">
+              <div class="form-group">
+                <label for="EditPLName">Playlist Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="EditPLName"
+                  required
+                />
+                <label for="EditPLDescription">Playlist Description:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="EditPLDescription"
+                  required
+                />
+              </div>
+              <button id="EditPLSubmit" type="submit" class="btn btn-primary">
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- / Playlist Cards -->
+    <div
+      class="modal fade"
+      id="AddTrackPLModal"
+      tabindex="-1"
+      aria-labelledby="AddTrackPLModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="addTitle" class="modal-title">Add To Playlist</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="ModalFormAddTrackPL" class="AddTrackPL" method="PUT">
+              <div class="form-group">
+                <label for="AddTrackPL">Playlist Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="AddTrackPL"
+                  disabled
+                />
 
+                <label for="TrackAdd">Tracks:</label>
+                <select
+                  multiple
+                  class="form-control"
+                  id="TrackAdd"
+                  required
+                ></select>
+              </div>
+              <button
+                id="AddTrackPLSubmit"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Playlist Cards -->
 
     <script src="../js/Params.js"></script>
     <script src="../js/Playlist.js"></script>
     <script src="../js/User.js"></script>
     <script src="../js/NavLinks.js"></script>
-    <sc src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </sc>
-    <sc src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </sc>
-    <sc src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </sc>
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
