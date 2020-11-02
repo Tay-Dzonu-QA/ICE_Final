@@ -233,11 +233,16 @@ th {
 
 .btn {
   padding: 5px;
+  margin-top: 5px;
   margin-right: 5px;
 }
 
 .btn:hover {
   background-color: #5249fa;
+}
+
+.btnCol {
+  width: 50px;
 }
 
 #PLTables {
