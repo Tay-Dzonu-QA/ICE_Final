@@ -57,19 +57,20 @@ function generateTableHeadTR(table, data, loggedIn) {
 
     if (loggedIn == true) {
         let th4 = document.createElement("th");
-        let text4 = document.createTextNode("Add to Playlist");
+        th4.className = "btnCol";
+        let text4 = document.createTextNode("");
         th4.appendChild(text4);
         row.appendChild(th4);
 
-        let th2 = document.createElement("th");
-        let text2 = document.createTextNode("Edit");
-        th2.appendChild(text2);
-        row.appendChild(th2);
+        // let th2 = document.createElement("th");
+        // let text2 = document.createTextNode("Edit");
+        // th2.appendChild(text2);
+        // row.appendChild(th2);
 
-        let th3 = document.createElement("th");
-        let text3 = document.createTextNode("Delete");
-        th3.appendChild(text3);
-        row.appendChild(th3);
+        // let th3 = document.createElement("th");
+        // let text3 = document.createTextNode("Delete");
+        // th3.appendChild(text3);
+        // row.appendChild(th3);
     }
 }
 
@@ -130,35 +131,35 @@ function generateTableTR(table, TrackData, loggedIn, user) {
             };
             newCell4.appendChild(addToPlaylistButton);
 
-            let newCell2 = row.insertCell();
-            let myEditButton = document.createElement("button");
-            myEditButton.className = "btn";
-            myEditButton.id = "EditTrackButton";
-            myEditButton.setAttribute("data-toggle", "modal");
-            myEditButton.setAttribute("data-target", "#EditTrackModal");
+            // let newCell2 = row.insertCell();
+            // let myEditButton = document.createElement("button");
+            // myEditButton.className = "btn";
+            // myEditButton.id = "EditTrackButton";
+            // myEditButton.setAttribute("data-toggle", "modal");
+            // myEditButton.setAttribute("data-target", "#EditTrackModal");
 
-            let editIcon = document.createElement("span");
-            editIcon.className = "material-icons";
-            editIcon.innerHTML = "create";
-            myEditButton.appendChild(editIcon);
-            myEditButton.onclick = function() {
-                changeEditTrackModal(ID, Name, Duration, Lyrics);
-            };
-            newCell2.appendChild(myEditButton);
+            // let editIcon = document.createElement("span");
+            // editIcon.className = "material-icons";
+            // editIcon.innerHTML = "create";
+            // myEditButton.appendChild(editIcon);
+            // myEditButton.onclick = function() {
+            //     changeEditTrackModal(ID, Name, Duration, Lyrics);
+            // };
+            // newCell2.appendChild(myEditButton);
 
-            let newCell3 = row.insertCell();
-            let myDeleteButton = document.createElement("button");
-            myDeleteButton.className = "btn";
-            myDeleteButton.id = "DeleteTrackButton" + element.name;
+            // let newCell3 = row.insertCell();
+            // let myDeleteButton = document.createElement("button");
+            // myDeleteButton.className = "btn";
+            // myDeleteButton.id = "DeleteTrackButton" + element.name;
 
-            let deleteIcon = document.createElement("span");
-            deleteIcon.className = "material-icons";
-            deleteIcon.innerHTML = "delete";
-            myDeleteButton.appendChild(deleteIcon);
-            myDeleteButton.onclick = function() {
-                deleteTrack(element.id);
-            };
-            newCell3.appendChild(myDeleteButton);
+            // let deleteIcon = document.createElement("span");
+            // deleteIcon.className = "material-icons";
+            // deleteIcon.innerHTML = "delete";
+            // myDeleteButton.appendChild(deleteIcon);
+            // myDeleteButton.onclick = function() {
+            //     deleteTrack(element.id);
+            // };
+            // newCell3.appendChild(myDeleteButton);
         }
     }
 }
