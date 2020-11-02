@@ -70,7 +70,7 @@ public class Track {
         this.duration = duration;
         this.lyrics = lyrics;
     }
-    
+
     public void addPlaylist(Playlist playlist) {
     	this.playlists.add(playlist);
     }
@@ -140,7 +140,7 @@ public class Track {
             return false;
         }
         Track other = (Track) obj;
-        return Objects.equals(album, other.album) && duration == other.duration && id == other.id
+        return Objects.equals(album, other.album) && duration == other.duration && id.equals(other.id)
                 && Objects.equals(lyrics, other.lyrics) && Objects.equals(name, other.name)
                 && Objects.equals(playlists, other.playlists);
     }

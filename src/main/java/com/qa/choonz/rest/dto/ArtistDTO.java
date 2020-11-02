@@ -68,7 +68,6 @@ public class ArtistDTO {
             return false;
         }
         ArtistDTO other = (ArtistDTO) obj;
-        System.out.println(id == other.id);
         return Objects.equals(albums, other.albums) && Objects.equals(id, other.id) && Objects.equals(name, other.name);
     }
 }

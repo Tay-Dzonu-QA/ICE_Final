@@ -95,7 +95,7 @@ public class TrackDTO {
         }
         TrackDTO other = (TrackDTO) obj;
         return Objects.equals(duration, other.duration) && Objects.equals(lyrics, other.lyrics)
-                && id == other.id && Objects.equals(name, other.name)
+                && id.equals(other.id) && Objects.equals(name, other.name)
                 		&& Objects.equals(album, other.album);
     }
 
