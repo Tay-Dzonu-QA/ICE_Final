@@ -82,6 +82,17 @@ public class AlbumTest {
 					this.cover);
 			assertThat(newAl instanceof Album);
 		}
+		@Test
+		void AllArgConsTest() {
+
+			Album newAl = new Album(
+					this.id,
+					this.name,
+					null,
+					null,
+					this.cover);
+			assertThat(newAl instanceof Album);
+		}
 		
 		@Test
 	    public void equalsWithNull() {
