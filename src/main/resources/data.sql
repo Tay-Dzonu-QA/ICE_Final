@@ -20,8 +20,11 @@ INSERT INTO `user` (`id`,`name`,`password`,`username`) VALUES(1,'Choonz Master',
 
 INSERT INTO `playlist` (`id`,`artwork`,`description`,`name`,`user_id`) VALUES(1,'my artwork','my playlist','my playlist',1);
 INSERT INTO `playlist` (`id`,`artwork`,`description`,`name`,`user_id`) VALUES(2,'your artwork','your playlist','your playlist',1);
+INSERT INTO `playlist` (`id`,`artwork`,`description`,`name`,`user_id`) VALUES(3,'third artwork','third playlist','third playlist',1);
 
 INSERT INTO `track_playlists` (`tracks_id`,`playlists_id`) VALUES(1,1);
 INSERT INTO `track_playlists` (`tracks_id`,`playlists_id`) VALUES(2,2);
-
+INSERT INTO `track_playlists` (`tracks_id`,`playlists_id`) VALUES(3,3);
+INSERT INTO `track_playlists` (`tracks_id`,`playlists_id`) VALUES(4,3);
+INSERT INTO `track_playlists` (`tracks_id`,`playlists_id`) VALUES(5,3);
 COMMIT;

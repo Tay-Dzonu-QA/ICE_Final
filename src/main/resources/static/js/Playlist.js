@@ -10,13 +10,17 @@ function generateTableHeadPl(table, data) {
     th.appendChild(text);
     row.appendChild(th);
   }
+  // th for view track
   let th = document.createElement("th");
-  let text = document.createTextNode("View Track");
+  th.className = "btnCol";
+  let text = document.createTextNode("");
   th.appendChild(text);
   row.appendChild(th);
 
+  // th for delete track
   let th4 = document.createElement("th");
-  let text4 = document.createTextNode("Remove");
+  th4.className = "btnCol";
+  let text4 = document.createTextNode("");
   th4.appendChild(text4);
   row.appendChild(th4);
 }
@@ -24,6 +28,7 @@ function generateTableHeadPl(table, data) {
 function generateTablePl(table, TrackData, user, playlistToView) {
   for (let element of TrackData) {
     let row = table.insertRow();
+    row.className = "dataRow";
     for (key in element) {
       if (key === "playlist"||key==="id") {
         continue;

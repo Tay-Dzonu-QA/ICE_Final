@@ -49,20 +49,21 @@ function generateTableHeadAl(table, data, loggedIn) {
         row.appendChild(th);
     }
     let th = document.createElement("th");
-    let text = document.createTextNode("View Album");
+    th.className = "btnCol";
+    let text = document.createTextNode("");
     th.appendChild(text);
     row.appendChild(th);
-    if (loggedIn == true) {
-        let th2 = document.createElement("th");
-        let text2 = document.createTextNode("Edit");
-        th2.appendChild(text2);
-        row.appendChild(th2);
+    // if (loggedIn == true) {
+    //     let th2 = document.createElement("th");
+    //     let text2 = document.createTextNode("Edit");
+    //     th2.appendChild(text2);
+    //     row.appendChild(th2);
 
-        let th3 = document.createElement("th");
-        let text3 = document.createTextNode("Delete");
-        th3.appendChild(text3);
-        row.appendChild(th3);
-    }
+    //     let th3 = document.createElement("th");
+    //     let text3 = document.createTextNode("Delete");
+    //     th3.appendChild(text3);
+    //     row.appendChild(th3);
+    // }
 }
 
 function generateTableAl(table, AlbumData, loggedIn) {
@@ -75,6 +76,7 @@ function generateTableAl(table, AlbumData, loggedIn) {
 
     for (let element of AlbumData) {
         let row = table.insertRow();
+        row.className = "dataRow";
         for (key in element) {
             if (key === "id") {
                 continue;
@@ -105,42 +107,42 @@ function generateTableAl(table, AlbumData, loggedIn) {
         myViewButton.appendChild(viewIcon);
         newCell.appendChild(myViewButton);
 
-        if (loggedIn == true) {
-            let newCell2 = row.insertCell();
-            let myEditButton = document.createElement("button");
-            myEditButton.className = "btn";
-            myEditButton.id = "EditAlbumButton";
-            myEditButton.setAttribute("data-toggle", "modal");
-            myEditButton.setAttribute("data-target", "#EditAlbumModal");
+        // if (loggedIn == true) {
+        //     let newCell2 = row.insertCell();
+        //     let myEditButton = document.createElement("button");
+        //     myEditButton.className = "btn";
+        //     myEditButton.id = "EditAlbumButton";
+        //     myEditButton.setAttribute("data-toggle", "modal");
+        //     myEditButton.setAttribute("data-target", "#EditAlbumModal");
 
-            let editIcon = document.createElement("span");
-            editIcon.className = "material-icons";
-            editIcon.innerHTML = "create";
-            myEditButton.appendChild(editIcon);
-            let ID = element.id;
-            let Name = element.name;
-            let Cover = element.cover;
+        //     let editIcon = document.createElement("span");
+        //     editIcon.className = "material-icons";
+        //     editIcon.innerHTML = "create";
+        //     myEditButton.appendChild(editIcon);
+        //     let ID = element.id;
+        //     let Name = element.name;
+        //     let Cover = element.cover;
 
-            myEditButton.onclick = function() {
-                changeEditAlbumModal(ID, Name, Cover);
-            };
+        //     myEditButton.onclick = function() {
+        //         changeEditAlbumModal(ID, Name, Cover);
+        //     };
 
-            newCell2.appendChild(myEditButton);
+        //     newCell2.appendChild(myEditButton);
 
-            let newCell3 = row.insertCell();
-            let myDeleteButton = document.createElement("button");
-            myDeleteButton.className = "btn";
-            myDeleteButton.id = "DeleteAlbumButton" + element.name;
+        //     let newCell3 = row.insertCell();
+        //     let myDeleteButton = document.createElement("button");
+        //     myDeleteButton.className = "btn";
+        //     myDeleteButton.id = "DeleteAlbumButton" + element.name;
 
-            let deleteIcon = document.createElement("span");
-            deleteIcon.className = "material-icons";
-            deleteIcon.innerHTML = "delete";
-            myDeleteButton.appendChild(deleteIcon);
-            myDeleteButton.onclick = function() {
-                deleteAlbum(element.id);
-            };
-            newCell3.appendChild(myDeleteButton);
-        }
+        //     let deleteIcon = document.createElement("span");
+        //     deleteIcon.className = "material-icons";
+        //     deleteIcon.innerHTML = "delete";
+        //     myDeleteButton.appendChild(deleteIcon);
+        //     myDeleteButton.onclick = function() {
+        //         deleteAlbum(element.id);
+        //     };
+        //     newCell3.appendChild(myDeleteButton);
+        // }
     }
 }
 
