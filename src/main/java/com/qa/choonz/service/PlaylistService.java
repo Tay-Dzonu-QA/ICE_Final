@@ -77,6 +77,10 @@ public class PlaylistService {
     }
 
     public boolean delete(Long id) {
+    	List<Long> tracksToRemove =this.repo.readTrackIds(id);
+    	for(Long track : tracksToRemove ) {
+    		removeTrack(id,track);
+    	}
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }

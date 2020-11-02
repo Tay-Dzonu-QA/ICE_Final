@@ -1,5 +1,6 @@
 package com.qa.choonz.rest.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,7 +9,7 @@ public class UserDTO {
     private String username;
     private String password;
     private String name;
-    private List<PlaylistDTO> playlists;
+    private List<PlaylistDTO> playlists = new ArrayList<>();
 
     public UserDTO(){
         super();
@@ -20,7 +21,8 @@ public class UserDTO {
     	this.username = username;   	
     }
     
-    public UserDTO(Long id, String username, String password) {
+
+	public UserDTO(Long id, String username, String password) {
     	super();
     	this.id = id;
     	this.username = username;  
@@ -75,13 +77,13 @@ public class UserDTO {
 		this.name = name;
 	}
 
-	public List<PlaylistDTO> getPlaylist() {
-        return playlists;
-    }
+    public List<PlaylistDTO> getPlaylists() {
+		return playlists;
+	}
 
-    public void setPlaylist(List<PlaylistDTO> playlists) {
-        this.playlists = playlists;
-    }
+	public void setPlaylists(List<PlaylistDTO> playlists) {
+		this.playlists = playlists;
+	}
 
     @Override
     public boolean equals(Object obj) {

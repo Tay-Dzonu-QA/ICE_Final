@@ -3,8 +3,6 @@ package com.qa.choonz.rest.dto;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -165,7 +163,7 @@ public class UserDTOTest {
 	
 	@Test
 	void GetPlaylistTest() {
-		assertThat(this.testUserDTO.getPlaylist() == this.playlists);
+		assertThat(this.testUserDTO.getPlaylists() == this.playlists);
 	}
 	
 	@Test
@@ -173,8 +171,8 @@ public class UserDTOTest {
 		PlaylistDTO newPl = new PlaylistDTO();
 		List<PlaylistDTO> newPlaylists = new ArrayList<PlaylistDTO>();
 		newPlaylists.add(newPl);
-		this.testUserDTO.setPlaylist(newPlaylists);
-		assertThat(this.testUserDTO.getPlaylist() == newPlaylists);
+		this.testUserDTO.setPlaylists(newPlaylists);
+		assertThat(this.testUserDTO.getPlaylists() == newPlaylists);
 	}
 	
 	
