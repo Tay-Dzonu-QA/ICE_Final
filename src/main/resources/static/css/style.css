@@ -171,6 +171,7 @@ body {
 }
 .login-container form {
   padding: 5%;
+  margin-right: 15%;
 }
 .btnSubmit {
   width: 50%;
