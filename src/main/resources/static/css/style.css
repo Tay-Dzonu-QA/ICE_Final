@@ -11,7 +11,7 @@ https://coolors.co/f2dfd7-fef9ff-d4c1ec-9f9fed-736ced
 
 
 body {
-  padding-top: 70px;
+  padding-top: 40px;
 }
 
 .navbar-toggler:focus,
@@ -41,7 +41,9 @@ body {
 }
 
 .navbar {
-  background-color: #454ade;
+  background-color: #131d57;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .nav-link {
@@ -55,7 +57,7 @@ body {
 }
 
 .logo:hover {
-  filter: invert(100%);
+  filter: brightness(100);
   transition: 0.3;
 }
 
@@ -100,8 +102,9 @@ body {
   cursor: pointer;
   background-color: #736ced;
   color: white;
-  padding: 10px 15px;
+  padding: 5px 10px;
   border: none;
+  margin-top: 30px;
 }
 
 .openbtn:hover {
@@ -146,10 +149,12 @@ body {
 
 .login-container {
   margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+
 }
 .login-form {
-  padding: 5%;
+  padding: 2%;
+  margin-left: 16%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form h3 {
@@ -157,7 +162,7 @@ body {
   color: #333;
 }
 .register-form {
-  padding: 5%;
+  padding: 2%;
   background: #0062cc;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
@@ -166,7 +171,8 @@ body {
   color: #fff;
 }
 .login-container form {
-  padding: 10%;
+  padding: 5%;
+  margin-right: 15%;
 }
 .btnSubmit {
   width: 50%;
