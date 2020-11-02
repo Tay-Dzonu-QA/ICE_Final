@@ -37,12 +37,16 @@ function generateTableHeadPl(table, data) {
     th.appendChild(text);
     row.appendChild(th);
   }
+  // th for view track
   let th = document.createElement("th");
+  th.className = "btnCol";
   let text = document.createTextNode("");
   th.appendChild(text);
   row.appendChild(th);
 
+  // th for delete track
   let th4 = document.createElement("th");
+  th4.className = "btnCol";
   let text4 = document.createTextNode("");
   th4.appendChild(text4);
   row.appendChild(th4);
