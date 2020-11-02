@@ -52,11 +52,8 @@ function createTables(tables, PLData) {
     //Need to add footer for deleta and edit track list
     tableDiv.appendChild(tableFooter);
 
-    tableDiv.className = "col-lg";
+    tableDiv.className = "col";
     tables.appendChild(tableDiv);
-    let seperator = document.createElement("div");
-    seperator.className = "col-1";
-    tables.appendChild(seperator);
   }
 }
 
