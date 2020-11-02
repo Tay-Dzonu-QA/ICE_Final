@@ -239,6 +239,10 @@ th {
   color: #fff;
 }
 
+.material-icons:hover {
+  color: #fff;
+}
+
 .btn {
   padding: 5px;
   margin-top: 5px;
