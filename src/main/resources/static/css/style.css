@@ -239,7 +239,7 @@ th {
   color: #fff;
 }
 
-.material-icons:hover {
+.btn:hover .material-icons {
   color: #fff;
 }
 
