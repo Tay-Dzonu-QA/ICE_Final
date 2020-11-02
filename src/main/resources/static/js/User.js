@@ -25,6 +25,7 @@ function createTables(tables, PLData) {
   for (element of PLData) {
     let ID = element.id;
     let Name = element.name;
+    let Describe = element.description;
     let modalAddTrackPL = document.getElementById("TrackAdd");
     addTracks(modalAddTrackPL);
 
@@ -33,14 +34,21 @@ function createTables(tables, PLData) {
     let Listname = document.createElement("h2");
     Listname.textContent = Name;
     playlistToView = element.id;
+    tableDiv.appendChild(Listname);
+    if(element.tracks.length ===0){
+      let empty = document.createElement("h5");
+      empty.textContent = "NO TRACKS";
+      tableDiv.appendChild(empty);
+    }else{
     let data = Object.keys(element.tracks[0]);
     generateTableHeadPl(table, data);
     generateTablePl(table, element.tracks, Name, playlistToView);
-    tableDiv.appendChild(Listname);
     tableDiv.appendChild(table);
+    }
+
     let tableFooter = document.createElement("footer");
     let UserPage = true;
-    generateTableFooterPl(tableFooter, ID, Name, user, UserPage);
+    generateTableFooterPl(tableFooter, ID, Name, user, UserPage,Describe);
     //Need to add footer for deleta and edit track list
     tableDiv.appendChild(tableFooter);
 
@@ -58,26 +66,32 @@ document
     stop.preventDefault();
 
     let formElements = document.querySelector("form.AddPL").elements;
+    let AddPLname = formElements["AddPLName"].value;
+    let AddPLDescription = formElements["AddPLDescription"].value;
 
-    let AddPLname = formElements["EditPLName"].value;
-
-    addPL(AddPLname);
+    addPL(AddPLname,AddPLDescription);
   });
 
-function addPL(name) {
+function addPL(name,description) {
+  console.log(name);
   fetch("http://localhost:8082/playlists/create", {
     method: "post",
     headers: {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      name: name
+      "name": name,
+      "user":{
+        "id":user
+      },
+      "description":description,
+      "artwork":name+"artwork"
     })),
   })
     .then(json)
     .then(function (data) {
       console.log("Request succeeded with JSON response", data);
-      // location.reload();
+      location.reload();
     })
     .catch(function (error) {
       console.log("Request failed", error);

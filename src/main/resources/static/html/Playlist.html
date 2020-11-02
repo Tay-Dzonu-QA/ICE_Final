@@ -92,6 +92,8 @@
     <div class="TableBody" id="playlistTitle">
       <br />
       <h2 id="PLTitle"></h2>
+      <h3 id="PLDescription"></h3>
+      <h5 id="PLempty"></h5>
       <table id="PlaylistTable" class="table table-hover"></table>
       <div id="PLFooter"></div>
     </div>
@@ -124,6 +126,13 @@
                   type="text"
                   class="form-control"
                   id="EditPLName"
+                  required
+                />
+                <label for="EditPLDescription">Playlist Description:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="EditPLDescription"
                   required
                 />
               </div>
@@ -195,6 +204,7 @@
     <script src="../js/Params.js"></script>
     <script src="../js/Sidebar.js"></script>
     <script src="../js/Playlist.js"></script>
+    <script src="../js/PlaylistInit.js"></script>
     <script src="../js/SidebarNavPlaylist.js"></script>
     <script src="../js/NavLinks.js"></script>
     <script

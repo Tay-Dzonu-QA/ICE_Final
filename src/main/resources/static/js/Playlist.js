@@ -1,39 +1,3 @@
-getTracks(playlistToView, user);
-function getTracks(playlistToView, user) {
-  fetch("http://localhost:8082/playlists/read/" + playlistToView)
-    .then(function (response) {
-      if (response.status !== 200) {
-        console.log(
-          "Looks like there was a problem. Status Code: " + response.status
-        );
-        return;
-      }
-      // Examine the text in the response
-      response.json().then(function (PlaylistData) {
-        let TrackData = PlaylistData.tracks;
-        let ID = PlaylistData.id;
-        let Name = PlaylistData.name;
-
-        let modalAddTrackPL = document.getElementById("TrackAdd");
-        addTracks(modalAddTrackPL);
-
-        let title = document.querySelector("#PLTitle");
-        title.innerHTML = "Playlist: " + Name;
-        let table = document.querySelector("#PlaylistTable");
-        let data = Object.keys(TrackData[0]);
-        let footer = document.querySelector("#PLFooter");
-        let tableFooter = document.createElement("footer");
-        generateTableHeadPl(table, data);
-        generateTablePl(table, TrackData, user, playlistToView);
-        let UserPage = false;
-        generateTableFooterPl(tableFooter, ID, Name, user, UserPage);
-        footer.appendChild(tableFooter);
-      });
-    })
-    .catch(function (err) {
-      console.log("Fetch Error :-S", err);
-    });
-}
 function generateTableHeadPl(table, data) {
   let thead = table.createTHead();
   let row = thead.insertRow();
@@ -100,7 +64,7 @@ function generateTablePl(table, TrackData, user, playlistToView) {
     newCell3.appendChild(myRemoveButton);
   }
 }
-function generateTableFooterPl(tableFooter, ID, Name, user, UserPage) {
+function generateTableFooterPl(tableFooter, ID, Name, user, UserPage,description) {
   if (UserPage === true) {
     let myViewPLButton = document.createElement("button");
     myViewPLButton.className = "btn";
@@ -134,7 +98,7 @@ function generateTableFooterPl(tableFooter, ID, Name, user, UserPage) {
   myEditButtonPL.setAttribute("data-toggle", "modal");
   myEditButtonPL.setAttribute("data-target", "#EditPLModal");
   myEditButtonPL.onclick = function () {
-    changeEditPLModal(ID, Name);
+    changeEditPLModal(ID, Name,description);
   };
   let editIcon = document.createElement("span");
   editIcon.className = "material-icons";
@@ -152,7 +116,6 @@ function generateTableFooterPl(tableFooter, ID, Name, user, UserPage) {
   deleteIcon.innerHTML = "delete";
   myDeleteButtonPL.appendChild(deleteIcon);
 
-
   tableFooter.appendChild(myAddTrackButton);
   tableFooter.appendChild(myEditButtonPL);
   tableFooter.appendChild(myDeleteButtonPL);
@@ -168,16 +131,18 @@ function deletePL(ID) {
     // .then(json)
     .then(function (data) {
       console.log("Request succeeded with JSON response", data);
-      // document.location = "User.html?user="+user;
+      document.location = "User.html?user="+user;
     })
     .catch(function (error) {
       console.log("Request failed", error);
     });
 }
 let PLID;
-function changeEditPLModal(id, name) {
-  let modalPH = document.getElementById("EditPLName");
-  modalPH.setAttribute("value", name);
+function changeEditPLModal(id, name,description) {
+  let modalEPName = document.getElementById("EditPLName");
+  modalEPName.setAttribute("value", name);
+  let modalEPDesc = document.getElementById("EditPLDescription");
+  modalEPDesc.setAttribute("value", description);
   PLID = id;
 }
 document
@@ -200,14 +165,14 @@ function editPL(name, PLID) {
       "Content-type": "application/json",
     },
     body: (json = JSON.stringify({
-      id: ID,
-      name: name
+      "id": ID,
+      "name": name
     })),
   })
     .then(json)
     .then(function (data) {
       console.log("Request succeeded with JSON response", data);
-      // location.reload();
+      location.reload();
     })
     .catch(function (error) {
       console.log("Request failed", error);
@@ -227,71 +192,72 @@ function removeTrack(TrackId, playlistToView) {
     // .then(json)
     .then(function (data) {
       console.log("Request succeeded with JSON response", data);
-      // location.reload();
+      location.reload();
     })
     .catch(function (error) {
       console.log("Request failed", error);
     });
 }
 
-function changeAddTrackModal(ID, Name){
+function changeAddTrackModal(ID, Name) {
   let modalEditTrackName = document.getElementById("AddTrackPL");
-    modalEditTrackName.setAttribute("value", Name);
-    PLID = ID;
+  modalEditTrackName.setAttribute("value", Name);
+  PLID = ID;
 }
 
 function addTracks(modalAddTrackPL) {
   fetch("http://localhost:8082/tracks/read")
-      .then(function(response) {
-          if (response.status !== 200) {
-              console.log(
-                  "Looks like there was a problem. Status Code: " + response.status
-              );
-              return;
-          }
-          // Examine the text in the response
-          response.json().then(function(TrackData) {
-              for (let element of TrackData) {
-                  let tracks = document.createElement("option");
-                  tracks.innerHTML = element.id + ". " + element.name;
-                  modalAddTrackPL.appendChild(tracks);
-              }
-          });
-      })
-      .catch(function(err) {
-          console.log("Fetch Error :-S", err);
+    .then(function (response) {
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code: " + response.status
+        );
+        return;
+      }
+      // Examine the text in the response
+      response.json().then(function (TrackData) {
+        for (let element of TrackData) {
+          let tracks = document.createElement("option");
+          tracks.innerHTML = element.id + ". " + element.name;
+          modalAddTrackPL.appendChild(tracks);
+        }
       });
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
 }
 
 document
-    .querySelector("form.AddTrackPL")
-    .addEventListener("submit", function(stop) {
-        stop.preventDefault();
+  .querySelector("form.AddTrackPL")
+  .addEventListener("submit", function (stop) {
+    stop.preventDefault();
 
-        let formElements = document.querySelector("form.AddTrackPL").elements;
+    let formElements = document.querySelector("form.AddTrackPL").elements;
 
-        let TrackPlaylist = formElements["TrackAdd"].value;
-        let TrackPlaylist1 = TrackPlaylist.split(".");
-        let TrackId1 = parseInt(TrackPlaylist1[0]);
-        let TrackPlaylistId = parseInt(PLID);
-        addToPlaylist(TrackId1, TrackPlaylistId);
-    });
+    let TrackPlaylist = formElements["TrackAdd"].value;
+    let TrackPlaylist1 = TrackPlaylist.split(".");
+    let TrackId1 = parseInt(TrackPlaylist1[0]);
+    let TrackPlaylistId = parseInt(PLID);
+    addToPlaylist(TrackId1, TrackPlaylistId);
+  });
 
 function addToPlaylist(TrackId1, TrackPlaylistId) {
-    fetch(
-            "http://localhost:8082/playlists/add/" + TrackPlaylistId + "/" + TrackId1, {
-                method: "put",
-                headers: {
-                    "Content-type": "application/json",
-                },
-            }
-        )
-        // .then(json)
-        .then(function(data) {
-            console.log("Request succeeded with JSON response", data);
-            location.reload();
-        })
-        .catch(function(error) {
-            console.log("Request failed", error);
-        });
+  fetch(
+    "http://localhost:8082/playlists/add/" + TrackPlaylistId + "/" + TrackId1,
+    {
+      method: "put",
+      headers: {
+        "Content-type": "application/json",
+      },
+    }
+  )
+    // .then(json)
+    .then(function (data) {
+      console.log("Request succeeded with JSON response", data);
+      location.reload();
+    })
+    .catch(function (error) {
+      console.log("Request failed", error);
+    });
 }
