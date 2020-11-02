@@ -121,10 +121,15 @@ body {
   padding: 20px;
 }
 
-.UserGreetings,
+.UserGreetings {
+  padding-top: 50px;
+  text-align: center;
+}
+
 .UserPlaylist {
   padding: 20px;
 }
+
 
 @media screen and (max-height: 450px) {
   .sidebar {
