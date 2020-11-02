@@ -69,7 +69,101 @@
             </button>
         
     </div>
+    <div
+    class="modal fade"
+    id="EditPLModal"
+    tabindex="-1"
+    aria-labelledby="EditPLModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="addTitle" class="modal-title">Edit Playlist</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="ModalFormEditPL" class="EditPL" method="PUT">
+            <div class="form-group">
+              <label for="EditPLName">Playlist Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="EditPLName"
+                required
+              />
+            </div>
+            <button id="EditPLSubmit" type="submit" class="btn btn-primary">
+              Add
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div
+    class="modal fade"
+    id="AddTrackPLModal"
+    tabindex="-1"
+    aria-labelledby="AddTrackPLModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="addTitle" class="modal-title">Add To Playlist</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form
+            id="ModalFormAddTrackPL"
+            class="AddTrackPL"
+            method="PUT"
+          >
+            <div class="form-group">
+              <label for="AddTrackPL">Playlist Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="AddTrackPL"
+                disabled
+              />
+
+              <label for="TrackAdd">Tracks:</label>
+              <select
+                multiple
+                class="form-control"
+                id="TrackAdd"
+                required
+              ></select>
+            </div>
+            <button
+              id="AddTrackPLSubmit"
+              type="submit"
+              class="btn btn-primary"
+            >
+              Add
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- / Playlist Cards -->
 
 
