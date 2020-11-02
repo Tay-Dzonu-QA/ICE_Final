@@ -38,12 +38,12 @@ function generateTableHeadPl(table, data) {
     row.appendChild(th);
   }
   let th = document.createElement("th");
-  let text = document.createTextNode("View Track");
+  let text = document.createTextNode("");
   th.appendChild(text);
   row.appendChild(th);
 
   let th4 = document.createElement("th");
-  let text4 = document.createTextNode("Remove");
+  let text4 = document.createTextNode("");
   th4.appendChild(text4);
   row.appendChild(th4);
 }
