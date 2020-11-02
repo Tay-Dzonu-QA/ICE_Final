@@ -1,54 +1,75 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Playlists</title>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navbar -->
 
     <nav class="navbar fixed-top navbar-expand-lg">
-        <a class="navbar-brand" href="./">
-            <img class="logo" src="../img/Choonz.png" width="auto" ml-auto height="60" /></a>
-        <button class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+      <a class="navbar-brand" href="./">
+        <img
+          class="logo"
+          src="../img/Choonz.png"
+          width="auto"
+          ml-auto
+          height="60"
+      /></a>
+      <button
+        class="navbar-toggler collapsed border-0"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsingNavbar"
+      >
         <span class="navbar-toggler-icon"></span>
         <div class="close-icon py-1">✖</div>
       </button>
-        <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar">
-            <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" id="UserLink">
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="TrackLink">Featured Tracks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="ArtistLink">Artists</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="GenreLink">Genres</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="AlbumLink">Albums</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="IndexLink" href="index.html"></a>
-                </li>
-            </ul>
-        </div>
+      <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item" id="UserLink"></li>
+          <li class="nav-item">
+            <a class="nav-link" id="TrackLink">Tracks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="ArtistLink">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="GenreLink">Genres</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="AlbumLink">Albums</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="IndexLink" href="index.html"></a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <!-- /Navbar -->
 
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav('playlistTitle');
-        document.getElementById('main').style.display= 'block'">&times;</a
+      <a
+        href="javascript:void(0)"
+        class="closebtn"
+        onclick="closeNav('playlistTitle');
+        document.getElementById('main').style.display= 'block'"
+        >&times;</a
       >
       <div>
         <h2>Your Playlists</h2>
@@ -71,12 +92,119 @@
     <div class="TableBody" id="playlistTitle">
       <br />
       <h2 id="PLTitle"></h2>
+      <h3 id="PLDescription"></h3>
+      <h5 id="PLempty"></h5>
       <table id="PlaylistTable" class="table table-hover"></table>
+      <div id="PLFooter"></div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="EditPLModal"
+      tabindex="-1"
+      aria-labelledby="EditPLModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="addTitle" class="modal-title">Edit Playlist</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="ModalFormEditPL" class="EditPL" method="PUT">
+              <div class="form-group">
+                <label for="EditPLName">Playlist Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="EditPLName"
+                  required
+                />
+                <label for="EditPLDescription">Playlist Description:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="EditPLDescription"
+                  required
+                />
+              </div>
+              <button id="EditPLSubmit" type="submit" class="btn btn-primary">
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="AddTrackPLModal"
+      tabindex="-1"
+      aria-labelledby="AddTrackPLModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="addTitle" class="modal-title">Add To Playlist</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              id="ModalFormAddTrackPL"
+              class="AddTrackPL"
+              method="PUT"
+            >
+              <div class="form-group">
+                <label for="AddTrackPL">Playlist Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="AddTrackPL"
+                  disabled
+                />
+
+                <label for="TrackAdd">Tracks:</label>
+                <select
+                  multiple
+                  class="form-control"
+                  id="TrackAdd"
+                  required
+                ></select>
+              </div>
+              <button
+                id="AddTrackPLSubmit"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- /Table -->
     <script src="../js/Params.js"></script>
     <script src="../js/Sidebar.js"></script>
     <script src="../js/Playlist.js"></script>
+    <script src="../js/PlaylistInit.js"></script>
     <script src="../js/SidebarNavPlaylist.js"></script>
     <script src="../js/NavLinks.js"></script>
     <script

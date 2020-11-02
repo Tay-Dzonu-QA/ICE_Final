@@ -10,7 +10,7 @@ let userLink = document.querySelector("#UserLink");
 if(user!=0){
     let userHref = document.createElement("a");
     userHref.setAttribute("class","nav-link");
-    userHref.innerHTML = "UserPage";
+    userHref.innerHTML = "HomePage";
     userHref.href= "User.html?user=" + user;
     userLink.appendChild(userHref);
 }

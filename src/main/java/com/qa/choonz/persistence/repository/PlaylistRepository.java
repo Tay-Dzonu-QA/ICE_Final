@@ -11,10 +11,12 @@ import com.qa.choonz.persistence.domain.Playlist;
 @Repository
 public interface PlaylistRepository extends JpaRepository<Playlist, Long> {
 	
-	@Query(value ="Delete From track_playlists", nativeQuery = true)
-    void deleteTPL();
+//	@Query(value ="Delete From track_playlists WHERE playlists_id =?1", nativeQuery = true)
+//    void deleteTPL(Long id);
 	
 	@Query(value ="SELECT * FROM playlist Where user_id=?1", nativeQuery = true)
     List<Playlist> readUserPlaylists(Long id);
-
+	
+	@Query(value = "SELECT tracks_id from track_playlists WHERE playlists_id=?1",nativeQuery = true)
+	List<Long> readTrackIds(Long id);
 }
