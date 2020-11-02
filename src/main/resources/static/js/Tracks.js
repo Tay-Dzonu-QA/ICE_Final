@@ -48,7 +48,7 @@ function generateTableHeadTR(table, data, loggedIn) {
       continue;
     }
     let th = document.createElement("th");
-<<<<<<< HEAD
+
     th.className = "btnCol";
     let text = document.createTextNode("");
     th.appendChild(text);
@@ -71,33 +71,7 @@ function generateTableHeadTR(table, data, loggedIn) {
         // th3.appendChild(text3);
         // row.appendChild(th3);
     }
-=======
-    let text = document.createTextNode(key);
-    th.appendChild(text);
-    row.appendChild(th);
-  }
-  let th = document.createElement("th");
-  let text = document.createTextNode("View Track");
-  th.appendChild(text);
-  row.appendChild(th);
 
-  if (loggedIn == true) {
-    let th4 = document.createElement("th");
-    let text4 = document.createTextNode("Add to Playlist");
-    th4.appendChild(text4);
-    row.appendChild(th4);
-
-    let th2 = document.createElement("th");
-    let text2 = document.createTextNode("Edit");
-    th2.appendChild(text2);
-    row.appendChild(th2);
-
-    let th3 = document.createElement("th");
-    let text3 = document.createTextNode("Delete");
-    th3.appendChild(text3);
-    row.appendChild(th3);
-  }
->>>>>>> upstream/dev
 }
 
 function generateTableTR(table, TrackData, loggedIn, user) {
