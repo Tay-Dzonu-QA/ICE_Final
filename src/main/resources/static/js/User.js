@@ -74,8 +74,5 @@ fetch("http://localhost:8082/users/read/" + user)
   
       tableDiv.className = "col-lg";
       tables.appendChild(tableDiv);
-      let seperator = document.createElement("div");
-      seperator.className = "col-1";
-      tables.appendChild(seperator);
     }
   }
