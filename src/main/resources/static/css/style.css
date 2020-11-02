@@ -240,6 +240,11 @@ tr {
   color: white;
 }
 
+.btn {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
 .btn:hover {
   background-color: #5249fa;
 }
