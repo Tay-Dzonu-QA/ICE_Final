@@ -25,6 +25,10 @@ public class User {
     @Column
     @Size(min = 8)
     private String password;
+    
+    @NotNull
+    @Column
+    private String name;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Playlist> playlists = new ArrayList<>();
@@ -37,15 +41,34 @@ public class User {
         super();
         this.username = username;
     }
+    public User(@NotNull @Size(max = 100) String username,@NotNull @Size(max = 100) String password){
+        super();
+        this.username = username;
+        this.password =password;
+    }
+    public User(@NotNull @Size(max = 100) String username,@NotNull @Size(max = 100) String password,@NotNull @Size(max = 100) String name){
+        super();
+        this.username = username;
+        this.password =password;
+        this.name=name;
+    }
     
-    
-    public User(Long id, @NotNull @Size(max = 100) String username,
-                @NotNull @Size(max = 100) String password, List<Playlist> playlists){
+    public User(Long id,@NotNull @Size(max = 100) String username){
         super();
         this.id = id;
-        this.password = password;
-        this.playlists = playlists;
         this.username = username;
+    }
+       
+    
+    public User(Long id, @NotNull @Size(max = 100) String username,
+                @NotNull @Size(max = 100) String password,String name, List<Playlist> playlists){
+        super();
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name=name;
+        this.playlists = playlists;  
+
     }
 
     public Long getId() {
@@ -72,7 +95,15 @@ public class User {
         this.password = password;
     }
 
-    public List<Playlist> getPlaylists() {
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Playlist> getPlaylists() {
         return playlists;
     }
 
@@ -81,28 +112,21 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id.equals(user.id) &&
-                username.equals(user.username) &&
-                password.equals(user.password) &&
-                playlists.equals(user.playlists);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof User)) {
+            return false;
+        }
+        User other = (User) obj;
+        return Objects.equals(username, other.username) &&  Objects.equals(id, other.id) && Objects.equals(name, other.name)
+                && Objects.equals(password, other.password) && Objects.equals(playlists, other.playlists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, playlists);
+        return Objects.hash(id, username, password,name, playlists);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", playlists=" + playlists +
-                '}';
-    }
 }

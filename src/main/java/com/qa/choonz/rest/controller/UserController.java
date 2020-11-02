@@ -1,8 +1,4 @@
 package com.qa.choonz.rest.controller;
-
-
-
-
 import com.qa.choonz.persistence.domain.User;
 
 
@@ -11,6 +7,7 @@ import com.qa.choonz.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

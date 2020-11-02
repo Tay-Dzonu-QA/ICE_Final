@@ -88,15 +88,43 @@ public class GenreServiceUnitTest {
 
 	        verify(this.repository, times(1)).findAll();
 	    }
+	    @Test
+	    void readAllDescTest() {
+	        when(repository.findAllDesc()).thenReturn(this.genres);
+	        when(this.modelMapper.map(testGenreWithId, GenreDTO.class)).thenReturn(genreDTO);
+	        
+	        assertThat(this.service.readDesc().isEmpty()).isFalse();
+
+	        verify(repository, times(1)).findAllDesc();
+	    }
+	    
+	    @Test
+	    void readByNameTest() {
+	        when(repository.orderByName()).thenReturn(this.genres);
+	        when(this.modelMapper.map(testGenreWithId, GenreDTO.class)).thenReturn(genreDTO);
+
+	        assertThat(this.service.readByName().isEmpty()).isFalse();
+
+	        verify(repository, times(1)).orderByName();
+	    }
+	    @Test
+	    void readByNameDescTest() {
+	        when(repository.orderByNameDesc()).thenReturn(this.genres);
+	        when(this.modelMapper.map(testGenreWithId, GenreDTO.class)).thenReturn(genreDTO);
+
+	        assertThat(this.service.readByNameDesc().isEmpty()).isFalse();
+
+	        verify(repository, times(1)).orderByNameDesc();
+	    }
 
 	    @Test
 	    void updateTest() {
 	    	
-	    	Genre genre = new Genre("Rock");
+	    	Genre genre = new Genre(testName);
 	    	
 	        genre.setId(this.id);
 
-	        GenreDTO genreDTO = new GenreDTO(id, "Rock");
+	        GenreDTO genreDTO = new GenreDTO(id, testName);
 
 	        Genre newGenre = new Genre(genreDTO.getName());
 	        newGenre.setId(this.id);

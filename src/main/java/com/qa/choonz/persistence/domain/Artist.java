@@ -92,4 +92,5 @@ public class Artist {
         return Objects.equals(albums, other.albums) && id == other.id && Objects.equals(name, other.name);
     }
 
+
 }

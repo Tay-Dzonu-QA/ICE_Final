@@ -40,6 +40,8 @@ public class TrackControllerUnitTest {
     private Track testTrackWithId;
     private TrackDTO trackDTO;
     private final Long id = 1L;
+    
+    private String testName = "Aint nothing changed";
 
     private TrackDTO mapToDTO(Track track) {
         return this.mapper.map(track, TrackDTO.class);
@@ -48,7 +50,7 @@ public class TrackControllerUnitTest {
     @BeforeEach
     void init() {
         this.tracks = new ArrayList<>();
-        this.testTrack = new Track("Aint nothing changed");
+        this.testTrack = new Track(testName);
         this.testTrackWithId = new Track(testTrack.getName());
         this.testTrackWithId.setId(id);
         this.tracks.add(testTrackWithId);
@@ -93,10 +95,24 @@ public class TrackControllerUnitTest {
         verify(this.service, times(1))
             .read();
     }
+    @Test
+    void readAlbumTest() {
+        when(service.readAlbum(1l))
+            .thenReturn(this.tracks
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readAlbum(1l).getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readAlbum(1l);
+    }
     
     @Test
     void updateTest() {
-        TrackDTO newTrack= new TrackDTO(1l, "Yellow");
+        TrackDTO newTrack= new TrackDTO(id, testName);
         TrackDTO updatedTrack= new TrackDTO(this.id, newTrack.getName());
 
         when(this.service.update(newTrack, this.id))

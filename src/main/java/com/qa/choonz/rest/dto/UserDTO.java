@@ -1,5 +1,6 @@
 package com.qa.choonz.rest.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,7 +8,8 @@ public class UserDTO {
     private Long id;
     private String username;
     private String password;
-    private List<PlaylistDTO> playlist;
+    private String name;
+    private List<PlaylistDTO> playlists = new ArrayList<>();
 
     public UserDTO(){
         super();
@@ -16,16 +18,31 @@ public class UserDTO {
     public UserDTO(Long id, String username) {
     	super();
     	this.id = id;
-    	this.username = username;
-    	
+    	this.username = username;   	
+    }
+    
+
+	public UserDTO(Long id, String username, String password) {
+    	super();
+    	this.id = id;
+    	this.username = username;  
+    	this.password = password;
+    }
+    public UserDTO(Long id, String username, String password,String name) {
+    	super();
+    	this.id = id;
+    	this.username = username;  
+    	this.password = password;
+    	this.name=name;
     }
 
-    public UserDTO(Long id, String username, String password, List<PlaylistDTO> playlist){
+    public UserDTO(Long id, String username, String password,String name, List<PlaylistDTO> playlists){
         super();
     	this.id = id;
         this.username = username;
         this.password = password;
-        this.playlist = playlist;
+        this.name=name;
+        this.playlists = playlists;
     }
 
     public Long getId() {
@@ -52,37 +69,38 @@ public class UserDTO {
         this.password = password;
     }
 
-    public List<PlaylistDTO> getPlaylist() {
-        return playlist;
-    }
+    public String getName() {
+		return name;
+	}
 
-    public void setPlaylist(List<PlaylistDTO> playlist) {
-        this.playlist = playlist;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
+
+    public List<PlaylistDTO> getPlaylists() {
+		return playlists;
+	}
+
+	public void setPlaylists(List<PlaylistDTO> playlists) {
+		this.playlists = playlists;
+	}
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserDTO userDTO = (UserDTO) o;
-        return id.equals(userDTO.id) &&
-                username.equals(userDTO.username) &&
-                password.equals(userDTO.password) &&
-                playlist.equals(userDTO.playlist);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof UserDTO)) {
+            return false;
+        }
+        UserDTO other = (UserDTO) obj;
+        return Objects.equals(username, other.username) &&  Objects.equals(id, other.id) && Objects.equals(name, other.name)
+                && Objects.equals(password, other.password) && Objects.equals(playlists, other.playlists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, playlist);
+        return Objects.hash(id, username, password,name, playlists);
     }
 
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", playlist=" + playlist +
-                '}';
-    }
 }

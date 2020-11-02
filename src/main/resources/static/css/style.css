@@ -102,12 +102,6 @@ body {
   padding: 20px;
 }
 
-.Album,
-.Artist,
-.Tracks,
-.Genre {
-  padding-left: 20px;
-}
 .card {
   margin-right: 20px;
 }
@@ -118,6 +112,17 @@ body {
   overflow: hidden;
   overflow-y: scroll;
 }
+
+.Album, .Artist {
+  display: inline-table;
+  padding: 20px;
+}
+
+.Genre, .Track {
+  display: inline-table;
+  padding: 20px;
+}
+
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;
@@ -190,3 +195,17 @@ body {
   font-weight: 600;
   text-decoration: none;
 }
+
+.playlistCard th{
+  display: none;
+}
+
+.card {
+  display: inline-block;
+  padding: 10px;
+}
+
+.row{
+  margin-bottom: 50px;
+}
+

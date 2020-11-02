@@ -1,21 +1,7 @@
-const params = new URLSearchParams(window.location.search);
-let loggedIn = false;
-let user = 0;
-let order ="";
-for (const param of params) {
-  if (param[0] === "user") {
-    user = param[1];
-    if (user !== 0) {
-      loggedIn = true;
-    }
-  }else if(param[0]==="order"){
-    order = "/"+param[1];
-  }
-}
-getGenres(loggedIn,user,order);
+getGenres(loggedIn, user, order);
 
-function getGenres(loggedIn,user,order) {
-  fetch("http://localhost:8082/genres/read"+order)
+function getGenres(loggedIn, user, order) {
+  fetch("http://localhost:8082/genres/read" + order)
     .then(function (response) {
       if (response.status !== 200) {
         console.log(
@@ -28,8 +14,8 @@ function getGenres(loggedIn,user,order) {
         let table = document.querySelector("#GenreTable");
         let data = Object.keys(GenreData[0]);
 
-        generateTableHead(table, data, loggedIn);
-        generateTable(table, GenreData, loggedIn,user);
+        generateTableHeadGe(table, data, loggedIn);
+        generateTableGe(table, GenreData, loggedIn, user);
         if (loggedIn) {
           generateAddGenreBtn(table);
         }
@@ -40,7 +26,7 @@ function getGenres(loggedIn,user,order) {
     });
 }
 
-function generateTableHead(table, data, loggedIn) {
+function generateTableHeadGe(table, data, loggedIn) {
   let thead = table.createTHead();
   let row = thead.insertRow();
   for (let key of data) {
@@ -66,7 +52,7 @@ function generateTableHead(table, data, loggedIn) {
   }
 }
 
-function generateTable(table, GenreData, loggedIn,user) {
+function generateTableGe(table, GenreData, loggedIn, user) {
   for (let element of GenreData) {
     let row = table.insertRow();
     for (key in element) {
@@ -86,7 +72,9 @@ function generateTable(table, GenreData, loggedIn,user) {
     myViewButton.className = "btn";
     myViewButton.id = "ViewGenreButton";
     let genre = element.id;
-    myViewButton.onclick = function(){document.location = "Album.html?user=" + user + "&genres=" + genre};
+    myViewButton.onclick = function () {
+      document.location = "Album.html?user=" + user + "&genres=" + genre;
+    };
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
@@ -139,7 +127,6 @@ function generateAddGenreBtn(table) {
   myAddGenreButton.setAttribute("data-toggle", "modal");
   myAddGenreButton.setAttribute("data-target", "#AddGenreModal");
 
-
   tableFooter.appendChild(myAddGenreButton);
   table.appendChild(tableFooter);
 }
@@ -175,16 +162,14 @@ document
     stop.preventDefault();
 
     let formElements = document.querySelector("form.EditGenre").elements;
-    console.log(formElements);
 
     let EditGenrename = formElements["EditGenreName"].value;
+    let description = formElements["EditGenreDescription"].value;
 
-
-    console.log(EditGenrename);
-    editGenre(EditGenrename, GenreId);
+    editGenre(EditGenrename, GenreId,description);
   });
 
-function editGenre(name, GenreId) {
+function editGenre(name, GenreId,description) {
   let ID = parseInt(GenreId);
   fetch("http://localhost:8082/genres/update/" + GenreId, {
     method: "put",
@@ -193,38 +178,8 @@ function editGenre(name, GenreId) {
     },
     body: (json = JSON.stringify({
       "id": ID,
-      "name": name
-    })),
-  })
-    .then(json)
-    .then(function (data) {
-      console.log("Request succeeded with JSON response", data);
-      // location.reload();
-    })
-    .catch(function (error) {
-      console.log("Request failed", error);
-    });
-}
-
-document
-  .querySelector("form.Genre")
-  .addEventListener("submit", function (stop) {
-    stop.preventDefault();
-
-    let formElements = document.querySelector("form.Genre").elements;
-    console.log(formElements);
-    let name = formElements["GenreName"].value;
-    addGenre(name);
-  });
-
-function addGenre(name) {
-  fetch("http://localhost:8082/genres/create", {
-    method: "post",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: (json = JSON.stringify({
-      "name": name
+      "name": name,
+      "description":description
     })),
   })
     .then(json)
@@ -237,3 +192,34 @@ function addGenre(name) {
     });
 }
 
+document
+  .querySelector("form.Genre")
+  .addEventListener("submit", function (stop) {
+    stop.preventDefault();
+
+    let formElements = document.querySelector("form.Genre").elements;
+    let name = formElements["GenreName"].value;
+    let description = formElements["GenreDescription"].value;
+    addGenre(name,description);
+  });
+
+function addGenre(name,description) {
+  fetch("http://localhost:8082/genres/create", {
+    method: "post",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: (json = JSON.stringify({
+      "name": name,
+      "description":description
+    })),
+  })
+    .then(json)
+    .then(function (data) {
+      console.log("Request succeeded with JSON response", data);
+      location.reload();
+    })
+    .catch(function (error) {
+      console.log("Request failed", error);
+    });
+}

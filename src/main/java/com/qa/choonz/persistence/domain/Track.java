@@ -35,7 +35,8 @@ public class Track {
 
     @ManyToMany(cascade = {
         CascadeType.PERSIST,
-        CascadeType.MERGE
+        CascadeType.MERGE,
+        CascadeType.DETACH
     })
     @JsonIgnoreProperties({"tracks","user"})
     private List<Playlist> playlists= new ArrayList<>();
@@ -53,6 +54,11 @@ public class Track {
     public Track(@NotNull @Size(max =100) String name) {
     	super();
     	this.name = name;
+    }
+    public Track(@NotNull @Size(max =100) String name,int duration) {
+    	super();
+    	this.name = name;
+    	this.duration = duration;
     }
     
     public Track(Long id, @NotNull @Size(max = 100) String name, Album album, List<Playlist> playlists, int duration, String lyrics) {

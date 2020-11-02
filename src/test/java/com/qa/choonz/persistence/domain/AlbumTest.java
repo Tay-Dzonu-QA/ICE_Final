@@ -15,6 +15,7 @@ public class AlbumTest {
 	
 
 		Album testAlbum;
+		Album testAlbum2;
 		final Long id = 1l;
 		final String name = "Rumours";
 		final String cover = "no";
@@ -35,12 +36,19 @@ public class AlbumTest {
 					null, 
 					this.cover);
 			
+			this.testAlbum2 = new Album(
+					this.id, 
+					this.name, 
+					this.tracks, 
+					null, 
+					null, 
+					this.cover);
+			
 					
 			sBuilder.setLength(0);
 			sBuilder
 			.append("\tTest ").append(activeTest).append("\n")
 			.append(div);
-			// Append info about vending machine here
 			
 			System.out.println(sBuilder.toString());
 			activeTest++;
@@ -74,6 +82,17 @@ public class AlbumTest {
 					this.cover);
 			assertThat(newAl instanceof Album);
 		}
+		@Test
+		void AllArgConsTest() {
+
+			Album newAl = new Album(
+					this.id,
+					this.name,
+					null,
+					null,
+					this.cover);
+			assertThat(newAl instanceof Album);
+		}
 		
 		@Test
 	    public void equalsWithNull() {
@@ -89,8 +108,18 @@ public class AlbumTest {
 		public void checkEquality() {
 		     assertTrue(testAlbum.equals(testAlbum));
 		    }
-		  
 		
+		@Test
+	    public void checkEqualityBetweenDifferentObjects() {
+	        assertTrue(testAlbum.equals(testAlbum2));
+	    }
+		
+		 @Test
+		    public void otherIdDifferent() {
+		        testAlbum2.setId(2L);
+		        assertFalse(testAlbum.equals(testAlbum2));
+		 }
+		  		
 		@Test
 		void GetIdTest() {
 			assertThat(this.testAlbum.getId() == this.id);
@@ -185,14 +214,6 @@ public class AlbumTest {
 			assertThat(this.testAlbum.equals(fullAlbum));
 		}
 		
-		@Test
-		void ToStringTest() {
-			
-			assertThat(this.testAlbum.toString()
-					.equals("Album [id=1, name=Rumours, "
-							+ "tracks=[], artist=null, genre=null, "
-							+ "cover=no]"));
-		}
 		
 		@Test
 		void HashCodeTest() {

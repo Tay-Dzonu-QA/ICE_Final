@@ -14,9 +14,11 @@ import org.junit.jupiter.api.Test;
 public class UserTest {
 	
 	User testUser;
+	User testUser2;
 	final Long id = 1l;
 	final String username = "OJ";
 	final String password = "password";
+	final String name = "myname";
 	List<Playlist> playlists;
 	
 	private static int activeTest = 1;
@@ -30,6 +32,14 @@ public class UserTest {
 				this.id, 
 				this.username, 
 				this.password,
+				this.name,
+				this.playlists);
+		
+		this.testUser2 = new User(
+				this.id, 
+				this.username, 
+				this.password,
+				this.name,
 				this.playlists);
 		
 		// Start of console test format
@@ -37,7 +47,6 @@ public class UserTest {
 		sBuilder
 		.append("\tTest ").append(activeTest).append("\n")
 		.append(div);
-		// Append info about vending machine here
 		
 		System.out.println(sBuilder.toString());
 		activeTest++;
@@ -53,12 +62,52 @@ public class UserTest {
 	}
 	
 	@Test
+	void oneArguConsTest() {
+
+		User newGenre = new User( 
+				this.username);
+		
+		assertThat(newGenre instanceof User);
+	}
+	
+	@Test
+	void twoArguConsTest() {
+
+		User newGenre = new User( 
+				this.username,
+				this.password);
+		
+		assertThat(newGenre instanceof User);
+	}
+	
+	@Test
+	void otherTwoArguConsTest() {
+
+		User newGenre = new User( 
+				this.id,
+				this.password);
+		
+		assertThat(newGenre instanceof User);
+	}
+	@Test
+	void threeArguConsTest() {
+
+		User newGenre = new User( 
+				this.username,
+				this.password,
+				this.name);
+		
+		assertThat(newGenre instanceof User);
+	}
+	
+	@Test
 	void AllArguConsTest() {
 
 		User newGenre = new User(
 				this.id, 
 				this.username, 
 				this.password,
+				this.name,
 				this.playlists);
 		
 		assertThat(newGenre instanceof User);
@@ -77,7 +126,18 @@ public class UserTest {
 	@Test
 	public void checkEquality() {
 	     assertTrue(testUser.equals(testUser));
-	    }
+	}
+	
+	@Test
+    public void checkEqualityBetweenDifferentObjects() {
+        assertTrue(testUser.equals(testUser2));
+    }
+	
+	 @Test
+	    public void otherIdDifferent() {
+	        testUser2.setId(2L);
+	        assertFalse(testUser.equals(testUser2));
+	}
 	
 	@Test
 	void GetIdTest() {
@@ -92,12 +152,12 @@ public class UserTest {
 	}
 	
 	@Test
-	void GetUserameTest() {
+	void GetUsernameTest() {
 		assertThat(this.testUser.getUsername().equals(this.username));
 	}
 	
 	@Test
-	void SetUsernameameTest() {
+	void SetUsernameTest() {
 		String newUsername = "Funk";
 		this.testUser.setUsername(newUsername);
 		assertThat(this.testUser.getUsername().equals(newUsername));
@@ -113,6 +173,17 @@ public class UserTest {
 		String newPass = "Funky";
 		this.testUser.setPassword(newPass);
 		assertThat(this.testUser.getPassword().equals(newPass));
+	}
+	@Test
+	void GetNameTest() {
+		assertThat(this.testUser.getName().equals(this.name));
+	}
+	
+	@Test
+	void SetUserNameTest() {
+		String newName = "Funk";
+		this.testUser.setName(newName);
+		assertThat(this.testUser.getUsername().equals(newName));
 	}
 	
 	
@@ -133,8 +204,8 @@ public class UserTest {
 	
 	@Test
 	void HashcodeTest() {
-		User pl1 = new User(id,username,password,playlists);
-		User pl2 = new User(id,username,password,playlists);
+		User pl1 = new User(id,username,password,name,playlists);
+		User pl2 = new User(id,username,password,name,playlists);
 		
 		assertTrue(pl1.hashCode() == pl2.hashCode());
 	}
@@ -146,6 +217,7 @@ public class UserTest {
 				this.id, 
 				this.username, 
 				this.password,
+				this.name,
 				this.playlists);
 		
 		

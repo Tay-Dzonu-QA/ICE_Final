@@ -39,6 +39,8 @@ public class PlaylistControllerUnitTest {
     private Playlist testPlaylistWithId;
     private PlaylistDTO playlistsDTO;
     private final Long id = 1L;
+    
+    private String testName = "Funky fresh";
 
     private PlaylistDTO mapToDTO(Playlist playlist) {
         return this.mapper.map(playlist, PlaylistDTO.class);
@@ -47,7 +49,7 @@ public class PlaylistControllerUnitTest {
     @BeforeEach
     void init() {
         this.playlists = new ArrayList<>();
-        this.testPlaylist = new Playlist("Fresh and Funky");
+        this.testPlaylist = new Playlist(testName);
         this.testPlaylistWithId = new Playlist(testPlaylist.getName());
         this.testPlaylistWithId.setId(id);
         this.playlists.add(testPlaylistWithId);
@@ -92,11 +94,47 @@ public class PlaylistControllerUnitTest {
         verify(this.service, times(1))
             .read();
     }
+    @Test
+    void readUserPlaylistsTest() {
+        when(service.readUserPlaylists(id))
+            .thenReturn(this.playlists
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readUserPlaylists(1l).getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readUserPlaylists(1l);
+    }
+    
+    @Test
+    void addTrackTest() {
+        when(service.addTrack(id,id))
+            .thenReturn(this.playlistsDTO);
+        
+        assertThat(this.controller.addTrack(id,id).hasBody());
+        
+        verify(this.service, times(1))
+            .addTrack(id,id);
+    }
+    
+    @Test
+    void removeTrackTest() {
+        when(service.removeTrack(id,id))
+            .thenReturn(this.playlistsDTO);
+        
+        assertThat(this.controller.removeTrack(id,id).hasBody());
+        
+        verify(this.service, times(1))
+            .removeTrack(id,id);
+    }
     
     @Test
     void updateTest() {
         // given
-    	PlaylistDTO newPlaylist = new PlaylistDTO(id, "Summer Choonz");
+    	PlaylistDTO newPlaylist = new PlaylistDTO(id, testName);
     	PlaylistDTO updatedPlaylist = new PlaylistDTO(this.id, newPlaylist.getName());
 
         when(this.service.update(newPlaylist, this.id))

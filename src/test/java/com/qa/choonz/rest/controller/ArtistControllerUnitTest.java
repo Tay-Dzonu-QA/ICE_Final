@@ -40,6 +40,8 @@ public class ArtistControllerUnitTest {
     private Artist testArtistWithId;
     private ArtistDTO artistDTO;
     private final Long id = 1L;
+    
+    private String testName = "Skepta";
 
     private ArtistDTO mapToDTO(Artist artist) {
         return this.mapper.map(artist, ArtistDTO.class);
@@ -48,7 +50,7 @@ public class ArtistControllerUnitTest {
     @BeforeEach
     void init() {
         this.artists = new ArrayList<>();
-        this.testArtist = new Artist("Skepta");
+        this.testArtist = new Artist(testName);
         this.testArtistWithId = new Artist(testArtist.getName());
         this.testArtistWithId.setId(id);
         this.artists.add(testArtistWithId);
@@ -93,10 +95,52 @@ public class ArtistControllerUnitTest {
         verify(this.service, times(1))
             .read();
     }
+    @Test
+    void readAllDescTest() {
+        when(service.readDesc())
+            .thenReturn(this.artists
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readDesc().getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readDesc();
+    }
+    @Test
+    void readByNameTest() {
+        when(service.readByName())
+            .thenReturn(this.artists
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readByName().getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readByName();
+    }
+    @Test
+    void readByNameDescTest() {
+        when(service.readByNameDesc())
+            .thenReturn(this.artists
+                    .stream()
+                    .map(this::mapToDTO)
+                    .collect(Collectors.toList()));
+        
+        assertThat(this.controller.readByNameDesc().getBody()
+                .isEmpty()).isFalse();
+        
+        verify(this.service, times(1))
+            .readByNameDesc();
+    }
     
     @Test
     void updateTest() {
-    	ArtistDTO newArtist= new ArtistDTO(id, "The Rolling Stones");
+    	ArtistDTO newArtist= new ArtistDTO(id, testName);
     	ArtistDTO updatedArtist= new ArtistDTO(this.id, newArtist.getName());
 
         when(this.service.update(newArtist, this.id))

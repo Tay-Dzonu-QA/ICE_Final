@@ -86,15 +86,36 @@ public class AlbumServiceUnitTest {
 
 	        verify(this.repository, times(1)).findAll();
 	    }
+	    
+	    @Test
+	    void readArtistTest() {
+
+	        when(this.repository.readArtist(1l)).thenReturn(this.albums);
+	        when(this.modelMapper.map(this.testAlbumWithId, AlbumDTO.class)).thenReturn(this.albumDTO);
+
+	        assertThat(this.service.readArtist(1l).isEmpty()).isFalse();
+
+	        verify(this.repository, times(1)).readArtist(1l);
+	    }
+	    @Test
+	    void readGenreTest() {
+
+	        when(this.repository.readGenre(1l)).thenReturn(this.albums);
+	        when(this.modelMapper.map(this.testAlbumWithId, AlbumDTO.class)).thenReturn(this.albumDTO);
+
+	        assertThat(this.service.readGenre(1l).isEmpty()).isFalse();
+
+	        verify(this.repository, times(1)).readGenre(1l);
+	    }
 
 	    @Test
 	    void updateTest() {
 	    	
-	        Album al = new Album("Sticky Fingers");
+	        Album al = new Album(testName);
 	        
 	        al.setId(this.id);
 
-	        AlbumDTO albumDTO = new AlbumDTO(id, "Sticky Fingers");
+	        AlbumDTO albumDTO = new AlbumDTO(id, testName);
 
 	        Album newAlbum = new Album(albumDTO.getName());
 	        

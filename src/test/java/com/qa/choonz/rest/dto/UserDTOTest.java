@@ -3,8 +3,6 @@ package com.qa.choonz.rest.dto;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +18,7 @@ public class UserDTOTest {
 	final Long id = 1l;
 	final String username = "OJ";
 	final String password = "password";
+	final String name = "myname";
 	List<PlaylistDTO> playlists;
 	
 	private static int activeTest = 1;
@@ -33,6 +32,7 @@ public class UserDTOTest {
 				this.id, 
 				this.username, 
 				this.password,
+				this.name,
 				this.playlists);
 		
 		// Start of console test format
@@ -40,7 +40,6 @@ public class UserDTOTest {
 		sBuilder
 		.append("\tTest ").append(activeTest).append("\n")
 		.append(div);
-		// Append info about vending machine here
 		
 		System.out.println(sBuilder.toString());
 		activeTest++;
@@ -56,12 +55,44 @@ public class UserDTOTest {
 	}
 	
 	@Test
+	void twoArguConsTest() {
+
+		UserDTO newUser = new UserDTO(
+				this.id, 
+				this.username);			
+		assertThat(newUser instanceof UserDTO);
+	}
+	
+	@Test
+	void threeArguConsTest() {
+
+		UserDTO newUser = new UserDTO(
+				this.id, 
+				this.username,
+				this.password);	
+		
+		assertThat(newUser instanceof UserDTO);
+	}
+	@Test
+	void fourArguConsTest() {
+
+		UserDTO newUser = new UserDTO(
+				this.id, 
+				this.username,
+				this.password,
+				this.name);	
+		
+		assertThat(newUser instanceof UserDTO);
+	}
+	
+	@Test
 	void AllArguConsTest() {
 
 		UserDTO newUser = new UserDTO(
 				this.id, 
 				this.username, 
 				this.password,
+				this.name,
 				this.playlists);
 		
 		assertThat(newUser instanceof UserDTO);
@@ -95,12 +126,12 @@ public class UserDTOTest {
 	}
 	
 	@Test
-	void GetUserameTest() {
+	void GetUsernameTest() {
 		assertThat(this.testUserDTO.getUsername().equals(this.username));
 	}
 	
 	@Test
-	void SetUsernameameTest() {
+	void SetUsernameTest() {
 		String newUsername = "Funk";
 		this.testUserDTO.setUsername(newUsername);
 		assertThat(this.testUserDTO.getUsername().equals(newUsername));
@@ -117,11 +148,22 @@ public class UserDTOTest {
 		this.testUserDTO.setPassword(newPass);
 		assertThat(this.testUserDTO.getPassword().equals(newPass));
 	}
+	@Test
+	void GetNameTest() {
+		assertThat(this.testUserDTO.getName().equals(this.name));
+	}
+	
+	@Test
+	void SetNameTest() {
+		String newName = "Funk";
+		this.testUserDTO.setName(newName);
+		assertThat(this.testUserDTO.getName().equals(newName));
+	}
 	
 	
 	@Test
 	void GetPlaylistTest() {
-		assertThat(this.testUserDTO.getPlaylist() == this.playlists);
+		assertThat(this.testUserDTO.getPlaylists() == this.playlists);
 	}
 	
 	@Test
@@ -129,15 +171,15 @@ public class UserDTOTest {
 		PlaylistDTO newPl = new PlaylistDTO();
 		List<PlaylistDTO> newPlaylists = new ArrayList<PlaylistDTO>();
 		newPlaylists.add(newPl);
-		this.testUserDTO.setPlaylist(newPlaylists);
-		assertThat(this.testUserDTO.getPlaylist() == newPlaylists);
+		this.testUserDTO.setPlaylists(newPlaylists);
+		assertThat(this.testUserDTO.getPlaylists() == newPlaylists);
 	}
 	
 	
 	@Test
 	void HashcodeTest() {
-		UserDTO pl1 = new UserDTO(id,username,password,playlists);
-		UserDTO pl2 = new UserDTO(id,username,password,playlists);
+		UserDTO pl1 = new UserDTO(id,username,password,name,playlists);
+		UserDTO pl2 = new UserDTO(id,username,password,name,playlists);
 		
 		assertTrue(pl1.hashCode() == pl2.hashCode());
 	}
@@ -149,20 +191,12 @@ public class UserDTOTest {
 				this.id, 
 				this.username, 
 				this.password,
+				this.name,
 				this.playlists);
 		
 		
 		assertThat(!this.testUserDTO.equals(emptyUser));
 		assertThat(this.testUserDTO.equals(fullUser));		
-	}
-	
-	@Test
-	public void toStringTests() {		
-		UserDTO user = new UserDTO(id,username,password,null);
-		
-		assertNotNull(user.toString());
-		assertEquals("UserDTO{id=1, username='OJ', password='password', playlist=null}"
-				,user.toString());
 	}
 
 	@AfterEach
