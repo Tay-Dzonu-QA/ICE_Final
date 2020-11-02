@@ -115,27 +115,6 @@ body {
   padding: 20px;
 }
 
-.card {
-  margin-right: 20px;
-}
-
-.card ul {
-  height: 160px;
-  width: 18rem;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-.Album, .Artist {
-  display: inline-table;
-  padding: 20px;
-}
-
-.Genre, .Track {
-  display: inline-table;
-  padding: 20px;
-}
-
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;
@@ -225,6 +204,12 @@ body {
 tr {
   color: #fff;
   background-color: #1b1f3b;
+  text-align: center;
+}
+
+th {
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .dataRow{
@@ -247,4 +232,8 @@ tr {
 
 .btn:hover {
   background-color: #5249fa;
+}
+
+#PLTables {
+  padding-top: 20px;
 }
