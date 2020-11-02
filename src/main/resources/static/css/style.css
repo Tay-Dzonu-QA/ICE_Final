@@ -215,6 +215,7 @@ th {
 .dataRow{
   color: #fff;
   background-color: #736ced;
+  line-height: 50px;
 }
 
 .dataRow:hover {
@@ -222,11 +223,16 @@ th {
 }
 
 .material-icons {
-  color: white;
+  align-items: center;
+  color: #736ced;
+}
+
+.dataRow:hover .material-icons {
+  color: #fff;
 }
 
 .btn {
-  margin-top: 10px;
+  padding: 5px;
   margin-right: 5px;
 }
 
