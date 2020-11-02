@@ -2,7 +2,7 @@ function generateTableHeadPl(table, data) {
   let thead = table.createTHead();
   let row = thead.insertRow();
   for (let key of data) {
-    if (key === "playlist"||key==="id") {
+    if (key === "playlist"||key==="id"||key==="lyrics") {
       continue;
     }
     let th = document.createElement("th");
@@ -30,7 +30,7 @@ function generateTablePl(table, TrackData, user, playlistToView) {
     let row = table.insertRow();
     row.className = "dataRow";
     for (key in element) {
-      if (key === "playlist"||key==="id") {
+      if (key === "playlist"||key==="id"||key==="lyrics") {
         continue;
       }
       let cell = row.insertCell();
