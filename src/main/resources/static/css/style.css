@@ -102,8 +102,9 @@ body {
   cursor: pointer;
   background-color: #736ced;
   color: white;
-  padding: 10px 15px;
+  padding: 5px 10px;
   border: none;
+  margin-top: 30px;
 }
 
 .openbtn:hover {
