@@ -30,6 +30,9 @@ function generateTableHeadAr(table, data, loggedIn) {
   let thead = table.createTHead();
   let row = thead.insertRow();
   for (let key of data) {
+    if (key === "id") {
+      continue;
+    }
     let th = document.createElement("th");
     let text = document.createTextNode(key);
     th.appendChild(text);
@@ -56,6 +59,9 @@ function generateTableAr(table, ArtistData, loggedIn,user) {
   for (let element of ArtistData) {
     let row = table.insertRow();
     for (key in element) {
+      if (key === "id") {
+        continue;
+      }
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
       if (key === "albums") {
