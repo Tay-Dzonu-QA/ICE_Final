@@ -50,7 +50,8 @@ function generateTableHeadTR(table, data, loggedIn) {
         row.appendChild(th);
     }
     let th = document.createElement("th");
-    let text = document.createTextNode("View Track");
+    th.className = "btnCol";
+    let text = document.createTextNode("");
     th.appendChild(text);
     row.appendChild(th);
 

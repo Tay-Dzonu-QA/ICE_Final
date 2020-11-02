@@ -46,7 +46,8 @@ function generateTableHeadAl(table, data, loggedIn) {
         row.appendChild(th);
     }
     let th = document.createElement("th");
-    let text = document.createTextNode("View Album");
+    th.className = "btnCol";
+    let text = document.createTextNode("");
     th.appendChild(text);
     row.appendChild(th);
     if (loggedIn == true) {

@@ -36,7 +36,8 @@ function generateTableHeadAr(table, data, loggedIn) {
     row.appendChild(th);
   }
   let th = document.createElement("th");
-  let text = document.createTextNode("View Artist");
+  th.className = "btnCol";
+  let text = document.createTextNode("");
   th.appendChild(text);
   row.appendChild(th);
   if (loggedIn == true) {
