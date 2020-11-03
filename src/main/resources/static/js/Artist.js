@@ -60,6 +60,7 @@ function generateTableAr(table, ArtistData, loggedIn,user) {
   for (let element of ArtistData) {
     let row = table.insertRow();
     row.className = "dataRow";
+    row.id = "ArtistRow"+element.id;
     for (key in element) {
       if (key === "id") {
         continue;
@@ -78,9 +79,9 @@ function generateTableAr(table, ArtistData, loggedIn,user) {
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
-    myViewButton.id = "ViewArtistButton";
+    myViewButton.id = "ViewArtistButton"+element.id;
     let artist = element.id;
-    myViewButton.onclick = function(){document.location = "Album.html?loggedIn=" + loggedIn + "&artists=" + artist};
+    myViewButton.onclick = function(){document.location = "Album.html?user=" + user + "&artists=" + artist};
 
     let viewIcon = document.createElement("span");
     viewIcon.className = "material-icons";
