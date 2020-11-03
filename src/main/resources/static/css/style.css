@@ -9,17 +9,19 @@ Light Orange: e7cfb3
 https://coolors.co/f2dfd7-fef9ff-d4c1ec-9f9fed-736ced
 */
 
-
 body {
-  background-image: url('../img/');
+  background-image: url("../img/bg.jpg");
   padding-top: 40px;
+}
+
+h2, h3, h4, h5 {
+  color: #fff;
 }
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
   outline: 0;
   color: #fff;
-  
 }
 
 .navbar-toggler.collapsed .close-icon {
@@ -87,7 +89,7 @@ body {
 }
 
 .sidebar a:hover {
-  color: #e7cfb3;
+  color: #e67d37;
 }
 
 .sidebar .closebtn {
@@ -131,7 +133,6 @@ body {
   padding: 20px;
 }
 
-
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;
@@ -156,7 +157,6 @@ body {
 .login-container {
   margin-top: 5%;
   margin-bottom: 2%;
-
 }
 .login-form {
   padding: 2%;
@@ -208,11 +208,11 @@ body {
   text-decoration: none;
 }
 
-.playlistCard th{
+.playlistCard th {
   display: none;
 }
 
-.row{
+.row {
   margin-bottom: 50px;
 }
 
@@ -227,7 +227,7 @@ th {
   padding-left: 10px;
 }
 
-.dataRow{
+.dataRow {
   color: #fff;
   background-color: #736ced;
   line-height: 50px;
@@ -266,4 +266,8 @@ th {
 
 #PLTables {
   padding-top: 20px;
+}
+
+.UserPlaylist {
+  background-color: rgba(0, 0, 0, 0.85);
 }
