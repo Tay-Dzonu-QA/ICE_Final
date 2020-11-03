@@ -10,7 +10,7 @@ fetch("http://localhost:8082/users/read/" + user)
     response.json().then(function (UserData) {
       console.log(UserData);
       let welcome = document.querySelector("#userName");
-      welcome.innerHTML = "Welcome back " + UserData.name;
+      welcome.innerHTML = "Welcome back " + UserData.name + "!";
       let PLData = UserData.playlists;
       let tables = document.querySelector("#PLTables");
       console.log(PLData);
@@ -42,7 +42,7 @@ function createTables(tables, PLData) {
     }else{
     let data = Object.keys(element.tracks[0]);
     generateTableHeadPl(table, data);
-    generateTablePl(table, element.tracks, Name, playlistToView);
+    generateTablePl(table, element.tracks, user, playlistToView);
     tableDiv.appendChild(table);
     }
 
