@@ -22,58 +22,70 @@
     <!-- Navbar -->
 
     <nav class="navbar fixed-top navbar-expand-lg">
-        <a class="navbar-brand" id ="LogoLink">
-            <img class="logo" src="../img/imgInvert.png" width="auto" ml-auto height="60" /></a>
-        <button id = "collapseIcon" class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
-                <span class="navbar-toggler-icon"></span>
-                <div class="close-icon py-1">&#9776</div>
-            </button>
-        <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar">
-            <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" id="UserLink">
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="TrackLink">Tracks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="ArtistLink">Artists</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="GenreLink">Genres</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="AlbumLink">Albums</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="IndexLink" href="index.html"></a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="./">
+        <img
+          class="logo"
+          src="../img/imgInvert.png"
+          width="auto"
+          ml-auto
+          height="60"
+      /></a>
+      <button
+        id="collapseIcon"
+        class="navbar-toggler collapsed border-0"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsingNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+        <div class="close-icon py-1">☰</div>
+      </button>
+      <div class="collapse navbar-collapse w-100 order-3" id="collapsingNavbar">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item" id="UserLink"></li>
+          <li class="nav-item">
+            <a class="nav-link" id="TrackLink">Tracks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="ArtistLink">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="GenreLink">Genres</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="AlbumLink">Albums</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="IndexLink" href="index.html"></a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <!-- /Navbar -->
 
-    <div class="UserGreetings">
-      <h2 class="display-3" id="userName"></h2>
-    </div>
-
     <!-- Playlist Cards -->
     <div class="UserPlaylist">
-        <h2 class="display-4">Your Playlists:</h2>
-        <div id="PLTables" class="row"></div>
+      <div class="UserGreetings">
+        <h2 class="display-3" id="userName"></h2>
+      </div>
+      <h2 class="display-4">Your Playlists:</h2>
+      <div id="PLTables" class="row"></div>
 
-    <div id="PlaylistAdd" class="row">
-      <!-- Button trigger modal -->
-      <div class="col-4"></div>
-      <button
-        id="addPLButton"
-        type="button"
-        class="btn btn-primary col-3"
-        data-toggle="modal"
-        data-target="#AddPLModal"
-      >
-        Add New Playlist
-      </button>
+      <div id="PlaylistAdd" class="row">
+        <!-- Button trigger modal -->
+        <div class="col-4"></div>
+        <button
+          id="addPLButton"
+          type="button"
+          class="btn btn-primary col-4"
+          data-toggle="modal"
+          data-target="#AddPLModal"
+        >
+          Add New Playlist
+        </button>
+      </div>
     </div>
+
     <div
       class="modal fade"
       id="AddPLModal"
@@ -219,9 +231,18 @@
       </div>
     </div>
     <!-- / Playlist Cards -->
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+
+    <div
+      id="carouselExampleCaptions"
+      class="carousel slide"
+      data-ride="carousel"
+    >
       <ol class="carousel-indicators">
-        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li
+          data-target="#carouselExampleCaptions"
+          data-slide-to="0"
+          class="active"
+        ></li>
         <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
         <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
         <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
@@ -233,99 +254,205 @@
         <li data-target="#carouselExampleCaptions" data-slide-to="9"></li>
         <li data-target="#carouselExampleCaptions" data-slide-to="10"></li>
       </ol>
-  
+
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../img/img1.jpg" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block"
-            alt="...">
+          <img
+            src="../img/img1.jpg"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img2.jpg" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block"
-            alt="...">
+          <img
+            src="../img/img2.jpg"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img3.jpg" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block"
-            alt="...">
+          <img
+            src="../img/img3.jpg"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img4.jpg" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block"
-            alt="...">
+          <img
+            src="../img/img4.jpg"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img5.jpg" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block"
-            alt="...">
+          <img
+            src="../img/img5.jpg"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img6.png" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block" alt="...">
+          <img
+            src="../img/img6.png"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img7.jpg" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block" alt="...">
+          <img
+            src="../img/img7.jpg"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img8.jpg" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block" alt="...">
+          <img
+            src="../img/img8.jpg"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img9.jpg" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block" alt="...">
+          <img
+            src="../img/img9.jpg"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img10.png" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block" alt="...">
+          <img
+            src="../img/img10.png"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../img/img11.jpg" style="height:400px;" style="width:400px;" class="rounded mx-auto d-block" alt="...">
+          <img
+            src="../img/img11.jpg"
+            style="height: 400px"
+            style="width: 400px"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <a
+        class="carousel-control-prev"
+        href="#carouselExampleCaptions"
+        role="button"
+        data-slide="prev"
+      >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <a
+        class="carousel-control-next"
+        href="#carouselExampleCaptions"
+        role="button"
+        data-slide="next"
+      >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
+    </div>
+    <br />
+    <!-- /Login Form -->
+
+    <div class="row row-cols-1 row-cols-md-6">
+      <div class="col mb-4">
+        <div class="card">
+          <img src="../img/img1.jpg" class="card-img-top" alt="..." />
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="../img/img2.jpg" class="card-img-top" alt="..." />
+        </div>
+      </div>
+      <div class="col mb-1">
+        <div class="card">
+          <img src="../img/img3.jpg" class="card-img-top" alt="..." />
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="../img/img4.jpg" class="card-img-top" alt="..." />
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="../img/img5.jpg" class="card-img-top" alt="..." />
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="../img/img6.png" class="card-img-top" alt="..." />
+        </div>
+      </div>
     </div>
 
     <script src="../js/Params.js"></script>

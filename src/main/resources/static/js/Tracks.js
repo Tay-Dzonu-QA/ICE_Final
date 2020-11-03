@@ -84,9 +84,6 @@ function generateTableTR(table, TrackData, loggedIn, user) {
   let modalAddToPlaylist = document.getElementById("PlaylistAdd");
   addPlaylists(modalAddToPlaylist, user);
 
-  let modalEditTrackAlbum = document.getElementById("EditTrackAlbum");
-  addAlbumList(modalEditTrackAlbum);
-
   for (let element of TrackData) {
     let row = table.insertRow();
     row.className = "dataRow";
@@ -116,12 +113,6 @@ function generateTableTR(table, TrackData, loggedIn, user) {
     newCell.appendChild(myViewButton);
 
     changeAddTrackModal();
-
-    let modalAddToPlaylist = document.getElementById("PlaylistAdd");
-    addPlaylists(modalAddToPlaylist, user);
-
-    let modalEditTrackAlbum = document.getElementById("EditTrackAlbum");
-    addAlbumList(modalEditTrackAlbum);
 
     if (loggedIn == true) {
       let ID = element.id;
