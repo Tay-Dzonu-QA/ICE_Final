@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="../css/style.css" />
   </head>
 
+  <style>
+    body {
+      background-image: url("../img/track-bg.jpg");
+    }
+  </style>
+
   <body>
     <!-- Navbar -->
 
@@ -71,20 +77,22 @@
     <div class="UserPlaylist">
       <h2>Your Playlists</h2>
       <div id="PLTables" class="row"></div>
+
+      <div id="PlaylistAdd" class="row">
+        <!-- Button trigger modal -->
+        <div class="col-4"></div>
+        <button
+          id="addPLButton"
+          type="button"
+          class="btn btn-primary col-4"
+          data-toggle="modal"
+          data-target="#AddPLModal"
+        >
+          Add New Playlist
+        </button>
+      </div>
     </div>
-    <div id="PlaylistAdd" class="row">
-      <!-- Button trigger modal -->
-      <div class="col-4"></div>
-      <button
-        id="addPLButton"
-        type="button"
-        class="btn btn-primary col-3"
-        data-toggle="modal"
-        data-target="#AddPLModal"
-      >
-        Add New Playlist
-      </button>
-    </div>
+
     <div
       class="modal fade"
       id="AddPLModal"
