@@ -9,16 +9,22 @@ Light Orange: e7cfb3
 https://coolors.co/f2dfd7-fef9ff-d4c1ec-9f9fed-736ced
 */
 
-
 body {
+  background-image: url("../img/bg.jpg");
   padding-top: 40px;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  color: #fff;
 }
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
   outline: 0;
   color: #fff;
-  
 }
 
 .navbar-toggler.collapsed .close-icon {
@@ -52,7 +58,7 @@ body {
 
 .nav > li > a:hover {
   color: #e7cfb3;
-  background-color:#0062cc;
+  background-color: #0062cc;
   transition: 0.3s;
 }
 
@@ -68,7 +74,7 @@ body {
   z-index: 1;
   background-color: #1b1f3b;
   overflow-x: hidden;
-  padding-top: 60px;
+  padding-top: 80px;
   transition: 0.5s;
   margin-top: 20px;
 }
@@ -87,12 +93,12 @@ body {
 }
 
 .sidebar a:hover {
-  color:#0062cc;
+  color: #0062cc;
 }
 
 .sidebar .closebtn {
   position: absolute;
-  top: 0;
+  top: 25px;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
@@ -109,26 +115,22 @@ body {
 }
 
 .openbtn:hover {
-  background-color:  #1b1f3b;
+  background-color: #1b1f3b;
 }
 
-#main {
-  transition: margin-left 0.5s;
-  padding: 20px;
-}
-
-
+#main,
 #albumTitle,
 #artistTitle,
 #trackTitle,
 #genreTitle,
 #playlistTitle {
-  margin-top: -30px;
+  transition: margin-left 0.5s;
+  padding: 20px;
 }
 
 .UserGreetings {
-  padding: 20px;
-  margin-top: 40px;
+  padding: 50px;
+  text-align: center;
 }
 
 .UserPlaylist {
@@ -159,10 +161,10 @@ body {
 
 .login-container {
   margin-top: 5%;
-  margin-bottom: -4%;
-
+  margin-bottom: 2%;
 }
 .login-form {
+  background-color: #fff;
   padding: 2%;
   margin-left: 16%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
@@ -212,16 +214,7 @@ body {
   text-decoration: none;
 }
 
-.playlistCard th{
-  display: none;
-}
-
-.card {
-  display: inline-block;
-  padding: 10px;
-}
-
-.row{
+.row {
   margin-bottom: 50px;
 }
 
@@ -236,33 +229,37 @@ th {
   padding-left: 10px;
 }
 
-.dataRow{
+.dataRow {
   color: #fff;
   background-color: #0062cc;
   line-height: 50px;
 }
 
 .dataRow:hover {
-  background-color: #1b1f3b;
+  background-color: #4c86c4;
 }
 
 .material-icons {
   align-items: center;
-  color:  #1b1f3b;
+  color: #0062cc;
 }
 
 .dataRow:hover .material-icons {
   color: #fff;
 }
 
+.btn:hover .material-icons {
+  color: #fff;
+}
+
 .btn {
   padding: 5px;
   margin-top: 5px;
-  margin-left: 4%;
+  margin-left: 5px;
 }
 
 .btn:hover {
-  background-color:#0062cc;
+  background-color: #0062cc;
 }
 
 .btnCol {
@@ -271,6 +268,14 @@ th {
 
 #PLTables {
   padding-top: 20px;
-  margin-left: 3%;
+}
+
+.UserPlaylist,
+.TableBody {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.TableBody {
+  padding: 10px;
 }
 

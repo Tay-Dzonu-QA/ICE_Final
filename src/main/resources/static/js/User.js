@@ -8,12 +8,10 @@ fetch("http://localhost:8082/users/read/" + user)
     }
     //console.log(response);
     response.json().then(function (UserData) {
-      console.log(UserData);
       let welcome = document.querySelector("#userName");
       welcome.innerHTML = "Welcome back " + UserData.name + "!";
       let PLData = UserData.playlists;
       let tables = document.querySelector("#PLTables");
-      console.log(PLData);
       createTables(tables, PLData);
     });
   })
@@ -22,12 +20,28 @@ fetch("http://localhost:8082/users/read/" + user)
   });
 
 function createTables(tables, PLData) {
+  console.log(PLData.length);
+  console.log("entered if statement");
+    let userClass = document.querySelector(".UserPlaylist")
+    let noPLElement = document.createElement("h3");
+    noPLElement.textContent = "No Playlist Found. Please Create New Playlists.";
+    noPLElement.style.display = "none";
+    userClass.appendChild(noPLElement);
+  if (PLData.length === 0) {
+    noPLElement.style.display = "block";
+    let title = document.querySelector("h2");
+    title.style.display = "none";
+  } else {
+    noPLElement.style.display = "none";
+  }
+
+  let modalAddTrackPL = document.getElementById("TrackAdd");
+  addTracks(modalAddTrackPL);
+
   for (element of PLData) {
     let ID = element.id;
     let Name = element.name;
     let Describe = element.description;
-    let modalAddTrackPL = document.getElementById("TrackAdd");
-    addTracks(modalAddTrackPL);
 
     let tableDiv = document.createElement("div");
     let table = document.createElement("table");
@@ -41,6 +55,7 @@ function createTables(tables, PLData) {
       tableDiv.appendChild(empty);
     }else{
     let data = Object.keys(element.tracks[0]);
+    
     generateTableHeadPl(table, data);
     generateTablePl(table, element.tracks, user, playlistToView);
     tableDiv.appendChild(table);
@@ -52,11 +67,8 @@ function createTables(tables, PLData) {
     //Need to add footer for deleta and edit track list
     tableDiv.appendChild(tableFooter);
 
-    tableDiv.className = "col-lg";
+    tableDiv.className = "col";
     tables.appendChild(tableDiv);
-    let seperator = document.createElement("div");
-    seperator.className = "col-1";
-    tables.appendChild(seperator);
   }
 }
 
