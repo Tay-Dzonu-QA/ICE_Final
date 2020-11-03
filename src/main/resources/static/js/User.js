@@ -24,7 +24,6 @@ function createTables(tables, PLData) {
   if (PLData.length === 0) {
     console.log("entered if statement");
     let userClass = document.querySelector(".UserPlaylist")
-    let emptyDiv = document.createElement("div");
     let noPLElement = document.createElement("h3");
     noPLElement.textContent = "No Playlist Found. Please Create New Playlists.";
     noPLElement.style.display = "block";
