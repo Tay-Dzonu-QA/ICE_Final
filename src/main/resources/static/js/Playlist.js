@@ -7,7 +7,7 @@ function generateTableHeadPl(table, data) {
       continue;
     }
     let th = document.createElement("th");
-    th.style.width = "500px";
+    th.style.width = "33%";
     let text = document.createTextNode(key);
     th.appendChild(text);
     row.appendChild(th);
