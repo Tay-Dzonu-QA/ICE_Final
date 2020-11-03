@@ -11,6 +11,7 @@ https://coolors.co/f2dfd7-fef9ff-d4c1ec-9f9fed-736ced
 
 
 body {
+  background-image: url('../img/');
   padding-top: 40px;
 }
 
@@ -68,7 +69,7 @@ body {
   z-index: 1;
   background-color: #1b1f3b;
   overflow-x: hidden;
-  padding-top: 60px;
+  padding-top: 80px;
   transition: 0.5s;
 }
 
@@ -91,7 +92,7 @@ body {
 
 .sidebar .closebtn {
   position: absolute;
-  top: 0;
+  top: 25px;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
