@@ -243,7 +243,7 @@ th {
 }
 
 .dataRow:hover {
-  background-color: #0062cc;
+  background-color: #1b1f3b;
 }
 
 .material-icons {
@@ -258,7 +258,7 @@ th {
 .btn {
   padding: 5px;
   margin-top: 5px;
-  margin-right: 5px;
+  margin-left: 4%;
 }
 
 .btn:hover {
@@ -271,4 +271,6 @@ th {
 
 #PLTables {
   padding-top: 20px;
+  margin-left: 3%;
 }
+
