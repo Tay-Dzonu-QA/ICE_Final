@@ -21,20 +21,23 @@ fetch("http://localhost:8082/users/read/" + user)
 
 function createTables(tables, PLData) {
   console.log(PLData.length);
-  if (PLData.length === 0) {
-    console.log("entered if statement");
+  console.log("entered if statement");
     let userClass = document.querySelector(".UserPlaylist")
     let noPLElement = document.createElement("h3");
     noPLElement.textContent = "No Playlist Found. Please Create New Playlists.";
-    noPLElement.style.display = "block";
-    noPLElement.style.textAlign = "center"
+    noPLElement.style.display = "none";
     userClass.appendChild(noPLElement);
-    
+  if (PLData.length === 0) {
+    noPLElement.style.display = "block";
+    let title = document.querySelector("h2");
+    title.style.display = "none";
+  } else {
+    noPLElement.style.display = "none";
   }
 
   let modalAddTrackPL = document.getElementById("TrackAdd");
   addTracks(modalAddTrackPL);
-  
+
   for (element of PLData) {
     let ID = element.id;
     let Name = element.name;
