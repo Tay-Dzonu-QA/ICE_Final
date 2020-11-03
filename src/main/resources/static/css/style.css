@@ -58,7 +58,7 @@ h5 {
 
 .nav > li > a:hover {
   color: #e7cfb3;
-  background-color: #9f9fed;
+  background-color:#0062cc;
   transition: 0.3s;
 }
 
@@ -76,6 +76,7 @@ h5 {
   overflow-x: hidden;
   padding-top: 80px;
   transition: 0.5s;
+  margin-top: 20px;
 }
 
 .sidebar h2 {
@@ -92,7 +93,7 @@ h5 {
 }
 
 .sidebar a:hover {
-  color: #e67d37;
+  color:#0062cc;
 }
 
 .sidebar .closebtn {
@@ -106,7 +107,7 @@ h5 {
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: #736ced;
+  background-color: #0062cc;
   color: white;
   padding: 5px 10px;
   border: none;
@@ -114,7 +115,7 @@ h5 {
 }
 
 .openbtn:hover {
-  background-color: #000;
+  background-color:  #1b1f3b;
 }
 
 #main,
@@ -128,12 +129,13 @@ h5 {
 }
 
 .UserGreetings {
-  padding-top: 50px;
+  padding: 50px;
   text-align: center;
 }
 
 .UserPlaylist {
   padding: 20px;
+  margin-top: -30px;
 }
 
 @media screen and (max-height: 450px) {
@@ -211,10 +213,6 @@ h5 {
   text-decoration: none;
 }
 
-.playlistCard th {
-  display: none;
-}
-
 .row {
   margin-bottom: 50px;
 }
@@ -232,17 +230,17 @@ th {
 
 .dataRow {
   color: #fff;
-  background-color: #736ced;
+  background-color: #0062cc;
   line-height: 50px;
 }
 
 .dataRow:hover {
-  background-color: #847ef8;
+  background-color: #4c86c4;
 }
 
 .material-icons {
   align-items: center;
-  color: #736ced;
+  color:  #0062cc;
 }
 
 .dataRow:hover .material-icons {
@@ -256,11 +254,11 @@ th {
 .btn {
   padding: 5px;
   margin-top: 5px;
-  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .btn:hover {
-  background-color: #5249fa;
+  background-color:#0062cc;
 }
 
 .btnCol {
@@ -274,4 +272,8 @@ th {
 .UserPlaylist,
 .TableBody {
   background-color: rgba(0, 0, 0, 0.85);
+}
+
+.TableBody {
+  padding: 10px;
 }
