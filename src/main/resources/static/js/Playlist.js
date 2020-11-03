@@ -1,11 +1,13 @@
 function generateTableHeadPl(table, data) {
   let thead = table.createTHead();
   let row = thead.insertRow();
+  
   for (let key of data) {
     if (key === "playlist"||key==="id"||key==="lyrics") {
       continue;
     }
     let th = document.createElement("th");
+    th.style.width = "500px";
     let text = document.createTextNode(key);
     th.appendChild(text);
     row.appendChild(th);
