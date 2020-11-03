@@ -8,12 +8,10 @@ fetch("http://localhost:8082/users/read/" + user)
     }
     //console.log(response);
     response.json().then(function (UserData) {
-      console.log(UserData);
       let welcome = document.querySelector("#userName");
       welcome.innerHTML = "Welcome back " + UserData.name;
       let PLData = UserData.playlists;
       let tables = document.querySelector("#PLTables");
-      console.log(PLData);
       createTables(tables, PLData);
     });
   })
@@ -22,6 +20,18 @@ fetch("http://localhost:8082/users/read/" + user)
   });
 
 function createTables(tables, PLData) {
+  console.log(PLData.length);
+  if (PLData.length === 0) {
+    console.log("entered if statement");
+    let userClass = document.querySelector(".UserPlaylist")
+    let emptyDiv = document.createElement("div");
+    let noPLElement = document.createElement("h3");
+    noPLElement.textContent = "No Playlist Found. Please Create New Playlists.";
+    noPLElement.style.display = "block";
+    noPLElement.style.textAlign = "center"
+    userClass.appendChild(noPLElement);
+    
+  }
   for (element of PLData) {
     let ID = element.id;
     let Name = element.name;
