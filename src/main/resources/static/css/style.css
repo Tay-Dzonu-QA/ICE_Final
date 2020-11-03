@@ -52,7 +52,7 @@ body {
 
 .nav > li > a:hover {
   color: #e7cfb3;
-  background-color: #9f9fed;
+  background-color:#0062cc;
   transition: 0.3s;
 }
 
@@ -70,6 +70,7 @@ body {
   overflow-x: hidden;
   padding-top: 60px;
   transition: 0.5s;
+  margin-top: 20px;
 }
 
 .sidebar h2 {
@@ -86,7 +87,7 @@ body {
 }
 
 .sidebar a:hover {
-  color: #e7cfb3;
+  color:#0062cc;
 }
 
 .sidebar .closebtn {
@@ -100,7 +101,7 @@ body {
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: #736ced;
+  background-color: #0062cc;
   color: white;
   padding: 5px 10px;
   border: none;
@@ -108,22 +109,31 @@ body {
 }
 
 .openbtn:hover {
-  background-color: #000;
+  background-color:  #1b1f3b;
 }
 
-#main,
+#main {
+  transition: margin-left 0.5s;
+  padding: 20px;
+}
+
+
 #albumTitle,
 #artistTitle,
 #trackTitle,
 #genreTitle,
 #playlistTitle {
-  transition: margin-left 0.5s;
-  padding: 20px;
+  margin-top: -30px;
 }
 
-.UserGreetings,
+.UserGreetings {
+  padding: 20px;
+  margin-top: 40px;
+}
+
 .UserPlaylist {
   padding: 20px;
+  margin-top: -30px;
 }
 
 @media screen and (max-height: 450px) {
@@ -149,7 +159,7 @@ body {
 
 .login-container {
   margin-top: 5%;
-  margin-bottom: 2%;
+  margin-bottom: -4%;
 
 }
 .login-form {
@@ -228,17 +238,17 @@ th {
 
 .dataRow{
   color: #fff;
-  background-color: #736ced;
+  background-color: #0062cc;
   line-height: 50px;
 }
 
 .dataRow:hover {
-  background-color: #847ef8;
+  background-color: #1b1f3b;
 }
 
 .material-icons {
   align-items: center;
-  color: #736ced;
+  color:  #1b1f3b;
 }
 
 .dataRow:hover .material-icons {
@@ -248,11 +258,11 @@ th {
 .btn {
   padding: 5px;
   margin-top: 5px;
-  margin-right: 5px;
+  margin-left: 4%;
 }
 
 .btn:hover {
-  background-color: #5249fa;
+  background-color:#0062cc;
 }
 
 .btnCol {
@@ -261,4 +271,6 @@ th {
 
 #PLTables {
   padding-top: 20px;
+  margin-left: 3%;
 }
+
