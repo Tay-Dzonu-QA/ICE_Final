@@ -58,7 +58,7 @@ h5 {
 
 .nav > li > a:hover {
   color: #e7cfb3;
-  background-color:#0062cc;
+  background-color: #0062cc;
   transition: 0.3s;
 }
 
@@ -93,7 +93,7 @@ h5 {
 }
 
 .sidebar a:hover {
-  color:#0062cc;
+  color: #0062cc;
 }
 
 .sidebar .closebtn {
@@ -115,7 +115,7 @@ h5 {
 }
 
 .openbtn:hover {
-  background-color:  #1b1f3b;
+  background-color: #1b1f3b;
 }
 
 #main,
@@ -164,6 +164,7 @@ h5 {
   margin-bottom: 2%;
 }
 .login-form {
+  background-color: #fff;
   padding: 2%;
   margin-left: 16%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
@@ -240,7 +241,7 @@ th {
 
 .material-icons {
   align-items: center;
-  color:  #0062cc;
+  color: #0062cc;
 }
 
 .dataRow:hover .material-icons {
@@ -258,7 +259,7 @@ th {
 }
 
 .btn:hover {
-  background-color:#0062cc;
+  background-color: #0062cc;
 }
 
 .btnCol {
@@ -277,3 +278,4 @@ th {
 .TableBody {
   padding: 10px;
 }
+
