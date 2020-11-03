@@ -14,7 +14,10 @@ body {
   padding-top: 40px;
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5 {
   color: #fff;
 }
 
@@ -268,6 +271,7 @@ th {
   padding-top: 20px;
 }
 
-.UserPlaylist {
+.UserPlaylist,
+.TableBody {
   background-color: rgba(0, 0, 0, 0.85);
 }
