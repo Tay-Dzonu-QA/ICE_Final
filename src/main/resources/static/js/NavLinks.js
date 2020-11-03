@@ -15,6 +15,13 @@ if(user!=0){
     userLink.appendChild(userHref);
 }
 
+let logoLink = document.querySelector("#LogoLink");
+if(user==0){
+    logoLink.href = "index.html";
+}else{
+    logoLink.href = "User.html?user=" + user;
+}
+
 
 let indexLink = document.querySelector("#IndexLink");
 if(user==0){
