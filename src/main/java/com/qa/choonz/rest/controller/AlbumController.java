@@ -2,6 +2,7 @@ package com.qa.choonz.rest.controller;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,8 +32,12 @@ public class AlbumController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<AlbumDTO> create(@RequestBody Album album) {
-        return new ResponseEntity<>(this.service.create(album), HttpStatus.CREATED);
+
+    public ResponseEntity<AlbumDTO> create(@RequestBody AlbumDTO album) {
+        ModelMapper mapper = new ModelMapper();
+        Album returned = mapper.map(album,Album.class);
+        return new ResponseEntity<>(this.service.create(returned), HttpStatus.CREATED);
+
     }
 
     @GetMapping("/read")
@@ -42,27 +47,27 @@ public class AlbumController {
 
     @GetMapping("/read/{id}")
     public ResponseEntity<AlbumDTO> read(@PathVariable Long id) {
-        return new ResponseEntity<AlbumDTO>(this.service.read(id), HttpStatus.OK);
+        return new ResponseEntity<>(this.service.read(id), HttpStatus.OK);
     }
     @GetMapping("/read/artists/{id}")
     public ResponseEntity<List<AlbumDTO>> readArtists(@PathVariable Long id) {
-        return new ResponseEntity<List<AlbumDTO>>(this.service.readArtist(id), HttpStatus.OK);
+        return new ResponseEntity<>(this.service.readArtist(id), HttpStatus.OK);
     }
     @GetMapping("/read/genres/{id}")
     public ResponseEntity<List<AlbumDTO>> readGenres(@PathVariable Long id) {
-        return new ResponseEntity<List<AlbumDTO>>(this.service.readGenre(id), HttpStatus.OK);
+        return new ResponseEntity<>(this.service.readGenre(id), HttpStatus.OK);
     }
 
 
     @PutMapping("/update/{id}")
     public ResponseEntity<AlbumDTO> update(@RequestBody AlbumDTO album, @PathVariable Long id) {
-        return new ResponseEntity<AlbumDTO>(this.service.update(album, id), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(this.service.update(album, id), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity<AlbumDTO> delete(@PathVariable Long id) {
-        return this.service.delete(id) ? new ResponseEntity<AlbumDTO>(HttpStatus.NO_CONTENT)
-                : new ResponseEntity<AlbumDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
+        return this.service.delete(id) ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
+                : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }
