@@ -21,9 +21,9 @@ Feature: ArtistPage
       |  1 |
       |  2 |
 
-  Scenario Outline: Change order - NOT LOGGED IN
+  Scenario Outline: ARTIST Change order - NOT LOGGED IN
     Given I am not logged in and on the Artist page
-    When I open the side bar and select order by "<order>"
+    When I open the artist side bar and select order by "<order>"
     Then I will be on the Artist page with order "<order>" and not be logged in
 
     Examples: 
@@ -33,9 +33,9 @@ Feature: ArtistPage
       | name     |
       | nameDesc |
 
-  Scenario Outline: Change order - LOGGED IN
+  Scenario Outline: ARTIST Change order - LOGGED IN
     Given I am logged in and on the Artist page
-    When I open the side bar and select order by "<order>"
+    When I open the artist side bar and select order by "<order>"
     Then I will be on the Artist page with order "<order>" and be logged in
 
     Examples: 

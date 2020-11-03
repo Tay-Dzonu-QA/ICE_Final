@@ -27,13 +27,12 @@ public class ArtistPageTest {
 	public void init() {
 		System.setProperty("webdriver.edge.driver","C:\\Users\\taydz\\Desktop\\Choonz-Starter-master\\src\\test\\resources\\msedgedriver.exe");
 	    driver = new EdgeDriver(); 
-	    wait = new WebDriverWait(driver,5);
+	    wait = new WebDriverWait(driver,15);
 	    action = new Actions(driver);
 	}
 	@Given("I am logged in and on the Artist page")
 	public void logged_in_and_on_Artist_page() throws Throwable {
 	    driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Artist.html?user=1");
-	    Thread.sleep(1000);
 	}
 	
 	@Given("I am not logged in and on the Artist page")
@@ -50,7 +49,7 @@ public class ArtistPageTest {
 	    wait.until(ExpectedConditions.visibilityOf(ArtistLink));
 	    ArtistLink.click();
 	}
-	@When("I open the side bar and select order by {string}")
+	@When("I open the artist side bar and select order by {string}")
 	public void select_order(String order) throws Throwable {
 		if(order.equals("default")) {order="";}
 		WebElement openFilter = driver.findElement(By.id("FilterByBTN"));

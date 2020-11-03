@@ -60,6 +60,7 @@ function generateTableGe(table, GenreData, loggedIn, user) {
   for (let element of GenreData) {
     let row = table.insertRow();
     row.className = "dataRow";
+    row.id = "GenreRow"+element.id;
     for (key in element) {
       if (key === "id") {
         continue;
@@ -78,7 +79,7 @@ function generateTableGe(table, GenreData, loggedIn, user) {
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
-    myViewButton.id = "ViewGenreButton";
+    myViewButton.id = "ViewGenreButton"+element.id;
     let genre = element.id;
     myViewButton.onclick = function () {
       document.location = "Album.html?user=" + user + "&genres=" + genre;
