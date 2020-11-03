@@ -1,8 +1,7 @@
 Feature: NavBar
   I want to use this template for my feature file
 
- 
-     Scenario Outline: Navigate from TRACK page - LOGGED IN
+  Scenario Outline: Navigate from TRACK page - LOGGED IN
     Given I am logged in and on the "Track" page
     When I click on the "<page>" page
     Then I will be on the "<page>" page and be logged in
@@ -116,7 +115,7 @@ Feature: NavBar
       | User   |
 
   Scenario Outline: Navigate from INDEX page - NOT LOGGED IN
-    Given I am not logged in and on the "INDEX" page
+    Given I am not logged in and on the "index" page
     When I click on the "<page2>" page
     Then I will be on the "<page2>" page and not be logged in
 
@@ -150,9 +149,9 @@ Feature: NavBar
       | Track  |
       | Genre  |
       | Artist |
-      | Album  |  
-      
-   Scenario Outline: Choonz BTN - LOGGED IN
+      | Album  |
+
+  Scenario Outline: Choonz BTN - LOGGED IN
     Given I am logged in and on the "<page6>" page
     When I click on the choonz btn
     Then I will be on the "User" page and be logged in
