@@ -16,9 +16,9 @@ function getGenres(loggedIn, user, order) {
 
         generateTableHeadGe(table, data, loggedIn);
         generateTableGe(table, GenreData, loggedIn, user);
-        if (loggedIn) {
-          generateAddGenreBtn(table);
-        }
+        // if (loggedIn) {
+        //   generateAddGenreBtn(table);
+        // }
       });
     })
     .catch(function (err) {
