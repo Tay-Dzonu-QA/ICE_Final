@@ -42,7 +42,7 @@ function createTables(tables, PLData) {
     }else{
     let data = Object.keys(element.tracks[0]);
     generateTableHeadPl(table, data);
-    generateTablePl(table, element.tracks, Name, playlistToView);
+    generateTablePl(table, element.tracks, user, playlistToView);
     tableDiv.appendChild(table);
     }
 
