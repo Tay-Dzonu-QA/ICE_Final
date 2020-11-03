@@ -31,12 +31,14 @@ function createTables(tables, PLData) {
     userClass.appendChild(noPLElement);
     
   }
+
+  let modalAddTrackPL = document.getElementById("TrackAdd");
+  addTracks(modalAddTrackPL);
+  
   for (element of PLData) {
     let ID = element.id;
     let Name = element.name;
     let Describe = element.description;
-    let modalAddTrackPL = document.getElementById("TrackAdd");
-    addTracks(modalAddTrackPL);
 
     let tableDiv = document.createElement("div");
     let table = document.createElement("table");
@@ -50,6 +52,7 @@ function createTables(tables, PLData) {
       tableDiv.appendChild(empty);
     }else{
     let data = Object.keys(element.tracks[0]);
+    
     generateTableHeadPl(table, data);
     generateTablePl(table, element.tracks, Name, playlistToView);
     tableDiv.appendChild(table);
