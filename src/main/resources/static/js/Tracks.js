@@ -30,9 +30,9 @@ function getTracks(loggedIn, tracksToView, singleTrack, user) {
         }
         generateTableHeadTR(table, data, loggedIn);
         generateTableTR(table, TrackData, loggedIn, user);
-        if (loggedIn) {
-          generateAddTrackBtn(table);
-        }
+        // if (loggedIn) {
+        //   generateAddTrackBtn(table);
+        // }
       });
     })
     .catch(function (err) {

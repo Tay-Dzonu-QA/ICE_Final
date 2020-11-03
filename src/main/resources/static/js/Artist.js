@@ -16,9 +16,9 @@ function getArtists(loggedIn, user,order) {
 
         generateTableHeadAr(table, data, loggedIn);
         generateTableAr(table, ArtistData, loggedIn,user);
-        if (loggedIn == true) {
-          generateAddArtistBtn(table);
-        }
+        // if (loggedIn == true) {
+        //   generateAddArtistBtn(table);
+        // }
       });
     })
     .catch(function (err) {

@@ -25,9 +25,9 @@ function getAlbums(loggedIn, albumsToView, user, artistOrGenre) {
 
                 generateTableHeadAl(table, data, loggedIn);
                 generateTableAl(table, AlbumData, loggedIn, user);
-                if (loggedIn == true) {
-                    generateAddAlbumBtn(table);
-                }
+                // if (loggedIn == true) {
+                //     generateAddAlbumBtn(table);
+                // }
 
             });
         })
