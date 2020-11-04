@@ -15,6 +15,7 @@ function GenerateSideBarNav(user){
           for(let element of PlaylistData){
             let PlList = document.createElement("a");
             PlList.innerHTML = element.name;
+            PlList.id = "Select_"+element.id;
             PlList.href= "Playlist.html?user=" + user + "&playlists=" + element.id;
             PlSideBar.appendChild(PlList);
           }

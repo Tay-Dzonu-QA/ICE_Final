@@ -1,3 +1,4 @@
+@tagAlbum
 Feature: AlbumPage
   I want to use this template for my feature file
 

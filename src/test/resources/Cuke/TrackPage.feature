@@ -1,3 +1,4 @@
+@tagTrack
 Feature: TrackPage
   I want to use this template for my feature file
 

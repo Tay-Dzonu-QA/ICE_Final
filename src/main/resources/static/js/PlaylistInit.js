@@ -22,7 +22,7 @@ function getTracks(playlistToView, user) {
         let title = document.querySelector("#PLTitle");
         title.innerHTML = "Playlist: " + Name;
         let description = document.querySelector("#PLDescription");
-        description.innerHTML = "Description:" + Describe;
+        description.innerHTML = "Description: " + Describe;
         if (TrackData.length === 0) {
           let empty = document.querySelector("#PLempty");
           empty.textContent = "NO TRACKS";

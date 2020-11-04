@@ -23,7 +23,7 @@ public class ArtistPageTest {
 	WebDriverWait wait;
 	Actions action;
 	
-	@Before
+	@Before("@tagArtist")
 	public void init() {
 		System.setProperty("webdriver.edge.driver","C:\\Users\\taydz\\Desktop\\Choonz-Starter-master\\src\\test\\resources\\msedgedriver.exe");
 	    driver = new EdgeDriver(); 
@@ -90,7 +90,7 @@ public class ArtistPageTest {
 		
 	
 	
-	@After
+	@After("@tagArtist")
 	public void quit() {
 		driver.quit();
 	}

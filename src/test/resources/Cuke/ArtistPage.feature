@@ -1,3 +1,4 @@
+@tagArtist
 Feature: ArtistPage
   I want to use this template for my feature file
 

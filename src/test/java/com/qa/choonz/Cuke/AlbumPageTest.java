@@ -23,7 +23,7 @@ public class AlbumPageTest {
 	WebDriverWait wait;
 	Actions action;
 	
-	@Before
+	@Before("@tagAlbum")
 	public void init() {
 		System.setProperty("webdriver.edge.driver","C:\\Users\\taydz\\Desktop\\Choonz-Starter-master\\src\\test\\resources\\msedgedriver.exe");
 	    driver = new EdgeDriver(); 
@@ -100,7 +100,7 @@ public class AlbumPageTest {
 		
 	
 	
-	@After
+	@After("@tagAlbum")
 	public void quit() {
 		driver.quit();
 	}

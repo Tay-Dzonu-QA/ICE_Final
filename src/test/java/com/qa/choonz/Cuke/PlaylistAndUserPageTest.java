@@ -23,8 +23,15 @@ public class PlaylistAndUserPageTest {
 	WebDriverWait wait;
 	Actions action;
 	
-	@Before
+	@Before("@tagPL")
 	public void init() {
+		System.setProperty("webdriver.edge.driver","C:\\Users\\taydz\\Desktop\\Choonz-Starter-master\\src\\test\\resources\\msedgedriver.exe");
+	    driver = new EdgeDriver(); 
+	    wait = new WebDriverWait(driver,15);
+	    action = new Actions(driver);
+	}
+	@Before("@tagUser")
+	public void initUser() {
 		System.setProperty("webdriver.edge.driver","C:\\Users\\taydz\\Desktop\\Choonz-Starter-master\\src\\test\\resources\\msedgedriver.exe");
 	    driver = new EdgeDriver(); 
 	    wait = new WebDriverWait(driver,15);
@@ -36,7 +43,7 @@ public class PlaylistAndUserPageTest {
 	}
 	
 	@Given("I am logged in and on USER page")
-	public void logged_in_and_on_user_page(int PlID) throws Throwable {
+	public void logged_in_and_on_user_page() throws Throwable {
 	    driver.get("http://127.0.0.1:5500/src/main/resources/static/html/User.html?user=1");
 	}
 	
@@ -76,12 +83,16 @@ public class PlaylistAndUserPageTest {
 	}
 	@When("I edit the Playlist {int} info")
 	public void edit_playlist(int PlID) {
-		WebElement EditPLBTN = driver.findElement(By.id("EditPlButton"+PlID));
+		WebElement EditPLBTN = driver.findElement(By.id("EditPLButton"+PlID));
 	    wait.until(ExpectedConditions.visibilityOf(EditPLBTN));
 	    EditPLBTN.click();
 	    wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("EditPLModal"))));
-		driver.findElement(By.id("EditPLName")).sendKeys("TEST PL NAME");
-		driver.findElement(By.id("EditPLDescription")).sendKeys("TEST PL Description");
+		WebElement newName = driver.findElement(By.id("EditPLName"));
+		newName.clear();
+		newName.sendKeys("TEST PL NAME");
+		WebElement newDescription =driver.findElement(By.id("EditPLDescription"));
+		newDescription.clear();
+		newDescription.sendKeys("TEST PL Description");
 		driver.findElement(By.id("EditPLSubmit")).click();
 		
 	}
@@ -110,7 +121,7 @@ public class PlaylistAndUserPageTest {
 	
 	@Then("I will be on the Playlist page for {int} and be logged in")
 	public void assert_logged_in_on_playlist_page(int id) throws Throwable {
-		assertThat(driver.getCurrentUrl()).isEqualTo("http://127.0.0.1:5500/src/main/resources/static/html/Track.html?user=0&albums="+id);
+		assertThat(driver.getCurrentUrl()).isEqualTo("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists="+id);
 	}
 	
 	@Then("The Playlist {int} includes Track {int}")
@@ -130,30 +141,41 @@ public class PlaylistAndUserPageTest {
 	@Then("Playlist {int} info has been changed")
 	public void assert_playlist_info_changed(int PlaylistID) throws Throwable {
 		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists="+PlaylistID);
-		WebElement PLName = driver.findElement(By.id("PLTitile"));
-		assertThat(PLName.getText()).isEqualTo("TEST PL NAME");
+		WebElement PLName = driver.findElement(By.id("PLTitle"));
+		wait.until(ExpectedConditions.visibilityOf(PLName));
+		assertThat(PLName.getText()).isEqualTo("Playlist: TEST PL NAME");
 		WebElement PLDescription = driver.findElement(By.id("PLDescription"));
-		assertThat(PLDescription.getText()).isEqualTo("TEST PL Description");
+		wait.until(ExpectedConditions.visibilityOf(PLDescription));
+		assertThat(PLDescription.getText()).isEqualTo("Description: TEST PL Description");
 	}
 	@Then("Playlist {int} is not found")
 	public void assert_playlist_deleted(int PlaylistID) throws Throwable {
 		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists="+PlaylistID);
-		WebElement PLName = driver.findElement(By.id("PLTitile"));
+		WebElement PLName = driver.findElement(By.id("PLTitle"));
+		
+//		wait.until(ExpectedConditions.visibilityOf(PLName));
 		assertThat(PLName.getText()).isEqualTo("");
 		WebElement PLDescription = driver.findElement(By.id("PLDescription"));
+//		wait.until(ExpectedConditions.visibilityOf(PLDescription));
 		assertThat(PLDescription.getText()).isEqualTo("");
 	}
 	@Then("My new Playlist is found")
 	public void assert_playlist_added() throws Throwable {
 		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists=5");
-		WebElement PLName = driver.findElement(By.id("PLTitile"));
-		assertThat(PLName.getText()).isEqualTo("TEST PL NAME");
+		WebElement PLName = driver.findElement(By.id("PLTitle"));
+		wait.until(ExpectedConditions.visibilityOf(PLName));
+		assertThat(PLName.getText()).isEqualTo("Playlist: TEST PL NAME");
 		WebElement PLDescription = driver.findElement(By.id("PLDescription"));
-		assertThat(PLDescription.getText()).isEqualTo("TEST PL Description");
+		wait.until(ExpectedConditions.visibilityOf(PLDescription));
+		assertThat(PLDescription.getText()).isEqualTo("Description: TEST PL Description");
 	}
 
-	@After
+	@After("@tagPL")
 	public void quit() {
+		driver.quit();
+	}
+	@After("@tagUser")
+	public void quitUser() {
 		driver.quit();
 	}
 

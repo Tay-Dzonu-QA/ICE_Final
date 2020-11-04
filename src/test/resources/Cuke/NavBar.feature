@@ -1,3 +1,4 @@
+@tagNav
 Feature: NavBar
   I want to use this template for my feature file
 

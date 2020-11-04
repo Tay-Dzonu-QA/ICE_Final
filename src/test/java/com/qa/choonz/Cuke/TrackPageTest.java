@@ -23,7 +23,7 @@ public class TrackPageTest {
 	WebDriverWait wait;
 	Actions action;
 	
-	@Before
+	@Before("@tagTrack")
 	public void init() {
 		System.setProperty("webdriver.edge.driver","C:\\Users\\taydz\\Desktop\\Choonz-Starter-master\\src\\test\\resources\\msedgedriver.exe");
 	    driver = new EdgeDriver(); 
@@ -106,7 +106,7 @@ public class TrackPageTest {
 		
 	
 	
-	@After
+	@After("@tagTrack")
 	public void quit() {
 		driver.quit();
 	}

@@ -23,7 +23,7 @@ public class GenrePageTest {
 	WebDriverWait wait;
 	Actions action;
 	
-	@Before
+	@Before("@tagGenre")
 	public void init() {
 		System.setProperty("webdriver.edge.driver","C:\\Users\\taydz\\Desktop\\Choonz-Starter-master\\src\\test\\resources\\msedgedriver.exe");
 	    driver = new EdgeDriver(); 
@@ -89,7 +89,7 @@ public class GenrePageTest {
 		
 	
 	
-	@After
+	@After("@tagGenre")
 	public void quit() {
 		driver.quit();
 	}

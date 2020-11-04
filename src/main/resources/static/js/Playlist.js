@@ -59,7 +59,7 @@ function generateTablePl(table, TrackData, user, playlistToView,ID) {
     let newCell3 = row.insertCell();
     let myRemoveButton = document.createElement("button");
     myRemoveButton.className = "btn";
-    myRemoveButton.id = "PL"+ID+"RemoveTrackButton" + element.name;
+    myRemoveButton.id = "PL"+ID+"RemoveTrackButton" + element.id;
 
     let RemoveIcon = document.createElement("span");
     RemoveIcon.className = "material-icons";
