@@ -1,21 +1,19 @@
-Feature: TrackPage
+Feature: PlaylistPage
   I want to use this template for my feature file
 
   Scenario Outline: PLAYLIST open tracks page - LOGGED IN
-    Given I am logged in and on Playlist 1 page
-    When I click to view the Track with id <id> for Playlist 1
+    Given I am logged in and on Playlist 3 page
+    When I click to view the Track with id <id> for Playlist 3
     Then I will be on the Track page with track id <id> and be logged in
 
     Examples: 
       | id |
-      |  1 |
-      |  2 |
       |  3 |
       |  4 |
       |  5 |
 
   Scenario Outline: PLAYLIST change playlist - LOGGED IN
-    Given I am logged in and on Playlist 1 page
+    Given I am logged in and on Playlist 4 page
     When I open the Playlist side bar and select Playlist <playlistID>
     Then I will be on the Playlist page for <playlistID> and be logged in
 

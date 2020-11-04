@@ -16,7 +16,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class PlaylistPageTest {
+public class PlaylistAndUserPageTest {
 	
 	WebDriver driver; 
 	
@@ -35,7 +35,10 @@ public class PlaylistPageTest {
 	    driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists="+PlID);
 	}
 	
-
+	@Given("I am logged in and on USER page")
+	public void logged_in_and_on_user_page(int PlID) throws Throwable {
+	    driver.get("http://127.0.0.1:5500/src/main/resources/static/html/User.html?user=1");
+	}
 	
 	@When("I click to view the Track with id {int} for Playlist {int}")
 	public void select_track_from_pl(int TrackID,int PlID) throws Throwable {
@@ -89,9 +92,19 @@ public class PlaylistPageTest {
 	    DeletePLBTN.click();
 	}
 
+	@When("I add a new Playlist")
+	public void new_playlist() {
+	    WebElement AddPLBTN = driver.findElement(By.id("addPLButton"));
+	    wait.until(ExpectedConditions.visibilityOf(AddPLBTN));
+	    AddPLBTN.click();
+	    wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("AddPLModal"))));
+		driver.findElement(By.id("AddPLName")).sendKeys("TEST PL NAME");
+		driver.findElement(By.id("AddPLDescription")).sendKeys("TEST PL Description");
+		driver.findElement(By.id("AddPLSubmit")).click();
+	}
 	
-	@Then("I will be on the Track page with track id {int} and be logged in")
-	public void assert_logged_in_on_tracks_page(int id) throws Throwable {
+	@Then("I will be on the Track page with track id {int}")
+	public void assert_on_tracks_page(int id) throws Throwable {
 		assertThat(driver.getCurrentUrl()).isEqualTo("http://127.0.0.1:5500/src/main/resources/static/html/Track.html?user=1&tracks="+id);
 	}
 	
@@ -100,8 +113,8 @@ public class PlaylistPageTest {
 		assertThat(driver.getCurrentUrl()).isEqualTo("http://127.0.0.1:5500/src/main/resources/static/html/Track.html?user=0&albums="+id);
 	}
 	
-	@Then("The Track {int} can be found on Playlist {int}")
-	public void assert_track_added_to_playlist(int TrackID,int PlaylistID) {
+	@Then("The Playlist {int} includes Track {int}")
+	public void assert_playlist_includes_track(int PlaylistID,int TrackID) {
 		WebElement PLRow = driver.findElement(By.id("PL"+PlaylistID+"PlaylistRow"+TrackID));
 		wait.until(ExpectedConditions.visibilityOf(PLRow));
 		action.moveToElement(PLRow);
@@ -129,6 +142,14 @@ public class PlaylistPageTest {
 		assertThat(PLName.getText()).isEqualTo("");
 		WebElement PLDescription = driver.findElement(By.id("PLDescription"));
 		assertThat(PLDescription.getText()).isEqualTo("");
+	}
+	@Then("My new Playlist is found")
+	public void assert_playlist_added() throws Throwable {
+		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists=5");
+		WebElement PLName = driver.findElement(By.id("PLTitile"));
+		assertThat(PLName.getText()).isEqualTo("TEST PL NAME");
+		WebElement PLDescription = driver.findElement(By.id("PLDescription"));
+		assertThat(PLDescription.getText()).isEqualTo("TEST PL Description");
 	}
 
 	@After
