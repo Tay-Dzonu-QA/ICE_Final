@@ -91,9 +91,11 @@ public class LandingPage {
 		@Then("I will create an account")
 		public void i_will_create_an_account() throws Throwable {
 			String text = driver.switchTo().alert().getText();
+			Thread.sleep(1000);
 			driver.switchTo().alert().accept();
 			Thread.sleep(100);
 			driver.switchTo().alert().accept();
+			Thread.sleep(1000);
 			assertEquals("You have created an account", text);
 			
 		}
