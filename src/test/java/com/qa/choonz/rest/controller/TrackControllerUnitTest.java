@@ -59,11 +59,12 @@ public class TrackControllerUnitTest {
     
     @Test
     void createTest() {
+        TrackDTO dto = mapper.map(testTrack,TrackDTO.class);
         when(this.service.create(testTrack))
             .thenReturn(this.trackDTO);
         
         assertThat(new ResponseEntity<TrackDTO>(this.trackDTO, HttpStatus.CREATED))
-                .isEqualTo(this.controller.create(testTrack));
+                .isEqualTo(this.controller.create(dto));
         
         verify(this.service, times(1))
             .create(this.testTrack);

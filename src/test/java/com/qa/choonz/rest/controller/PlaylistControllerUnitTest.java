@@ -58,11 +58,12 @@ public class PlaylistControllerUnitTest {
     
     @Test
     void createTest() {
+        PlaylistDTO dto = mapper.map(testPlaylist,PlaylistDTO.class);
         when(this.service.create(testPlaylist))
             .thenReturn(this.playlistsDTO);
         
         assertThat(new ResponseEntity<PlaylistDTO>(this.playlistsDTO, HttpStatus.CREATED))
-                .isEqualTo(this.controller.create(testPlaylist));
+                .isEqualTo(this.controller.create(dto));
         
         verify(this.service, times(1))
             .create(this.testPlaylist);

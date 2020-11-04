@@ -58,11 +58,12 @@ public class GenreControllerUnitTest {
     
     @Test
     void createTest() {
+        GenreDTO dto = mapper.map(testGenre,GenreDTO.class);
         when(this.service.create(testGenre))
             .thenReturn(this.genreDTO);
         
         assertThat(new ResponseEntity<GenreDTO>(this.genreDTO, HttpStatus.CREATED))
-                .isEqualTo(this.controller.create(testGenre));
+                .isEqualTo(this.controller.create(dto));
         
         verify(this.service, times(1))
             .create(this.testGenre);
@@ -70,6 +71,7 @@ public class GenreControllerUnitTest {
     
     @Test
     void readOneTest() {
+
         when(this.service.read(this.id))
             .thenReturn(this.genreDTO);
         

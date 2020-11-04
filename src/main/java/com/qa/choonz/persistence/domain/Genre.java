@@ -36,7 +36,6 @@ public class Genre {
 
     public Genre() {
         super();
-        // TODO Auto-generated constructor stub
     }
    
     public Genre(@NotNull @Size(max = 100) String name) {
