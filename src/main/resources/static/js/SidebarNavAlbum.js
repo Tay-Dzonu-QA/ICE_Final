@@ -15,6 +15,7 @@ function GenerateSideBarNav(user){
           for(let element of ArtistData){
             let artistList = document.createElement("a");
             artistList.innerHTML = element.name;
+            artistList.id="Order_Artist"+element.id;
             artistList.href= "Album.html?user=" + user + "&artists=" + element.id;
             artistSideBar.appendChild(artistList);
           }
@@ -37,6 +38,7 @@ function GenerateSideBarNav(user){
           for(let element of GenreData){
             let genreList = document.createElement("a");
             genreList.innerHTML = element.name;
+            genreList.id="Order_Genre"+element.id;
             genreList.href= "Album.html?user=" + user + "&genres=" + element.id;
             genreSideBar.appendChild(genreList);
           }

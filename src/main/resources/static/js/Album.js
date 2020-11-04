@@ -77,11 +77,13 @@ function generateTableAl(table, AlbumData, loggedIn) {
     for (let element of AlbumData) {
         let row = table.insertRow();
         row.className = "dataRow";
+        row.id = "AlbumRow"+element.id;
         for (key in element) {
             if (key === "id") {
                 continue;
               }
             let cell = row.insertCell();
+            cell.id = "Album"+key+element.id;
             let text = document.createTextNode(element[key]);
             if (key === "tracks") {
                 let tracksNo = 0;
@@ -98,7 +100,7 @@ function generateTableAl(table, AlbumData, loggedIn) {
         let newCell = row.insertCell();
         let myViewButton = document.createElement("button");
         myViewButton.className = "btn";
-        myViewButton.id = "ViewAlbumButton";
+        myViewButton.id = "ViewAlbumButton"+element.id;
         myViewButton.onclick = function() { document.location = 'Track.html?user=' + user + '&albums=' + element.id };
 
         let viewIcon = document.createElement("span");

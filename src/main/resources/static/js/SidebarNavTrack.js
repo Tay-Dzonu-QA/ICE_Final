@@ -15,6 +15,7 @@ function GenerateSideBarNav(user){
           for(let element of AlbumData){
             let albumList = document.createElement("a");
             albumList.innerHTML = element.name;
+            albumList.id="Order_Album"+element.id;
             albumList.href= "Track.html?user=" + user + "&albums=" + element.id;
             albumSideBar.appendChild(albumList);
           }

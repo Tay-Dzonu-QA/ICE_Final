@@ -66,6 +66,7 @@ function generateTableGe(table, GenreData, loggedIn, user) {
         continue;
       }
       let cell = row.insertCell();
+      cell.id = "Genre"+key+element.id;
       let text = document.createTextNode(element[key]);
       if (key === "albums") {
         let albumNo = 0;

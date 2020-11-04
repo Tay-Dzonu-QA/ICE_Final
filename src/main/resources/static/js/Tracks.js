@@ -87,11 +87,13 @@ function generateTableTR(table, TrackData, loggedIn, user) {
   for (let element of TrackData) {
     let row = table.insertRow();
     row.className = "dataRow";
+    row.id = "TrackRow"+element.id;
     for (key in element) {
       if (key === "id") {
         continue;
       }
       let cell = row.insertCell();
+      cell.id = "Track"+key+element.id;
       let text = document.createTextNode(element[key]);
       if (key == "album") {
         text = document.createTextNode(element[key].name);
@@ -101,7 +103,7 @@ function generateTableTR(table, TrackData, loggedIn, user) {
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
-    myViewButton.id = "ViewTrackButton";
+    myViewButton.id = "ViewTrackButton"+element.id;
     myViewButton.onclick = function () {
       document.location = "Track.html?user=" + user + "&tracks=" + element.id;
     };
@@ -117,13 +119,13 @@ function generateTableTR(table, TrackData, loggedIn, user) {
     if (loggedIn == true) {
       let ID = element.id;
       let Name = element.name;
-      let Duration = element.duration;
-      let Lyrics = element.lyrics;
+      // let Duration = element.duration;
+      // let Lyrics = element.lyrics;
 
       let newCell4 = row.insertCell();
       let addToPlaylistButton = document.createElement("button");
       addToPlaylistButton.className = "btn";
-      addToPlaylistButton.id = "addToPlaylistButton" + element.name;
+      addToPlaylistButton.id = "addToPlaylistButton" + element.id;
       addToPlaylistButton.setAttribute("data-toggle", "modal");
       addToPlaylistButton.setAttribute("data-target", "#AddToPlaylistModal");
 

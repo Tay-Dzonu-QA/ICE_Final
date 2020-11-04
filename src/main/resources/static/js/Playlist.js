@@ -29,11 +29,13 @@ function generateTablePl(table, TrackData, user, playlistToView) {
   for (let element of TrackData) {
     let row = table.insertRow();
     row.className = "dataRow";
+    row.id="PlaylistRow"+element.id;
     for (key in element) {
       if (key === "playlist"||key==="id"||key==="lyrics") {
         continue;
       }
       let cell = row.insertCell();
+      cell.id = "Track"+key+element.id;
       let text = document.createTextNode(element[key]);
       if (key === "album") {
         text = document.createTextNode(element[key].name);
@@ -43,7 +45,7 @@ function generateTablePl(table, TrackData, user, playlistToView) {
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
-    myViewButton.id = "ViewTrackButton";
+    myViewButton.id = "ViewTrackButton"+element.id;
     myViewButton.onclick = function () {
       document.location = "Track.html?user=" + user + "&tracks=" + element.id;
     };

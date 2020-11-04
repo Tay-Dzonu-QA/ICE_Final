@@ -66,6 +66,7 @@ function generateTableAr(table, ArtistData, loggedIn,user) {
         continue;
       }
       let cell = row.insertCell();
+      cell.id = "Artist"+key+element.id;
       let text = document.createTextNode(element[key]);
       if (key === "albums") {
         let albumNo = 0;
