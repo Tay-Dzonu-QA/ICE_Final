@@ -58,7 +58,7 @@ public class TrackPageTest {
 	    wait.until(ExpectedConditions.visibilityOf(OrderLink));
 	    OrderLink.click();
 	}
-	@When("I add Track {int} to playlist {string}")
+	@When("I add Track {int} to Playlist {string}")
 	public void add_track_to_playlist(int TrackID,String playlist) {
 		WebElement TrackRow = driver.findElement(By.id("TrackRow"+TrackID));
 		action.moveToElement(TrackRow);
@@ -68,7 +68,7 @@ public class TrackPageTest {
 	    
 	    wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("AddToPlaylistModal"))));
 		driver.findElement(By.id("PlaylistAdd")).sendKeys(playlist);
-		driver.findElement(By.id("AddToPlaylistAddSubmit")).click();
+		driver.findElement(By.id("AddToPlaylistSubmit")).click();
 	}
 	@Then("I will be on the Track page with track id {int} and not be logged in")
 	public void assert_not_logged_in_on_tracks_page(int id) throws Throwable {
@@ -93,9 +93,10 @@ public class TrackPageTest {
 	@Then("The Track {int} can be found on Playlist {int}")
 	public void assert_track_added_to_playlist(int TrackID,int PlaylistID) {
 		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists="+PlaylistID);
-		WebElement PLRow = driver.findElement(By.id("PlaylistRow"+TrackID));
+		WebElement PLRow = driver.findElement(By.id("PL"+PlaylistID+"PlaylistRow"+TrackID));
+		wait.until(ExpectedConditions.visibilityOf(PLRow));
 		action.moveToElement(PLRow);
-		WebElement TrackName = driver.findElement(By.id("Trackname"+TrackID));
+		WebElement TrackName = driver.findElement(By.id("PL"+PlaylistID+"Trackname"+TrackID));
 		wait.until(ExpectedConditions.visibilityOf(TrackName));
 		assertThat(TrackName.getText()).isEqualTo("track "+TrackID);
 	}

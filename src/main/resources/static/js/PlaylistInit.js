@@ -26,11 +26,12 @@ function getTracks(playlistToView, user) {
         if (TrackData.length === 0) {
           let empty = document.querySelector("#PLempty");
           empty.textContent = "NO TRACKS";
+          empty.id ="PLEmpty"+ID;
         } else {
           let table = document.querySelector("#PlaylistTable");
           let data = Object.keys(TrackData[0]);
           generateTableHeadPl(table, data);
-          generateTablePl(table, TrackData, user, playlistToView);
+          generateTablePl(table, TrackData, user, playlistToView,ID);
         }
         let footer = document.querySelector("#PLFooter");
         let tableFooter = document.createElement("footer");

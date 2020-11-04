@@ -25,17 +25,17 @@ function generateTableHeadPl(table, data) {
   row.appendChild(th4);
 }
 
-function generateTablePl(table, TrackData, user, playlistToView) {
+function generateTablePl(table, TrackData, user, playlistToView,ID) {
   for (let element of TrackData) {
     let row = table.insertRow();
     row.className = "dataRow";
-    row.id="PlaylistRow"+element.id;
+    row.id="PL"+ID+"PlaylistRow"+element.id;
     for (key in element) {
       if (key === "playlist"||key==="id"||key==="lyrics") {
         continue;
       }
       let cell = row.insertCell();
-      cell.id = "Track"+key+element.id;
+      cell.id = "PL"+ID+"Track"+key+element.id;
       let text = document.createTextNode(element[key]);
       if (key === "album") {
         text = document.createTextNode(element[key].name);
@@ -45,7 +45,7 @@ function generateTablePl(table, TrackData, user, playlistToView) {
     let newCell = row.insertCell();
     let myViewButton = document.createElement("button");
     myViewButton.className = "btn";
-    myViewButton.id = "ViewTrackButton"+element.id;
+    myViewButton.id = "PL"+ID+"ViewTrackButton"+element.id;
     myViewButton.onclick = function () {
       document.location = "Track.html?user=" + user + "&tracks=" + element.id;
     };
@@ -59,7 +59,7 @@ function generateTablePl(table, TrackData, user, playlistToView) {
     let newCell3 = row.insertCell();
     let myRemoveButton = document.createElement("button");
     myRemoveButton.className = "btn";
-    myRemoveButton.id = "RemoveTrackButton" + element.name;
+    myRemoveButton.id = "PL"+ID+"RemoveTrackButton" + element.name;
 
     let RemoveIcon = document.createElement("span");
     RemoveIcon.className = "material-icons";

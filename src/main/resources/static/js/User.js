@@ -51,13 +51,14 @@ function createTables(tables, PLData) {
     tableDiv.appendChild(Listname);
     if(element.tracks.length ===0){
       let empty = document.createElement("h5");
+      empty.id = "PLEmpty"+element.id;
       empty.textContent = "NO TRACKS";
       tableDiv.appendChild(empty);
     }else{
     let data = Object.keys(element.tracks[0]);
     
     generateTableHeadPl(table, data);
-    generateTablePl(table, element.tracks, user, playlistToView);
+    generateTablePl(table, element.tracks, user, playlistToView,ID);
     tableDiv.appendChild(table);
     }
 
