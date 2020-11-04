@@ -1,3 +1,4 @@
+
 package com.qa.choonz.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -114,27 +115,7 @@ public class UserServiceUnitTest {
         verify(this.repository, times(1)).findById(1L);
         verify(this.repository, times(1)).save(user);
     }
-    
-//    @Test
-//    void CheckPasswordTest() {
-//        when(this.repository.checkPassword()).thenReturn(this.password);
-//        when(this.modelMapper.map(this.testUserWithId, UserDTO.class)).thenReturn(this.userDTO);
-//
-//        assertThat(this.service.read().isEmpty()).isFalse();
-//
-//        verify(this.repository, times(1)).checkPassword();
-//    }
-    	
-
-    @Test
-    void deleteTest() {
-
-    	when(this.repository.existsById(id)).thenReturn(true, false);
-		
-		assertThat(this.service.delete(id)).isFalse();
-		
-		verify(this.repository, times(1)).deleteById(id);
-		verify(this.repository, times(1)).existsById(id);
-    }
-
 }
+    
+
+
