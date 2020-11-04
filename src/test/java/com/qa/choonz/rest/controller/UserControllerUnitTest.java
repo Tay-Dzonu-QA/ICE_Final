@@ -58,11 +58,12 @@ public class UserControllerUnitTest {
     
     @Test
     void createTest() {
+        UserDTO dto = mapper.map(testUser,UserDTO.class);
         when(this.service.create(testUser))
             .thenReturn(this.userDTO);
         
         assertThat(new ResponseEntity<UserDTO>(this.userDTO, HttpStatus.CREATED))
-                .isEqualTo(this.controller.create(testUser));
+                .isEqualTo(this.controller.create(dto));
         
         verify(this.service, times(1))
             .create(this.testUser);
