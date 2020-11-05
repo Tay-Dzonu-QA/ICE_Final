@@ -1,4 +1,4 @@
-<img src = "src/main/resources/static/img/Choonz.jpg" width ="300">
+<img src = "src\main\resources\img\Choonz.jpg" width ="300">
 
 # Music Web App: Choonz
 This project set out to create a rigorously tested, functional music library to organise playlists. The aim of this project was to be achieved in a team of 4 by satifying all the requirements to meet the MVP as well being agile to changing 'client' requirements. This project was completed over two 5-day Sprints. The technologies used in this project include:
