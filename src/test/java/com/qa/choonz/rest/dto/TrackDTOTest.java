@@ -8,6 +8,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.qa.choonz.persistence.domain.Album;
+
 public class TrackDTOTest {
 	
 
@@ -54,6 +56,15 @@ public class TrackDTOTest {
 			TrackDTO newTrackDTO = new TrackDTO(
 					this.id, 
 					this.name);	
+			
+			assertThat(newTrackDTO instanceof TrackDTO);		
+	}
+	@Test
+	public void threeArguConstructorTest() {
+			TrackDTO newTrackDTO = new TrackDTO(
+					this.id, 
+					this.name,
+					this.duration);	
 			
 			assertThat(newTrackDTO instanceof TrackDTO);		
 	}
@@ -116,6 +127,15 @@ public class TrackDTOTest {
 		newTrack.setLyrics(lyrics);
 		
 		assertEquals(lyrics,newTrack.getLyrics());
+	}
+	
+	@Test
+	public void getSetAlbumTest() {
+		TrackDTO newTrack = new TrackDTO();
+		Album newAlbum = new Album();
+		newTrack.setAlbum(newAlbum);
+		
+		assertEquals(newAlbum,newTrack.getAlbum());
 	}
 
 	

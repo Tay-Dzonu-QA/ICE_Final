@@ -16,7 +16,7 @@ public class Playlist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotNull
     @Size(max = 100)
@@ -69,7 +69,7 @@ public class Playlist {
         this.tracks = tracks;
     }
 
-    public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
+    public Playlist(Long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
             @NotNull @Size(max = 1000) String artwork, List<Track> tracks, User user) {
         super();
         this.id = id;
@@ -89,11 +89,11 @@ public class Playlist {
     	track.getPlaylist().remove(this);
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -148,7 +148,7 @@ public class Playlist {
             return false;
         }
         Playlist other = (Playlist) obj;
-        return Objects.equals(name, other.name) &&  id == other.id && Objects.equals(user, other.user)
+        return Objects.equals(name, other.name) &&  id.equals(other.id) && Objects.equals(user, other.user)
                 && Objects.equals(artwork, other.artwork) && Objects.equals(tracks, other.tracks)
                 && Objects.equals(description, other.description);
     }

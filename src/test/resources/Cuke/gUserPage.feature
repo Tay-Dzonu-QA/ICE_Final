@@ -13,14 +13,13 @@ Feature: UserPage
       |  4 |
       |  5 |
 
-
   Scenario Outline: USER add Track - LOGGED IN
     Given I am logged in and on USER page
     When I add Track <id> "<name>" to Playlist 4
     Then The Playlist 4 includes Track <id>
 
     Examples: 
-            | id | name  |
+      | id | name  |
       |  1 | track |
       |  2 | track |
       |  3 | track |
@@ -31,8 +30,8 @@ Feature: UserPage
     Given I am logged in and on USER page
     When I remove Track <Trackid> from Playlist <PlID>
     Then The Track <Trackid> can not be found on Playlist <PlID>
-    
-        Examples: 
+
+    Examples: 
       | Trackid | PlID |
       |       1 |    1 |
       |       2 |    2 |
@@ -48,7 +47,7 @@ Feature: UserPage
       |    2 |
       |    3 |
       |    4 |
-    
+
   Scenario Outline: USER delete Playlist - LOGGED IN
     Given I am logged in and on USER page
     When I delete Playlist <PlID>

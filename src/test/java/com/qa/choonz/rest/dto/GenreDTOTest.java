@@ -57,6 +57,16 @@ public class GenreDTOTest {
 			
 			assertThat(newArtDTO instanceof GenreDTO);		
 	}
+	
+	@Test
+	public void threeArguConstructorTest() {
+			GenreDTO newArtDTO = new GenreDTO(
+					this.id, 
+					this.name,
+					this.description);	
+			
+			assertThat(newArtDTO instanceof GenreDTO);		
+	}
 		
 	@Test
 	public void AllArguConstructorTest() {

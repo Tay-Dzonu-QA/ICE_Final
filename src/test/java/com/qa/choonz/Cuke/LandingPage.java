@@ -21,7 +21,7 @@ public class LandingPage {
 	
 	WebDriverWait wait;
 	
-	@Before
+	@Before("@tagLanding")
 	public void init() {
 		System.setProperty("webdriver.edge.driver","C:\\Users\\oejac\\Desktop\\ICE_Final\\src\\test\\resources\\msedgedriver.exe");
 	    driver = new EdgeDriver(); 
@@ -100,7 +100,7 @@ public class LandingPage {
 			
 		}
 			
-	@After
+	@After("@tagLanding")
 	public void quit() {
 		driver.quit();
 	}
