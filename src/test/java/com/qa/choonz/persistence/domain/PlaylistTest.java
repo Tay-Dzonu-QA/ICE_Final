@@ -140,6 +140,17 @@ public class PlaylistTest {
 	        testPl2.setId(2L);
 	        assertFalse(testPl.equals(testPl2));
 	    }
+	 
+	 @Test
+		public void addRemoveTrackTest() {
+			Track trackToAdd = new Track();
+			this.testPl.addTrack(trackToAdd);
+			this.tracks.add(trackToAdd);
+			assertEquals(this.tracks,this.testPl.getTracks());
+			this.tracks.remove(trackToAdd);
+			this.testPl.removeTrack(trackToAdd);
+			assertEquals(this.tracks,this.testPl.getTracks());
+		}
 	
 	@Test
 	public void getSetIdTest() {
@@ -184,6 +195,16 @@ public class PlaylistTest {
 		emptyPlaylist.setTracks(tracks);
 		
 		assertEquals(tracks,emptyPlaylist.getTracks());
+	}
+	
+	@Test
+	public void getSetUserTest() {
+		User newUser = new User();
+		
+		Playlist emptyPlaylist = new Playlist();
+		emptyPlaylist.setUser(newUser);
+		
+		assertEquals(newUser,emptyPlaylist.getUser());
 	}
 	
 	

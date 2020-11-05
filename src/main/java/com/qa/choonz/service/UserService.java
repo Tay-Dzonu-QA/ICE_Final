@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.choonz.exception.UserNotFoundException;
+import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.domain.User;
 import com.qa.choonz.persistence.repository.UserRepository;
 import com.qa.choonz.rest.dto.UserDTO;
@@ -22,6 +22,8 @@ public class UserService {
 
     private UserRepository repo;
     private ModelMapper mapper;
+    
+    private PlaylistService PLService;
 
 
     public UserService(UserRepository repo, ModelMapper mapper) {
@@ -75,6 +77,11 @@ public class UserService {
     }
 
     public boolean delete(Long id) {
+    	User toDelete = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
+    	List<Playlist> removePL =toDelete.getPlaylists();
+    	for(Playlist Pl : removePL) {
+    		PLService.delete(Pl.getId());
+    	}
         this.repo.deleteById(id);
         return !this.repo.existsById(id);
     }

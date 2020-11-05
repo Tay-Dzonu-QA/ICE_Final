@@ -1,6 +1,7 @@
 package com.qa.choonz.rest.dto;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -9,6 +10,9 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.qa.choonz.persistence.domain.Artist;
+import com.qa.choonz.persistence.domain.Genre;
 
 public class AlbumDTOTest {
 	
@@ -120,6 +124,19 @@ public class AlbumDTOTest {
 		this.testAlbumDTO.setCover(newCover);
 		
 		assertThat(this.testAlbumDTO.getCover().equals(newCover));
+	}
+	@Test
+	void getSetGenre() {
+		Genre newGenre = new Genre();
+		this.testAlbumDTO.setGenre(newGenre);
+		assertEquals(newGenre,this.testAlbumDTO.getGenre());
+	}
+	
+	@Test
+	void getSetArtist() {
+		Artist newArtist = new Artist();
+		this.testAlbumDTO.setArtist(newArtist);
+		assertEquals(newArtist,this.testAlbumDTO.getArtist());
 	}
 	
 		@Test

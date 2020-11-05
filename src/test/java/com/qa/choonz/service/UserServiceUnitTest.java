@@ -115,6 +115,7 @@ public class UserServiceUnitTest {
         verify(this.repository, times(1)).findById(1L);
         verify(this.repository, times(1)).save(user);
     }
+    
 }
     
 

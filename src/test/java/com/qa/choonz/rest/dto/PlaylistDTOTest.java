@@ -11,7 +11,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.qa.choonz.persistence.domain.Playlist;
 import com.qa.choonz.persistence.domain.Track;
+import com.qa.choonz.persistence.domain.User;
 
 public class PlaylistDTOTest {
 
@@ -72,9 +74,30 @@ public class PlaylistDTOTest {
 
 			assertThat(newArtDTO instanceof PlaylistDTO);
 	}
+	
+	@Test
+	public void threeArguConstructorTest() {
+		PlaylistDTO newPlaylistDTO = new PlaylistDTO(
+				this.name,
+				this.description,
+				this.artwork);
 
+		assertThat(newPlaylistDTO instanceof PlaylistDTO);
+	}
+	
 	@Test
 	public void fourArguConstructorTest() {
+		PlaylistDTO newPlaylistDTO = new PlaylistDTO(
+				this.id,
+				this.name,
+				this.description,
+				this.artwork);
+
+		assertThat(newPlaylistDTO instanceof PlaylistDTO);
+	}
+
+	@Test
+	public void otherFourArguConstructorTest() {
 		PlaylistDTO newPlaylistDTO = new PlaylistDTO(
 				this.name,
 				this.description,
@@ -97,6 +120,16 @@ public class PlaylistDTOTest {
 		assertThat(newPlaylistDTO instanceof PlaylistDTO);
 	}
 
+	 @Test
+		public void addRemoveTrackTest() {
+			Track trackToAdd = new Track();
+			this.testPlaylistDTO.addTrack(trackToAdd);
+			this.tracks.add(trackToAdd);
+			assertEquals(this.tracks,this.testPlaylistDTO.getTracks());
+			this.tracks.remove(trackToAdd);
+			this.testPlaylistDTO.removeTrack(trackToAdd);
+			assertEquals(this.tracks,this.testPlaylistDTO.getTracks());
+		}
 
 	@Test
 	void GetIdTest() {
@@ -154,6 +187,15 @@ public class PlaylistDTOTest {
 		this.testPlaylistDTO.setTracks(newTracks);
 
 		assertThat(this.testPlaylistDTO.getTracks() == newTracks);
+	}
+	@Test
+	public void getSetUserTest() {
+		User newUser = new User();
+		
+		Playlist emptyPlaylist = new Playlist();
+		emptyPlaylist.setUser(newUser);
+		
+		assertEquals(newUser,emptyPlaylist.getUser());
 	}
 
 		@Test
