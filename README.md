@@ -144,7 +144,7 @@ git clone https://github.com/Tay-Dzonu-QA/ICE_Final
 
 <details>
 <summary>Screenshot</summary>
-<img src = "https://imgur.com/a/tgasOBP">
+<img src = "src\main\resources\img\LoginPage.png">
 </details>
 
 ### Playlist HomePage
@@ -162,7 +162,7 @@ Playlist Home page:
 
 <details>
 <summary>Screenshot</summary>
-<img src = "src/main/resources/static/img/PlaylistPage.png">
+<img src = "src\main\resources\img\PlaylistPage.png">
 </details>
 
 ### Album, Artist, Genre, Track Pages
@@ -178,7 +178,7 @@ The Album, Artist, Genre, Track pages:
 
 <details>
 <summary>Screenshot</summary>
-<img src = "EntityPage.png">
+<img src = "src\main\resources\img\EntityPage.png">
 </details>
 
 ## Building
