@@ -50,41 +50,45 @@ public class PlaylistAndUserPageTest {
 	@When("I click to view the Track with id {int} for Playlist {int}")
 	public void select_track_from_pl(int TrackID,int PlID) throws Throwable {
 		WebElement PlRow = driver.findElement(By.id("PL"+PlID+"PlaylistRow"+TrackID));
+		wait.until(ExpectedConditions.visibilityOf(PlRow));
 		action.moveToElement(PlRow);
 	    WebElement TrackLink = driver.findElement(By.id("PL"+PlID+"ViewTrackButton"+TrackID));
 	    wait.until(ExpectedConditions.visibilityOf(TrackLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(TrackLink));
 	    TrackLink.click();
 	}
 	@When("I open the Playlist side bar and select Playlist {int}")
 	public void select_playlist(int PlID) throws Throwable {
 		WebElement openFilter = driver.findElement(By.id("FilterByBTN"));
-		wait.until(ExpectedConditions.visibilityOf(openFilter));
+		wait.until(ExpectedConditions.elementToBeClickable(openFilter));
 		openFilter.click();
 	    WebElement SelectLink = driver.findElement(By.id("Select_"+PlID));
-	    wait.until(ExpectedConditions.visibilityOf(SelectLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(SelectLink));
 	    SelectLink.click();
 	}
 	@When("I add Track {int} {string} to Playlist {int}")
-	public void playlist_add_track(int TrackID,String TrackName,int PlID) {
+	public void playlist_add_track(int TrackID,String TrackName,int PlID) throws Throwable{
 		WebElement AddTrackBTN = driver.findElement(By.id("AddTrackButton"+PlID));
-	    wait.until(ExpectedConditions.visibilityOf(AddTrackBTN));
+	    wait.until(ExpectedConditions.elementToBeClickable(AddTrackBTN));
 	    AddTrackBTN.click();
 	    wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("AddTrackPLModal"))));
-		driver.findElement(By.id("TrackAdd")).sendKeys(TrackID+". "+TrackName);
+		driver.findElement(By.id("TrackAdd")).sendKeys(TrackID+". "+TrackName+" "+TrackID);
 		driver.findElement(By.id("AddTrackPLSubmit")).click();
 	}
 	@When("I remove Track {int} from Playlist {int}")
-	public void playlist_remove_track(int TrackID,int PlID) {
+	public void playlist_remove_track(int TrackID,int PlID) throws Throwable{
 		WebElement PlRow = driver.findElement(By.id("PL"+PlID+"PlaylistRow"+TrackID));
+		wait.until(ExpectedConditions.visibilityOf(PlRow));
 		action.moveToElement(PlRow);
 	    WebElement RemoveTrackBTN = driver.findElement(By.id("PL"+PlID+"RemoveTrackButton"+TrackID));
 	    wait.until(ExpectedConditions.visibilityOf(RemoveTrackBTN));
+	    wait.until(ExpectedConditions.elementToBeClickable(RemoveTrackBTN));
 	    RemoveTrackBTN.click();
 	}
 	@When("I edit the Playlist {int} info")
-	public void edit_playlist(int PlID) {
+	public void edit_playlist(int PlID) throws Throwable{
 		WebElement EditPLBTN = driver.findElement(By.id("EditPLButton"+PlID));
-	    wait.until(ExpectedConditions.visibilityOf(EditPLBTN));
+	    wait.until(ExpectedConditions.elementToBeClickable(EditPLBTN));
 	    EditPLBTN.click();
 	    wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("EditPLModal"))));
 		WebElement newName = driver.findElement(By.id("EditPLName"));
@@ -97,14 +101,14 @@ public class PlaylistAndUserPageTest {
 		
 	}
 	@When("I delete Playlist {int}")
-	public void delete_playlist(int PlID) {
+	public void delete_playlist(int PlID) throws Throwable{
 		WebElement DeletePLBTN = driver.findElement(By.id("DeletePLButton"+PlID));
-	    wait.until(ExpectedConditions.visibilityOf(DeletePLBTN));
+	    wait.until(ExpectedConditions.elementToBeClickable(DeletePLBTN));
 	    DeletePLBTN.click();
 	}
 
 	@When("I add a new Playlist")
-	public void new_playlist() {
+	public void new_playlist() throws Throwable{
 	    WebElement AddPLBTN = driver.findElement(By.id("addPLButton"));
 	    wait.until(ExpectedConditions.visibilityOf(AddPLBTN));
 	    AddPLBTN.click();
@@ -112,6 +116,7 @@ public class PlaylistAndUserPageTest {
 		driver.findElement(By.id("AddPLName")).sendKeys("TEST PL NAME");
 		driver.findElement(By.id("AddPLDescription")).sendKeys("TEST PL Description");
 		driver.findElement(By.id("AddPLSubmit")).click();
+
 	}
 	
 	@Then("I will be on the Track page with track id {int}")
@@ -125,7 +130,8 @@ public class PlaylistAndUserPageTest {
 	}
 	
 	@Then("The Playlist {int} includes Track {int}")
-	public void assert_playlist_includes_track(int PlaylistID,int TrackID) {
+	public void assert_playlist_includes_track(int PlaylistID,int TrackID) throws Throwable{
+		Thread.sleep(500);
 		WebElement PLRow = driver.findElement(By.id("PL"+PlaylistID+"PlaylistRow"+TrackID));
 		wait.until(ExpectedConditions.visibilityOf(PLRow));
 		action.moveToElement(PLRow);
@@ -134,38 +140,54 @@ public class PlaylistAndUserPageTest {
 		assertThat(TrackName.getText()).isEqualTo("track "+TrackID);
 	}
 	@Then("The Track {int} can not be found on Playlist {int}")
-	public void assert_track_removed_from_playlist(int TrackID,int PlaylistID) {
+	public void assert_track_removed_from_playlist(int TrackID,int PlaylistID) throws Throwable{
+		Thread.sleep(500);		
 		WebElement PLempty = driver.findElement(By.id("PLEmpty"+PlaylistID));
+		wait.until(ExpectedConditions.visibilityOf(PLempty));
 		assertThat(PLempty.getText()).isEqualTo("NO TRACKS");
 	}
 	@Then("Playlist {int} info has been changed")
 	public void assert_playlist_info_changed(int PlaylistID) throws Throwable {
-		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists="+PlaylistID);
-		WebElement PLName = driver.findElement(By.id("PLTitle"));
+		Thread.sleep(500);
+//		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists="+PlaylistID);
+		WebElement PLName = driver.findElement(By.id("PLTitle"+PlaylistID));
 		wait.until(ExpectedConditions.visibilityOf(PLName));
 		assertThat(PLName.getText()).isEqualTo("Playlist: TEST PL NAME");
-		WebElement PLDescription = driver.findElement(By.id("PLDescription"));
+		WebElement PLDescription = driver.findElement(By.id("PLDescription"+PlaylistID));
+		wait.until(ExpectedConditions.visibilityOf(PLDescription));
+		assertThat(PLDescription.getText()).isEqualTo("Description: TEST PL Description");
+	}
+	@Then("Playlist {int} info has been changed USER")
+	public void assert_playlist_info_changed_USER(int PlaylistID) throws Throwable {
+		Thread.sleep(500);
+		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists="+PlaylistID);
+		Thread.sleep(500);
+		WebElement PLName = driver.findElement(By.id("PLTitle"+PlaylistID));
+		wait.until(ExpectedConditions.visibilityOf(PLName));
+		assertThat(PLName.getText()).isEqualTo("Playlist: TEST PL NAME");
+		WebElement PLDescription = driver.findElement(By.id("PLDescription"+PlaylistID));
 		wait.until(ExpectedConditions.visibilityOf(PLDescription));
 		assertThat(PLDescription.getText()).isEqualTo("Description: TEST PL Description");
 	}
 	@Then("Playlist {int} is not found")
 	public void assert_playlist_deleted(int PlaylistID) throws Throwable {
+		Thread.sleep(500);
 		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists="+PlaylistID);
+		Thread.sleep(500);
 		WebElement PLName = driver.findElement(By.id("PLTitle"));
-		
-//		wait.until(ExpectedConditions.visibilityOf(PLName));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("PLTitle")));
 		assertThat(PLName.getText()).isEqualTo("");
 		WebElement PLDescription = driver.findElement(By.id("PLDescription"));
-//		wait.until(ExpectedConditions.visibilityOf(PLDescription));
 		assertThat(PLDescription.getText()).isEqualTo("");
 	}
 	@Then("My new Playlist is found")
 	public void assert_playlist_added() throws Throwable {
 		driver.get("http://127.0.0.1:5500/src/main/resources/static/html/Playlist.html?user=1&playlists=5");
-		WebElement PLName = driver.findElement(By.id("PLTitle"));
+		Thread.sleep(500);
+		WebElement PLName = driver.findElement(By.id("PLTitle"+5));
 		wait.until(ExpectedConditions.visibilityOf(PLName));
 		assertThat(PLName.getText()).isEqualTo("Playlist: TEST PL NAME");
-		WebElement PLDescription = driver.findElement(By.id("PLDescription"));
+		WebElement PLDescription = driver.findElement(By.id("PLDescription"+5));
 		wait.until(ExpectedConditions.visibilityOf(PLDescription));
 		assertThat(PLDescription.getText()).isEqualTo("Description: TEST PL Description");
 	}

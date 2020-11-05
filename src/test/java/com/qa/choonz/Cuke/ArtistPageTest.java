@@ -47,6 +47,7 @@ public class ArtistPageTest {
 		action.moveToElement(ArtistRow);
 	    WebElement ArtistLink = driver.findElement(By.id("ViewArtistButton"+id));
 	    wait.until(ExpectedConditions.visibilityOf(ArtistLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(ArtistLink));
 	    ArtistLink.click();
 	}
 	@When("I open the artist side bar and select order by {string}")
@@ -54,9 +55,11 @@ public class ArtistPageTest {
 		if(order.equals("default")) {order="";}
 		WebElement openFilter = driver.findElement(By.id("FilterByBTN"));
 		wait.until(ExpectedConditions.visibilityOf(openFilter));
+		wait.until(ExpectedConditions.elementToBeClickable(openFilter));
 		openFilter.click();
 	    WebElement OrderLink = driver.findElement(By.id("Order_"+order));
 	    wait.until(ExpectedConditions.visibilityOf(OrderLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(OrderLink));
 	    OrderLink.click();
 	}
 	

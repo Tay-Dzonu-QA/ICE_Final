@@ -160,11 +160,12 @@ document
     let formElements = document.querySelector("form.EditPL").elements;
 
     let EditPLname = formElements["EditPLName"].value;
+    let EditPLDescription = formElements["EditPLDescription"].value;
 
-    editPL(EditPLname, PLID);
+    editPL(EditPLname,EditPLDescription, PLID);
   });
 
-function editPL(name, PLID) {
+function editPL(name,description, PLID) {
   let ID = parseInt(PLID);
   fetch("http://localhost:8082/playlists/update/" + PLID, {
     method: "put",
@@ -173,7 +174,8 @@ function editPL(name, PLID) {
     },
     body: (json = JSON.stringify({
       "id": ID,
-      "name": name
+      "name": name,
+      "description":description
     })),
   })
     .then(json)

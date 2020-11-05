@@ -47,24 +47,29 @@ public class AlbumPageTest {
 		action.moveToElement(AlbumRow);
 	    WebElement AlbumLink = driver.findElement(By.id("ViewAlbumButton"+id));
 	    wait.until(ExpectedConditions.visibilityOf(AlbumLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(AlbumLink));
 	    AlbumLink.click();
 	}
 	@When("I open the album side bar and select Albums by {int}")
 	public void select_by_artist(int artistID) throws Throwable {
 		WebElement openFilter = driver.findElement(By.id("FilterByBTN"));
 		wait.until(ExpectedConditions.visibilityOf(openFilter));
+		wait.until(ExpectedConditions.elementToBeClickable(openFilter));
 		openFilter.click();
 	    WebElement OrderLink = driver.findElement(By.id("Order_Artist"+artistID));
 	    wait.until(ExpectedConditions.visibilityOf(OrderLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(OrderLink));
 	    OrderLink.click();
 	}
 	@When("I open the album side bar and select {int} Albums")
 	public void select_by_genre(int genreID) throws Throwable {
 		WebElement openFilter = driver.findElement(By.id("FilterByBTN"));
 		wait.until(ExpectedConditions.visibilityOf(openFilter));
+		wait.until(ExpectedConditions.elementToBeClickable(openFilter));
 		openFilter.click();
 	    WebElement OrderLink = driver.findElement(By.id("Order_Genre"+genreID));
 	    wait.until(ExpectedConditions.visibilityOf(OrderLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(OrderLink));
 	    OrderLink.click();
 	}
 	@Then("I will be on the Album page with album id {int} and not be logged in")

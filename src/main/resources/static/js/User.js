@@ -47,6 +47,7 @@ function createTables(tables, PLData) {
     let table = document.createElement("table");
     let Listname = document.createElement("h2");
     Listname.textContent = Name;
+    Listname.id = "PLTitle"+ID;;
     playlistToView = element.id;
     tableDiv.appendChild(Listname);
     if(element.tracks.length ===0){

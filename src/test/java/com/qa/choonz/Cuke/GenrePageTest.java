@@ -46,6 +46,7 @@ public class GenrePageTest {
 		action.moveToElement(GenreRow);
 	    WebElement GenreLink = driver.findElement(By.id("ViewGenreButton"+id));
 	    wait.until(ExpectedConditions.visibilityOf(GenreLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(GenreLink));
 	    GenreLink.click();
 	}
 	@When("I open the genre side bar and select order by {string}")
@@ -53,9 +54,11 @@ public class GenrePageTest {
 		if(order.equals("default")) {order="";}
 		WebElement openFilter = driver.findElement(By.id("FilterByBTN"));
 		wait.until(ExpectedConditions.visibilityOf(openFilter));
+		wait.until(ExpectedConditions.elementToBeClickable(openFilter));
 		openFilter.click();
 	    WebElement OrderLink = driver.findElement(By.id("Order_"+order));
 	    wait.until(ExpectedConditions.visibilityOf(OrderLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(OrderLink));
 	    OrderLink.click();
 	}
 	

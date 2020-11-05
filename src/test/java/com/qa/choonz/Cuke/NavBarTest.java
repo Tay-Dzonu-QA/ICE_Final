@@ -49,6 +49,7 @@ public class NavBarTest {
 		}
 	    WebElement NavLink = driver.findElement(By.id(string+"Link"));
 	    wait.until(ExpectedConditions.visibilityOf(NavLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(NavLink));
 	    NavLink.click();
 	}
 	@When("I click on the {string} button")
@@ -60,11 +61,13 @@ public class NavBarTest {
 	    WebElement NavLink = driver.findElement(By.id("IndexLink"));
 	    wait.until(ExpectedConditions.visibilityOf(NavLink));
 	    assertThat(NavLink.getText()).isEqualTo(string);
+	    wait.until(ExpectedConditions.elementToBeClickable(NavLink));
 	    NavLink.click();
 	}
 	@When("I click on the choonz btn")
 	public void Click_choonz_btn() throws Throwable {
 	    WebElement NavLink = driver.findElement(By.id("LogoLink"));
+	    wait.until(ExpectedConditions.elementToBeClickable(NavLink));
 	    NavLink.click();
 	}
 	@Then("I will be on the {string} page and be logged in")

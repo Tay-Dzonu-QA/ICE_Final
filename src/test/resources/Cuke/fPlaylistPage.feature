@@ -31,12 +31,12 @@ Feature: PlaylistPage
     Then The Playlist 4 includes Track <id>
 
     Examples: 
-      | id |
-      |  1 |
-      |  2 |
-      |  3 |
-      |  4 |
-      |  5 |
+      | id | name  |
+      |  1 | track |
+      |  2 | track |
+      |  3 | track |
+      |  4 | track |
+      |  5 | track |
 
   Scenario Outline: PLAYLIST remove Track - LOGGED IN
     Given I am logged in and on Playlist <PlID> page

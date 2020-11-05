@@ -20,27 +20,46 @@ Feature: UserPage
     Then The Playlist 4 includes Track <id>
 
     Examples: 
-      | id |
-      |  1 |
-      |  2 |
-      |  3 |
-      |  4 |
-      |  5 |
+            | id | name  |
+      |  1 | track |
+      |  2 | track |
+      |  3 | track |
+      |  4 | track |
+      |  5 | track |
 
   Scenario Outline: USER remove Track - LOGGED IN
     Given I am logged in and on USER page
-    When I remove Track <id> from Playlist 4
-    Then The Track <id> can not be found on Playlist 4
+    When I remove Track <Trackid> from Playlist <PlID>
+    Then The Track <Trackid> can not be found on Playlist <PlID>
+    
+        Examples: 
+      | Trackid | PlID |
+      |       1 |    1 |
+      |       2 |    2 |
 
   Scenario Outline: USER edit Playlist - LOGGED IN
     Given I am logged in and on USER page
-    When I edit the Playlist 4 info
-    Then Playlist 4 info has been changed
+    When I edit the Playlist <PlID> info
+    Then Playlist <PlID> info has been changed USER
+
+    Examples: 
+      | PlID |
+      |    1 |
+      |    2 |
+      |    3 |
+      |    4 |
     
   Scenario Outline: USER delete Playlist - LOGGED IN
     Given I am logged in and on USER page
-    When I delete Playlist 4
-    Then Playlist 4 is not found
+    When I delete Playlist <PlID>
+    Then Playlist <PlID> is not found
+
+    Examples: 
+      | PlID |
+      |    1 |
+      |    2 |
+      |    3 |
+      |    4 |
 
   Scenario Outline: USER Add Playlist - LOGGED IN
     Given I am logged in and on USER page

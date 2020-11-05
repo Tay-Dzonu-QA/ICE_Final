@@ -47,15 +47,18 @@ public class TrackPageTest {
 		action.moveToElement(TrackRow);
 	    WebElement TrackLink = driver.findElement(By.id("ViewTrackButton"+id));
 	    wait.until(ExpectedConditions.visibilityOf(TrackLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(TrackLink));
 	    TrackLink.click();
 	}
 	@When("I open the track side bar and select Tracks in album {int}")
 	public void select_by_album(int albumID) throws Throwable {
 		WebElement openFilter = driver.findElement(By.id("FilterByBTN"));
 		wait.until(ExpectedConditions.visibilityOf(openFilter));
+		wait.until(ExpectedConditions.elementToBeClickable(openFilter));
 		openFilter.click();
 	    WebElement OrderLink = driver.findElement(By.id("Order_Album"+albumID));
 	    wait.until(ExpectedConditions.visibilityOf(OrderLink));
+	    wait.until(ExpectedConditions.elementToBeClickable(OrderLink));
 	    OrderLink.click();
 	}
 	@When("I add Track {int} to Playlist {string}")
@@ -64,6 +67,7 @@ public class TrackPageTest {
 		action.moveToElement(TrackRow);
 		WebElement AddToPlBTN = driver.findElement(By.id("addToPlaylistButton"+TrackID));
 	    wait.until(ExpectedConditions.visibilityOf(AddToPlBTN));
+	    wait.until(ExpectedConditions.elementToBeClickable(AddToPlBTN));
 	    AddToPlBTN.click();
 	    
 	    wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("AddToPlaylistModal"))));
