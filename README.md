@@ -15,6 +15,7 @@ This project set out to create a rigorously tested, functional music library to 
 ## Table of Contents
 
 1. [About the Project](#about-the-project)
+1. [Testing](#testing)
 1. [Getting Started](#getting-started)
     1. [Dependencies](#dependencies)
     1. [Features](#features)
@@ -115,7 +116,6 @@ Postman was used to test API calls from the H2 before implementing them within t
 * [Apache Maven](https://maven.apache.org)
 * [Git](https://git-scm.com/downloads)
 * [Eclipse IDE](https://www.eclipse.org/downloads)
-* [Jenkins](https://jenkins.io/download)
 * [Postman](https://www.postman.com/downloads)
 * [Google Chrome](https://www.google.com/chrome)
 </details>
@@ -134,7 +134,7 @@ git clone https://github.com/Tay-Dzonu-QA/ICE_Final
 ### Login Page
 
 <details>
-<summary>Requirements</summary>
+<summary>Description</summary>
     
 * Simple
 * allows a user to create account or login using their details
@@ -150,7 +150,7 @@ git clone https://github.com/Tay-Dzonu-QA/ICE_Final
 ### Playlist HomePage
 
 <details>
-<summary>Requirements</summary>
+<summary>Description</summary>
     
 Playlist Home page:
 * Offers the user a area to manage playlists
@@ -168,9 +168,9 @@ Playlist Home page:
 ### Album, Artist, Genre, Track Pages
 
 <details>
-<summary>Requirements</summary>
+<summary>Description</summary>
     
-The lbum, Artist, Genre, Track pages: 
+The Album, Artist, Genre, Track pages: 
 * Offer an area to see each of these entities in full and have crud functionality
 * Has sidebar to either Sort or Order the data 
 
@@ -222,11 +222,7 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ### Development Team
 
-- **[Owen Jackson](https://github.com/OJackson1)
-- **[Tay Dzonu](https://github.com/Tay-Dzonu-QA)
-- **[Mohammad Rashid](https://github.com/MRashid98)
-- **[Oforitsesan Towesho](https://github.com/CodewithOsatQA)
-
-## Acknowledgements
-
-- Probably not needed currently, but teams may wish to credit those outside the academy/stackoverflow users/reddit posts/whatever else they've used here
+- [**Owen Jackson**](https://github.com/OJackson1)
+- [**Tay Dzonu**](https://github.com/Tay-Dzonu-QA)
+- [**Mohammad Rashid**](https://github.com/MRashid98)
+- [**Oforitsesan Towesho**](https://github.com/CodewithOsatQA)
