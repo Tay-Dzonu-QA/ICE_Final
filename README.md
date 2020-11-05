@@ -181,7 +181,7 @@ Playlist Home page:
     
 The Album, Artist, Genre, Track pages: 
 * Offer an area to see each of these entities in full and have crud functionality
-* Has sidebar to either Sort or Order the data 
+* Has sidebar to either Sort, Filter or Order the data 
 
 </details>
 
