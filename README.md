@@ -9,7 +9,7 @@ This project set out to create a rigorously tested, functional music library to 
 *	API Development Platform: Spring 
 *	Front-End Web Technologies: HTML, CSS, JavaScript
 *	Build Tool: Maven
-*	Testing: JUnit, Mockito, Selenium, Gherkin, Cucumber
+*	Testing: JUnit, Mockito, Selenium, Gherkin, Cucumber, Jmeter
 *	Static Analysis: SonarQube
 
 ## Table of Contents
@@ -29,7 +29,6 @@ This project set out to create a rigorously tested, functional music library to 
 ##### The overall objective of the project:
 
 To create a full-stack Web application suitable for a given client specification, with utilisation of supporting tools, methodologies and technologies that encapsulate all modules covered during training.
-
 
 
 ##### The MVP was to be achieved with the following requirements:
@@ -55,8 +54,7 @@ To create a full-stack Web application suitable for a given client specification
 * API Development Platform: Spring
 * Front-End Web Technologies: HTML, CSS, JavaScript
 * Build Tool: Maven
-* Unit Testing: JUnit, Mockito
-* Integration Testing: Selenium, Gherkin, Cucumber
+* Testing: JUnit, Mockito, Selenium, Gherkin, Cucumber, Jmeter
 * Static Analysis: SonarQube
 
 </details>
@@ -78,17 +76,27 @@ A total of 60 Integration tests were written for both controllers & Integration 
 Mockito is used for intergration testing, to test how different classes interact with each other. Using 'mocking', methods & classes can be tested for intergration by assuming the methods & classes it relies on are fully functional.
 Controllers and Services have associated Integration Tests.
 
-#### User acceptance Tests (with Selenium, Cucumber and Gherkin)
+#### User Acceptance Tests (with Selenium, Cucumber and Gherkin)
 175 Selenium tests were written. These were written on two different computers so in order to run them you would need to make sure the driver is pointing towards the correct area on your local computer and each test needs to have the correct port that you are hosting the web app on.
 
 The selenium, Cucumber and Gherkin tests can be found in `src/test/java/com/qa/test/Cuke` and src/test/resources/Cuke
+
+#### Non-functional Testing (with Jmeter)
+-----------------------------------------
+
+<details>
+<summary>Screenshots</summary>
+<img src = "src\main\resources\img\Coverage.png">
+<img src = "">
+<img src = "">
+</details>
 
 #### Static Analysis
 
 SonarQube for static analysis.
 <details>
 <summary>SonarQube</summary>
-<img src = "https://i.imgur.com/PoXvP3k.png">
+<img src = "">
 </details>
 
 ## Getting Started
