@@ -206,7 +206,7 @@ How to build the project:
 
 ``` mvn spring-boot:run ```
 
-Note: When you run the second command the program will run, launching the Spring boot application. You can then navigate to `localhost:8181` via a browser or my shortcut provided in this repo, to reach the home page of the web interface. The app will run until you trigger the `/shutdownAppContext` API call.
+Note: When you run the second command the program will run, launching the Spring boot application. You can then navigate to `localhost:8082` via a browser or my shortcut provided in this repo, to reach the home page of the web interface. The app will run until you trigger the `/shutdownAppContext` API call.
 
 
 **[Back to top](#table-of-contents)**
