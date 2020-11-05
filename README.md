@@ -28,7 +28,7 @@ This project set out to create a rigorously tested, functional music library to 
 
 ##### The overall objective of the project:
 
-To create a full-stack Web application suitable for a given client specification, with utilisation of supporting tools, methodologies and technologies that encapsulate all modules covered during training.
+To create a full-stack Web application suitable for a given client specification, with utilisation of supporting tools, methodologies and technologies that encapsulate all modules covered during SDET training at QA Consulting.
 
 
 ##### The MVP was to be achieved with the following requirements:
@@ -39,10 +39,11 @@ To create a full-stack Web application suitable for a given client specification
 
 * Code fully integrated from every team member into a central repository on a Version Control System, with utilisation of issues, pull requests, merge requests, and any other aspects.
 
-* Fully designed backend test suites for the application. Striving to achieve industry-standard (80%) test coverage through both unit and integration testing.
+* Fully designed test suites – unit, integration, user-acceptance, functional, and non-functional – for the improved website. Striving to achieve industry-standard (80%) test coverage through both unit and integration testing.
 
-* Fully-designed frontend test suites for the application, which cover a wide range of user journeys.
+* Periodically running the codebase through a static analysis tool,SonarQube, with relevant refactoring of the code accordingly to reduce code smells, bugs, and vulnerabilities.
 
+* The final deliverable for this project is the completed application with full documentation around utilisation of supporting tools. This will require a fully functional application.
 
 <details>
 <summary>Technologies Used</summary>
