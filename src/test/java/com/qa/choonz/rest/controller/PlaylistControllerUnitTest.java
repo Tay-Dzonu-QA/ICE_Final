@@ -49,7 +49,7 @@ public class PlaylistControllerUnitTest {
     @BeforeEach
     void init() {
         this.playlists = new ArrayList<>();
-        this.testPlaylist = new Playlist(testName);
+        this.testPlaylist = new Playlist(id,testName);
         this.testPlaylistWithId = new Playlist(testPlaylist.getName());
         this.testPlaylistWithId.setId(id);
         this.playlists.add(testPlaylistWithId);

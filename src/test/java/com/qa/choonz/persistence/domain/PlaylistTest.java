@@ -75,6 +75,16 @@ public class PlaylistTest {
 	}
 	
 	@Test
+	void twoArguConsTest() {
+
+		Playlist newPl = new Playlist(
+				this.id,
+				this.name);
+		
+		assertThat(newPl instanceof Playlist);
+	}
+	
+	@Test
 	void threeArguConsTest() {
 
 		Playlist newPl = new Playlist( 
