@@ -144,7 +144,7 @@ git clone https://github.com/Tay-Dzonu-QA/ICE_Final
 
 <details>
 <summary>Screenshot</summary>
-<img src = "https://imgur.com/HNWCEoA">
+<img src = "https://imgur.com/a/tgasOBP">
 </details>
 
 ### Playlist HomePage
