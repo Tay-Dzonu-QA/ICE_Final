@@ -44,6 +44,7 @@ public class TrackPageTest {
 	@When("I click on the Track with id {int}")
 	public void select_Track(int id) throws Throwable {
 		WebElement TrackRow = driver.findElement(By.id("TrackRow"+id));
+		wait.until(ExpectedConditions.visibilityOf(TrackRow));
 		action.moveToElement(TrackRow);
 	    WebElement TrackLink = driver.findElement(By.id("ViewTrackButton"+id));
 	    wait.until(ExpectedConditions.visibilityOf(TrackLink));

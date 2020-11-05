@@ -44,6 +44,7 @@ public class ArtistPageTest {
 	@When("I click on the Artist with id {int}")
 	public void select_Artist(int id) throws Throwable {
 		WebElement ArtistRow = driver.findElement(By.id("ArtistRow"+id));
+		wait.until(ExpectedConditions.visibilityOf(ArtistRow));
 		action.moveToElement(ArtistRow);
 	    WebElement ArtistLink = driver.findElement(By.id("ViewArtistButton"+id));
 	    wait.until(ExpectedConditions.visibilityOf(ArtistLink));

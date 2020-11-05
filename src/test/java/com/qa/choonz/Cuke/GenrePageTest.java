@@ -43,6 +43,7 @@ public class GenrePageTest {
 	@When("I click on the Genre with id {int}")
 	public void select_Genre(int id) throws Throwable {
 		WebElement GenreRow = driver.findElement(By.id("GenreRow"+id));
+		wait.until(ExpectedConditions.visibilityOf(GenreRow));
 		action.moveToElement(GenreRow);
 	    WebElement GenreLink = driver.findElement(By.id("ViewGenreButton"+id));
 	    wait.until(ExpectedConditions.visibilityOf(GenreLink));

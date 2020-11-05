@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = "src/test/resources/Cuke",
-		plugin = {"pretty","html:target/reports/htmlReports","json:target/reports/json/ChoonzReport.json","junit:target/reports/xml/Choonz.xml"},
+		plugin = {"pretty","html:target/reports/html/htmlReports.html","json:target/reports/json/ChoonzReport.json","junit:target/reports/xml/Choonz.xml"},
 		monochrome = true	
 		)
 public class TestRunner {
