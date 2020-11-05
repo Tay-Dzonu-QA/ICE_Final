@@ -9,7 +9,7 @@ This project set out to create a rigorously tested, functional music library to 
 *	API Development Platform: Spring 
 *	Front-End Web Technologies: HTML, CSS, JavaScript
 *	Build Tool: Maven
-*	Testing: JUnit, Mockito, Selenium
+*	Testing: JUnit, Mockito, Selenium, Gherkin, Cucumber
 *	Static Analysis: SonarQube
 
 ## Table of Contents
@@ -56,7 +56,7 @@ To create a full-stack Web application suitable for a given client specification
 * Front-End Web Technologies: HTML, CSS, JavaScript
 * Build Tool: Maven
 * Unit Testing: JUnit, Mockito
-* Integration Testing: Selenium
+* Integration Testing: Selenium, Gherkin, Cucumber
 * Static Analysis: SonarQube
 
 </details>
@@ -75,7 +75,7 @@ JUnit is used for unit tests. A unit test will test individual methods within a 
 
 #### Integration Tests 
 A total of 60 Integration tests were written for both controllers & Integration tests.
-Mockito is used for intergration testing, to test how different classes interact with each other. Using 'mocking', methods & classes can be tested for inegration by assuming the methods & classes it relies on are fully functional.
+Mockito is used for intergration testing, to test how different classes interact with each other. Using 'mocking', methods & classes can be tested for intergration by assuming the methods & classes it relies on are fully functional.
 Controllers and Services have associated Integration Tests.
 
 #### User acceptance Tests (with Selenium, Cucumber and Gherkin)
@@ -144,7 +144,7 @@ git clone https://github.com/Tay-Dzonu-QA/ICE_Final
 
 <details>
 <summary>Screenshot</summary>
-<img src = "src/main/resources/static/img/LoginPage.png">
+<img src = "https://imgur.com/HNWCEoA">
 </details>
 
 ### Playlist HomePage
