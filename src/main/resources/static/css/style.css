@@ -112,6 +112,7 @@ h5 {
   padding: 5px 10px;
   border: none;
   margin-top: 30px;
+  margin-left: -20px;
 }
 
 .openbtn:hover {
@@ -273,6 +274,7 @@ th {
 .UserPlaylist,
 .TableBody {
   background-color: rgba(0, 0, 0, 0.85);
+  margin-bottom: 3%;
 }
 
 .TableBody {
@@ -286,5 +288,3 @@ th {
 #noPLFound {
   padding: 20px;
 }
-
-
