@@ -161,10 +161,10 @@ git clone https://github.com/Tay-Dzonu-QA/ICE_Final
 <summary>Description</summary>
     
 Playlist Home page:
-* Offers the user a area to manage playlists
-* album artwork at the bottom.
+* Offers the user an area to manage playlists
+* Album artwork at the bottom.
 * Add Playlist button to add and customize playlists
-* Navigation to get to other areas of the site
+* Navigation to get to other areas of the site on navbar and icons on each playlist card
 
 </details>
 
