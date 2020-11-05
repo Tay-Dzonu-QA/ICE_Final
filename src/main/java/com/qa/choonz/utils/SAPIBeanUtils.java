@@ -10,6 +10,10 @@ import org.springframework.beans.BeanWrapperImpl;
 
 public class SAPIBeanUtils {
 
+    private SAPIBeanUtils(){
+
+    }
+
 	public static void mergeNotNull(Object source, Object target) {
         BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
     }

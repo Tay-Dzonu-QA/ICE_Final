@@ -31,7 +31,6 @@ public class Artist {
 
     public Artist() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     public Artist(@NotNull @Size(max =100) String name) {

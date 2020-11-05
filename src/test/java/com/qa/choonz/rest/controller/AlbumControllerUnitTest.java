@@ -59,11 +59,12 @@ public class AlbumControllerUnitTest {
     
     @Test
     void createTest() {
+        AlbumDTO dto = mapper.map(testAlbum,AlbumDTO.class);
         when(this.service.create(testAlbum))
             .thenReturn(this.albumDTO);
         
         assertThat(new ResponseEntity<AlbumDTO>(this.albumDTO, HttpStatus.CREATED))
-                .isEqualTo(this.controller.create(testAlbum));
+                .isEqualTo(this.controller.create(dto));
         
         verify(this.service, times(1))
             .create(this.testAlbum);
