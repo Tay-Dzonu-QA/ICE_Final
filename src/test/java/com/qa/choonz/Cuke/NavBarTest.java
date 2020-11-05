@@ -25,7 +25,7 @@ public class NavBarTest {
 	
 	@Before("@tagNav")
 	public void init() {
-		System.setProperty("webdriver.edge.driver","C:\\Users\\taydz\\Desktop\\Choonz-Starter-master\\src\\test\\resources\\msedgedriver.exe");
+		System.setProperty("webdriver.edge.driver","C:\\Users\\oejac\\Desktop\\ICE_Final\\src\\test\\resources\\msedgedriver.exe");
 	    driver = new EdgeDriver(); 
 	    wait = new WebDriverWait(driver,5);
 	}

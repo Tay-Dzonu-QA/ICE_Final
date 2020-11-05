@@ -50,7 +50,7 @@ public class TrackControllerUnitTest {
     @BeforeEach
     void init() {
         this.tracks = new ArrayList<>();
-        this.testTrack = new Track(testName);
+        this.testTrack = new Track(id, testName);
         this.testTrackWithId = new Track(testTrack.getName());
         this.testTrackWithId.setId(id);
         this.tracks.add(testTrackWithId);

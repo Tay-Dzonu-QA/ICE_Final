@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="25.161">
+    <testcase classname="Navigating to Landing Page and Logging in" name="Landing Page" time="9.309">
+        <system-out><![CDATA[Given I have my browser running.............................................passed
+When I enter the url........................................................passed
+Then I will be taken to the Landing Page....................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Navigating to Landing Page and Logging in" name="Logging In" time="6.744">
+        <system-out><![CDATA[Given I am on the landing page..............................................passed
+When I enter my username and password.......................................passed
+Then I will be taken to the Home Page.......................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Navigating to Landing Page and Logging in" name="Registering" time="8.898">
+        <system-out><![CDATA[Given I am on the landing page..............................................passed
+When I enter my details.....................................................passed
+Then I will create an account...............................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

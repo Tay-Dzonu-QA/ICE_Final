@@ -84,6 +84,26 @@ public class TrackTest {
 				this.name);
 		
 		assertThat(newGenre instanceof Track);
+	}	
+	
+	@Test
+	void twoArguConsTest() {
+
+		Track newGenre = new Track(
+				this.id,
+				this.name);
+		
+		assertThat(newGenre instanceof Track);
+	}		
+	
+	@Test
+	void otherTwoArguConsTest() {
+
+		Track newGenre = new Track(
+				this.name,
+				this.duration);
+		
+		assertThat(newGenre instanceof Track);
 	}		
 	
 	@Test
@@ -152,14 +172,20 @@ public class TrackTest {
 		assertEquals(al,newTrack.getAlbum());
 	}
 	
-//	@Test
-//	public void getSetPlaylistTest() {
-//		Track newTrack = new Track();
-//		Playlist pl = new Playlist();
-//		
-//		newTrack.setPlaylist(pl);		
-//		assertEquals(pl,newTrack.getPlaylist());
-//	}
+
+	@Test
+	void GetPlaylistTest() {
+		assertThat(this.testTrack.getPlaylist() == this.playlists);
+	}
+	
+	@Test
+	void SetPlaylistTest() {
+		Playlist newPl = new Playlist();
+		List<Playlist> newPls = new ArrayList<Playlist>();
+		newPls.add(newPl);
+		this.testTrack.setPlaylist(newPls);
+		assertThat(this.testTrack.getPlaylist() == newPls);
+	}
 	
 	@Test
 	public void getSetDurationTest() {
