@@ -28,10 +28,10 @@ This project set out to create a rigorously tested, functional music library to 
 
 ##### The overall objective of the project:
 
-To create a full-stack Web application suitable for a given client specification, with utilisation of supporting tools, methodologies and technologies that encapsulate all modules covered during SDET training at QA Consulting.
+To improve upon, and provide a full test suite for, a full-stack Web application suitable for a given client specification – with utilisation of supporting tools, methodologies and technologies that encapsulate all modules covered during training.
 
 
-##### The MVP was to be achieved with the following requirements:
+##### The MVP had the following requirements:
 
 * Full commitment to an Agile approach throughout the project, including daily stand-up meetings and utilisation of Sprints, user stories, acceptance criteria, story points, and effective communication within the team.
 
@@ -97,7 +97,7 @@ The selenium, Cucumber and Gherkin tests can be found in `src/test/java/com/qa/t
 SonarQube for static analysis.
 <details>
 <summary>SonarQube</summary>
-<img src = "">
+<img src = "src\main\resources\img\SonarQube.png">
 </details>
 
 ## Getting Started
@@ -144,7 +144,8 @@ git clone https://github.com/Tay-Dzonu-QA/ICE_Final
 
 <details>
 <summary>Description</summary>
-    
+
+Login page:    
 * Simple
 * allows a user to create account or login using their details
 * also has links to other areas of the site but with limited capability without logging in
