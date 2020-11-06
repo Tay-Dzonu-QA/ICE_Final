@@ -53,6 +53,12 @@ public class Playlist {
     	this.name = name;
     }
     
+    public Playlist(Long id,@NotNull @Size(max = 100) String name) {
+    	super();
+    	this.id = id;
+    	this.name = name;
+    }
+    
     public Playlist(@NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
             @NotNull @Size(max = 1000) String artwork) {
         super();
