@@ -88,7 +88,7 @@ Details of these tests can be found below
 <summary>Screenshots</summary>
 <img src = "src\main\resources\img\Coverage.png">
     
-####Stress Test Setup:
+##### Stress Test Setup:
 <img src = "src\main\resources\img\StressTestSetup.PNG">
 
 ##### Stress Test Results:
