@@ -41,6 +41,8 @@ To improve upon, and provide a full test suite for, a full-stack Web application
 
 * Fully designed test suites – unit, integration, user-acceptance, functional, and non-functional – for the improved website. Striving to achieve industry-standard (80%) test coverage through both unit and integration testing.
 
+* The application should be spike-, load-, stress-, and soak-tested
+
 * Periodically running the codebase through a static analysis tool,SonarQube, with relevant refactoring of the code accordingly to reduce code smells, bugs, and vulnerabilities.
 
 * The final deliverable for this project is the completed application with full documentation around utilisation of supporting tools. This will require a fully functional application.
