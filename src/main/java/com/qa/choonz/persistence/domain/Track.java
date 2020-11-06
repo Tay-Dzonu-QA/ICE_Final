@@ -1,22 +1,28 @@
 package com.qa.choonz.persistence.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Track {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotNull
     @Size(max = 100)
@@ -24,10 +30,16 @@ public class Track {
     private String name;
 
     @ManyToOne
+    @JsonIgnoreProperties("tracks")
     private Album album;
 
-    @ManyToOne
-    private Playlist playlist;
+    @ManyToMany(cascade = {
+        CascadeType.PERSIST,
+        CascadeType.MERGE,
+        CascadeType.DETACH
+    })
+    @JsonIgnoreProperties({"tracks","user"})
+    private List<Playlist> playlists= new ArrayList<>();
 
     // in seconds
     private int duration;
@@ -36,25 +48,47 @@ public class Track {
 
     public Track() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-    public Track(long id, @NotNull @Size(max = 100) String name, Album album, Playlist playlist, int duration,
-            String lyrics) {
+
+    public Track(@NotNull @Size(max =100) String name) {
+    	super();
+    	this.name = name;
+    }
+    
+    public Track(Long id, @NotNull @Size(max =100) String name) {
+    	super();
+    	this.id = id;
+    	this.name = name;
+    }
+    public Track(@NotNull @Size(max =100) String name,int duration) {
+    	super();
+    	this.name = name;
+    	this.duration = duration;
+    }
+    
+    public Track(Long id, @NotNull @Size(max = 100) String name, Album album, List<Playlist> playlists, int duration, String lyrics) {
         super();
         this.id = id;
         this.name = name;
         this.album = album;
-        this.playlist = playlist;
+        this.playlists = playlists;
         this.duration = duration;
         this.lyrics = lyrics;
     }
 
-    public long getId() {
+    public void addPlaylist(Playlist playlist) {
+    	this.playlists.add(playlist);
+    }
+    public void removePlaylist(Playlist playlist) {
+    	this.playlists.remove(playlist);
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -74,12 +108,12 @@ public class Track {
         this.album = album;
     }
 
-    public Playlist getPlaylist() {
-        return playlist;
+    public List<Playlist> getPlaylist() {
+        return playlists;
     }
 
-    public void setPlaylist(Playlist playlist) {
-        this.playlist = playlist;
+    public void setPlaylist(List<Playlist> playlists) {
+        this.playlists = playlists;
     }
 
     public int getDuration() {
@@ -99,17 +133,8 @@ public class Track {
     }
 
     @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Track [id=").append(id).append(", name=").append(name).append(", album=").append(album)
-                .append(", playlist=").append(playlist).append(", duration=").append(duration).append(", lyrics=")
-                .append(lyrics).append("]");
-        return builder.toString();
-    }
-
-    @Override
     public int hashCode() {
-        return Objects.hash(album, duration, id, lyrics, name, playlist);
+        return Objects.hash(album, duration, id, lyrics, name, playlists);
     }
 
     @Override
@@ -121,9 +146,9 @@ public class Track {
             return false;
         }
         Track other = (Track) obj;
-        return Objects.equals(album, other.album) && duration == other.duration && id == other.id
+        return Objects.equals(album, other.album) && duration == other.duration && id.equals(other.id)
                 && Objects.equals(lyrics, other.lyrics) && Objects.equals(name, other.name)
-                && Objects.equals(playlist, other.playlist);
+                && Objects.equals(playlists, other.playlists);
     }
 
 }
