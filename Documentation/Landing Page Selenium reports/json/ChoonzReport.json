@@ -1,0 +1,220 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-11-05T13:20:26.156Z",
+        "before": [
+          {
+            "result": {
+              "duration": 4588243700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.init()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Landing Page",
+        "description": "",
+        "id": "navigating-to-landing-page-and-logging-in;landing-page",
+        "after": [
+          {
+            "result": {
+              "duration": 667513600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.quit()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2353003900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I have my browser running",
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.i_have_my_browser_running()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1522904300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I enter the url",
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.i_enter_the_url()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 90672700,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I will be taken to the Landing Page",
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.i_will_be_taken_to_the_Landing_Page()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-11-05T13:20:35.487Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3263370000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.init()"
+            }
+          }
+        ],
+        "line": 10,
+        "name": "Logging In",
+        "description": "",
+        "id": "navigating-to-landing-page-and-logging-in;logging-in",
+        "after": [
+          {
+            "result": {
+              "duration": 667361600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.quit()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1529214700,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I am on the landing page",
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.i_am_on_the_landing_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1271646500,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I enter my username and password",
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.i_enter_my__login_details()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 8074400,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I will be taken to the Home Page",
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.i_will_be_taken_to_the_HomePage()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-11-05T13:20:42.236Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3266156600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.init()"
+            }
+          }
+        ],
+        "line": 15,
+        "name": "Registering",
+        "description": "",
+        "id": "navigating-to-landing-page-and-logging-in;registering",
+        "after": [
+          {
+            "result": {
+              "duration": 668185500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.quit()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1438497200,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I am on the landing page",
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.i_am_on_the_landing_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1394647900,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I enter my details",
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.i_enter_my_details()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2128692500,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I will create an account",
+            "match": {
+              "location": "com.qa.choonz.Cuke.LandingPage.i_will_create_an_account()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Navigating to Landing Page and Logging in",
+    "description": "  I want to use this template for my feature file",
+    "id": "navigating-to-landing-page-and-logging-in",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/Cuke/LandingPage.feature",
+    "tags": []
+  }
+]

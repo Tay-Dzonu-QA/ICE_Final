@@ -5,13 +5,16 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.choonz.exception.ArtistNotFoundException;
 import com.qa.choonz.persistence.domain.Artist;
 import com.qa.choonz.persistence.repository.ArtistRepository;
 import com.qa.choonz.rest.dto.ArtistDTO;
+import com.qa.choonz.utils.SAPIBeanUtils;
 
 @Service
+@Transactional
 public class ArtistService {
 
     private ArtistRepository repo;
@@ -35,18 +38,27 @@ public class ArtistService {
     public List<ArtistDTO> read() {
         return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
     }
+    public List<ArtistDTO> readDesc() {
+        return this.repo.findAllDesc().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+    public List<ArtistDTO> readByName() {
+        return this.repo.orderByName().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+    public List<ArtistDTO> readByNameDesc() {
+        return this.repo.orderByNameDesc().stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
 
     public ArtistDTO read(long id) {
         Artist found = this.repo.findById(id).orElseThrow(ArtistNotFoundException::new);
         return this.mapToDTO(found);
     }
 
-    public ArtistDTO update(Artist artist, long id) {
+
+    public ArtistDTO update(ArtistDTO artist, Long id) {
         Artist toUpdate = this.repo.findById(id).orElseThrow(ArtistNotFoundException::new);
-        toUpdate.setName(artist.getName());
-        toUpdate.setAlbums(artist.getAlbums());
-        Artist updated = this.repo.save(toUpdate);
-        return this.mapToDTO(updated);
+        SAPIBeanUtils.mergeNotNull(artist,toUpdate);
+        return this.mapToDTO(this.repo.save(toUpdate));
+
     }
 
     public boolean delete(long id) {

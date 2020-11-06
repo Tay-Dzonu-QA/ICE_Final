@@ -1,24 +1,22 @@
 package com.qa.choonz.persistence.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 
 @Entity
 public class Playlist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotNull
     @Size(max = 100)
@@ -35,29 +33,73 @@ public class Playlist {
     @Column(unique = true)
     private String artwork;
 
-    @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
-    private List<Track> tracks;
+    @ManyToMany(mappedBy = "playlists",cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+        })
+    @JsonIgnoreProperties({"playlist","album"})
+    private List<Track> tracks= new ArrayList<>();
+
+    @ManyToOne
+    @JsonIgnoreProperties("playlists")
+    private User user;
 
     public Playlist() {
         super();
-        // TODO Auto-generated constructor stub
     }
-
-    public Playlist(long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
-            @NotNull @Size(max = 1000) String artwork, List<Track> tracks) {
+    
+    public Playlist(@NotNull @Size(max = 100) String name) {
+    	super();
+    	this.name = name;
+    }
+    
+    public Playlist(Long id,@NotNull @Size(max = 100) String name) {
+    	super();
+    	this.id = id;
+    	this.name = name;
+    }
+    
+    public Playlist(@NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
+            @NotNull @Size(max = 1000) String artwork) {
         super();
-        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.artwork = artwork;
+    }
+    
+    public Playlist(String name, String description, String artwork, List<Track> tracks) {
+        super();
         this.name = name;
         this.description = description;
         this.artwork = artwork;
         this.tracks = tracks;
     }
 
-    public long getId() {
+    public Playlist(Long id, @NotNull @Size(max = 100) String name, @NotNull @Size(max = 500) String description,
+            @NotNull @Size(max = 1000) String artwork, List<Track> tracks, User user) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.artwork = artwork;
+        this.tracks = tracks;
+        this.user = user;
+    }
+    
+    public void addTrack(Track track) {
+    	this.tracks.add(track);
+    	track.getPlaylist().add(this);
+    }
+    public void removeTrack(Track track) {
+    	this.tracks.remove(track);
+    	track.getPlaylist().remove(this);
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,7 +114,7 @@ public class Playlist {
     public String getDescription() {
         return description;
     }
-
+    
     public void setDescription(String description) {
         this.description = description;
     }
@@ -80,6 +122,7 @@ public class Playlist {
     public String getArtwork() {
         return artwork;
     }
+
 
     public void setArtwork(String artwork) {
         this.artwork = artwork;
@@ -93,20 +136,15 @@ public class Playlist {
         this.tracks = tracks;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Playlist [id=").append(id).append(", name=").append(name).append(", description=")
-                .append(description).append(", artwork=").append(artwork).append(", tracks=").append(tracks)
-                .append("]");
-        return builder.toString();
+
+    public User getUser() {
+        return user;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(artwork, description, id, name, tracks);
-    }
+    public void setUser(User user) {
+        this.user = user;
 
+    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -116,8 +154,13 @@ public class Playlist {
             return false;
         }
         Playlist other = (Playlist) obj;
-        return Objects.equals(artwork, other.artwork) && Objects.equals(description, other.description)
-                && id == other.id && Objects.equals(name, other.name) && Objects.equals(tracks, other.tracks);
+        return Objects.equals(name, other.name) &&  id.equals(other.id) && Objects.equals(user, other.user)
+                && Objects.equals(artwork, other.artwork) && Objects.equals(tracks, other.tracks)
+                && Objects.equals(description, other.description);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, artwork, tracks, user);
+    }
 }
