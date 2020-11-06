@@ -58,12 +58,12 @@ A total of 538 tests were written (175 Selenium, 60 Integration (Mockito), 303 U
 
 #### Unit Tests 
 A total of 303 Unit tests were written for domains, DTOs, services and controllers.
-JUnit is used for unit tests. A unit test will test individual methods within a class for functionality.
+JUnit is used for unit tests which will test individual methods within a class for functionality.
 
 #### Integration Tests 
-A total of 60 Integration tests were written for both controllers & Integration tests.
-Mockito is used for intergration testing, to test how different classes interact with each other. Using 'mocking', methods & classes can be tested for intergration by assuming the methods & classes it relies on are fully functional.
-Controllers and Services have associated Integration Tests.
+A total of 60 Integration tests were written for both controllers & Service classes.
+Mockito is used for intergration testing which test how different classes interact with each other by 'mocking' methods & classes. This means they can be tested for intergration by assuming the methods & classes it relies on are fully functional.
+The change of the one to many and many to one relationships in the Playlist and Track classes caused difficulty with this as the test classes needed to be initialized in a different way but was ultimately successful.
 
 #### User Acceptance Tests (with Selenium, Cucumber and Gherkin)
 175 Selenium tests were written. These were written on two different computers so in order to run them you would need to make sure the driver is pointing towards the correct area on your local computer and each test needs to have the correct port that you are hosting the web app on.
@@ -76,8 +76,14 @@ The selenium, Cucumber and Gherkin tests can be found in `src/test/java/com/qa/t
 <details>
 <summary>Screenshots</summary>
 <img src = "src\main\resources\img\Coverage.png">
-<img src = "">
-<img src = "">
+Stress Test:
+<img src = "src\main\resources\img\StressTest.png">
+Load Test:
+<img src = "src\main\resources\img\LoadTest.png">
+Soak Test:
+<img src = "src\main\resources\img\SoakTest.png">
+Spike Test:
+<img src = "src\main\resources\img\SpikeTest.png">
 </details>
 
 #### Static Analysis
@@ -98,7 +104,7 @@ What things you need to install the software and where to find them.
 Java SE 8 (or later) to run the jar file.
 Maven to create the jar-file and run.
 
-In regards to veiwing from the front-end, most desktop and mobile browsers are suitable.
+Most desktop and mobile browsers are suitable for viewing the front end.
 ```
 Eclipse IDE was used for this project.
 Postman was used to test API calls from the H2 before implementing them within the project.
@@ -195,8 +201,9 @@ How to build the project:
 
 ``` mvn spring-boot:run ```
 
-Note: When you run the second command the program will run, launching the Spring boot application. You can then navigate to `localhost:8082` via a browser or my shortcut provided in this repo, to reach the home page of the web interface. The app will run until you trigger the `/shutdownAppContext` API call.
+Note: After launching the Spring boot application you can then navigate to `localhost:8082` via a browser to reach the home page of the web interface. The app will run until you trigger the `/shutdownAppContext` API call.
 
+Another way of running the programme is by cloning the repo, opening the build in as a maven project in your IDE and running as a Spring boot app. Following this open the static folders in Visual studio code (or equivilant) and open with a live server.
 
 **[Back to top](#table-of-contents)**
 ## License
