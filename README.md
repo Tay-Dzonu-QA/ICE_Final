@@ -57,7 +57,7 @@ Kanban Board for Project: [Jira](https://tdzonu-qa.atlassian.net/secure/RapidBoa
 A total of 538 tests were written (175 Selenium, 60 Integration (Mockito), 303 Unit (JUnit), resulting in 97% coverage.
 
 <details>
-<summary>Screenshots</summary>
+<summary>Screenshot</summary>
 <img src = "src\main\resources\img\Coverage.png">
 </details>
 
