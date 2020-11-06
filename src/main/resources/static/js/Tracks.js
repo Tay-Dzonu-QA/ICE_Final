@@ -390,7 +390,7 @@ function addToPlaylist(TrackId1, TrackPlaylistId) {
     // .then(json)
     .then(function (data) {
       console.log("Request succeeded with JSON response", data);
-    location.reload();
+      location.reload();
     })
     .catch(function (error) {
       console.log("Request failed", error);
