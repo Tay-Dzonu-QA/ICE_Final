@@ -71,30 +71,48 @@ The change of the one to many and many to one relationships in the Playlist and 
 The selenium, Cucumber and Gherkin tests can be found in `src/test/java/com/qa/test/Cuke` and `src/test/resources/Cuke`
 
 #### Non-functional Testing (with Jmeter)
------------------------------------------
+A total of four main non-functional tests have been performed to measure the system's capacity, responsiveness and stability.
+
+A Stress test has been performed to establish the limits of the system under extreme load. This has been achieved by increasing the number of concurrent actions overtime in the system.
+
+A Load test has been performed to observe the system's behaviour under a specific load. this has been achieved by carrying out a number of concurrent tasks for a certain amount of time.
+
+A Soak test has been performed to analyse the perfomance of the system under expected conditions. This has been achieved by reducing the number of users and time from previous tests.
+
+A Spike test has been performed to understand how a system would behave under a sudden increase or decrease of load in the system. This has been achieved by rapidly increasing the workload at certain points, to then drastically reduce the workload.
+
+Details of these tests can be found below
+
 
 <details>
 <summary>Screenshots</summary>
 <img src = "src\main\resources\img\Coverage.png">
     
-Stress Test Setup:
+####Stress Test Setup:
 <img src = "src\main\resources\img\StressTestSetup.PNG">
-Stress Test Results:
+
+##### Stress Test Results:
 <img src = "src\main\resources\img\StressTest.png">
 
-Load Test Setup:
+
+##### Load Test Setup:
 <img src = "src\main\resources\img\LoadTestSetup.PNG">
-Load Test Results:
+
+##### Load Test Results:
 <img src = "src\main\resources\img\LoadTest.png">
 
-Soak Test Setup:
+
+##### Soak Test Setup:
 <img src = "src\main\resources\img\SoakTestSetup.PNG">
-Soak Test Results:
+
+##### Soak Test Results:
 <img src = "src\main\resources\img\SoakTest.png">
 
-Spike Test Setup:
+
+##### Spike Test Setup:
 <img src = "src\main\resources\img\SpikeTestSetup.PNG">
-Spike Test Results:
+
+##### Spike Test Results:
 <img src = "src\main\resources\img\SpikeTest.png">
 </details>
 
