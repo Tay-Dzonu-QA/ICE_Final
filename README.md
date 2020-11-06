@@ -56,6 +56,9 @@ Kanban Board for Project: [Jira](https://tdzonu-qa.atlassian.net/secure/RapidBoa
 #### Test Coverage
 A total of 538 tests were written (175 Selenium, 60 Integration (Mockito), 303 Unit (JUnit), resulting in 97% coverage.
 
+<summary>Screenshots</summary>
+<img src = "src\main\resources\img\Coverage.png">
+
 #### Unit Tests 
 A total of 303 Unit tests were written for domains, DTOs, services and controllers.
 JUnit is used for unit tests which will test individual methods within a class for functionality.
@@ -86,7 +89,6 @@ Details of these tests can be found below
 
 <details>
 <summary>Screenshots</summary>
-<img src = "src\main\resources\img\Coverage.png">
     
 ##### Stress Test Setup:
 <img src = "src\main\resources\img\StressTestSetup.PNG">
