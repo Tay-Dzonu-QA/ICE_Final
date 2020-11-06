@@ -78,22 +78,22 @@ The selenium, Cucumber and Gherkin tests can be found in `src/test/java/com/qa/t
 <img src = "src\main\resources\img\Coverage.png">
     
 Stress Test Setup:
-<img src = "src\main\resources\img\StressTestSetup.png">
+<img src = "src\main\resources\img\StressTestSetup.PNG">
 Stress Test Results:
 <img src = "src\main\resources\img\StressTest.png">
 
 Load Test Setup:
-<img src = "src\main\resources\img\LoadTestSetup.png">
+<img src = "src\main\resources\img\LoadTestSetup.PNG">
 Load Test Results:
 <img src = "src\main\resources\img\LoadTest.png">
 
 Soak Test Setup:
-<img src = "src\main\resources\img\SoakTestSetup.png">
+<img src = "src\main\resources\img\SoakTestSetup.PNG">
 Soak Test Results:
 <img src = "src\main\resources\img\SoakTest.png">
 
 Spike Test Setup:
-<img src = "src\main\resources\img\SpikeTestSetup.png">
+<img src = "src\main\resources\img\SpikeTestSetup.PNG">
 Spike Test Results:
 <img src = "src\main\resources\img\SpikeTest.png">
 </details>
