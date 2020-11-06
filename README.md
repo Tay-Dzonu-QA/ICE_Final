@@ -26,7 +26,7 @@ This project set out to create a rigorously tested, functional music library to 
 
 ## About the Project
 
-##### The overall objective of the project:
+##### Objective:
 
 To improve upon, and provide a full test suite for, a full-stack Web application suitable for a given client specification – with utilisation of supporting tools, methodologies and technologies that encapsulate all modules covered during training.
 
@@ -47,20 +47,6 @@ To improve upon, and provide a full test suite for, a full-stack Web application
 
 * The final deliverable for this project is the completed application with full documentation around utilisation of supporting tools. This will require a fully functional application.
 
-<details>
-<summary>Technologies Used</summary>
-    
-* Version Control System: Git
-* Source Code Management: GitHub
-* Kanban Board: Jira
-* Back-End Programming Language: Java
-* API Development Platform: Spring
-* Front-End Web Technologies: HTML, CSS, JavaScript
-* Build Tool: Maven
-* Testing: JUnit, Mockito, Selenium, Gherkin, Cucumber, Jmeter
-* Static Analysis: SonarQube
-
-</details>
 
 Kanban Board for Project: [Jira](https://tdzonu-qa.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=IF&view=planning&selectedIssue=IF-14&epics=visible&issueLimit=100&selectedEpic=IF-4)
 
@@ -82,7 +68,7 @@ Controllers and Services have associated Integration Tests.
 #### User Acceptance Tests (with Selenium, Cucumber and Gherkin)
 175 Selenium tests were written. These were written on two different computers so in order to run them you would need to make sure the driver is pointing towards the correct area on your local computer and each test needs to have the correct port that you are hosting the web app on.
 
-The selenium, Cucumber and Gherkin tests can be found in `src/test/java/com/qa/test/Cuke` and src/test/resources/Cuke
+The selenium, Cucumber and Gherkin tests can be found in `src/test/java/com/qa/test/Cuke` and `src/test/resources/Cuke`
 
 #### Non-functional Testing (with Jmeter)
 -----------------------------------------
