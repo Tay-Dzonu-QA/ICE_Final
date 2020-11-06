@@ -233,3 +233,5 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 - [**Oforitsesan Towesho**](https://github.com/CodewithOsatQA)
 
 ## Acknowledgements
+
+Thanks to all at QA for your help and thanks to [**Nick Johnson**](https://github.com/nickrstewarttds) for your continued support over the past 12 weeks.
